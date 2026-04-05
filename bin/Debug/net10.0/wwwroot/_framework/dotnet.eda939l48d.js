@@ -5,7 +5,7 @@ var e=!1;const t=async()=>WebAssembly.validate(new Uint8Array([0,97,115,109,1,0,
   "mainAssemblyName": "KrydsfeltHjemmeside",
   "applicationEnvironment": "Development",
   "resources": {
-    "hash": "sha256-bTnd+02ATjqt7KqZMq1n6y9OqDgK4I70OZOz/7+MGLQ=",
+    "hash": "sha256-R/AcvmIlbn5dFpLqEViFBa5DpUl8JSDJBMUNoIQtf1g=",
     "jsModuleNative": [
       {
         "name": "dotnet.native.xanz2e7ksm.js"
@@ -1039,15 +1039,15 @@ var e=!1;const t=async()=>WebAssembly.validate(new Uint8Array([0,97,115,109,1,0,
       },
       {
         "virtualPath": "KrydsfeltHjemmeside.wasm",
-        "name": "KrydsfeltHjemmeside.v8q0gr0ijk.wasm",
-        "integrity": "sha256-32CtmSZcddkCDDnl6u3mHmp0NM4S30XMZkXAhRPZ3YA="
+        "name": "KrydsfeltHjemmeside.crtqddhir4.wasm",
+        "integrity": "sha256-KCrWPx7blRE/07a/CIbSWkKUJZQXJfRa/8aFmKJFlHk="
       }
     ],
     "pdb": [
       {
         "virtualPath": "KrydsfeltHjemmeside.pdb",
-        "name": "KrydsfeltHjemmeside.5iwqr5j3g1.pdb",
-        "integrity": "sha256-87lmMRjqZE+xBRPduqEYnwYNJT4hrFrFSJysqwkG4cE="
+        "name": "KrydsfeltHjemmeside.fx22y3knvx.pdb",
+        "integrity": "sha256-rTZfq23gg3HCEOg3aCV27dF9cRsZ4rnS9YyrJeNMHLY="
       }
     ],
     "libraryInitializers": [
