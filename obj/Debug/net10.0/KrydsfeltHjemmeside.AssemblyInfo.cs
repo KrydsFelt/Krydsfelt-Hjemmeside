@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("KrydsfeltHjemmeside")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+947c5fd7ac220413cb66e40613cb5cde7d67a469")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9178de7aff437e5ee33589a5ca2eaea03b996c6d")]
 [assembly: System.Reflection.AssemblyProductAttribute("KrydsfeltHjemmeside")]
 [assembly: System.Reflection.AssemblyTitleAttribute("KrydsfeltHjemmeside")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
