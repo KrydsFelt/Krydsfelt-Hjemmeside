@@ -24,6 +24,23 @@ window.initAnimations = function () {
         onScroll();
     }
 
+    // Parallax background text
+    document.querySelectorAll('.kf-parallax-text').forEach(el => {
+        const section = el.parentElement;
+
+        const updateParallax = () => {
+            const rect = section.getBoundingClientRect();
+            const scrolledIn = window.innerHeight - rect.top;
+            const y = -scrolledIn * 0.22 + 120;
+            el.style.transform = `translateX(-50%) translateY(calc(-50% + ${y}px))`;
+        };
+
+        window.addEventListener('scroll', updateParallax, { passive: true });
+        window.addEventListener('resize', updateParallax, { passive: true });
+        // Defer first call so Blazor layout is fully painted
+        requestAnimationFrame(() => requestAnimationFrame(updateParallax));
+    });
+
     // 3D mouse-tilt on service cards
     document.querySelectorAll('.kf-card').forEach(card => {
         card.addEventListener('mouseenter', () => {

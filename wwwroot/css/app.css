@@ -632,6 +632,35 @@ body {
     transform: none;
 }
 
+/* ── PARALLAX BACKGROUND TEXT ── */
+.kf-parallax-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    font-size: clamp(8rem, 22vw, 22rem);
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    white-space: nowrap;
+    color: rgba(255, 255, 255, 0.07);
+    filter: blur(3px);
+    pointer-events: none;
+    user-select: none;
+    z-index: 1;
+    will-change: transform;
+}
+
+.kf-services-content {
+    position: relative;
+    z-index: 2;
+}
+
+/* Glow orbs stay below parallax text */
+.kf-services::before,
+.kf-services::after {
+    z-index: 0;
+}
+
 /* ── CARD LINK ARROW ── */
 .kf-card-link {
     display: inline-flex;
