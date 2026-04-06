@@ -41,6 +41,37 @@ window.initAnimations = function () {
         requestAnimationFrame(() => requestAnimationFrame(updateParallax));
     });
 
+    // Stacked team cards auto-flip
+    const stackCards = document.querySelectorAll('.kf-stack-card');
+    if (stackCards.length === 3) {
+        let current = 0;
+
+        setInterval(() => {
+            const cards = document.querySelectorAll('.kf-stack-card');
+            if (!cards.length) return;
+
+            // Mark current active as leaving
+            cards[current % 3].classList.remove('active');
+            cards[current % 3].classList.add('leaving');
+
+            // Shift the other two forward
+            cards[(current + 1) % 3].classList.remove('behind-1');
+            cards[(current + 1) % 3].classList.add('active');
+
+            cards[(current + 2) % 3].classList.remove('behind-2');
+            cards[(current + 2) % 3].classList.add('behind-1');
+
+            // After transition, reset the leaving card to behind-2
+            const leaving = cards[current % 3];
+            setTimeout(() => {
+                leaving.classList.remove('leaving');
+                leaving.classList.add('behind-2');
+            }, 560);
+
+            current = (current + 1) % 3;
+        }, 3500);
+    }
+
     // 3D mouse-tilt on service cards
     document.querySelectorAll('.kf-card').forEach(card => {
         card.addEventListener('mouseenter', () => {

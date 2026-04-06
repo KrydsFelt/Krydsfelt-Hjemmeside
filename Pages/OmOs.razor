@@ -1,0 +1,157 @@
+@page "/om-os"
+@inject IJSRuntime JS
+
+<PageTitle>Om Os – KrydsFelt</PageTitle>
+
+<!-- NAV -->
+<nav class="kf-nav">
+    <div class="kf-nav-inner">
+        <a href="/" class="kf-logo-link"><img src="Pictures/Sort%20linjer%20og%20cirkler.png" alt="KrydsFelt" class="kf-logo-img" /></a>
+        <div class="kf-nav-links">
+            <a href="/ydelser">Ydelser</a>
+            <a href="/om-os" class="kf-nav-active">Om os</a>
+            <a href="/#contact">Kontakt</a>
+        </div>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="oo-hero">
+    <div class="oo-hero-glow"></div>
+    <div class="yd-hero-scan"></div>
+    <div class="kf-container oo-hero-inner">
+        <h1>Mød <span class="kf-orange">Holdet</span></h1>
+        <p>Vi er tre passionerede udviklere fra Aarhus, der brænder for at bygge digitale løsninger, der gør en reel forskel for virksomheder.</p>
+    </div>
+</section>
+
+<!-- STORY + VALUES -->
+<section class="oo-story">
+    <div class="kf-container">
+        <div class="oo-story-inner">
+            <div class="oo-story-left reveal-left">
+                <h2>Vores Historie</h2>
+                <p>KrydsFelt blev grundlagt i Aarhus af tre venner med en fælles vision: at gøre professionel webudvikling og skræddersyede systemer tilgængeligt for alle virksomheder — uanset størrelse.</p>
+                <p>Vi mødtes gennem vores uddannelse og opdagede hurtigt, at vi kompletterede hinanden perfekt. Med kombinationen af backend-ekspertise, frontend-flair og full-stack forståelse dækker vi hele spektret fra idé til færdigt produkt.</p>
+                <p>I dag hjælper vi virksomheder med at navigere den digitale verden — fra simple præsentationssider til komplekse forretningssystemer.</p>
+            </div>
+            <div class="oo-story-right reveal-right">
+                <div class="kf-stack-cards">
+                    <div class="kf-stack-card active">
+                        <img src="Pictures/Tony.jpeg" alt="Tony" />
+                        <div class="kf-team-info">
+                            <span class="kf-team-name">Tony</span>
+                            <span class="kf-team-role">Medstifter &amp; Udvikler</span>
+                        </div>
+                    </div>
+                    <div class="kf-stack-card behind-1">
+                        <img src="Pictures/Gio.jpeg" alt="Gio" />
+                        <div class="kf-team-info">
+                            <span class="kf-team-name">Gio</span>
+                            <span class="kf-team-role">Medstifter &amp; Udvikler</span>
+                        </div>
+                    </div>
+                    <div class="kf-stack-card behind-2">
+                        <img src="Pictures/Minh.jpeg" alt="Minh" />
+                        <div class="kf-team-info">
+                            <span class="kf-team-name">Minh</span>
+                            <span class="kf-team-role">Medstifter &amp; Udvikler</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- VALUES -->
+<section class="oo-values">
+    <div class="kf-container">
+        <h2 class="reveal">Vores Værdier</h2>
+        <p class="kf-section-sub reveal" data-delay="100">Det er ikke bare kode — det er principper, vi lever efter.</p>
+        <div class="oo-values-grid">
+            <div class="oo-value-card reveal" data-delay="0" data-num="01">
+                <div class="kf-icon-box">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E8622A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>
+                    </svg>
+                </div>
+                <h4>Kvalitet Først</h4>
+                <p>Vi leverer excellence i hvert projekt og sikrer høj kvalitet, der overgår forventningerne.</p>
+            </div>
+            <div class="oo-value-card reveal" data-delay="120" data-num="02">
+                <div class="kf-icon-box">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E8622A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                    </svg>
+                </div>
+                <h4>Kundefokuseret</h4>
+                <p>Din succes er vores prioritet. Vi arbejder tæt sammen med dig for at forstå og nå dine mål.</p>
+            </div>
+            <div class="oo-value-card reveal" data-delay="240" data-num="03">
+                <div class="kf-icon-box">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E8622A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                    </svg>
+                </div>
+                <h4>Innovation</h4>
+                <p>Vi er på forkant med udviklingen og bruger banebrydende teknologier til at bygge fremtidssikrede løsninger.</p>
+            </div>
+            <div class="oo-value-card reveal" data-delay="360" data-num="04">
+                <div class="kf-icon-box">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E8622A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    </svg>
+                </div>
+                <h4>Ærlighed</h4>
+                <p>Vi er transparente om processen, tidslinjerne og mulighederne — ingen overraskelser, kun resultater.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="yd-cta">
+    <div class="kf-container yd-cta-inner">
+        <h2 class="reveal">Klar til at samarbejde?</h2>
+        <p class="reveal" data-delay="100">Lad os tage en snak om dit projekt og se, hvad vi kan bygge sammen.</p>
+        <a href="/#contact" class="kf-btn reveal" data-delay="200">Kontakt os &rarr;</a>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="kf-footer">
+    <div class="kf-container kf-footer-inner">
+        <div class="kf-footer-brand">
+            <span class="kf-logo">KrydsFelt</span>
+            <p>Vi bygger digitale løsninger, der skaber succes for virksomheder verden over.</p>
+        </div>
+        <div class="kf-footer-col">
+            <h5>Hurtige Links</h5>
+            <a href="/ydelser">Ydelser</a>
+            <a href="/om-os">Om os</a>
+            <a href="/#contact">Kontakt</a>
+        </div>
+        <div class="kf-footer-col">
+            <h5>Kontakt</h5>
+            <p>krydsfelt.info@gmail.com</p>
+            <p>+45 12 34 56 78</p>
+            <p>Aarhus, Danmark</p>
+        </div>
+    </div>
+    <div class="kf-footer-bottom">
+        <p>&copy; 2026 KrydsFelt. Alle rettigheder forbeholdes.</p>
+    </div>
+</footer>
+
+@code {
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JS.InvokeVoidAsync("initAnimations");
+        }
+    }
+}
