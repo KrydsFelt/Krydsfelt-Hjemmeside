@@ -1,4 +1,5 @@
 @page "/"
+@inject IJSRuntime JS
 
 <PageTitle>KrydsFelt</PageTitle>
 
@@ -7,7 +8,7 @@
     <div class="kf-container kf-nav-inner">
         <a href="/" class="kf-logo">KrydsFelt</a>
         <div class="kf-nav-links">
-            <a href="#services">Ydelser</a>
+            <a href="/ydelser">Ydelser</a>
             <a href="#about">Om os</a>
             <a href="#contact">Kontakt</a>
         </div>
@@ -16,6 +17,8 @@
 
 <!-- HERO -->
 <section class="kf-hero">
+    <div class="kf-hero-blob kf-hero-blob-1"></div>
+    <div class="kf-hero-blob kf-hero-blob-2"></div>
     <div class="kf-container kf-hero-inner">
         <h1>Vi Bygger Digitale Løsninger<br /><span class="kf-orange">Der Skaber Succes</span></h1>
         <p>Vi specialiserer os i at skabe skræddersyede systemer og hjemmesider,<br />der hjælper virksomheder med at trives i den digitale tidsalder.</p>
@@ -26,10 +29,10 @@
 <!-- SERVICES -->
 <section class="kf-services" id="services">
     <div class="kf-container">
-        <h2>Vores Ydelser</h2>
-        <p class="kf-section-sub">Omfattende digitale løsninger skræddersyet til din virksomheds behov</p>
+        <h2 class="reveal">Vores Ydelser</h2>
+        <p class="kf-section-sub reveal" data-delay="100">Omfattende digitale løsninger skræddersyet til din virksomheds behov</p>
         <div class="kf-cards">
-            <div class="kf-card">
+            <div class="kf-card reveal" data-delay="0">
                 <div class="kf-icon-box">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E8622A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/>
@@ -38,8 +41,10 @@
                 </div>
                 <h3>Webudvikling</h3>
                 <p>Skræddersyede hjemmesider og webapplikationer bygget med moderne teknologier og bedste praksis.</p>
+                <a href="/ydelser#webudvikling" class="kf-card-link">Læs mere <span class="kf-card-arrow">→</span></a>
+                <span class="kf-card-num">01</span>
             </div>
-            <div class="kf-card">
+            <div class="kf-card reveal" data-delay="120">
                 <div class="kf-icon-box">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E8622A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
@@ -47,8 +52,10 @@
                 </div>
                 <h3>Skræddersyede Systemer</h3>
                 <p>Tilpassede softwareløsninger designet til at opfylde dine specifikke forretningskrav.</p>
+                <a href="/ydelser#systemer" class="kf-card-link">Læs mere <span class="kf-card-arrow">→</span></a>
+                <span class="kf-card-num">02</span>
             </div>
-            <div class="kf-card">
+            <div class="kf-card reveal" data-delay="240">
                 <div class="kf-icon-box">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E8622A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/>
@@ -57,8 +64,10 @@
                 </div>
                 <h3>Backend-løsninger</h3>
                 <p>Robuste server-side systemer og API'er til at drive din digitale infrastruktur.</p>
+                <a href="/ydelser#backend" class="kf-card-link">Læs mere <span class="kf-card-arrow">→</span></a>
+                <span class="kf-card-num">03</span>
             </div>
-            <div class="kf-card">
+            <div class="kf-card reveal" data-delay="360">
                 <div class="kf-icon-box">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E8622A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/>
@@ -66,6 +75,8 @@
                 </div>
                 <h3>Responsivt Design</h3>
                 <p>Smukke, mobilvenlige brugerflader der fungerer problemfrit på alle enheder.</p>
+                <a href="/ydelser#design" class="kf-card-link">Læs mere <span class="kf-card-arrow">→</span></a>
+                <span class="kf-card-num">04</span>
             </div>
         </div>
     </div>
@@ -74,13 +85,13 @@
 <!-- ABOUT -->
 <section class="kf-about" id="about">
     <div class="kf-container kf-about-inner">
-        <div class="kf-about-left">
+        <div class="kf-about-left reveal-left">
             <h2>Om KrydsFelt</h2>
             <p>Vi er et dedikeret team af udviklere og designere, der brænder for at skabe digitale løsninger, der gør en forskel. Med mange års erfaring inden for webudvikling og skræddersyet systemdesign hjælper vi virksomheder med at omsætte deres idéer til virkelighed.</p>
             <p>Vores ekspertise spænder over moderne webteknologier, backend-systemer og brugercentreret design, hvilket giver os mulighed for at levere omfattende løsninger, der driver vækst og effektivitet.</p>
         </div>
         <div class="kf-about-right">
-            <div class="kf-value">
+            <div class="kf-value reveal-right" data-delay="0">
                 <div class="kf-icon-box">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E8622A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>
@@ -91,7 +102,7 @@
                     <p>Vi leverer excellence i hvert projekt og sikrer høj kvalitet, der overgår forventningerne.</p>
                 </div>
             </div>
-            <div class="kf-value">
+            <div class="kf-value reveal-right" data-delay="150">
                 <div class="kf-icon-box">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E8622A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
@@ -103,7 +114,7 @@
                     <p>Din succes er vores prioritet. Vi arbejder tæt sammen med dig for at forstå og nå dine mål.</p>
                 </div>
             </div>
-            <div class="kf-value">
+            <div class="kf-value reveal-right" data-delay="300">
                 <div class="kf-icon-box">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E8622A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
@@ -121,10 +132,10 @@
 <!-- CONTACT -->
 <section class="kf-contact" id="contact">
     <div class="kf-container">
-        <h2>Kontakt Os</h2>
-        <p class="kf-section-sub">Klar til at starte dit projekt? Kontakt os i dag, og lad os bygge noget fantastisk sammen.</p>
+        <h2 class="reveal">Kontakt Os</h2>
+        <p class="kf-section-sub reveal" data-delay="100">Klar til at starte dit projekt? Kontakt os i dag, og lad os bygge noget fantastisk sammen.</p>
         <div class="kf-contact-cards">
-            <div class="kf-contact-card">
+            <div class="kf-contact-card reveal" data-delay="0">
                 <div class="kf-icon-box">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E8622A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
@@ -134,7 +145,7 @@
                 <h4>E-mail</h4>
                 <p>krydsfelt.info@gmail.com</p>
             </div>
-            <div class="kf-contact-card">
+            <div class="kf-contact-card reveal" data-delay="150">
                 <div class="kf-icon-box">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E8622A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.82a16 16 0 0 0 6.29 6.29l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
@@ -143,7 +154,7 @@
                 <h4>Telefon</h4>
                 <p>+45 12 34 56 78</p>
             </div>
-            <div class="kf-contact-card">
+            <div class="kf-contact-card reveal" data-delay="300">
                 <div class="kf-icon-box">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E8622A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
@@ -180,3 +191,13 @@
         <p>&copy; 2026 KrydsFelt. Alle rettigheder forbeholdes.</p>
     </div>
 </footer>
+
+@code {
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JS.InvokeVoidAsync("initAnimations");
+        }
+    }
+}
