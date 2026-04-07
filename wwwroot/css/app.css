@@ -6,6 +6,7 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 body {
@@ -13,13 +14,16 @@ body {
     color: #1a1a1a;
     background: #fff;
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
 }
 
 /* ── SHARED ── */
 .kf-container {
-    max-width: 1200px;
+    max-width: 100%;
     margin: 0 auto;
     padding: 0 2rem;
+    margin-right: 5%;
+    margin-left: 5%;
 }
 
 .kf-orange { color: #E8622A; }
@@ -64,12 +68,20 @@ body {
 
 /* ── NAV ── */
 .kf-nav {
-    position: sticky;
+    /*position: fixed;*/
     top: 0;
+    left: 0;
+    right: 0;
     z-index: 100;
-    padding: 1rem 2rem;
+    padding: 2.5rem 2rem;
     background: transparent;
     transition: padding 0.4s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    max-width: 100%;
+    margin: 0 auto;
+    width: 91.5%;
 }
 
 .kf-nav.scrolled {
@@ -80,14 +92,13 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 54px;
-    max-width: 1000px;
-    margin: 0 auto;
+    height: 65px;
+    flex: 1;
     padding: 0 1.75rem;
     background: rgba(255, 255, 255, 0.92);
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
-    border-radius: 50px;
+    border-radius: 15px;
     box-shadow:
         0 2px 16px rgba(0, 0, 0, 0.08),
         0 0 0 1px rgba(0, 0, 0, 0.06);
@@ -117,19 +128,43 @@ body {
 .kf-nav-links a:hover { color: #E8622A; }
 .kf-nav-active { color: #E8622A !important; }
 
+.kf-nav-contact-btn {
+    padding: 0.6rem 2.5rem;
+    background: #E8622A;
+    color: white;
+    text-decoration: none;
+    border-radius: 15px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: background 0.2s, transform 0.15s;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    height: 65px;
+    flex-shrink: 0;
+}
+
+.kf-nav-contact-btn:hover {
+    background: #d14a1f;
+    transform: translateY(-2px);
+}
+
 /* ── HERO ── */
 .kf-hero {
-    padding: 7rem 0 6rem;
+    padding: 15rem 0 6rem;
+    /* margin-top: 100px; */
+    /*
     background:
+    
         radial-gradient(circle at 1px 1px, rgba(232, 98, 42, 0.07) 1px, transparent 0) center / 28px 28px,
         linear-gradient(160deg, #ffffff 0%, #fff8f5 55%, #fde8dc 100%);
-    position: relative;
-    overflow: hidden;
+    position: relative; */
+    /*overflow: hidden;*/
 }
 
 .kf-hero h1 {
     font-size: clamp(2.2rem, 5vw, 3.5rem);
-    font-weight: 800;
+    font-weight: 500;
     line-height: 1.2;
     color: #1a1a1a;
     margin-bottom: 1.25rem;
@@ -149,7 +184,7 @@ body {
     font-size: 1rem;
     font-weight: 600;
     padding: 0.9rem 2rem;
-    border-radius: 50px;
+    border-radius: 15px;
     text-decoration: none;
     transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
     position: relative;
@@ -255,6 +290,9 @@ body {
     text-align: center;
     position: relative;
     overflow: hidden;
+    margin-right: 6.5%;
+    margin-left: 6.5%;
+    border-radius: 25px;
 }
 
 /* Left floating glow orb */
@@ -414,6 +452,423 @@ body {
     color: rgba(255, 255, 255, 0.09);
 }
 
+/* ── WHY CHOOSE ── */
+.kf-why-choose {
+    padding-top: 6rem;
+    background: #fff;
+}
+
+.kf-why-choose-inner {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 75%;
+    align-items: start;
+}
+
+.kf-why-choose-left {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    min-width: 50%;
+}
+
+.kf-why-choose-left h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 1.2;
+    color: #1f2937;
+}
+
+.kf-why-choose-left p {
+    font-size: 1rem;
+    color: #6b7280;
+    line-height: 1.7;
+}
+
+.kf-why-choose-btn {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    border: 2px solid #1f2937;
+    color: #1f2937;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.2s;
+    width: fit-content;
+}
+
+.kf-why-choose-btn:hover {
+    background: #1f2937;
+    color: white;
+}
+
+.kf-why-choose-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    direction: rtl;
+}
+
+.kf-stat-card {
+    padding: 1.5rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    background: #f9fafb;
+    transition: all 0.2s;
+    aspect-ratio: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /*max-width: 200px;*/
+    text-align: left;
+}
+
+.kf-stat-card:hover {
+    border-color: #E8622A;
+    box-shadow: 0 4px 12px rgba(232, 98, 42, 0.1);
+}
+
+.kf-stat-number {
+    font-size: 2.75rem;
+    font-weight: 200;
+    color: #1f2937;
+    margin-bottom: 0.5rem;
+    line-height: 1;
+}
+
+.kf-stat-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 0.5rem;
+}
+
+.kf-stat-desc {
+    font-size: 0.7rem;
+    color: #6b7280;
+    line-height: 1.5;
+}
+
+/* ── OUR APPROACH ── */
+.kf-approach {
+    padding: 5rem 0;
+    background: #000000;
+    color: #e5e7eb;
+    border-radius: 25px;
+    margin-left: 6.5%;
+    margin-right: 6.5%;
+}
+
+.kf-approach > .kf-container {
+    max-width: 100%;
+    text-align: left;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.kf-approach h2 {
+    font-size: 4.5rem;
+    font-weight: 100;
+    line-height: 1.2;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.kf-approach-sub {
+    font-size: 1.1rem;
+    color: #9ca3af;
+    margin-bottom: 4rem;
+}
+
+.kf-approach-list {
+    display: flex;
+    flex-direction: column;
+    padding-left: 0rem;
+}
+
+.kf-approach-item {
+    display: grid;
+    grid-template-columns: 100px auto 1fr;
+    gap: 2.5rem 1.5rem;
+    padding: 0rem 0;
+    align-items: center;
+    text-align: left;
+    position: relative;
+}
+
+.kf-approach-item:last-child {
+    padding-bottom: 0;
+}
+
+.kf-approach-divider {
+    position: absolute;
+    bottom: -0.5rem;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(to right, rgba(30, 41, 59, 0), #1e293b, rgba(30, 41, 59, 0));
+}
+
+.kf-approach-item:last-child .kf-approach-divider {
+    display: none;
+}
+
+.kf-approach-icon {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    flex-shrink: 0;
+    color: rgba(232, 98, 42, 0.75);
+}
+
+.kf-approach-icon svg {
+    width: 50%;
+    height: 50%;
+    display: block;
+}
+
+.kf-approach-content {
+    display: flex;
+    flex-direction: row;
+    gap: 30rem;
+    align-items: center;
+    grid-column: 2 / 4;
+}
+
+.kf-approach-content h3 {
+    font-size: 1rem;
+    font-weight: 100;
+    color: #fff;
+    margin: 0;
+    white-space: nowrap;
+}
+
+.kf-approach-content p {
+    font-size: 0.95rem;
+    color: #9ca3af;
+    line-height: 1.6;
+    margin: 0;
+    text-align: right;
+}
+
+/* ── APPROACH HOVER EFFECT ── */
+.kf-approach-list:hover .kf-approach-item {
+    opacity: 0.3;
+    filter: blur(3px);
+    transition: opacity 0.3s ease, filter 0.3s ease;
+}
+
+.kf-approach-item:hover {
+    opacity: 1 !important;
+    filter: blur(0) !important;
+}
+
+.kf-approach-item {
+    transition: opacity 0.3s ease, filter 0.3s ease;
+}
+/* ── FAQ ── */
+.kf-faq {
+    padding: 6rem 0;
+    /*background: #f5f5f5;*/
+}
+
+.kf-faq-header {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 3rem;
+    align-items: flex-start;
+    margin-bottom: 4rem;
+}
+
+.kf-faq-header h2 {
+    font-size: 4rem;
+    font-weight: 200;
+    color: #000;
+    margin: 0;
+    line-height: 1;
+}
+
+.kf-faq-header p {
+    font-size: 1rem;
+    color: #666;
+    margin: 0;
+    padding-top: 0.5rem;
+}
+
+.kf-faq-section h3 {
+    font-size: 1.3rem;
+    font-weight: 200;
+    color: #000;
+    margin-bottom: 2rem;
+}
+
+.kf-faq-items {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-bottom: 3rem;
+}
+
+.kf-faq-item {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.kf-faq-question {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 1.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    color: #000;
+    font-weight: 500;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.kf-faq-question:hover {
+    background: #efefef;
+}
+
+.kf-faq-question svg {
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+    color: #999;
+}
+
+.kf-faq-item.active .kf-faq-question svg {
+    transform: rotate(180deg);
+}
+
+.kf-faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.kf-faq-item.active .kf-faq-answer {
+    max-height: 500px;
+}
+
+.kf-faq-answer p {
+    padding: 0 1.5rem 1.5rem;
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* FAQ Footer */
+.kf-faq-footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.kf-faq-box {
+    padding: 1.75rem;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.kf-faq-box-light {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+}
+
+.kf-faq-box-dark {
+    background: #1a1a1a;
+    color: #fff;
+}
+
+.kf-faq-box-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.kf-faq-box-light .kf-faq-box-icon {
+    background: #d1fae5;
+}
+
+.kf-faq-box-dark .kf-faq-box-icon {
+    background: #404040;
+}
+
+.kf-faq-box h4 {
+    font-size: 1rem;
+    font-weight: 200;
+    margin: 0;
+    margin-top: 0.25rem;
+}
+
+.kf-faq-box p {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin: 0;
+    color: #999;
+}
+
+.kf-faq-box-dark p {
+    color: #aaa;
+}
+
+.kf-faq-cta {
+    display: inline-block;
+    margin-top: 0.5rem;
+    color: #E8622A;
+    text-decoration: none;
+    font-weight: 200;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+    width: fit-content;
+}
+
+.kf-faq-cta:hover {
+    color: #ff7940;
+}
+
+/* Responsive FAQ */
+@media (max-width: 900px) {
+    .kf-faq-header {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .kf-faq-header h2 {
+        font-size: 3rem;
+    }
+
+    .kf-faq-footer {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .kf-faq {
+        padding: 3rem 0;
+    }
+
+    .kf-faq-header h2 {
+        font-size: 2.5rem;
+    }
+
+    .kf-faq-question {
+        padding: 1rem 1rem;
+    }
+}
+
 /* ── ABOUT ── */
 .kf-about {
     padding: 5rem 0;
@@ -521,52 +976,83 @@ body {
 
 /* ── FOOTER ── */
 .kf-footer {
-    background: #1c1c1c;
-    color: #d1d5db;
-    padding-top: 3.5rem;
+    background: #ededed;
+    color: #374151;
+    padding-top: 4rem;
+    /*border-top: 1px solid #d1d5db;*/
+    border-top-left-radius: 35px;
+    border-top-right-radius: 35px;
 }
 
-.kf-footer-inner {
+.kf-footer-content {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 3rem;
-    padding-bottom: 2.5rem;
+    grid-template-columns: 1fr 0fr;
+    gap: 8rem;
+    padding-bottom: 4rem;
+    padding-top: 2rem;
+    align-items: flex-start;
 }
 
-.kf-footer-brand .kf-logo {
-    display: block;
-    margin-bottom: 0.75rem;
+.kf-footer-cta {
+    display: flex;
+    flex-direction: column;
 }
 
-.kf-footer-brand p {
-    font-size: 0.875rem;
-    color: #9ca3af;
-    line-height: 1.6;
+.kf-footer-cta-label {
+    font-size: 0.85rem;
+    color: #000000;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.kf-footer-email {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #1f2937;
+    text-decoration: none;
+    padding-bottom: 0.75rem;
+    border-bottom: 3px solid #E8622A;
+    transition: color 0.15s;
+    display: inline-block;
+    width: fit-content;
+}
+
+.kf-footer-email:hover {
+    color: #E8622A;
+}
+
+.kf-footer-links {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4rem;
 }
 
 .kf-footer-col h5 {
-    color: #fff;
-    font-size: 0.95rem;
+    color: #6b7280;
+    font-size: 0.75rem;
     font-weight: 600;
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
-.kf-footer-col a, .kf-footer-col p {
+.kf-footer-col a {
     display: block;
     text-decoration: none;
-    color: #9ca3af;
-    font-size: 0.875rem;
-    line-height: 1.6;
-    margin-bottom: 0.4rem;
+    color: #1f2937;
+    font-size: 0.9rem;
+    line-height: 2;
+    font-weight: 500;
     transition: color 0.15s;
 }
 
-.kf-footer-col a:hover { color: #E8622A; }
+.kf-footer-col a:hover {
+    color: #E8622A;
+}
 
 .kf-footer-bottom {
-    border-top: 1px solid #2d2d2d;
-    padding: 1.25rem 0;
-    text-align: center;
+    padding: 2rem 0;
+    /*border-top: 1px solid #d1d5db;*/
 }
 
 .kf-footer-bottom p {
@@ -619,34 +1105,11 @@ body {
     top: 0.5rem;
 }
 
-.loading-progress {
-    position: absolute;
-    display: block;
-    width: 8rem;
-    height: 8rem;
-    inset: 20vh 0 auto 0;
-    margin: 0 auto;
-}
-
-.loading-progress circle {
-    fill: none;
-    stroke: #e0e0e0;
-    stroke-width: 0.6rem;
-    transform-origin: 50% 50%;
-    transform: rotate(-90deg);
-}
-
-.loading-progress circle:last-child {
-    stroke: #E8622A;
-    stroke-dasharray: calc(3.141 * var(--blazor-load-percentage, 0%) * 0.8), 500%;
-    transition: stroke-dasharray 0.05s ease-in-out;
-}
-
 .loading-progress-text {
-    position: absolute;
     text-align: center;
-    font-weight: bold;
-    inset: calc(20vh + 3.25rem) 0 auto 0.2rem;
+    font-weight: 200;
+    color: #fff;
+    font-size: 3rem;
 }
 
 .loading-progress-text::after {
@@ -673,14 +1136,30 @@ body {
 .kf-hero-inner {
     position: relative;
     z-index: 1;
-    text-align: center;
+    text-align: left;
+    /* display: grid; */
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
 }
 
 .kf-hero-actions {
     display: flex;
     gap: 1rem;
-    justify-content: center;
+    justify-content: flex-start;
     flex-wrap: wrap;
+}
+
+.kf-hero-left {
+    display: flex;
+    flex-direction: column;
+}
+
+.kf-hero-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 125px;
 }
 
 .kf-btn-ghost {
@@ -913,6 +1392,7 @@ body {
 /* ── YDELSER PAGE ── */
 .yd-hero {
     padding: 7rem 0 5rem;
+    margin-top: 100px;
     background:
         radial-gradient(ellipse 80% 55% at 50% -5%, rgba(232, 98, 42, 0.18) 0%, transparent 100%),
         #080706;
@@ -1260,6 +1740,7 @@ body {
 /* ── OM OS PAGE ── */
 .oo-hero {
     padding: 7rem 0 5rem;
+    margin-top: 100px;
     background:
         radial-gradient(ellipse 80% 55% at 50% -5%, rgba(232, 98, 42, 0.18) 0%, transparent 100%),
         #080706;
@@ -1632,17 +2113,28 @@ body {
 @media (max-width: 900px) {
     .kf-cards { grid-template-columns: repeat(2, 1fr); }
     .kf-about-inner { grid-template-columns: 1fr; gap: 2.5rem; }
-    .kf-footer-inner { grid-template-columns: 1fr 1fr; }
-    .kf-footer-brand { grid-column: 1 / -1; }
+    .kf-footer-content { grid-template-columns: 1fr; gap: 3rem; }
+    .kf-footer-links { grid-template-columns: 1fr; gap: 2rem; }
+    .kf-why-choose-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .kf-approach-item { grid-template-columns: 80px 1fr; gap: 1.5rem; }
+    .kf-approach-content { grid-column: 2; flex-direction: column; align-items: flex-start; gap: 0.5rem; }
     .oo-story-inner { grid-template-columns: 1fr; gap: 3rem; }
     .oo-values-grid { grid-template-columns: repeat(2, 1fr); }
+    .kf-hero-inner { grid-template-columns: 1fr; gap: 3rem; }
 }
 
 @media (max-width: 600px) {
     .kf-cards { grid-template-columns: 1fr; }
     .kf-contact-cards { grid-template-columns: 1fr; }
-    .kf-footer-inner { grid-template-columns: 1fr; }
+    .kf-footer-content { grid-template-columns: 1fr; gap: 2rem; }
+    .kf-footer-links { grid-template-columns: 1fr; gap: 1.5rem; }
+    .kf-why-choose-left h2 { font-size: 1.75rem; }
+    .kf-why-choose-stats { grid-template-columns: 1fr; }
     .kf-nav-links { gap: 1.25rem; }
     .kf-hero { padding: 4rem 0; }
     .oo-values-grid { grid-template-columns: 1fr; }
+    .kf-hero-right { display: none; }
+    .kf-approach-item { grid-template-columns: 60px 1fr; padding: 2rem 0; }
+    .kf-approach-icon { width: 60px; height: 60px; }
+    .kf-approach-content h3 { font-size: 1rem; }
 }

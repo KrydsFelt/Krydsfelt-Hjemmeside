@@ -92,4 +92,22 @@ window.initAnimations = function () {
             setTimeout(() => { card.style.transition = ''; }, 550);
         });
     });
+
+    // FAQ Accordion
+    document.querySelectorAll('.kf-faq-question').forEach(button => {
+        button.addEventListener('click', () => {
+            const item = button.closest('.kf-faq-item');
+            const isActive = item.classList.contains('active');
+
+            // Close all other items
+            document.querySelectorAll('.kf-faq-item').forEach(otherItem => {
+                otherItem.classList.remove('active');
+            });
+
+            // Toggle current item
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        });
+    });
 };
