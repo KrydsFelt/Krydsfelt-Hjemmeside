@@ -338,6 +338,19 @@ body {
     color: #6b7280;
 }
 
+.kf-services-swipe-hint,
+.yd-services-swipe-hint,
+.oo-values-swipe-hint {
+    display: none;
+    font-size: 0.78rem;
+    margin-top: 1.5rem;
+    justify-content: center;
+    letter-spacing: 0.03em;
+}
+.kf-services-swipe-hint { color: rgba(255,255,255,0.35); }
+.yd-services-swipe-hint { color: #aaa; }
+.oo-values-swipe-hint { color: rgba(255,255,255,0.35); }
+
 .kf-cards {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -2643,9 +2656,88 @@ body {
     /* Container */
     .kf-container { padding: 0 1.25rem; margin-left: 0; margin-right: 0; }
 
-    /* Services */
+    /* Services (home) */
     .kf-services { margin-right: 0; margin-left: 0; border-radius: 0; padding: 4rem 0; }
-    .kf-cards { grid-template-columns: 1fr; }
+
+    /* Home cards → swipeable carousel */
+    .kf-cards {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        gap: 1rem;
+        padding: 0.5rem 1.25rem 1.5rem;
+        margin-top: 2rem;
+        scrollbar-width: none;
+    }
+    .kf-cards::-webkit-scrollbar { display: none; }
+    .kf-card {
+        min-width: 78vw;
+        max-width: 320px;
+        flex-shrink: 0;
+        scroll-snap-align: center;
+    }
+    .kf-services-swipe-hint { display: flex; }
+
+    /* Ydelser service rows → swipeable cards */
+    .yd-services-swipe-hint { display: flex; }
+    .yd-services-container {
+        display: flex !important;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        gap: 1rem;
+        padding: 1rem 1.25rem 2rem;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        scrollbar-width: none;
+    }
+    .yd-services-container::-webkit-scrollbar { display: none; }
+    .yd-service-row {
+        min-width: 82vw;
+        max-width: 340px;
+        flex-shrink: 0;
+        scroll-snap-align: center;
+        display: flex !important;
+        flex-direction: column;
+        grid-template-columns: unset !important;
+        gap: 1.25rem;
+        border-radius: 20px;
+        background: #fff;
+        border: 1px solid #eee;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+        padding: 1.5rem !important;
+    }
+    .yd-service-row::after { display: none; }
+    .yd-row-num { font-size: 0.75rem; }
+
+    /* OmOs values → swipeable carousel */
+    .oo-values-swipe-hint { display: flex; }
+    .oo-values-grid {
+        display: flex !important;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        gap: 1rem;
+        padding: 0.5rem 1.25rem 1.5rem;
+        margin-top: 1.5rem;
+        scrollbar-width: none;
+    }
+    .oo-values-grid::-webkit-scrollbar { display: none; }
+    .oo-value-card {
+        min-width: 78vw;
+        max-width: 300px;
+        flex-shrink: 0;
+        scroll-snap-align: center;
+    }
+
+    /* OmOs story stack */
+    .oo-story-inner { grid-template-columns: 1fr; gap: 2rem; }
+    .kf-stack-cards { width: 240px; height: 310px; }
+
+    /* Ydelser hero stats */
+    .yd-hero-stats { flex-wrap: wrap; gap: 1rem; justify-content: flex-start; }
+    .yd-hero-stat-divider { display: none; }
 
     /* Why choose */
     .kf-why-choose-left h2 { font-size: 1.75rem; }
