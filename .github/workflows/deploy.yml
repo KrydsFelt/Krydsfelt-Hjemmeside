@@ -14,6 +14,9 @@ concurrency:
   group: "pages"
   cancel-in-progress: false
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -28,7 +31,7 @@ jobs:
           dotnet-quality: 'preview'
 
       - name: Publish
-        run: dotnet publish -c Release -o publish
+        run: dotnet publish KrydsfeltHjemmeside.csproj -c Release -o publish
 
       - name: Fix base href for GitHub Pages
         run: |
