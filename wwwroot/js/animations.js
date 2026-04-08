@@ -1,3 +1,45 @@
+window.initBackgroundPaths = function (containerId) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+    const svgNS = 'http://www.w3.org/2000/svg';
+    const svg = document.createElementNS(svgNS, 'svg');
+    svg.setAttribute('viewBox', '0 0 696 316');
+    svg.setAttribute('fill', 'none');
+    svg.setAttribute('preserveAspectRatio', 'xMidYMid slice');
+    svg.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;pointer-events:none;';
+    container.appendChild(svg);
+
+    function makePath(i, pos) {
+        const a = -380 - i * 5 * pos, b = -189 + i * 6;
+        const c = -312 - i * 5 * pos, d = 216 - i * 6;
+        const e = 152 - i * 5 * pos, f = 343 - i * 6;
+        const g = 616 - i * 5 * pos, h = 470 - i * 6;
+        const k = 684 - i * 5 * pos, l = 875 - i * 6;
+        return `M${a} ${b}C${a} ${b} ${c} ${d} ${e} ${f}C${g} ${h} ${k} ${l} ${k} ${l}`;
+    }
+
+    for (const pos of [1, -1]) {
+        for (let i = 0; i < 36; i++) {
+            const el = document.createElementNS(svgNS, 'path');
+            el.setAttribute('d', makePath(i, pos));
+            el.setAttribute('stroke', '#E8622A');
+            el.setAttribute('stroke-width', String(0.5 + i * 0.03));
+            el.setAttribute('fill', 'none');
+            svg.appendChild(el);
+            const len = el.getTotalLength();
+            const seg = len * 0.25;
+            const dur = (22 + Math.random() * 12) * 1000;
+            const delay = Math.random() * -dur;
+            const op = 0.05 + i * 0.015;
+            el.animate([
+                { strokeDasharray: `${seg} ${len}`, strokeDashoffset: seg,        opacity: op * 0.4 },
+                { strokeDasharray: `${seg} ${len}`, strokeDashoffset: -(len * 0.4), opacity: op       },
+                { strokeDasharray: `${seg} ${len}`, strokeDashoffset: -(len + seg), opacity: op * 0.4 },
+            ], { duration: dur, delay, iterations: Infinity, easing: 'linear' });
+        }
+    }
+};
+
 window.initAnimations = function () {
     // Scroll reveal with IntersectionObserver
     const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');

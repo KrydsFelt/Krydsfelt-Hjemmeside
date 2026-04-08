@@ -3,167 +3,165 @@
 
 <PageTitle>Ydelser – KrydsFelt</PageTitle>
 
-<!-- NAV -->
-<nav class="kf-nav">
-    <div class="kf-nav-inner">
-        <a href="/" class="kf-logo-link"><span class="kf-logo">KRYDSFELT</span></a>
-        <div class="kf-nav-links">
-            <a href="/ydelser" class="kf-nav-active">Ydelser</a>
-            <a href="/om-os">Om os</a>
-        </div>
-    </div>
-    <a href="/#contact" class="kf-nav-contact-btn">Kontakt</a>
-</nav>
-
-<!-- HERO -->
-<section class="yd-hero">
+<!-- NAV + HERO WRAPPER -->
+<div class="yd-hero-wrapper">
+    <div id="yd-bg-paths"></div>
     <div class="yd-hero-glow"></div>
-    <div class="yd-hero-scan"></div>
-    <div class="kf-container yd-hero-inner">
-        <h1>Vores <span class="kf-orange">Ydelser</span></h1>
-        <p>Vi tilbyder skræddersyede digitale løsninger, der er bygget til at vokse med din virksomhed. Læs mere om, hvad vi kan gøre for dig.</p>
-    </div>
-</section>
 
-<!-- SERVICE 1: WEBUDVIKLING -->
-<section class="yd-service" id="webudvikling">
-    <div class="kf-container yd-service-inner">
-        <div class="yd-service-content reveal-left">
-            <span class="yd-service-label"><span class="yd-service-label-dot"></span>01</span>
-            <h2>Webudvikling</h2>
-            <p>Vi bygger moderne, hurtige og brugervenlige hjemmesider og webapplikationer fra bunden. Uanset om du har brug for en simpel præsentationsside eller en kompleks webplatform, leverer vi løsninger, der både ser godt ud og performer.</p>
-            <ul class="yd-feature-list">
-                <li class="yd-feature-item"><span class="yd-check">✓</span> Skræddersyede hjemmesider</li>
-                <li class="yd-feature-item"><span class="yd-check">✓</span> Single Page Applications</li>
-                <li class="yd-feature-item"><span class="yd-check">✓</span> E-commerce løsninger</li>
-                <li class="yd-feature-item"><span class="yd-check">✓</span> SEO-optimering</li>
-                <li class="yd-feature-item"><span class="yd-check">✓</span> Hurtig indlæsningstid</li>
-                <li class="yd-feature-item"><span class="yd-check">✓</span> CMS-integration</li>
-            </ul>
-            <div class="yd-tags">
+    <nav class="kf-nav">
+        <div class="kf-nav-inner">
+            <a href="/" class="kf-logo-link"><span class="kf-logo">KRYDSFELT</span></a>
+            <div class="kf-nav-links">
+                <a href="/ydelser" class="kf-nav-active">Ydelser</a>
+                <a href="/om-os">Om os</a>
+            </div>
+        </div>
+        <a href="/#contact" class="kf-nav-contact-btn">Kontakt</a>
+    </nav>
+
+    <!-- HERO -->
+    <section class="yd-hero">
+        <div class="kf-container">
+            <div class="yd-hero-card">
+                <span class="yd-hero-badge">Hvad vi tilbyder</span>
+                <h1>Vores <span class="kf-orange">Ydelser</span></h1>
+                <p>Vi tilbyder skræddersyede digitale løsninger, der er bygget til at vokse med din virksomhed. Læs mere om, hvad vi kan gøre for dig.</p>
+                <div class="yd-hero-stats">
+                    <div class="yd-hero-stat"><span class="yd-hero-stat-num">4+</span><span class="yd-hero-stat-label">Kernekompetencer</span></div>
+                    <div class="yd-hero-stat-divider"></div>
+                    <div class="yd-hero-stat"><span class="yd-hero-stat-num">100%</span><span class="yd-hero-stat-label">Skræddersyede løsninger</span></div>
+                    <div class="yd-hero-stat-divider"></div>
+                    <div class="yd-hero-stat"><span class="yd-hero-stat-num">∞</span><span class="yd-hero-stat-label">Skalerbarhed</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- SERVICES LIST -->
+<section class="yd-services-section">
+    <div class="kf-container">
+
+        <div class="yd-service-row reveal" id="webudvikling">
+            <span class="yd-row-num">01</span>
+            <div class="yd-row-head">
+                <div class="yd-row-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#E8622A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/>
+                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                    </svg>
+                </div>
+                <div>
+                    <h3>Webudvikling</h3>
+                    <p>Moderne, hurtige hjemmesider og webapplikationer fra bunden — fra simpel præsentationsside til kompleks webplatform.</p>
+                </div>
+            </div>
+            <div class="yd-row-features">
+                <span>Skræddersyede hjemmesider</span>
+                <span>Single Page Applications</span>
+                <span>E-commerce løsninger</span>
+                <span>SEO-optimering</span>
+                <span>Hurtig indlæsningstid</span>
+                <span>CMS-integration</span>
+            </div>
+            <div class="yd-row-tags">
                 <span class="yd-tag">Blazor</span>
                 <span class="yd-tag">React</span>
                 <span class="yd-tag">.NET</span>
                 <span class="yd-tag">TypeScript</span>
-                <span class="yd-tag">CSS / Tailwind</span>
             </div>
         </div>
-        <div class="yd-service-visual reveal-right">
-            <div class="yd-icon-wrap">
-                <span class="yd-icon-num">01</span>
-                <svg viewBox="0 0 24 24" fill="none" stroke="#E8622A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="10"/>
-                    <line x1="2" y1="12" x2="22" y2="12"/>
-                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-                </svg>
-            </div>
-        </div>
-    </div>
-</section>
 
-<!-- SERVICE 2: SKRÆDDERSYEDE SYSTEMER -->
-<section class="yd-service" id="systemer">
-    <div class="kf-container yd-service-inner">
-        <div class="yd-service-content reveal-right">
-            <span class="yd-service-label"><span class="yd-service-label-dot"></span>02</span>
-            <h2>Skræddersyede Systemer</h2>
-            <p>Standardsoftware passer ikke altid til din forretning. Vi designer og bygger tilpassede systemer, der løser præcis dine udfordringer — fra interne arbejdsgangsværktøjer til komplekse forretningsplatforme med fuld integration til dine eksisterende systemer.</p>
-            <ul class="yd-feature-list">
-                <li class="yd-feature-item"><span class="yd-check">✓</span> Forretningssystemer</li>
-                <li class="yd-feature-item"><span class="yd-check">✓</span> Workflow-automatisering</li>
-                <li class="yd-feature-item"><span class="yd-check">✓</span> Tredjepartsintegrationer</li>
-                <li class="yd-feature-item"><span class="yd-check">✓</span> Brugervenlig administration</li>
-                <li class="yd-feature-item"><span class="yd-check">✓</span> Skalerbare løsninger</li>
-                <li class="yd-feature-item"><span class="yd-check">✓</span> Rapportering og data</li>
-            </ul>
-            <div class="yd-tags">
+        <div class="yd-service-row reveal" data-delay="80" id="systemer">
+            <span class="yd-row-num">02</span>
+            <div class="yd-row-head">
+                <div class="yd-row-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#E8622A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+                    </svg>
+                </div>
+                <div>
+                    <h3>Skræddersyede Systemer</h3>
+                    <p>Tilpassede systemer der løser præcis dine udfordringer — fra workflow-værktøjer til komplekse forretningsplatforme.</p>
+                </div>
+            </div>
+            <div class="yd-row-features">
+                <span>Forretningssystemer</span>
+                <span>Workflow-automatisering</span>
+                <span>Tredjepartsintegrationer</span>
+                <span>Skalerbare løsninger</span>
+                <span>Rapportering og data</span>
+                <span>Brugervenlig admin</span>
+            </div>
+            <div class="yd-row-tags">
                 <span class="yd-tag">.NET</span>
                 <span class="yd-tag">C#</span>
-                <span class="yd-tag">SQL</span>
                 <span class="yd-tag">Azure</span>
                 <span class="yd-tag">REST API</span>
             </div>
         </div>
-        <div class="yd-service-visual reveal-left">
-            <div class="yd-icon-wrap">
-                <span class="yd-icon-num">02</span>
-                <svg viewBox="0 0 24 24" fill="none" stroke="#E8622A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="16 18 22 12 16 6"/>
-                    <polyline points="8 6 2 12 8 18"/>
-                </svg>
-            </div>
-        </div>
-    </div>
-</section>
 
-<!-- SERVICE 3: BACKEND -->
-<section class="yd-service" id="backend">
-    <div class="kf-container yd-service-inner">
-        <div class="yd-service-content reveal-left">
-            <span class="yd-service-label"><span class="yd-service-label-dot"></span>03</span>
-            <h2>Backend-løsninger</h2>
-            <p>En stærk backend er fundamentet for enhver digital løsning. Vi bygger robuste og sikre server-side systemer og API'er, der kan håndtere høj trafik, kompleks forretningslogik og problemfri integration med tredjepartssystemer.</p>
-            <ul class="yd-feature-list">
-                <li class="yd-feature-item"><span class="yd-check">✓</span> REST API & GraphQL</li>
-                <li class="yd-feature-item"><span class="yd-check">✓</span> Databasedesign</li>
-                <li class="yd-feature-item"><span class="yd-check">✓</span> Cloud-hosting (Azure/AWS)</li>
-                <li class="yd-feature-item"><span class="yd-check">✓</span> Sikkerhed & autentificering</li>
-                <li class="yd-feature-item"><span class="yd-check">✓</span> Microservices</li>
-                <li class="yd-feature-item"><span class="yd-check">✓</span> Realtidsdata</li>
-            </ul>
-            <div class="yd-tags">
+        <div class="yd-service-row reveal" data-delay="160" id="backend">
+            <span class="yd-row-num">03</span>
+            <div class="yd-row-head">
+                <div class="yd-row-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#E8622A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <ellipse cx="12" cy="5" rx="9" ry="3"/>
+                        <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/>
+                        <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
+                    </svg>
+                </div>
+                <div>
+                    <h3>Backend-løsninger</h3>
+                    <p>Robuste API'er og server-side systemer der håndterer høj trafik, kompleks logik og sikker integration.</p>
+                </div>
+            </div>
+            <div class="yd-row-features">
+                <span>REST API & GraphQL</span>
+                <span>Databasedesign</span>
+                <span>Cloud-hosting</span>
+                <span>Sikkerhed & auth</span>
+                <span>Microservices</span>
+                <span>Realtidsdata</span>
+            </div>
+            <div class="yd-row-tags">
                 <span class="yd-tag">ASP.NET Core</span>
                 <span class="yd-tag">PostgreSQL</span>
-                <span class="yd-tag">Redis</span>
                 <span class="yd-tag">Docker</span>
                 <span class="yd-tag">Azure</span>
             </div>
         </div>
-        <div class="yd-service-visual reveal-right">
-            <div class="yd-icon-wrap">
-                <span class="yd-icon-num">03</span>
-                <svg viewBox="0 0 24 24" fill="none" stroke="#E8622A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <ellipse cx="12" cy="5" rx="9" ry="3"/>
-                    <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/>
-                    <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
-                </svg>
-            </div>
-        </div>
-    </div>
-</section>
 
-<!-- SERVICE 4: RESPONSIVT DESIGN -->
-<section class="yd-service" id="design">
-    <div class="kf-container yd-service-inner">
-        <div class="yd-service-content reveal-right">
-            <span class="yd-service-label"><span class="yd-service-label-dot"></span>04</span>
-            <h2>Responsivt Design</h2>
-            <p>Dine brugere besøger dig fra alle mulige enheder. Vi sikrer, at din løsning ser ud og fungerer perfekt — fra store desktopskærme til den mindste mobiltelefon. Vi arbejder med et mobile-first mindset og fokuserer på tilgængelighed og brugeroplevelse.</p>
-            <ul class="yd-feature-list">
-                <li class="yd-feature-item"><span class="yd-check">✓</span> Mobile-first tilgang</li>
-                <li class="yd-feature-item"><span class="yd-check">✓</span> Alle skærmstørrelser</li>
-                <li class="yd-feature-item"><span class="yd-check">✓</span> Tilgængelighed (WCAG)</li>
-                <li class="yd-feature-item"><span class="yd-check">✓</span> Animationer & micro-UX</li>
-                <li class="yd-feature-item"><span class="yd-check">✓</span> Brand-konsistens</li>
-                <li class="yd-feature-item"><span class="yd-check">✓</span> Brugertest & iteration</li>
-            </ul>
-            <div class="yd-tags">
+        <div class="yd-service-row reveal" data-delay="240" id="design">
+            <span class="yd-row-num">04</span>
+            <div class="yd-row-head">
+                <div class="yd-row-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#E8622A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
+                        <line x1="12" y1="18" x2="12.01" y2="18"/>
+                    </svg>
+                </div>
+                <div>
+                    <h3>Responsivt Design</h3>
+                    <p>Perfekt på alle enheder — fra store desktops til mobil. Mobile-first med fokus på tilgængelighed og brugeroplevelse.</p>
+                </div>
+            </div>
+            <div class="yd-row-features">
+                <span>Mobile-first tilgang</span>
+                <span>Alle skærmstørrelser</span>
+                <span>Tilgængelighed (WCAG)</span>
+                <span>Animationer & micro-UX</span>
+                <span>Brand-konsistens</span>
+                <span>Brugertest & iteration</span>
+            </div>
+            <div class="yd-row-tags">
                 <span class="yd-tag">Figma</span>
                 <span class="yd-tag">CSS</span>
                 <span class="yd-tag">WCAG</span>
-                <span class="yd-tag">Mobile-first</span>
                 <span class="yd-tag">UX/UI</span>
             </div>
         </div>
-        <div class="yd-service-visual reveal-left">
-            <div class="yd-icon-wrap">
-                <span class="yd-icon-num">04</span>
-                <svg viewBox="0 0 24 24" fill="none" stroke="#E8622A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
-                    <line x1="12" y1="18" x2="12.01" y2="18"/>
-                </svg>
-            </div>
-        </div>
+
     </div>
 </section>
 
@@ -212,6 +210,7 @@
         if (firstRender)
         {
             await JS.InvokeVoidAsync("initAnimations");
+            await JS.InvokeVoidAsync("initBackgroundPaths", "yd-bg-paths");
         }
     }
 }
