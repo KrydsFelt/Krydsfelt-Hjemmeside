@@ -308,6 +308,105 @@
             </div>
         </div>
 
+        <!-- PRISBEREGNER -->
+        <div class="kf-price-calc">
+            <div class="kf-price-calc-header">
+                <h3>Hvad koster din hjemmeside?</h3>
+                <p>Beregn et hurtigt estimat på under 1 minut</p>
+            </div>
+
+            @if (CalcStep < 4)
+            {
+                <div class="kf-calc-progress">
+                    <div class="kf-calc-progress-bar" style="width: @((CalcStep + 1) * 25)%"></div>
+                </div>
+                <div class="kf-calc-step-label">Trin @(CalcStep + 1) af 4</div>
+            }
+
+            @if (CalcStep == 0)
+            {
+                <div class="kf-calc-question">Hvad er formålet med hjemmesiden?</div>
+                <div class="kf-calc-options">
+                    @foreach (var opt in SiteTypes)
+                    {
+                        <button class="kf-calc-option @(SelectedType == opt.Key ? "active" : "")"
+                                @onclick="() => SelectType(opt.Key)">
+                            <span class="kf-calc-opt-icon">@opt.Icon</span>
+                            <span class="kf-calc-opt-label">@opt.Label</span>
+                            <span class="kf-calc-opt-desc">@opt.Desc</span>
+                        </button>
+                    }
+                </div>
+                <div class="kf-calc-nav">
+                    <button class="kf-calc-next" disabled="@(SelectedType == null)" @onclick="NextStep">Næste →</button>
+                </div>
+            }
+
+            @if (CalcStep == 1)
+            {
+                <div class="kf-calc-question">Hvor mange sider skal hjemmesiden have?</div>
+                <div class="kf-calc-options kf-calc-options-pages">
+                    @foreach (var opt in PageRanges)
+                    {
+                        <button class="kf-calc-option @(SelectedPages == opt.Key ? "active" : "")"
+                                @onclick="() => SelectPages(opt.Key)">
+                            <span class="kf-calc-opt-label">@opt.Label</span>
+                            <span class="kf-calc-opt-desc">@opt.Desc</span>
+                        </button>
+                    }
+                </div>
+                <div class="kf-calc-nav">
+                    <button class="kf-calc-back" @onclick="PrevStep">← Tilbage</button>
+                    <button class="kf-calc-next" disabled="@(SelectedPages == null)" @onclick="NextStep">Næste →</button>
+                </div>
+            }
+
+            @if (CalcStep == 2)
+            {
+                <div class="kf-calc-question">Hvilke funktioner har du brug for?</div>
+                <div class="kf-calc-features">
+                    @foreach (var feat in Features)
+                    {
+                        <label class="kf-calc-feature @(SelectedFeatures.Contains(feat.Key) ? "active" : "")">
+                            <input type="checkbox" checked="@SelectedFeatures.Contains(feat.Key)"
+                                   @onchange="() => ToggleFeature(feat.Key)" />
+                            <span class="kf-calc-feat-icon">@feat.Icon</span>
+                            <div class="kf-calc-feat-text">
+                                <span class="kf-calc-feat-name">@feat.Label</span>
+                                <span class="kf-calc-feat-price">+@feat.PriceLabel</span>
+                            </div>
+                        </label>
+                    }
+                </div>
+                <div class="kf-calc-nav">
+                    <button class="kf-calc-back" @onclick="PrevStep">← Tilbage</button>
+                    <button class="kf-calc-next" @onclick="NextStep">Se estimat →</button>
+                </div>
+            }
+
+            @if (CalcStep == 3)
+            {
+                <div class="kf-calc-result">
+                    <div class="kf-calc-result-label">Dit estimerede budget</div>
+                    <div class="kf-calc-result-price">@PriceLow.ToString("N0") – @PriceHigh.ToString("N0") kr.</div>
+                    <div class="kf-calc-result-note">Dette er et vejledende estimat. Det endelige tilbud baseres på en konkret dialog om dit projekt.</div>
+                    <div class="kf-calc-result-summary">
+                        @foreach (var line in GetSummaryLines())
+                        {
+                            <div class="kf-calc-sum-line">
+                                <span>@line.Label</span>
+                                <span>@line.Price</span>
+                            </div>
+                        }
+                    </div>
+                    <div class="kf-calc-result-actions">
+                        <a href="mailto:krydsfelt.info@gmail.com?subject=Prisforespørgsel" class="kf-calc-cta">Få et rigtigt tilbud →</a>
+                        <button class="kf-calc-back" @onclick="Reset">Beregn igen</button>
+                    </div>
+                </div>
+            }
+        </div>
+
         <div class="kf-faq-footer">
             <div class="kf-faq-box kf-faq-box-light">
                 <div class="kf-faq-box-icon">
@@ -370,5 +469,97 @@
         {
             await JS.InvokeVoidAsync("initAnimations");
         }
+    }
+
+    // ── PRISBEREGNER ──
+    int CalcStep = 0;
+    string? SelectedType = null;
+    string? SelectedPages = null;
+    HashSet<string> SelectedFeatures = new();
+
+    record SiteTypeOption(string Key, string Icon, string Label, string Desc, int Low, int High);
+    record PageRangeOption(string Key, string Label, string Desc, int Low, int High);
+    record FeatureOption(string Key, string Icon, string Label, string PriceLabel, int Low, int High);
+    record SummaryLine(string Label, string Price);
+
+    List<SiteTypeOption> SiteTypes = new()
+    {
+        new("landing",   "", "Landing Page",      "Én side til at præsentere dit produkt eller service", 3000,  6000),
+        new("business",  "", "Virksomhedsside",   "Professionel hjemmeside med flere sektioner",          5000, 10000),
+        new("webshop",   "", "Webshop",            "Online butik med produkter og checkout",              10000, 20000),
+        new("portfolio", "", "Portfolio / CV",     "Vis dine projekter og kompetencer frem",               2000,  5000),
+        new("saas",      "", "Web-app / SaaS",    "Kompleks applikation med brugere og data",            15000, 40000),
+    };
+
+    List<PageRangeOption> PageRanges = new()
+    {
+        new("1-3",  "1 – 3 sider",  "Kompakt og fokuseret",        0,     0),
+        new("4-8",  "4 – 8 sider",  "God standard størrelse",       2000,  4000),
+        new("9-15", "9 – 15 sider", "Større indholdsmæssig dybde",  5000,  8000),
+        new("15+",  "15+ sider",    "Stort informationssite",        8000, 15000),
+    };
+
+    List<FeatureOption> Features = new()
+    {
+        new("login",     "", "Login / Brugersystem",  "4.000 – 7.000 kr.",  4000,  7000),
+        new("booking",   "", "Booking & Kalender",    "3.500 – 6.000 kr.",  3500,  6000),
+        new("payment",   "", "Betalingsintegration",  "5.000 – 9.000 kr.",  5000,  9000),
+        new("contact",   "", "Kontaktformular",       "500 – 1.000 kr.",     500,  1000),
+        new("blog",      "", "Blog / CMS",            "2.500 – 5.000 kr.",  2500,  5000),
+        new("newsletter","", "Nyhedsbrev",            "1.000 – 2.000 kr.",  1000,  2000),
+        new("multilang", "", "Multi-sprog",           "1.500 – 3.000 kr.",  1500,  3000),
+    };
+
+    void SelectType(string key)   { SelectedType = key; }
+    void SelectPages(string key)  { SelectedPages = key; }
+    void ToggleFeature(string key){ if (!SelectedFeatures.Remove(key)) SelectedFeatures.Add(key); }
+    void NextStep() { CalcStep++; }
+    void PrevStep() { CalcStep--; }
+    void Reset()    { CalcStep = 0; SelectedType = null; SelectedPages = null; SelectedFeatures.Clear(); }
+
+    int PriceLow  => CalcPrices().low;
+    int PriceHigh => CalcPrices().high;
+
+    (int low, int high) CalcPrices()
+    {
+        int low = 0, high = 0;
+        if (SelectedType != null)
+        {
+            var t = SiteTypes.First(x => x.Key == SelectedType);
+            low += t.Low; high += t.High;
+        }
+        if (SelectedPages != null)
+        {
+            var p = PageRanges.First(x => x.Key == SelectedPages);
+            low += p.Low; high += p.High;
+        }
+        foreach (var fk in SelectedFeatures)
+        {
+            var f = Features.First(x => x.Key == fk);
+            low += f.Low; high += f.High;
+        }
+        return (low, high);
+    }
+
+    List<SummaryLine> GetSummaryLines()
+    {
+        var lines = new List<SummaryLine>();
+        if (SelectedType != null)
+        {
+            var t = SiteTypes.First(x => x.Key == SelectedType);
+            lines.Add(new(t.Label, $"{t.Low:N0} – {t.High:N0} kr."));
+        }
+        if (SelectedPages != null)
+        {
+            var p = PageRanges.First(x => x.Key == SelectedPages);
+            if (p.Low > 0)
+                lines.Add(new(p.Label, $"+{p.Low:N0} – {p.High:N0} kr."));
+        }
+        foreach (var fk in SelectedFeatures)
+        {
+            var f = Features.First(x => x.Key == fk);
+            lines.Add(new(f.Label, $"+{f.Low:N0} – {f.High:N0} kr."));
+        }
+        return lines;
     }
 }
