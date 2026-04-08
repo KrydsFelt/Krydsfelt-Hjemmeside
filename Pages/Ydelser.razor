@@ -15,8 +15,16 @@
                 <a href="/ydelser" class="kf-nav-active">Ydelser</a>
                 <a href="/om-os">Om os</a>
             </div>
+            <button class="kf-nav-hamburger @(navOpen ? "open" : "")" @onclick="() => navOpen = !navOpen" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
         </div>
         <a href="/#contact" class="kf-nav-contact-btn">Kontakt</a>
+        <div class="kf-nav-mobile @(navOpen ? "open" : "")">
+            <a href="/ydelser" @onclick="() => navOpen = false">Ydelser</a>
+            <a href="/om-os" @onclick="() => navOpen = false">Om os</a>
+            <a href="mailto:krydsfelt.info@gmail.com" @onclick="() => navOpen = false">Kontakt</a>
+        </div>
     </nav>
 
     <!-- HERO -->
@@ -205,6 +213,8 @@
 </footer>
 
 @code {
+    bool navOpen = false;
+
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)

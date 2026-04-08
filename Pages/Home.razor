@@ -11,8 +11,16 @@
             <a href="/ydelser">Ydelser</a>
             <a href="/om-os">Om os</a>
         </div>
+        <button class="kf-nav-hamburger @(navOpen ? "open" : "")" @onclick="() => navOpen = !navOpen" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
     </div>
     <a href="#contact" class="kf-nav-contact-btn">Kontakt</a>
+    <div class="kf-nav-mobile @(navOpen ? "open" : "")">
+        <a href="/ydelser" @onclick="() => navOpen = false">Ydelser</a>
+        <a href="/om-os" @onclick="() => navOpen = false">Om os</a>
+        <a href="mailto:krydsfelt.info@gmail.com" @onclick="() => navOpen = false">Kontakt</a>
+    </div>
 </nav>
 
 <!-- HERO -->
@@ -30,7 +38,7 @@
         <div class="kf-hero-right">
             <div class="kf-hero-img-wrap">
                 <div class="kf-hero-img-accent"></div>
-                <div class="kf-flip-card">
+                <div class="kf-flip-card @(cardFlipped ? "flipped" : "")" @onclick="() => cardFlipped = !cardFlipped">
                     <div class="kf-flip-inner">
                         <div class="kf-flip-front">
                             <img src="Pictures/gioleak.jpeg" alt="KrydsFelt team" class="kf-hero-img" />
@@ -492,6 +500,9 @@
             await JS.InvokeVoidAsync("initAnimations");
         }
     }
+
+    bool navOpen = false;
+    bool cardFlipped = false;
 
     // ── PRISBEREGNER ──
     int CalcStep = 0;
