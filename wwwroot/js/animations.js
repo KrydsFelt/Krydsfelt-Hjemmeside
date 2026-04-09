@@ -41,20 +41,24 @@ window.initBackgroundPaths = function (containerId) {
 };
 
 window.initAnimations = function () {
-    // Services cards reveal on scroll (when section hits top)
+    // Services cards reveal on scroll (when section fills entire screen)
     const servicesSection = document.querySelector('.kf-services');
     const cardsContainer = document.querySelector('.kf-cards');
 
     if (servicesSection && cardsContainer) {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                // Trigger when the section reaches the top of viewport
-                if (entry.boundingClientRect.top <= 0 && !cardsContainer.classList.contains('visible')) {
+                // Trigger when the top of section reaches the top of viewport
+                // and the entire viewport is filled with the section
+                const rect = entry.boundingClientRect;
+                const screenHeight = window.innerHeight;
+
+                if (rect.top <= 0 && rect.height >= screenHeight && !cardsContainer.classList.contains('visible')) {
                     cardsContainer.classList.add('visible');
                     observer.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0, rootMargin: '0px 0px 0px 0px' });
+        }, { threshold: 0.1, rootMargin: '0px 0px 0px 0px' });
 
         observer.observe(servicesSection);
     }

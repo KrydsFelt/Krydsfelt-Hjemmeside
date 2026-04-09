@@ -164,7 +164,7 @@ body {
 
 .kf-hero h1 {
     font-size: clamp(2.5rem, 6vw, 4rem);
-    font-weight: 600;
+    font-weight: 200;
     line-height: 1.3;
     color: #1a1a1a;
     margin-bottom: 1.5rem;
@@ -282,6 +282,98 @@ body {
     color: rgba(255, 255, 255, 0.7);
 }
 
+/* ── APPROACH PROCESS ── */
+.kf-approach-process {
+    padding: 6rem 0;
+    background: #ffffff;
+}
+
+.kf-process-header {
+    text-align: center;
+    margin-bottom: 4rem;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.kf-process-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    color: #E8622A;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.kf-process-header h2 {
+    font-size: 2.8rem;
+    font-weight: 200;
+    color: #1a1a1a;
+    margin-bottom: 1.5rem;
+    line-height: 1.3;
+}
+
+.kf-process-description {
+    font-size: 1.1rem;
+    color: #6b7280;
+    line-height: 1.8;
+}
+
+.kf-process-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.kf-process-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.kf-process-card-image {
+    width: 100%;
+    aspect-ratio: 1;
+    overflow: hidden;
+    border-radius: 8px;
+    background: #f3f4f6;
+}
+
+.kf-process-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.kf-process-card h3 {
+    font-size: 1.5rem;
+    font-weight: 200;
+    color: #1a1a1a;
+}
+
+.kf-process-card p {
+    font-size: 0.95rem;
+    color: #6b7280;
+    line-height: 1.7;
+}
+
+/* Middle card highlight */
+.kf-process-card-build {
+    background: #2563eb;
+    padding: 2rem;
+    border-radius: 8px;
+    color: #ffffff;
+}
+
+.kf-process-card-build h3 {
+    color: #ffffff;
+}
+
+.kf-process-card-build p {
+    color: rgba(255, 255, 255, 0.9);
+}
+
 /* ── SERVICES ── */
 .kf-services {
     padding: 6rem 0;
@@ -289,9 +381,9 @@ body {
     text-align: left;
     position: relative;
     overflow: hidden;
-    /*margin-right: 6.5%;
-    margin-left: 6.5%;*/
-    border-radius: 25px;
+    margin-right: 0;
+    margin-left: 0;
+    border-radius: 0;
 }
 
 /* Left floating glow orb */
@@ -324,7 +416,7 @@ body {
 
 .kf-services h2 {
     font-size: 2.8rem;
-    font-weight: 600;
+    font-weight: 200;
     margin-bottom: 1.5rem;
     position: relative;
     color: #ffffff;
@@ -500,7 +592,7 @@ body {
 
 .kf-why-choose-left h2 {
     font-size: 2.5rem;
-    font-weight: 800;
+    font-weight: 200;
     line-height: 1.2;
     color: #1f2937;
 }
@@ -593,7 +685,7 @@ body {
 
 .kf-approach h2 {
     font-size: 4.5rem;
-    font-weight: 100;
+    font-weight: 200;
     line-height: 1.2;
     color: #fff;
     margin-bottom: 1rem;
@@ -1702,16 +1794,6 @@ body {
 .kf-hero-actions            { animation: fadeUp 0.8s 0.5s ease both; }
 
 /* ── SECTION TITLE ACCENTS ── */
-.kf-services h2::after,
-.kf-contact h2::after {
-    content: '';
-    display: block;
-    width: 56px;
-    height: 4px;
-    background: linear-gradient(to right, #E8622A, #ff9870);
-    border-radius: 2px;
-    margin: 0.65rem auto 0;
-}
 
 .kf-about-left h2::after {
     content: '';
@@ -2639,6 +2721,10 @@ body {
 
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {
+    /* Process cards */
+    .kf-process-cards { grid-template-columns: 1fr; gap: 1.5rem; }
+    .kf-process-header h2 { font-size: 2.2rem; }
+
     /* Services */
     .kf-services-content { grid-template-columns: 1fr; gap: 2.5rem; }
     .kf-cards { grid-column: auto; }
@@ -2664,6 +2750,17 @@ body {
 }
 
 @media (max-width: 700px) {
+    /* Process */
+    .kf-approach-process { padding: 4rem 0; }
+    .kf-process-header { margin-bottom: 3rem; }
+    .kf-process-header h2 { font-size: 1.8rem; }
+    .kf-process-description { font-size: 1rem; }
+    .kf-process-cards { gap: 1.25rem; }
+    .kf-process-card { gap: 1rem; }
+    .kf-process-card h3 { font-size: 1.25rem; }
+    .kf-process-card p { font-size: 0.9rem; }
+    .kf-process-card-build { padding: 1.5rem; }
+
     /* Nav */
     .kf-nav { width: 100%; flex-direction: column; align-items: stretch; padding: 1rem 0; gap: 0; }
     .kf-nav-inner { border-radius: 0; height: auto; padding: 1rem; }
@@ -2821,6 +2918,15 @@ body {
     .kf-nav-inner { padding: 0 1rem; border-radius: 0; }
     .kf-logo { font-size: 1.1rem; }
 
+    /* Process */
+    .kf-approach-process { padding: 3rem 0; }
+    .kf-process-header { margin-bottom: 2rem; }
+    .kf-process-header h2 { font-size: 1.5rem; }
+    .kf-process-description { font-size: 0.9rem; }
+    .kf-process-card h3 { font-size: 1.1rem; }
+    .kf-process-card p { font-size: 0.85rem; }
+    .kf-process-card-build { padding: 1.25rem; }
+
     /* Hero */
     .kf-hero { padding: 3.5rem 0 2rem; }
     .kf-hero h1 { font-size: clamp(1.5rem, 6vw, 2.2rem); margin-bottom: 1rem; }
@@ -2855,6 +2961,15 @@ body {
 }
 
 @media (max-width: 400px) {
+    /* Process */
+    .kf-approach-process { padding: 2.5rem 0; }
+    .kf-process-header h2 { font-size: 1.3rem; }
+    .kf-process-header { margin-bottom: 1.5rem; }
+    .kf-process-label { font-size: 0.65rem; }
+    .kf-process-description { font-size: 0.85rem; }
+    .kf-process-card h3 { font-size: 1rem; }
+    .kf-process-card p { font-size: 0.8rem; }
+
     /* Extra small adjustments for very small phones */
     .kf-hero { padding: 2.5rem 0 1.5rem; }
     .kf-hero h1 { font-size: clamp(1.2rem, 5vw, 1.8rem); margin-bottom: 0.75rem; line-height: 1.2; }
