@@ -33,11 +33,6 @@ jobs:
       - name: Publish
         run: dotnet publish KrydsfeltHjemmeside.csproj -c Release -o publish
 
-      - name: Fix base href for GitHub Pages
-        run: |
-          REPO="${{ github.event.repository.name }}"
-          sed -i "s|<base href=\"/\" />|<base href=\"/${REPO}/\" />|g" publish/wwwroot/index.html
-
       - name: Add .nojekyll
         run: touch publish/wwwroot/.nojekyll
 
