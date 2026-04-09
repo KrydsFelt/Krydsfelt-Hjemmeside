@@ -2615,8 +2615,13 @@ body {
 
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {
-    .kf-services-content { grid-template-columns: 1fr; }
+    /* Services */
+    .kf-services-content { grid-template-columns: 1fr; gap: 2.5rem; }
     .kf-cards { grid-column: auto; }
+    .kf-services h2 { font-size: 2.2rem; }
+
+    /* Container */
+    .kf-container { margin-left: 3%; margin-right: 3%; }
     .kf-about-inner { grid-template-columns: 1fr; gap: 2.5rem; }
     .kf-footer-content { grid-template-columns: 1fr; gap: 3rem; }
     .kf-footer-links { grid-template-columns: 1fr; gap: 2rem; }
@@ -2636,25 +2641,34 @@ body {
 
 @media (max-width: 700px) {
     /* Nav */
-    .kf-nav { width: 100%; flex-direction: column; align-items: stretch; }
+    .kf-nav { width: 100%; flex-direction: column; align-items: stretch; padding: 1rem 0; gap: 0; }
+    .kf-nav-inner { border-radius: 0; height: auto; padding: 1rem; }
     .kf-nav-links { display: none; }
-    .kf-nav-contact-btn { display: none; }
+    .kf-nav-contact-btn { display: none; height: auto; padding: 0.75rem 1.5rem; }
     .kf-nav-hamburger { display: flex; }
-    .kf-nav-mobile { display: flex; }
+    .kf-nav-mobile { display: flex; flex-direction: column; }
+    .kf-nav-mobile a { padding: 1rem 1rem; font-size: 0.95rem; }
 
     /* Hero */
-    .kf-hero { padding: 6rem 0 3rem; }
-    .kf-hero h1 { font-size: clamp(1.8rem, 7vw, 2.5rem); }
-    .kf-hero p { font-size: 0.95rem; }
+    .kf-hero { padding: 5rem 0 2.5rem; }
+    .kf-hero h1 { font-size: clamp(1.6rem, 6vw, 2.4rem); line-height: 1.3; }
+    .kf-hero p { font-size: 0.95rem; line-height: 1.7; max-width: 100%; }
     .kf-hero-right { display: none; }
     .kf-hero-img-wrap { display: none; }
+    .kf-btn { padding: 1rem 2rem; font-size: 0.95rem; }
 
     /* Container */
     .kf-container { padding: 0 1.25rem; margin-left: 0; margin-right: 0; }
 
     /* Services (home) */
-    .kf-services { margin-right: 0; margin-left: 0; border-radius: 0; padding: 4rem 0; }
-    .kf-services-content { grid-template-columns: 1fr; gap: 3rem; }
+    .kf-services { margin-right: 0; margin-left: 0; border-radius: 0; padding: 3.5rem 0; }
+    .kf-services-content { grid-template-columns: 1fr; gap: 2.5rem; }
+    .kf-services h2 { font-size: 2.2rem; margin-bottom: 1rem; }
+    .kf-services .kf-section-sub { font-size: 0.95rem; }
+    .kf-card { padding: 1.5rem 0; }
+    .kf-card h3 { font-size: 1.05rem; }
+    .kf-card p { font-size: 0.9rem; }
+    .kf-card-num { font-size: 3rem; }
 
     /* Home cards → vertical list on mobile */
     .kf-cards {
@@ -2676,6 +2690,14 @@ body {
         scroll-snap-align: none;
     }
     .kf-services-swipe-hint { display: none; }
+
+    /* Why choose section on mobile */
+    .kf-why-choose-left h2 { font-size: 1.5rem; margin-bottom: 1rem; }
+    .kf-why-choose-left p { font-size: 0.95rem; }
+    .kf-why-choose-btn { padding: 1rem 1.5rem; font-size: 0.9rem; width: fit-content; }
+    .kf-why-choose-stats { grid-template-columns: 1fr; gap: 1rem; margin-top: 2rem; }
+    .kf-stat-card { padding: 1.5rem; }
+    .kf-stat-number { font-size: 2.2rem; }
 
     /* Ydelser service rows → swipeable cards */
     .yd-services-swipe-hint { display: flex; }
@@ -2738,9 +2760,11 @@ body {
     .yd-hero-stat-divider { display: none; }
 
     /* Why choose */
-    .kf-why-choose-left h2 { font-size: 1.75rem; }
+    .kf-why-choose-left h2 { font-size: 1.75rem; margin-bottom: 1rem; }
+    .kf-why-choose-left p { font-size: 0.95rem; }
     .kf-why-choose-stats { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
     .kf-stat-number { font-size: 2rem; }
+    .kf-stat-card { padding: 1.25rem; }
 
     /* Approach */
     .kf-approach-item { grid-template-columns: 56px 1fr; padding: 1.75rem 0; }
@@ -2767,8 +2791,67 @@ body {
     .oo-stats-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
-@media (max-width: 400px) {
-    .kf-why-choose-stats { grid-template-columns: 1fr; }
+@media (max-width: 550px) {
+    /* Navbar */
+    .kf-nav { width: 100%; padding: 1rem 0; }
+    .kf-nav-inner { padding: 0 1rem; border-radius: 0; }
+    .kf-logo { font-size: 1.1rem; }
+
+    /* Hero */
+    .kf-hero { padding: 3.5rem 0 2rem; }
+    .kf-hero h1 { font-size: clamp(1.5rem, 6vw, 2.2rem); margin-bottom: 1rem; }
+    .kf-hero p { font-size: 0.9rem; line-height: 1.6; }
+    .kf-btn { min-height: 48px; display: inline-flex; align-items: center; }
+
+    /* Services */
+    .kf-services { padding: 3rem 0; }
+    .kf-services h2 { font-size: 1.8rem; }
+    .kf-services .kf-section-sub { font-size: 0.9rem; }
+    .kf-card h3 { font-size: 0.95rem; }
+    .kf-card p { font-size: 0.85rem; }
+    .kf-card-num { font-size: 2rem; top: -5px; }
+
+    /* Why Choose */
+    .kf-why-choose-stats { grid-template-columns: 1fr; gap: 0.75rem; }
+    .kf-why-choose-left h2 { font-size: 1.4rem; }
+    .kf-why-choose-left p { font-size: 0.9rem; }
+    .kf-stat-number { font-size: 1.5rem; }
+    .kf-stat-label { font-size: 0.7rem; }
+    .kf-stat-desc { font-size: 0.6rem; }
+    .kf-stat-card { padding: 1rem; }
+
+    /* Approach */
+    .kf-approach h2 { font-size: 2rem; }
+    .kf-approach-sub { font-size: 0.95rem; }
+    .kf-approach-item { grid-template-columns: 60px 1fr; gap: 1rem; padding: 1.5rem 0; }
+
+    /* Calc */
     .kf-calc-options { grid-template-columns: 1fr; }
-    .kf-calc-options-pages { grid-template-columns: 1fr 1fr; }
+    .kf-calc-options-pages { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 400px) {
+    /* Extra small adjustments for very small phones */
+    .kf-hero { padding: 2.5rem 0 1.5rem; }
+    .kf-hero h1 { font-size: clamp(1.2rem, 5vw, 1.8rem); margin-bottom: 0.75rem; line-height: 1.2; }
+    .kf-hero p { font-size: 0.85rem; }
+
+    .kf-services { padding: 2.5rem 0; }
+    .kf-services-left h2 { font-size: 1.5rem; }
+    .kf-services .kf-section-sub { font-size: 0.85rem; }
+    .kf-card { padding: 1.25rem 0; gap: 0.5rem; }
+    .kf-card h3 { font-size: 0.9rem; }
+    .kf-card p { font-size: 0.8rem; }
+
+    .kf-why-choose { padding-top: 3rem; }
+    .kf-why-choose-left h2 { font-size: 1.3rem; margin-bottom: 0.75rem; }
+    .kf-why-choose-left p { font-size: 0.85rem; }
+    .kf-why-choose-stats { gap: 0.5rem; margin-top: 1.5rem; }
+    .kf-stat-card { padding: 0.75rem; }
+    .kf-stat-number { font-size: 1.3rem; }
+    .kf-stat-label { font-size: 0.65rem; }
+    .kf-stat-desc { font-size: 0.55rem; line-height: 1.3; }
+
+    .kf-approach h2 { font-size: 1.5rem; }
+    .kf-approach-item { grid-template-columns: 50px 1fr; padding: 1rem 0; }
 }
