@@ -44,7 +44,7 @@ body {
 .kf-logo {
     font-size: 1.35rem;
     font-weight: 700;
-    color: #E8622A;
+    color: #1a1a1a;
     text-decoration: none;
 }
 
@@ -95,18 +95,18 @@ body {
     height: 60px;
     flex: 1;
     padding: 0 1.75rem;
-    background: rgba(16, 13, 10, 0.6);
+    background: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-radius: 14px;
-    border: 1px solid rgba(232, 98, 42, 0.15);
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.5);
     transition: box-shadow 0.3s ease, background 0.3s ease;
 }
 
 .kf-nav.scrolled .kf-nav-inner {
-    background: rgba(10, 8, 6, 0.88);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
 .kf-nav-links {
@@ -116,7 +116,7 @@ body {
 
 .kf-nav-links a {
     text-decoration: none;
-    color: rgba(255, 255, 255, 0.7);
+    color: rgba(0, 0, 0, 0.7);
     font-size: 0.95rem;
     font-weight: 500;
     transition: color 0.15s;
@@ -163,18 +163,19 @@ body {
 }
 
 .kf-hero h1 {
-    font-size: clamp(2.2rem, 5vw, 3.5rem);
-    font-weight: 500;
-    line-height: 1.2;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 600;
+    line-height: 1.3;
     color: #1a1a1a;
-    margin-bottom: 1.25rem;
+    margin-bottom: 1.5rem;
 }
 
 .kf-hero p {
-    font-size: 1.05rem;
+    font-size: 1.1rem;
     color: #6b7280;
-    line-height: 1.7;
+    line-height: 1.8;
     margin-bottom: 2.5rem;
+    max-width: 600px;
 }
 
 .kf-btn {
@@ -286,8 +287,8 @@ body {
     padding: 6rem 0;
     background:
         radial-gradient(ellipse 80% 55% at 50% -5%, rgba(232, 98, 42, 0.18) 0%, transparent 100%),
-        #080706;
-    text-align: center;
+        #000000;
+    text-align: left;
     position: relative;
     overflow: hidden;
     margin-right: 6.5%;
@@ -324,18 +325,17 @@ body {
 }
 
 .kf-services h2 {
-    font-size: 2.2rem;
-    font-weight: 800;
-    margin-bottom: 0.5rem;
+    font-size: 2.8rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
     position: relative;
-    background: linear-gradient(135deg, #ffffff 10%, #ffb088 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: #ffffff;
+    line-height: 1.3;
 }
 
 .kf-services .kf-section-sub {
-    color: #6b7280;
+    color: #9ca3af;
+    font-size: 1rem;
 }
 
 .kf-services-swipe-hint,
@@ -352,50 +352,45 @@ body {
 .oo-values-swipe-hint { color: rgba(255,255,255,0.35); }
 
 .kf-cards {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 0;
     text-align: left;
     position: relative;
+    align-items: stretch;
 }
 
 /* ── CARD BASE ── */
 .kf-card {
-    background: #161412;
-    border-radius: 20px;
-    padding: 2.25rem;
+    background: transparent;
+    border-radius: 0;
+    padding: 2rem 0;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-    box-shadow: 0 2px 24px rgba(0, 0, 0, 0.4);
-    border: 1px solid rgba(255, 255, 255, 0.07);
+    gap: 0.75rem;
+    box-shadow: none;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     position: relative;
-    overflow: hidden;
+    overflow: visible;
     will-change: transform;
     cursor: default;
-    transition: box-shadow 0.35s ease, border-color 0.35s ease;
+    transition: none;
 }
 
 /* Orange fill sweeps up on hover */
 .kf-card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, #E8622A 0%, #f07840 60%, #ff9060 100%);
-    border-radius: 20px;
-    transform: translateY(105%);
-    transition: transform 0.52s cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: 0;
+    display: none;
 }
 
 .kf-card:hover::before {
-    transform: translateY(0);
+    display: none;
 }
 
 .kf-card:hover {
-    box-shadow: 0 28px 64px rgba(232, 98, 42, 0.28);
-    border-color: rgba(232, 98, 42, 0.4);
+    box-shadow: none;
+    border-color: rgba(255, 255, 255, 0.1);
 }
 
 /* All card content above the fill */
@@ -406,63 +401,57 @@ body {
 
 /* ── CARD CONTENT TRANSITIONS ── */
 .kf-card h3 {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: #f0f0f0;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #ffffff;
     transition: color 0.3s ease;
 }
 
 .kf-card p {
-    font-size: 0.92rem;
-    color: #8a8a8a;
-    line-height: 1.65;
+    font-size: 0.95rem;
+    color: #9ca3af;
+    line-height: 1.6;
     transition: color 0.3s ease;
 }
 
-.kf-card:hover h3 { color: #fff; }
+.kf-card:hover h3 { color: #E8622A; }
 .kf-card:hover p  { color: rgba(255, 255, 255, 0.88); }
 
 /* Icon box morph on hover */
 .kf-card .kf-icon-box {
-    transition: background 0.35s ease, transform 0.35s ease;
+    display: none;
 }
 
 .kf-card:hover .kf-icon-box {
-    background: rgba(255, 255, 255, 0.2);
-    transform: scale(1.1) translateY(-2px);
+    display: none;
 }
 
 .kf-card .kf-icon-box svg {
-    transition: stroke 0.35s ease;
+    display: none;
 }
 
 .kf-card:hover .kf-icon-box svg {
-    stroke: #fff;
-}
-
-/* Icon box on dark cards */
-.kf-card .kf-icon-box {
-    background: rgba(232, 98, 42, 0.15);
+    display: none;
 }
 
 /* Decorative faded number */
 .kf-card-num {
     position: absolute;
-    bottom: -14px;
-    right: 16px;
-    font-size: 6rem;
-    font-weight: 900;
+    top: 0;
+    right: 0;
+    font-size: 3.5rem;
+    font-weight: 700;
     line-height: 1;
-    color: rgba(232, 98, 42, 0.12);
+    color: rgba(255, 255, 255, 0.08);
     pointer-events: none;
     user-select: none;
-    z-index: 1;
+    z-index: 0;
     transition: color 0.35s ease;
-    letter-spacing: -4px;
+    letter-spacing: -2px;
 }
 
 .kf-card:hover .kf-card-num {
-    color: rgba(255, 255, 255, 0.09);
+    color: rgba(255, 255, 255, 0.12);
 }
 
 /* ── WHY CHOOSE ── */
@@ -473,8 +462,8 @@ body {
 
 .kf-why-choose-inner {
     display: grid;
-    grid-template-columns: 1fr 1.2fr;
-    gap: 4rem;
+    grid-template-columns: 1fr;
+    gap: 3rem;
     align-items: start;
 }
 
@@ -518,9 +507,9 @@ body {
 
 .kf-why-choose-stats {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 1.5rem;
-    direction: rtl;
+    direction: ltr;
 }
 
 .kf-stat-card {
@@ -529,11 +518,9 @@ body {
     border-radius: 12px;
     background: #f9fafb;
     transition: all 0.2s;
-    aspect-ratio: 1;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    /*max-width: 200px;*/
+    justify-content: flex-start;
     text-align: left;
 }
 
@@ -1449,7 +1436,7 @@ body {
     z-index: 1;
     text-align: left;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 4rem;
     align-items: center;
 }
@@ -1467,7 +1454,7 @@ body {
 }
 
 .kf-hero-right {
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
 }
@@ -1759,6 +1746,25 @@ body {
 .kf-services-content {
     position: relative;
     z-index: 2;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 4rem;
+    grid-auto-flow: dense;
+}
+
+.kf-services-left {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    grid-column: 1;
+}
+
+.kf-services-swipe-hint {
+    grid-column: 1 / -1;
+}
+
+.kf-cards {
+    grid-column: 2;
 }
 
 /* Glow orbs stay below parallax text */
@@ -1769,30 +1775,19 @@ body {
 
 /* ── CARD LINK ARROW ── */
 .kf-card-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    color: #E8622A;
-    font-size: 0.875rem;
-    font-weight: 600;
-    text-decoration: none;
-    margin-top: auto;
-    transition: color 0.3s ease;
-    cursor: pointer;
-    width: fit-content;
+    display: none;
 }
 
 .kf-card-arrow {
-    display: inline-block;
-    transition: transform 0.25s ease;
+    display: none;
 }
 
 .kf-card-link:hover .kf-card-arrow {
-    transform: translateX(5px);
+    display: none;
 }
 
 .kf-card:hover .kf-card-link {
-    color: rgba(255, 255, 255, 0.95);
+    display: none;
 }
 
 /* ── YDELSER ANIMATIONS ── */
@@ -2620,7 +2615,8 @@ body {
 
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {
-    .kf-cards { grid-template-columns: repeat(2, 1fr); }
+    .kf-services-content { grid-template-columns: 1fr; }
+    .kf-cards { grid-column: auto; }
     .kf-about-inner { grid-template-columns: 1fr; gap: 2.5rem; }
     .kf-footer-content { grid-template-columns: 1fr; gap: 3rem; }
     .kf-footer-links { grid-template-columns: 1fr; gap: 2rem; }
@@ -2658,26 +2654,28 @@ body {
 
     /* Services (home) */
     .kf-services { margin-right: 0; margin-left: 0; border-radius: 0; padding: 4rem 0; }
+    .kf-services-content { grid-template-columns: 1fr; gap: 3rem; }
 
-    /* Home cards → swipeable carousel */
+    /* Home cards → vertical list on mobile */
     .kf-cards {
         display: flex;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        -webkit-overflow-scrolling: touch;
-        gap: 1rem;
-        padding: 0.5rem 1.25rem 1.5rem;
-        margin-top: 2rem;
-        scrollbar-width: none;
+        flex-direction: column;
+        overflow-x: visible;
+        scroll-snap-type: none;
+        -webkit-overflow-scrolling: auto;
+        gap: 0;
+        padding: 0;
+        margin-top: 0;
+        scrollbar-width: auto;
     }
-    .kf-cards::-webkit-scrollbar { display: none; }
+    .kf-cards::-webkit-scrollbar { display: auto; }
     .kf-card {
-        min-width: 78vw;
-        max-width: 320px;
-        flex-shrink: 0;
-        scroll-snap-align: center;
+        min-width: auto;
+        max-width: 100%;
+        flex-shrink: 1;
+        scroll-snap-align: none;
     }
-    .kf-services-swipe-hint { display: flex; }
+    .kf-services-swipe-hint { display: none; }
 
     /* Ydelser service rows → swipeable cards */
     .yd-services-swipe-hint { display: flex; }
@@ -2741,7 +2739,7 @@ body {
 
     /* Why choose */
     .kf-why-choose-left h2 { font-size: 1.75rem; }
-    .kf-why-choose-stats { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+    .kf-why-choose-stats { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
     .kf-stat-number { font-size: 2rem; }
 
     /* Approach */
