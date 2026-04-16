@@ -14,8 +14,8 @@
         <button class="kf-nav-hamburger @(navOpen ? "open" : "")" @onclick="() => navOpen = !navOpen" aria-label="Menu">
             <span></span><span></span><span></span>
         </button>
+        <a href="#contact" class="kf-nav-contact-btn">Kontakt</a>
     </div>
-    <a href="#contact" class="kf-nav-contact-btn">Kontakt</a>
     <div class="kf-nav-mobile @(navOpen ? "open" : "")">
         <a href="/ydelser" @onclick="() => navOpen = false">Ydelser</a>
         <a href="/om-os" @onclick="() => navOpen = false">Om os</a>
@@ -25,37 +25,27 @@
 
 <!-- HERO -->
 <section class="kf-hero">
-    <div class="kf-hero-blob kf-hero-blob-1"></div>
-    <div class="kf-hero-blob kf-hero-blob-2"></div>
-    <div class="kf-container kf-hero-inner">
-        <div class="kf-hero-left">
-            <h1>Vi Bygger Digitale<br /><span class="kf-orange">Magtsystemer</span></h1>
-            <p>Skræddersyede webløsninger og systemer, der gør din virksomhed stand out.<br />Vi handler hurtigt, leverer kvalitet, og får resultat.</p>
-            <div class="kf-hero-actions">
-                <a href="mailto:krydsfelt.info@gmail.com" class="kf-btn">Kom i gang →</a>
+    <div class="kf-container">
+        <div class="kf-hero-content">
+            <div class="kf-hero-status">
+                <span class="kf-status-text">Europa, Danmark</span>
             </div>
-        </div>
-        <div class="kf-hero-right">
-            <div class="kf-hero-img-wrap">
-                <div class="kf-hero-img-accent"></div>
-                <div class="kf-flip-card @(cardFlipped ? "flipped" : "")" @onclick="() => cardFlipped = !cardFlipped">
-                    <div class="kf-flip-inner">
-                        <div class="kf-flip-front">
-                            <img src="Pictures/gioleak.jpeg" alt="KrydsFelt team" class="kf-hero-img" />
-                        </div>
-                        <div class="kf-flip-back">
-                            <h3>Vi er KrydsFelt</h3>
-                            <p>Et dedikeret team af udviklere og designere baseret i Aarhus. Vi bygger skræddersyede digitale løsninger, der hjælper virksomheder med at vokse.</p>
-                            <ul>
-                                <li>Webudvikling & design</li>
-                                <li>Skræddersyede systemer</li>
-                                <li>Hurtig levering</li>
-                                <li>Langsigtet support</li>
-                            </ul>
-                            <a href="mailto:krydsfelt.info@gmail.com">Kontakt os →</a>
-                        </div>
-                    </div>
-                </div>
+
+            <h1 class="kf-hero-title" data-animate="words">
+                Vi Bygger Digitale Magtsystemer for Vækst
+            </h1>
+
+            <p class="kf-hero-description reveal">
+                Et dedikeret team af udviklere og designere baseret i Aarhus. Vi skaber skræddersyede webløsninger og systemer, der transformerer virksomheder. Hurtig levering, høj kvalitet, målbare resultater.
+            </p>
+
+            <div class="kf-hero-ctas">
+                <a href="mailto:krydsfelt.info@gmail.com" class="kf-btn kf-btn-primary">
+                    <span>↳ Kom i gang</span>
+                </a>
+                <a href="/ydelser" class="kf-btn kf-btn-secondary">
+                    <span>↳ Se vores arbejde</span>
+                </a>
             </div>
         </div>
     </div>
@@ -64,35 +54,66 @@
 <!-- APPROACH PROCESS -->
 <section class="kf-approach-process">
     <div class="kf-container">
-        <div class="kf-process-header">
-            <p class="kf-process-label">FROM STRATEGY TO A PLATFORM THAT PERFORMS</p>
-            <h2>Every effective digital platform starts with a clear strategy</h2>
-            <p class="kf-process-description">KrydsFelt defines the brand positioning first, then designs and develops digital platforms that are structured, credible, and built to convert.</p>
+        <div class="kf-process-intro">
+            <p class="kf-process-intro-text">
+                Vi bygger digitale løsninger for etablerede virksomheder, startups og alt derimelllem. Fokus er det samme: <span class="kf-process-highlight">systemer der skalerer</span>, løser de kommunikations-problemer der betyder noget, og holder <span class="kf-process-highlight">mennesker først</span> hele vejen igennem.
+            </p>
         </div>
 
-        <div class="kf-process-cards">
-            <div class="kf-process-card">
-                <div class="kf-process-card-image">
-                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&h=400&fit=crop" alt="Strategy" />
-                </div>
-                <h3>Strategy</h3>
-                <p>We start with insight understanding your market, audience, and positioning. Based on this, we define the structure, strategy, and direction of the digital platform.</p>
+        <div class="kf-process-content">
+            <div class="kf-process-left">
+                <h2 data-animate="words">Vores tilgang til digital design</h2>
+                <p class="reveal">
+                    Vi designer digitale oplevelser der virker for de mennesker der bruger dem og de teams der vedligeholder dem. Vi starter med hvad brugerne rent faktisk skal bruge, mapper flows, tester tidligt, og bygger interfaces der ikke skal have manualer.
+                </p>
+                <p class="reveal" style="margin-top: 1.5rem;">
+                    Arbejdet dækker UX, interaction design, information architecture og brand evolution. Design for virkelighed. Rodet sker. Hvis brugere bliver lost eller klienten ikke kan update indhold uden at bryde noget – det er et problem. God design holder stand når det bliver kompliceret.
+                </p>
+                <a href="/ydelser" class="kf-process-cta">↳ Se vores arbejde</a>
             </div>
 
-            <div class="kf-process-card kf-process-card-build">
-                <div class="kf-process-card-image">
-                    <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=500&h=400&fit=crop" alt="Build" />
-                </div>
-                <h3>Build</h3>
-                <p>Next, we design and develop a website or webshop that is technically robust, fast, and built for conversion. Every pixel is crafted for performance.</p>
-            </div>
+            <div class="kf-process-right">
+                <div class="kf-process-accordion">
+                    <div class="kf-process-accordion-item">
+                        <button class="kf-process-accordion-trigger">
+                            <span>Strategi</span>
+                            <span class="kf-process-accordion-icon">+</span>
+                        </button>
+                        <div class="kf-process-accordion-content">
+                            <p>Vi starter med en grundig forståelse af dit marked, din målgruppe og position. Ud fra det definerer vi strukturen, strategien og retningen for din digitale platform.</p>
+                        </div>
+                    </div>
 
-            <div class="kf-process-card">
-                <div class="kf-process-card-image">
-                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=500&h=400&fit=crop" alt="Perform" />
+                    <div class="kf-process-accordion-item">
+                        <button class="kf-process-accordion-trigger">
+                            <span>User Experience</span>
+                            <span class="kf-process-accordion-icon">+</span>
+                        </button>
+                        <div class="kf-process-accordion-content">
+                            <p>Vi designer oplevelser omkring brugerens behov. Hver interaktion, hvert flow, hver skærm er designet for at løse problemer og skabe værdi for brugere.</p>
+                        </div>
+                    </div>
+
+                    <div class="kf-process-accordion-item">
+                        <button class="kf-process-accordion-trigger">
+                            <span>Design</span>
+                            <span class="kf-process-accordion-icon">+</span>
+                        </button>
+                        <div class="kf-process-accordion-content">
+                            <p>Fra wireframes til pixel-perfekt design. Vi skaber visuelt sammenhængende systemer der fungerer på alle enheder og bakker virksomhedens mærke op.</p>
+                        </div>
+                    </div>
+
+                    <div class="kf-process-accordion-item">
+                        <button class="kf-process-accordion-trigger">
+                            <span>Udvikling</span>
+                            <span class="kf-process-accordion-icon">+</span>
+                        </button>
+                        <div class="kf-process-accordion-content">
+                            <p>Vi udvikler robust, skalerbar kode der måler sig selv. Performance, sikkerhed og vedligeholdelse bygges ind fra start.</p>
+                        </div>
+                    </div>
                 </div>
-                <h3>Perform</h3>
-                <p>Finally, we connect systems, CRM, and data so performance becomes measurable and the platform can continuously improve and grow.</p>
             </div>
         </div>
     </div>
@@ -100,102 +121,127 @@
 
 <!-- SERVICES -->
 <section class="kf-services" id="services">
-    <div class="kf-parallax-text" aria-hidden="true">KrydsFelt</div>
     <div class="kf-container kf-services-content">
         <div class="kf-services-left">
-            <h2 class="reveal">Designed for scalable performance</h2>
-            <p class="kf-section-sub reveal" data-delay="100">Our team of strategists and specialists structures, builds, and optimizes digital growth with discipline and a clear focus on results.</p>
+            <h2 class="reveal" data-animate="words">Designet til skalerbar performance</h2>
+            <p class="kf-section-sub reveal" data-delay="100">Vores team af strategier og specialister strukturerer, bygger og optimerer digital vækst med disciplin og klart fokus på resultater.</p>
         </div>
         <div class="kf-services-swipe-hint">Swipe for at se mere →</div>
-        <div class="kf-cards">
-            <div class="kf-card reveal" data-delay="0">
-                <div class="kf-icon-box">
-                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#E8622A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/>
-                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-                    </svg>
+        <div class="kf-case-grid">
+            <div class="kf-case-study" data-delay="0">
+                <div class="kf-case-study-wrap">
+                    <div class="kf-case-study-visual kf-case-study-icon">
+                        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="32" cy="32" r="30" stroke="currentColor" stroke-width="2"/>
+                            <path d="M20 28H44M20 36H44M24 44H40" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M32 16V48" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+                        </svg>
+                    </div>
+                    <div class="kf-case-study-content">
+                        <div class="kf-case-study-top">
+                            <h3>Web Development</h3>
+                            <p>Bygger robuste, skalerbare webapplikationer med moderne teknologi og best practices.</p>
+                        </div>
+                        <div class="kf-case-study-bottom">
+                            <a href="/ydelser" class="kf-case-study-link">
+                                <span>View Service</span>
+                                <svg width="12" height="8" viewBox="0 0 15 10" fill="currentColor">
+                                    <path d="M10 10L15 5L10 0L8.83333 1.16667L11.8333 4.16667H1.66667V0.833333H0V5.83333H11.8333L8.83333 8.83333L10 10Z" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
                 </div>
-                <h3>Webudvikling</h3>
-                <p>Moderne, lynhurtige hjemmesider og webapps, der konverterer besøgende til kunder.</p>
-                <a href="/ydelser#webudvikling" class="kf-card-link">Læs mere <span class="kf-card-arrow">→</span></a>
-                <span class="kf-card-num">01</span>
             </div>
-            <div class="kf-card reveal" data-delay="120">
-                <div class="kf-icon-box">
-                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#E8622A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
-                    </svg>
+
+            <div class="kf-case-study" data-delay="120">
+                <div class="kf-case-study-wrap">
+                    <div class="kf-case-study-visual kf-case-study-icon">
+                        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="16" y="18" width="32" height="24" stroke="currentColor" stroke-width="2" rx="2"/>
+                            <path d="M20 22H44M20 30H44M20 38H40" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
+                            <circle cx="48" cy="20" r="3" fill="currentColor"/>
+                        </svg>
+                    </div>
+                    <div class="kf-case-study-content">
+                        <div class="kf-case-study-top">
+                            <h3>UI/UX Design</h3>
+                            <p>Designer intuitive brugergrænseflader som kombinerer skønhed med funktionalitet og brugervenlighed.</p>
+                        </div>
+                        <div class="kf-case-study-bottom">
+                            <a href="/ydelser" class="kf-case-study-link">
+                                <span>View Service</span>
+                                <svg width="12" height="8" viewBox="0 0 15 10" fill="currentColor">
+                                    <path d="M10 10L15 5L10 0L8.83333 1.16667L11.8333 4.16667H1.66667V0.833333H0V5.83333H11.8333L8.83333 8.83333L10 10Z" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
                 </div>
-                <h3>Skræddersyede Systemer</h3>
-                <p>Softwareløsninger bygget præcis til dine behov – ingen kompromiser, ren effektivitet.</p>
-                <a href="/ydelser#systemer" class="kf-card-link">Læs mere <span class="kf-card-arrow">→</span></a>
-                <span class="kf-card-num">02</span>
             </div>
-            <div class="kf-card reveal" data-delay="240">
-                <div class="kf-icon-box">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E8622A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/>
-                        <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
-                    </svg>
+
+            <div class="kf-case-study" data-delay="240">
+                <div class="kf-case-study-wrap">
+                    <div class="kf-case-study-visual kf-case-study-icon">
+                        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M32 16L40 22V44H24V22L32 16Z" stroke="currentColor" stroke-width="2"/>
+                            <path d="M28 28H36M28 34H36M28 40H32" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            <circle cx="48" cy="32" r="8" stroke="currentColor" stroke-width="2"/>
+                            <path d="M48 28V36M44 32H52" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <div class="kf-case-study-content">
+                        <div class="kf-case-study-top">
+                            <h3>Custom Development</h3>
+                            <p>Løsninger der er skræddersyet til dine specifikke behov og integreres seamlessly med eksisterende systemer.</p>
+                        </div>
+                        <div class="kf-case-study-bottom">
+                            <a href="/ydelser" class="kf-case-study-link">
+                                <span>View Service</span>
+                                <svg width="12" height="8" viewBox="0 0 15 10" fill="currentColor">
+                                    <path d="M10 10L15 5L10 0L8.83333 1.16667L11.8333 4.16667H1.66667V0.833333H0V5.83333H11.8333L8.83333 8.83333L10 10Z" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
                 </div>
-                <h3>Backend-løsninger</h3>
-                <p>Kraftfulde systemer på stedet – skalering, sikkerhed og performance, som standard.</p>
-                <a href="/ydelser#backend" class="kf-card-link">Læs mere <span class="kf-card-arrow">→</span></a>
-                <span class="kf-card-num">03</span>
             </div>
-            <div class="kf-card reveal" data-delay="360">
-                <div class="kf-icon-box">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E8622A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/>
-                    </svg>
+
+            <div class="kf-case-study" data-delay="360">
+                <div class="kf-case-study-wrap">
+                    <div class="kf-case-study-visual kf-case-study-icon">
+                        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="22" y="14" width="20" height="36" stroke="currentColor" stroke-width="2" rx="2"/>
+                            <path d="M24 18H40M24 24H40M24 30H40M24 36H40M24 42H40" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
+                            <circle cx="32" cy="50" r="1.5" fill="currentColor"/>
+                        </svg>
+                    </div>
+                    <div class="kf-case-study-content">
+                        <div class="kf-case-study-top">
+                            <h3>Mobile Solutions</h3>
+                            <p>Native og cross-platform mobile apps designet for performance og brugeroplevelse på alle enheder.</p>
+                        </div>
+                        <div class="kf-case-study-bottom">
+                            <a href="/ydelser" class="kf-case-study-link">
+                                <span>View Service</span>
+                                <svg width="12" height="8" viewBox="0 0 15 10" fill="currentColor">
+                                    <path d="M10 10L15 5L10 0L8.83333 1.16667L11.8333 4.16667H1.66667V0.833333H0V5.83333H11.8333L8.83333 8.83333L10 10Z" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
                 </div>
-                <h3>Responsivt Design</h3>
-                <p>Punch-løsninger, der ser fabelagtig ud på hver enhed – fra mobil til desktop.</p>
-                <a href="/ydelser#design" class="kf-card-link">Læs mere <span class="kf-card-arrow">→</span></a>
-                <span class="kf-card-num">04</span>
             </div>
         </div>
     </div>
 </section>
 
-<!-- WHY CHOOSE -->
-<section class="kf-why-choose">
-    <div class="kf-container kf-why-choose-inner">
-        <div class="kf-why-choose-left">
-            <h2>Hvorfor vælge KrydsFelt?</h2>
-            <p>Vi leverer løsninger, der virker. Med erfaring på tværs af industrier, dedikerede team members, og en track record af succes – vi er dine partners for growth.</p>
-            <a href="mailto:krydsfelt.info@gmail.com" class="kf-why-choose-btn">Start dit projekt</a>
-        </div>
-        <div class="kf-why-choose-stats">
-            <div class="kf-stat-card">
-                <div class="kf-stat-number">50+</div>
-                <p class="kf-stat-label">Erfarne udvikler & designere</p>
-                <p class="kf-stat-desc">Dedikeret team, der leverer exceptional resultat.</p>
-            </div>
-            <div class="kf-stat-card">
-                <div class="kf-stat-number">100+</div>
-                <p class="kf-stat-label">Succesfulde projekter</p>
-                <p class="kf-stat-desc">Gennemført på tværs af diverse brancher.</p>
-            </div>
-            <div class="kf-stat-card">
-                <div class="kf-stat-number">5+</div>
-                <p class="kf-stat-label">År erfaring</p>
-                <p class="kf-stat-desc">Bevist ekspertise, innovation og kvalitet.</p>
-            </div>
-            <div class="kf-stat-card">
-                <div class="kf-stat-number">30+</div>
-                <p class="kf-stat-label">Tilfredsne kunder</p>
-                <p class="kf-stat-desc">Virksomheder, der har partneret med os til succes.</p>
-            </div>
-        </div>
-    </div>
-</section>
 
 <!-- OUR APPROACH -->
 <section class="kf-approach">
     <div class="kf-container">
-        <h2>Vores tilgang til arbejde og projekter</h2>
-        <p class="kf-approach-sub">Vi bygger løsninger der varer, skalerer og driver vækst for din virksomhed</p>
+        <h2 data-animate="words">Vores tilgang til arbejde og projekter</h2>
+        <p class="kf-approach-sub reveal">Vi bygger løsninger der varer, skalerer og driver vækst for din virksomhed</p>
 
         <ul class="kf-approach-list" role="list">
             <li class="kf-approach-item">
@@ -295,14 +341,11 @@
 <section class="kf-faq">
     <div class="kf-container">
         <div class="kf-faq-header">
-            <h2>FAQ.</h2>
-            <p>Straight answers to your questions.</p>
+            <h2 data-animate="words">Ofte stillede spørgsmål.</h2>
         </div>
 
         <div class="kf-faq-content">
-            <div class="kf-faq-section">
-                <h3>Good to know</h3>
-                <div class="kf-faq-items">
+            <div class="kf-faq-items">
                     <div class="kf-faq-item">
                         <button class="kf-faq-question">
                             <span>Hvad koster et projekt?</span>
@@ -374,129 +417,6 @@
                             <p>Page builders har begrænsninger. Skræddersyet udvikling giver dig fuld kontrol, bedre performance, og løsninger der skalerer.</p>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- PRISBEREGNER -->
-        <div class="kf-price-calc">
-            <div class="kf-price-calc-header">
-                <h3>Hvad koster din hjemmeside?</h3>
-                <p>Beregn et hurtigt estimat på under 1 minut</p>
-            </div>
-
-            @if (CalcStep < 4)
-            {
-                <div class="kf-calc-progress">
-                    <div class="kf-calc-progress-bar" style="width: @((CalcStep + 1) * 25)%"></div>
-                </div>
-                <div class="kf-calc-step-label">Trin @(CalcStep + 1) af 4</div>
-            }
-
-            @if (CalcStep == 0)
-            {
-                <div class="kf-calc-question">Hvad er formålet med hjemmesiden?</div>
-                <div class="kf-calc-options">
-                    @foreach (var opt in SiteTypes)
-                    {
-                        <button class="kf-calc-option @(SelectedType == opt.Key ? "active" : "")"
-                                @onclick="() => SelectType(opt.Key)">
-                            <span class="kf-calc-opt-icon">@opt.Icon</span>
-                            <span class="kf-calc-opt-label">@opt.Label</span>
-                            <span class="kf-calc-opt-desc">@opt.Desc</span>
-                        </button>
-                    }
-                </div>
-                <div class="kf-calc-nav">
-                    <button class="kf-calc-next" disabled="@(SelectedType == null)" @onclick="NextStep">Næste →</button>
-                </div>
-            }
-
-            @if (CalcStep == 1)
-            {
-                <div class="kf-calc-question">Hvor mange sider skal hjemmesiden have?</div>
-                <div class="kf-calc-options kf-calc-options-pages">
-                    @foreach (var opt in PageRanges)
-                    {
-                        <button class="kf-calc-option @(SelectedPages == opt.Key ? "active" : "")"
-                                @onclick="() => SelectPages(opt.Key)">
-                            <span class="kf-calc-opt-label">@opt.Label</span>
-                            <span class="kf-calc-opt-desc">@opt.Desc</span>
-                        </button>
-                    }
-                </div>
-                <div class="kf-calc-nav">
-                    <button class="kf-calc-back" @onclick="PrevStep">← Tilbage</button>
-                    <button class="kf-calc-next" disabled="@(SelectedPages == null)" @onclick="NextStep">Næste →</button>
-                </div>
-            }
-
-            @if (CalcStep == 2)
-            {
-                <div class="kf-calc-question">Hvilke funktioner har du brug for?</div>
-                <div class="kf-calc-features">
-                    @foreach (var feat in Features)
-                    {
-                        <label class="kf-calc-feature @(SelectedFeatures.Contains(feat.Key) ? "active" : "")">
-                            <input type="checkbox" checked="@SelectedFeatures.Contains(feat.Key)"
-                                   @onchange="() => ToggleFeature(feat.Key)" />
-                            <span class="kf-calc-feat-icon">@feat.Icon</span>
-                            <div class="kf-calc-feat-text">
-                                <span class="kf-calc-feat-name">@feat.Label</span>
-                                <span class="kf-calc-feat-price">+@feat.PriceLabel</span>
-                            </div>
-                        </label>
-                    }
-                </div>
-                <div class="kf-calc-nav">
-                    <button class="kf-calc-back" @onclick="PrevStep">← Tilbage</button>
-                    <button class="kf-calc-next" @onclick="NextStep">Se estimat →</button>
-                </div>
-            }
-
-            @if (CalcStep == 3)
-            {
-                <div class="kf-calc-result">
-                    <div class="kf-calc-result-label">Dit estimerede budget</div>
-                    <div class="kf-calc-result-price">@PriceLow.ToString("N0") – @PriceHigh.ToString("N0") kr.</div>
-                    <div class="kf-calc-result-note">Dette er et vejledende estimat. Det endelige tilbud baseres på en konkret dialog om dit projekt.</div>
-                    <div class="kf-calc-result-summary">
-                        @foreach (var line in GetSummaryLines())
-                        {
-                            <div class="kf-calc-sum-line">
-                                <span>@line.Label</span>
-                                <span>@line.Price</span>
-                            </div>
-                        }
-                    </div>
-                    <div class="kf-calc-result-actions">
-                        <a href="mailto:krydsfelt.info@gmail.com?subject=Prisforespørgsel" class="kf-calc-cta">Få et rigtigt tilbud →</a>
-                        <button class="kf-calc-back" @onclick="Reset">Beregn igen</button>
-                    </div>
-                </div>
-            }
-        </div>
-
-        <div class="kf-faq-footer">
-            <div class="kf-faq-box kf-faq-box-light">
-                <div class="kf-faq-box-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path>
-                        <circle cx="12" cy="10" r="3"></circle>
-                    </svg>
-                </div>
-                <h4>Baseret i Aarhus</h4>
-                <p>Vi er lokalt forankret men arbejder globalt. Personlig kontakt og dedikeret support for dit projekt.</p>
-            </div>
-            <div class="kf-faq-box kf-faq-box-dark">
-                <div class="kf-faq-box-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
-                    </svg>
-                </div>
-                <h4>Særligt projekt?</h4>
-                <p>For komplekse eller skræddersyede løsninger kan vi oprette et custom tilbud. Fortæl os hvad du har brug for.</p>
-                <a href="mailto:krydsfelt.info@gmail.com" class="kf-faq-cta">Anmod tilbud →</a>
             </div>
         </div>
     </div>
@@ -509,6 +429,7 @@
             <div class="kf-footer-cta">
                 <p class="kf-footer-cta-label">Klar til at blive noget stort?</p>
                 <a href="mailto:krydsfelt.info@gmail.com" class="kf-footer-email">krydsfelt.info@gmail.com</a>
+                <p style="font-size: 0.85rem; color: #999; margin-top: 0.75rem; font-weight: 500;">Tony Xtruong, Founder & CTO</p>
             </div>
             <div class="kf-footer-links">
                 <div class="kf-footer-col">
@@ -542,97 +463,4 @@
     }
 
     bool navOpen = false;
-    bool cardFlipped = false;
-
-    // ── PRISBEREGNER ──
-    int CalcStep = 0;
-    string? SelectedType = null;
-    string? SelectedPages = null;
-    HashSet<string> SelectedFeatures = new();
-
-    record SiteTypeOption(string Key, string Icon, string Label, string Desc, int Low, int High);
-    record PageRangeOption(string Key, string Label, string Desc, int Low, int High);
-    record FeatureOption(string Key, string Icon, string Label, string PriceLabel, int Low, int High);
-    record SummaryLine(string Label, string Price);
-
-    List<SiteTypeOption> SiteTypes = new()
-    {
-        new("landing",   "", "Landing Page",      "Én side til at præsentere dit produkt eller service", 3000,  6000),
-        new("business",  "", "Virksomhedsside",   "Professionel hjemmeside med flere sektioner",          5000, 10000),
-        new("webshop",   "", "Webshop",            "Online butik med produkter og checkout",              10000, 20000),
-        new("portfolio", "", "Portfolio / CV",     "Vis dine projekter og kompetencer frem",               2000,  5000),
-        new("saas",      "", "Web-app / SaaS",    "Kompleks applikation med brugere og data",            15000, 40000),
-    };
-
-    List<PageRangeOption> PageRanges = new()
-    {
-        new("1-3",  "1 – 3 sider",  "Kompakt og fokuseret",        0,     0),
-        new("4-8",  "4 – 8 sider",  "God standard størrelse",       2000,  4000),
-        new("9-15", "9 – 15 sider", "Større indholdsmæssig dybde",  5000,  8000),
-        new("15+",  "15+ sider",    "Stort informationssite",        8000, 15000),
-    };
-
-    List<FeatureOption> Features = new()
-    {
-        new("login",     "", "Login / Brugersystem",  "4.000 – 7.000 kr.",  4000,  7000),
-        new("booking",   "", "Booking & Kalender",    "3.500 – 6.000 kr.",  3500,  6000),
-        new("payment",   "", "Betalingsintegration",  "5.000 – 9.000 kr.",  5000,  9000),
-        new("contact",   "", "Kontaktformular",       "500 – 1.000 kr.",     500,  1000),
-        new("blog",      "", "Blog / CMS",            "2.500 – 5.000 kr.",  2500,  5000),
-        new("newsletter","", "Nyhedsbrev",            "1.000 – 2.000 kr.",  1000,  2000),
-        new("multilang", "", "Multi-sprog",           "1.500 – 3.000 kr.",  1500,  3000),
-    };
-
-    void SelectType(string key)   { SelectedType = key; }
-    void SelectPages(string key)  { SelectedPages = key; }
-    void ToggleFeature(string key){ if (!SelectedFeatures.Remove(key)) SelectedFeatures.Add(key); }
-    void NextStep() { CalcStep++; }
-    void PrevStep() { CalcStep--; }
-    void Reset()    { CalcStep = 0; SelectedType = null; SelectedPages = null; SelectedFeatures.Clear(); }
-
-    int PriceLow  => CalcPrices().low;
-    int PriceHigh => CalcPrices().high;
-
-    (int low, int high) CalcPrices()
-    {
-        int low = 0, high = 0;
-        if (SelectedType != null)
-        {
-            var t = SiteTypes.First(x => x.Key == SelectedType);
-            low += t.Low; high += t.High;
-        }
-        if (SelectedPages != null)
-        {
-            var p = PageRanges.First(x => x.Key == SelectedPages);
-            low += p.Low; high += p.High;
-        }
-        foreach (var fk in SelectedFeatures)
-        {
-            var f = Features.First(x => x.Key == fk);
-            low += f.Low; high += f.High;
-        }
-        return (low, high);
-    }
-
-    List<SummaryLine> GetSummaryLines()
-    {
-        var lines = new List<SummaryLine>();
-        if (SelectedType != null)
-        {
-            var t = SiteTypes.First(x => x.Key == SelectedType);
-            lines.Add(new(t.Label, $"{t.Low:N0} – {t.High:N0} kr."));
-        }
-        if (SelectedPages != null)
-        {
-            var p = PageRanges.First(x => x.Key == SelectedPages);
-            if (p.Low > 0)
-                lines.Add(new(p.Label, $"+{p.Low:N0} – {p.High:N0} kr."));
-        }
-        foreach (var fk in SelectedFeatures)
-        {
-            var f = Features.First(x => x.Key == fk);
-            lines.Add(new(f.Label, $"+{f.Low:N0} – {f.High:N0} kr."));
-        }
-        return lines;
-    }
 }

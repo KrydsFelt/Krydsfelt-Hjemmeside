@@ -14,119 +14,100 @@
         <button class="kf-nav-hamburger @(navOpen ? "open" : "")" @onclick="() => navOpen = !navOpen" aria-label="Menu">
             <span></span><span></span><span></span>
         </button>
+        <a href="/#contact" class="kf-nav-contact-btn">Kontakt</a>
     </div>
-    <a href="/#contact" class="kf-nav-contact-btn">Kontakt</a>
     <div class="kf-nav-mobile @(navOpen ? "open" : "")">
         <a href="/ydelser" @onclick="() => navOpen = false">Ydelser</a>
         <a href="/om-os" @onclick="() => navOpen = false">Om os</a>
-        <a href="mailto:krydsfelt.info@gmail.com" @onclick="() => navOpen = false">Kontakt</a>
+        <a href="/#contact" @onclick="() => navOpen = false">Kontakt</a>
     </div>
 </nav>
 
-<!-- HERO -->
-<section class="oo-hero">
-    <div class="oo-hero-glow"></div>
-    <div class="yd-hero-scan"></div>
-    <div class="kf-container oo-hero-inner">
-        <h1>Mød <span class="kf-orange">Holdet</span></h1>
-        <p>Vi er tre passionerede udviklere fra Aarhus, der brænder for at bygge digitale løsninger, der gør en reel forskel for virksomheder.</p>
+<!-- HERO - ABOUT US INTRO -->
+<section class="oo-hero-v2">
+    <div class="kf-container">
+        <div class="oo-hero-content">
+            <span class="oo-hero-label">OM OS</span>
+            <h1>Systemet bag digital vækst</h1>
+            <p class="oo-hero-subtitle">At KrydsFelt, strategi, udførelse og performance hænger tæt sammen. Vi bygger digitale infrastrukturer, hvor systemer arbejder sammen for at støtte virksomheder i deres næste vækstfase.</p>
+        </div>
     </div>
 </section>
 
-<!-- STORY + VALUES -->
-<section class="oo-story">
+<!-- PRINCIPLES SECTION - FULL BLUE BACKGROUND -->
+<section class="oo-principles">
+    <div class="oo-principles-content">
+        <h2 class="oo-principles-title">Hvor alt forbindes</h2>
+        <p class="oo-principles-text">Vi bygger hvad der virker</p>
+    </div>
+</section>
+
+<!-- FOUNDER'S VISION SECTION -->
+<section class="oo-founder">
     <div class="kf-container">
-        <div class="oo-story-inner">
-            <div class="oo-story-left reveal-left">
-                <h2>Vores Historie</h2>
-                <p>KrydsFelt blev grundlagt i Aarhus af tre venner med en fælles vision: at gøre professionel webudvikling og skræddersyede systemer tilgængeligt for alle virksomheder — uanset størrelse.</p>
-                <p>Vi mødtes gennem vores uddannelse og opdagede hurtigt, at vi kompletterede hinanden perfekt. Med kombinationen af backend-ekspertise, frontend-flair og full-stack forståelse dækker vi hele spektret fra idé til færdigt produkt.</p>
-                <p>I dag hjælper vi virksomheder med at navigere den digitale verden — fra simple præsentationssider til komplekse forretningssystemer.</p>
+        <div class="oo-founder-layout">
+            <div class="oo-founder-left reveal">
+                <span class="oo-founder-label">FOUNDERS VISION</span>
+                <p class="oo-founder-text">
+                    Den digitale verden har ændret sig fundamentalt. Beslutninger går hurtigere, teknologi udvikler sig konstant, og performance måles i realtid. I dette miljø er isoleret udførelse ikke længere nok. KrydsFelt blev grundlagt på troen om, at digital vækst bliver skalerbar kun, når strategi, udførelse og optimering fungerer som ét system. Det kræver fokus, struktur og ansvar på strategisk niveau.
+                </p>
             </div>
-            <div class="oo-story-right reveal-right">
-                <div class="kf-stack-cards">
-                    <div class="kf-stack-card active">
-                        <img src="Pictures/Tony.jpeg" alt="Tony" />
-                        <div class="kf-team-info">
-                            <span class="kf-team-name">Tony</span>
-                            <span class="kf-team-role">Medstifter &amp; Udvikler</span>
-                        </div>
-                    </div>
-                    <div class="kf-stack-card behind-1">
-                        <img src="Pictures/Gio.jpeg" alt="Gio" />
-                        <div class="kf-team-info">
-                            <span class="kf-team-name">Gio</span>
-                            <span class="kf-team-role">Medstifter &amp; Udvikler</span>
-                        </div>
-                    </div>
-                    <div class="kf-stack-card behind-2">
-                        <img src="Pictures/Minh.jpeg" alt="Minh" />
-                        <div class="kf-team-info">
-                            <span class="kf-team-name">Minh</span>
-                            <span class="kf-team-role">Medstifter &amp; Udvikler</span>
-                        </div>
-                    </div>
+            <div class="oo-founder-right">
+                <div class="oo-founder-image">
+                    <img src="Pictures/Tony.jpeg" alt="Tony Xtruong" />
                 </div>
+                <h3>Tony Xtruong</h3>
+                <p>Founder & CTO, KrydsFelt</p>
             </div>
         </div>
-
     </div>
 </section>
 
-<!-- VALUES -->
-<section class="oo-values">
+<!-- MEET THE TEAM SECTION -->
+<section class="oo-team">
     <div class="kf-container">
-        <h2 class="reveal">Vores Værdier</h2>
-        <p class="kf-section-sub reveal" data-delay="100">Det er ikke bare kode — det er principper, vi lever efter.</p>
-        <div class="oo-values-swipe-hint">Swipe for at se mere →</div>
-        <div class="oo-values-grid">
-            <div class="oo-value-card reveal" data-delay="0" data-num="01">
-                <div class="kf-icon-box">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E8622A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>
-                    </svg>
+        <div class="oo-team-header reveal">
+            <h2>Mød Teamet</h2>
+            <p>Tre passionerede udvikler fra Aarhus med fælles vision</p>
+        </div>
+
+        <div class="oo-team-grid">
+            <div class="oo-team-card reveal">
+                <div class="oo-team-card-image">
+                    <img src="Pictures/Tony.jpeg" alt="Tony" />
                 </div>
-                <h4>Kvalitet Først</h4>
-                <p>Vi leverer excellence i hvert projekt og sikrer høj kvalitet, der overgår forventningerne.</p>
+                <h3>Tony Xtruong</h3>
+                <p>Founder & CTO</p>
+                <span class="oo-team-desc">Backend-ekspertise og teknisk arkitektur</span>
             </div>
-            <div class="oo-value-card reveal" data-delay="120" data-num="02">
-                <div class="kf-icon-box">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E8622A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
-                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-                    </svg>
+
+            <div class="oo-team-card reveal" data-delay="100">
+                <div class="oo-team-card-image">
+                    <img src="Pictures/Gio.jpeg" alt="Gio" />
                 </div>
-                <h4>Kundefokuseret</h4>
-                <p>Din succes er vores prioritet. Vi arbejder tæt sammen med dig for at forstå og nå dine mål.</p>
+                <h3>Gio</h3>
+                <p>Co-Founder & Developer</p>
+                <span class="oo-team-desc">Frontend udvikling og design</span>
             </div>
-            <div class="oo-value-card reveal" data-delay="240" data-num="03">
-                <div class="kf-icon-box">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E8622A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
-                    </svg>
+
+            <div class="oo-team-card reveal" data-delay="200">
+                <div class="oo-team-card-image">
+                    <img src="Pictures/Minh.jpeg" alt="Minh" />
                 </div>
-                <h4>Innovation</h4>
-                <p>Vi er på forkant med udviklingen og bruger banebrydende teknologier til at bygge fremtidssikrede løsninger.</p>
-            </div>
-            <div class="oo-value-card reveal" data-delay="360" data-num="04">
-                <div class="kf-icon-box">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E8622A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                    </svg>
-                </div>
-                <h4>Ærlighed</h4>
-                <p>Vi er transparente om processen, tidslinjerne og mulighederne — ingen overraskelser, kun resultater.</p>
+                <h3>Minh</h3>
+                <p>Co-Founder & Developer</p>
+                <span class="oo-team-desc">Full-stack udvikling og systemer</span>
             </div>
         </div>
     </div>
 </section>
 
 <!-- CTA -->
-<section class="yd-cta">
-    <div class="kf-container yd-cta-inner">
-        <h2 class="reveal">Klar til at samarbejde?</h2>
-        <p class="reveal" data-delay="100">Lad os tage en snak om dit projekt og se, hvad vi kan bygge sammen.</p>
-        <a href="/#contact" class="kf-btn reveal" data-delay="200">Kontakt os &rarr;</a>
+<section class="oo-cta">
+    <div class="kf-container oo-cta-inner">
+        <h2>Klar til at diskutere din digitale vækst?</h2>
+        <p>Lad os tale om dit projekt og se, hvad vi kan bygge sammen.</p>
+        <a href="/#contact" class="oo-cta-btn">BOOK ET MØDE →</a>
     </div>
 </section>
 
@@ -137,6 +118,7 @@
             <div class="kf-footer-cta">
                 <p class="kf-footer-cta-label">Klar til at blive noget stort?</p>
                 <a href="mailto:krydsfelt.info@gmail.com" class="kf-footer-email">krydsfelt.info@gmail.com</a>
+                <p style="font-size: 0.85rem; color: #999; margin-top: 0.75rem; font-weight: 500;">Tony Xtruong, Founder & CTO</p>
             </div>
             <div class="kf-footer-links">
                 <div class="kf-footer-col">

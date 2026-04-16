@@ -5,8 +5,6 @@
 
 <!-- NAV + HERO WRAPPER -->
 <div class="yd-hero-wrapper">
-    <div id="yd-bg-paths"></div>
-    <div class="yd-hero-glow"></div>
 
     <nav class="kf-nav">
         <div class="kf-nav-inner">
@@ -18,168 +16,147 @@
             <button class="kf-nav-hamburger @(navOpen ? "open" : "")" @onclick="() => navOpen = !navOpen" aria-label="Menu">
                 <span></span><span></span><span></span>
             </button>
+            <a href="/#contact" class="kf-nav-contact-btn">Kontakt</a>
         </div>
-        <a href="/#contact" class="kf-nav-contact-btn">Kontakt</a>
         <div class="kf-nav-mobile @(navOpen ? "open" : "")">
             <a href="/ydelser" @onclick="() => navOpen = false">Ydelser</a>
             <a href="/om-os" @onclick="() => navOpen = false">Om os</a>
-            <a href="mailto:krydsfelt.info@gmail.com" @onclick="() => navOpen = false">Kontakt</a>
+            <a href="/#contact" @onclick="() => navOpen = false">Kontakt</a>
         </div>
     </nav>
 
-    <!-- HERO -->
-    <section class="yd-hero">
+    <!-- HERO - DARK WITH GLOW -->
+    <section class="yd-hero-v2">
         <div class="kf-container">
-            <div class="yd-hero-card">
-                <span class="yd-hero-badge">Hvad vi tilbyder</span>
-                <h1>Vores <span class="kf-orange">Ydelser</span></h1>
-                <p>Vi tilbyder skræddersyede digitale løsninger, der er bygget til at vokse med din virksomhed. Læs mere om, hvad vi kan gøre for dig.</p>
-                <div class="yd-hero-stats">
-                    <div class="yd-hero-stat"><span class="yd-hero-stat-num">4+</span><span class="yd-hero-stat-label">Kernekompetencer</span></div>
-                    <div class="yd-hero-stat-divider"></div>
-                    <div class="yd-hero-stat"><span class="yd-hero-stat-num">100%</span><span class="yd-hero-stat-label">Skræddersyede løsninger</span></div>
-                    <div class="yd-hero-stat-divider"></div>
-                    <div class="yd-hero-stat"><span class="yd-hero-stat-num">∞</span><span class="yd-hero-stat-label">Skalerbarhed</span></div>
-                </div>
+            <div class="yd-hero-card-v2">
+                <span class="yd-hero-badge">YDELSER</span>
+                <h1 class="yd-hero-title">Hvor digital vækst struktureres</h1>
+                <p class="yd-hero-desc">Vores ydelser danner et stærkt digitalt fundament. Fra strategi og design til udvikling og systemer, der giver klar indsigt i performance.</p>
+                <a href="/#contact" class="yd-hero-btn">DISKUTER DIT PROJEKT →</a>
             </div>
         </div>
     </section>
 </div>
 
-<!-- SERVICES LIST -->
-<section class="yd-services-section">
-    <div class="yd-services-swipe-hint">Swipe for at se mere →</div>
-    <div class="kf-container yd-services-container">
+<!-- EXPERTISE SECTION - TEXT BASED LIST -->
+<section class="expertise-section">
+    <div class="kf-container">
+        <div class="expertise-layout">
+            <!-- LEFT: Heading & Description -->
+            <div class="expertise-left">
+                <span class="expertise-label reveal">EKSPERTISE</span>
+                <h2 class="expertise-heading reveal">Designet til skalerbar ydelse</h2>
+                <p class="expertise-description reveal" data-delay="100">Vores team af strateger og specialister strukturerer, bygger og optimerer digital vækst med disciplin og klart fokus på resultater.</p>
+            </div>
 
-        <div class="yd-service-row reveal" id="webudvikling">
-            <span class="yd-row-num">01</span>
-            <div class="yd-row-head">
-                <div class="yd-row-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="#E8622A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/>
-                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-                    </svg>
+            <!-- RIGHT: Service List -->
+            <div class="expertise-right">
+                <!-- 01: Brand Strategy & Identity -->
+                <div class="expertise-item reveal">
+                    <div class="expertise-item-header">
+                        <span class="expertise-item-num">01</span>
+                        <h3 class="expertise-item-title">Brand Strategi & Identitet</h3>
+                    </div>
+                    <p class="expertise-item-desc">Vi bygger det strategiske fundament, der guider, hvordan dit mærke positionerer sig, kommunikerer og vokser på digitalt marked.</p>
                 </div>
-                <div>
-                    <h3>Webudvikling</h3>
-                    <p>Moderne, hurtige hjemmesider og webapplikationer fra bunden — fra simpel præsentationsside til kompleks webplatform.</p>
+
+                <!-- 02: Webudvikling -->
+                <div class="expertise-item reveal" data-delay="100">
+                    <div class="expertise-item-header">
+                        <span class="expertise-item-num">02</span>
+                        <h3 class="expertise-item-title">Webudvikling</h3>
+                        <span class="expertise-item-arrow">→</span>
+                    </div>
+                    <p class="expertise-item-desc">Vi udvikler skalerbare hjemmesider, der styrker din digitale tilstedeværelse, tiltrækker det rette publikum og konverterer besøgende til muligheder.</p>
                 </div>
-            </div>
-            <div class="yd-row-features">
-                <span>Skræddersyede hjemmesider</span>
-                <span>Single Page Applications</span>
-                <span>E-commerce løsninger</span>
-                <span>SEO-optimering</span>
-                <span>Hurtig indlæsningstid</span>
-                <span>CMS-integration</span>
-            </div>
-            <div class="yd-row-tags">
-                <span class="yd-tag">Blazor</span>
-                <span class="yd-tag">React</span>
-                <span class="yd-tag">.NET</span>
-                <span class="yd-tag">TypeScript</span>
+
+                <!-- 03: Skræddersyede Systemer -->
+                <div class="expertise-item reveal" data-delay="200">
+                    <div class="expertise-item-header">
+                        <span class="expertise-item-num">03</span>
+                        <h3 class="expertise-item-title">Lead Generation</h3>
+                        <span class="expertise-item-arrow">→</span>
+                    </div>
+                    <p class="expertise-item-desc">Vi bygger lead generation-systemer, der konverterer trafik til reelle muligheder. Funnels, landingpages og kampagner er designet til at øge konvertering.</p>
+                </div>
+
+                <!-- 04: Design & UX -->
+                <div class="expertise-item reveal" data-delay="300">
+                    <div class="expertise-item-header">
+                        <span class="expertise-item-num">04</span>
+                        <h3 class="expertise-item-title">Design & UX</h3>
+                        <span class="expertise-item-arrow">→</span>
+                    </div>
+                    <p class="expertise-item-desc">Intuitive og tilgængelige designløsninger, der skaber fremragende brugeroplevelser på alle enheder og kontaktpunkter.</p>
+                </div>
             </div>
         </div>
-
-        <div class="yd-service-row reveal" data-delay="80" id="systemer">
-            <span class="yd-row-num">02</span>
-            <div class="yd-row-head">
-                <div class="yd-row-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="#E8622A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
-                    </svg>
-                </div>
-                <div>
-                    <h3>Skræddersyede Systemer</h3>
-                    <p>Tilpassede systemer der løser præcis dine udfordringer — fra workflow-værktøjer til komplekse forretningsplatforme.</p>
-                </div>
-            </div>
-            <div class="yd-row-features">
-                <span>Forretningssystemer</span>
-                <span>Workflow-automatisering</span>
-                <span>Tredjepartsintegrationer</span>
-                <span>Skalerbare løsninger</span>
-                <span>Rapportering og data</span>
-                <span>Brugervenlig admin</span>
-            </div>
-            <div class="yd-row-tags">
-                <span class="yd-tag">.NET</span>
-                <span class="yd-tag">C#</span>
-                <span class="yd-tag">Azure</span>
-                <span class="yd-tag">REST API</span>
-            </div>
-        </div>
-
-        <div class="yd-service-row reveal" data-delay="160" id="backend">
-            <span class="yd-row-num">03</span>
-            <div class="yd-row-head">
-                <div class="yd-row-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="#E8622A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                        <ellipse cx="12" cy="5" rx="9" ry="3"/>
-                        <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/>
-                        <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
-                    </svg>
-                </div>
-                <div>
-                    <h3>Backend-løsninger</h3>
-                    <p>Robuste API'er og server-side systemer der håndterer høj trafik, kompleks logik og sikker integration.</p>
-                </div>
-            </div>
-            <div class="yd-row-features">
-                <span>REST API & GraphQL</span>
-                <span>Databasedesign</span>
-                <span>Cloud-hosting</span>
-                <span>Sikkerhed & auth</span>
-                <span>Microservices</span>
-                <span>Realtidsdata</span>
-            </div>
-            <div class="yd-row-tags">
-                <span class="yd-tag">ASP.NET Core</span>
-                <span class="yd-tag">PostgreSQL</span>
-                <span class="yd-tag">Docker</span>
-                <span class="yd-tag">Azure</span>
-            </div>
-        </div>
-
-        <div class="yd-service-row reveal" data-delay="240" id="design">
-            <span class="yd-row-num">04</span>
-            <div class="yd-row-head">
-                <div class="yd-row-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="#E8622A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                        <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
-                        <line x1="12" y1="18" x2="12.01" y2="18"/>
-                    </svg>
-                </div>
-                <div>
-                    <h3>Responsivt Design</h3>
-                    <p>Perfekt på alle enheder — fra store desktops til mobil. Mobile-first med fokus på tilgængelighed og brugeroplevelse.</p>
-                </div>
-            </div>
-            <div class="yd-row-features">
-                <span>Mobile-first tilgang</span>
-                <span>Alle skærmstørrelser</span>
-                <span>Tilgængelighed (WCAG)</span>
-                <span>Animationer & micro-UX</span>
-                <span>Brand-konsistens</span>
-                <span>Brugertest & iteration</span>
-            </div>
-            <div class="yd-row-tags">
-                <span class="yd-tag">Figma</span>
-                <span class="yd-tag">CSS</span>
-                <span class="yd-tag">WCAG</span>
-                <span class="yd-tag">UX/UI</span>
-            </div>
-        </div>
-
     </div>
 </section>
 
-<!-- CTA -->
-<section class="yd-cta">
-    <div class="kf-container yd-cta-inner">
-        <h2 class="reveal">Klar til at komme i gang?</h2>
-        <p class="reveal" data-delay="100">Fortæl os om dit projekt, og vi finder den bedste løsning til dig.</p>
-        <a href="/#contact" class="kf-btn reveal" data-delay="200">Kontakt os &rarr;</a>
+<!-- APPROACH SECTION - VERTICAL TIMELINE -->
+<section class="approach-section">
+    <div class="approach-bg-map"></div>
+    <div class="kf-container">
+        <div class="approach-layout">
+            <!-- LEFT: Heading & CTA -->
+            <div class="approach-left">
+                <span class="approach-label">VOR TILGANG</span>
+                <h2 class="approach-heading">Sådan arbejder vi sammen</h2>
+                <p class="approach-description">Vores tilgang er klar og struktureret. Gennem definerede trin bygger vi digitale løsninger, der giver mening, skaber klarhed og fortsætter med at performe fra første indsigt til løbende udvikling.</p>
+                <a href="/#contact" class="approach-btn">DISKUTER DIT PROJEKT →</a>
+            </div>
+
+            <!-- RIGHT: Timeline -->
+            <div class="approach-right">
+                <div class="approach-timeline">
+                    <!-- Step 1 -->
+                    <div class="approach-step reveal">
+                        <div class="approach-step-circle">1</div>
+                        <div class="approach-step-content">
+                            <h3 class="approach-step-title">INDSIGT</h3>
+                            <p class="approach-step-desc">Vi tager os tid til at forstå din organisation, mål og udfordringer. Det giver os den kontekst, vi har brug for, før vi træffer strategiske beslutninger.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="approach-step reveal" data-delay="100">
+                        <div class="approach-step-circle">2</div>
+                        <div class="approach-step-content">
+                            <h3 class="approach-step-title">STRATEGI</h3>
+                            <p class="approach-step-desc">Vi definerer retningen og prioriteterne i en klar plan, der danner fundament for alt det, der følger.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="approach-step reveal" data-delay="200">
+                        <div class="approach-step-circle">3</div>
+                        <div class="approach-step-content">
+                            <h3 class="approach-step-title">OPBYGNING</h3>
+                            <p class="approach-step-desc">Vi designer og udvikler en løsning, der er logisk struktureret, teknisk robust og klar til at understøtte vækst.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="approach-step reveal" data-delay="300">
+                        <div class="approach-step-circle">4</div>
+                        <div class="approach-step-content">
+                            <h3 class="approach-step-title">LANCERING</h3>
+                            <p class="approach-step-desc">Vi tester grundigt, guider lanceringen og sikrer, at alt går live smooth og pålideligt.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div class="approach-step reveal" data-delay="400">
+                        <div class="approach-step-circle">5</div>
+                        <div class="approach-step-content">
+                            <h3 class="approach-step-title">SUPPORT</h3>
+                            <p class="approach-step-desc">Efter lancering forbliver vi involveret med vedligeholdelse, optimering og løbende udvikling.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
@@ -190,6 +167,7 @@
             <div class="kf-footer-cta">
                 <p class="kf-footer-cta-label">Klar til at blive noget stort?</p>
                 <a href="mailto:krydsfelt.info@gmail.com" class="kf-footer-email">krydsfelt.info@gmail.com</a>
+                <p style="font-size: 0.85rem; color: #999; margin-top: 0.75rem; font-weight: 500;">Tony Xtruong, Founder & CTO</p>
             </div>
             <div class="kf-footer-links">
                 <div class="kf-footer-col">
@@ -221,7 +199,6 @@
         if (firstRender)
         {
             await JS.InvokeVoidAsync("initAnimations");
-            await JS.InvokeVoidAsync("initBackgroundPaths", "yd-bg-paths");
         }
     }
 }

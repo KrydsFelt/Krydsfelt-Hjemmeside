@@ -40,6 +40,67 @@ window.initBackgroundPaths = function (containerId) {
     }
 };
 
+// Word-by-word reveal animation with blur
+window.initWordReveal = function() {
+    const elements = document.querySelectorAll('[data-animate="words"]');
+
+    elements.forEach(el => {
+        const text = el.innerText;
+        const words = text.split(' ');
+
+        // Clear and rebuild with span wrappers
+        el.innerHTML = words.map((word, idx) =>
+            `<span style="display:inline-block;margin-right:0.25em;animation:wordReveal 0.6s ease-out forwards;animation-delay:${idx * 0.08}s;transform:translateY(30px);opacity:0;filter:blur(8px);">${word}</span>`
+        ).join('');
+    });
+};
+
+// Add word reveal animation keyframe if not already present
+if (!document.querySelector('style[data-word-reveal]')) {
+    const style = document.createElement('style');
+    style.setAttribute('data-word-reveal', '');
+    style.textContent = `
+        @keyframes wordReveal {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+                filter: blur(8px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+                filter: blur(0);
+            }
+        }
+    `;
+    document.head.appendChild(style);
+}
+
+// 3D button hover effect
+window.init3DButtons = function() {
+    document.querySelectorAll('.kf-btn').forEach(button => {
+        button.addEventListener('mouseenter', () => {
+            button.style.transition = 'transform 0.5s cubic-bezier(0.23, 1, 0.320, 1)';
+        });
+
+        button.addEventListener('mousemove', (e) => {
+            const rect = button.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+
+            const x = (e.clientX - centerX) / rect.width;
+            const y = (e.clientY - centerY) / rect.height;
+
+            button.style.transform = `perspective(600px) rotateY(${x * 8}deg) rotateX(${-y * 5}deg) translateY(-3px)`;
+        });
+
+        button.addEventListener('mouseleave', () => {
+            button.style.transition = 'transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1)';
+            button.style.transform = 'perspective(600px) rotateY(0) rotateX(0) translateY(0)';
+        });
+    });
+};
+
 window.initAnimations = function () {
     // Services cards reveal on scroll (when section fills entire screen)
     const servicesSection = document.querySelector('.kf-services');
@@ -61,6 +122,21 @@ window.initAnimations = function () {
         }, { threshold: 0.1, rootMargin: '0px 0px 0px 0px' });
 
         observer.observe(servicesSection);
+    }
+
+    // Process intro text reveal at 10% from top
+    const processIntroText = document.querySelector('.kf-process-intro-text');
+    if (processIntroText) {
+        const introObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    introObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+
+        introObserver.observe(processIntroText);
     }
 
     // Scroll reveal with IntersectionObserver
@@ -87,6 +163,7 @@ window.initAnimations = function () {
         window.addEventListener('scroll', onScroll, { passive: true });
         onScroll();
     }
+
 
     // Parallax background text
     document.querySelectorAll('.kf-parallax-text').forEach(el => {
@@ -174,4 +251,48 @@ window.initAnimations = function () {
             }
         });
     });
+
+    // Initialize word-reveal animations
+    window.initWordReveal();
+
+    // Initialize 3D button effects
+    window.init3DButtons();
+
+    // Initialize process accordion
+    document.querySelectorAll('.kf-process-accordion-trigger').forEach(button => {
+        button.addEventListener('click', () => {
+            const item = button.closest('.kf-process-accordion-item');
+            const isActive = item.classList.contains('active');
+
+            // Close all other items
+            document.querySelectorAll('.kf-process-accordion-item').forEach(otherItem => {
+                otherItem.classList.remove('active');
+            });
+
+            // Toggle current item
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        });
+    });
+
+    // Update clock in hero status
+    const updateClock = () => {
+        const statusText = document.querySelector('.kf-status-text');
+        if (statusText && statusText.textContent.includes('Europa')) {
+            // Add time counter after location
+            const now = new Date();
+            const timeStr = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}:${String(now.getSeconds()).padStart(2, '0')}`;
+            // Keep location and add time
+            if (!statusText.textContent.includes(':')) {
+                statusText.textContent = `Europa, Danmark • ${timeStr}`;
+            } else {
+                statusText.textContent = `Europa, Danmark • ${timeStr}`;
+            }
+        }
+    };
+
+    // Update clock every second
+    updateClock();
+    setInterval(updateClock, 1000);
 };
