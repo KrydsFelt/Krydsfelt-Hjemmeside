@@ -3,148 +3,99 @@
 
 <PageTitle>Om Os – KrydsFelt</PageTitle>
 
-<!-- NAV -->
-<nav class="kf-nav">
-    <div class="kf-nav-inner">
-        <a href="/" class="kf-logo-link"><span class="kf-logo">KRYDSFELT</span></a>
-        <div class="kf-nav-links">
-            <a href="/ydelser">Ydelser</a>
-            <a href="/om-os" class="kf-nav-active">Om os</a>
-        </div>
-        <button class="kf-nav-hamburger @(navOpen ? "open" : "")" @onclick="() => navOpen = !navOpen" aria-label="Menu">
-            <span></span><span></span><span></span>
-        </button>
-        <a href="/#contact" class="kf-nav-contact-btn">Kontakt</a>
-    </div>
-    <div class="kf-nav-mobile @(navOpen ? "open" : "")">
-        <a href="/ydelser" @onclick="() => navOpen = false">Ydelser</a>
-        <a href="/om-os" @onclick="() => navOpen = false">Om os</a>
-        <a href="/#contact" @onclick="() => navOpen = false">Kontakt</a>
-    </div>
-</nav>
+<SiteHeader CurrentPage="about" ContactHref="/booking" />
 
-<!-- HERO - ABOUT US INTRO -->
-<section class="oo-hero-v2">
+<section class="kh-about-hero">
+    <div class="kf-container kh-about-hero-grid kh-about-hero-grid-minimal">
+        <div class="kh-about-hero-copy">
+            <span class="oo2-section-label">About</span>
+            <h1 class="kh-about-title">Et mindre digitalt team med fokus på websites, struktur og mere præcis execution.</h1>
+            <p class="kh-about-text">
+                KrydsFelt består af designere og udviklere, der arbejder tæt sammen om at bygge løsninger, som både føles stærkere visuelt og fungerer bedre i praksis.
+                Vi holder det bevidst enkelt, fordi det giver bedre beslutninger og mindre friktion.
+            </p>
+            <div class="kh-about-actions">
+                <a href="/booking" class="kf-btn kf-btn-primary"><span>Book et møde</span></a>
+                <a href="/ydelser" class="kf-btn kf-btn-secondary"><span>Se services</span></a>
+            </div>
+        </div>
+
+        <div class="kh-about-hero-side reveal" data-delay="120"></div>
+    </div>
+</section>
+
+<section class="kh-about-values">
     <div class="kf-container">
-        <div class="oo-hero-content">
-            <span class="oo-hero-label">OM OS</span>
-            <h1>Systemet bag digital vækst</h1>
-            <p class="oo-hero-subtitle">At KrydsFelt, strategi, udførelse og performance hænger tæt sammen. Vi bygger digitale infrastrukturer, hvor systemer arbejder sammen for at støtte virksomheder i deres næste vækstfase.</p>
+        <div class="kh-home-section-head reveal">
+            <span class="oo2-section-label">Hvordan vi arbejder</span>
+            <h2>Vi prøver ikke at fylde mere. Vi prøver at gøre det vigtigste bedre.</h2>
+            <p>Det betyder færre lag, mere ejerskab og et setup hvor kvaliteten sidder i detaljerne.</p>
+        </div>
+
+        <div class="kh-about-values-grid kh-about-values-grid-minimal">
+            <article class="kh-about-value-card reveal">
+                <span>01</span>
+                <h3>Klar retning</h3>
+                <p>Vi starter med at forstå hvad siden eller systemet faktisk skal gøre for virksomheden.</p>
+            </article>
+            <article class="kh-about-value-card reveal" data-delay="100">
+                <span>02</span>
+                <h3>Tæt samarbejde</h3>
+                <p>Du arbejder tættere på dem der designer og bygger, i stedet for gennem flere led.</p>
+            </article>
         </div>
     </div>
 </section>
 
-<!-- PRINCIPLES SECTION - FULL BLUE BACKGROUND -->
-<section class="oo-principles">
-    <div class="oo-principles-content">
-        <h2 class="oo-principles-title">Hvor alt forbindes</h2>
-        <p class="oo-principles-text">Vi bygger hvad der virker</p>
-    </div>
-</section>
-
-<!-- FOUNDER'S VISION SECTION -->
-<section class="oo-founder">
+<section class="kh-about-team">
     <div class="kf-container">
-        <div class="oo-founder-layout">
-            <div class="oo-founder-left reveal">
-                <span class="oo-founder-label">FOUNDERS VISION</span>
-                <p class="oo-founder-text">
-                    Den digitale verden har ændret sig fundamentalt. Beslutninger går hurtigere, teknologi udvikler sig konstant, og performance måles i realtid. I dette miljø er isoleret udførelse ikke længere nok. KrydsFelt blev grundlagt på troen om, at digital vækst bliver skalerbar kun, når strategi, udførelse og optimering fungerer som ét system. Det kræver fokus, struktur og ansvar på strategisk niveau.
-                </p>
-            </div>
-            <div class="oo-founder-right">
-                <div class="oo-founder-image">
-                    <img src="Pictures/Tony.jpeg" alt="Tony Xtruong" />
+        <div class="kh-home-section-head reveal">
+            <span class="oo2-section-label">Team</span>
+            <h2>Tre profiler. Ét samlet leveranceteam.</h2>
+            <p>Vi holder holdet lille med vilje, så der er kort vej fra idé til implementering.</p>
+        </div>
+
+        <div class="kh-about-team-grid">
+            <article class="kh-about-team-card reveal">
+                <img src="Pictures/Tony.jpeg" alt="Tony Xtruong" />
+                <div>
+                    <h3>Tony Xtruong</h3>
+                    <p>Founder & CTO</p>
+                    <span>Arkitektur, backend og den tekniske retning i løsningen.</span>
                 </div>
-                <h3>Tony Xtruong</h3>
-                <p>Founder & CTO, KrydsFelt</p>
-            </div>
+            </article>
+            <article class="kh-about-team-card reveal" data-delay="100">
+                <img src="Pictures/Gio.jpeg" alt="Gio" />
+                <div>
+                    <h3>Gio</h3>
+                    <p>Co-Founder & Developer</p>
+                    <span>Frontend, design execution og de visuelle systemer brugerne møder først.</span>
+                </div>
+            </article>
+            <article class="kh-about-team-card reveal" data-delay="200">
+                <img src="Pictures/Minh.jpeg" alt="Minh" />
+                <div>
+                    <h3>Minh</h3>
+                    <p>Co-Founder & Developer</p>
+                    <span>Full-stack udvikling, integrationer og strukturen bag de tekniske løsninger.</span>
+                </div>
+            </article>
         </div>
     </div>
 </section>
 
-<!-- MEET THE TEAM SECTION -->
-<section class="oo-team">
-    <div class="kf-container">
-        <div class="oo-team-header reveal">
-            <h2>Mød Teamet</h2>
-            <p>Tre passionerede udvikler fra Aarhus med fælles vision</p>
-        </div>
-
-        <div class="oo-team-grid">
-            <div class="oo-team-card reveal">
-                <div class="oo-team-card-image">
-                    <img src="Pictures/Tony.jpeg" alt="Tony" />
-                </div>
-                <h3>Tony Xtruong</h3>
-                <p>Founder & CTO</p>
-                <span class="oo-team-desc">Backend-ekspertise og teknisk arkitektur</span>
-            </div>
-
-            <div class="oo-team-card reveal" data-delay="100">
-                <div class="oo-team-card-image">
-                    <img src="Pictures/Gio.jpeg" alt="Gio" />
-                </div>
-                <h3>Gio</h3>
-                <p>Co-Founder & Developer</p>
-                <span class="oo-team-desc">Frontend udvikling og design</span>
-            </div>
-
-            <div class="oo-team-card reveal" data-delay="200">
-                <div class="oo-team-card-image">
-                    <img src="Pictures/Minh.jpeg" alt="Minh" />
-                </div>
-                <h3>Minh</h3>
-                <p>Co-Founder & Developer</p>
-                <span class="oo-team-desc">Full-stack udvikling og systemer</span>
-            </div>
-        </div>
+<section class="kh-about-cta">
+    <div class="kf-container kh-home-cta-inner">
+        <span class="oo2-section-label">Kontakt</span>
+        <h2>Hvis I mangler et mindre team med mere fokus og bedre digital execution, så lad os tage første møde.</h2>
+        <p>Vi tager helst projekter ind, hvor der er ambition om at bygge noget skarpere end standard.</p>
+        <a href="/booking" class="oo2-cta-link">BOOK ET MØDE</a>
     </div>
 </section>
 
-<!-- CTA -->
-<section class="oo-cta">
-    <div class="kf-container oo-cta-inner">
-        <h2>Klar til at diskutere din digitale vækst?</h2>
-        <p>Lad os tale om dit projekt og se, hvad vi kan bygge sammen.</p>
-        <a href="/#contact" class="oo-cta-btn">BOOK ET MØDE →</a>
-    </div>
-</section>
-
-<!-- FOOTER -->
-<footer class="kf-footer">
-    <div class="kf-container">
-        <div class="kf-footer-content">
-            <div class="kf-footer-cta">
-                <p class="kf-footer-cta-label">Klar til at blive noget stort?</p>
-                <a href="mailto:krydsfelt.info@gmail.com" class="kf-footer-email">krydsfelt.info@gmail.com</a>
-                <p style="font-size: 0.85rem; color: #999; margin-top: 0.75rem; font-weight: 500;">Tony Xtruong, Founder & CTO</p>
-            </div>
-            <div class="kf-footer-links">
-                <div class="kf-footer-col">
-                    <h5>Udforsk</h5>
-                    <a href="/">Hjem</a>
-                    <a href="/ydelser">Ydelser</a>
-                    <a href="/om-os">Om os</a>
-                    <a href="/#contact">Kontakt</a>
-                </div>
-                <div class="kf-footer-col">
-                    <h5>Sociale</h5>
-                    <a href="#" target="_blank">LinkedIn</a>
-                    <a href="#" target="_blank">Instagram</a>
-                    <a href="#" target="_blank">GitHub</a>
-                </div>
-            </div>
-        </div>
-        <div class="kf-footer-bottom">
-            <p>&copy; 2026 KrydsFelt. Alle rettigheder forbeholdes.</p>
-        </div>
-    </div>
-</footer>
+<SiteFooter />
 
 @code {
-    bool navOpen = false;
-
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)

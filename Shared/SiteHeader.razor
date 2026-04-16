@@ -1,0 +1,76 @@
+@if (showBanner)
+{
+    <div class="kf-topbar">
+        <div class="kf-topbar-inner">
+            <div class="kf-topbar-copy">
+                <span class="kf-topbar-dot"></span>
+                <span>@BannerText</span>
+                <a href="@BannerCtaHref" class="kf-topbar-cta">@BannerCtaText</a>
+            </div>
+            <button class="kf-topbar-close" type="button" @onclick="CloseBanner" aria-label="Luk besked">×</button>
+        </div>
+    </div>
+}
+
+<nav class="kf-nav @(showBanner ? "with-topbar" : "")">
+    <div class="kf-nav-inner">
+        <a href="/" class="kf-logo-link"><span class="kf-logo">by KrydsFelt.</span></a>
+
+        <div class="kf-nav-center">
+            <div class="kf-nav-links">
+                <a href="/" class="@GetLinkClass("home")">Home</a>
+                <a href="/om-os" class="@GetLinkClass("about")">About</a>
+
+                <div class="kf-nav-dropdown @(IsServicesActive ? "active" : "")">
+                    <a href="/ydelser" class="kf-nav-dropdown-trigger">Services</a>
+                    <div class="kf-nav-dropdown-menu">
+                        <a href="/ydelser#brand-strategi">Brand Strategy</a>
+                        <a href="/ydelser#webudvikling">Web Development</a>
+                        <a href="/ydelser#lead-generation">Lead Generation</a>
+                        <a href="/ydelser#design-ux">Design & UX</a>
+                    </div>
+                </div>
+                <a href="/booking" class="@GetLinkClass("contact")">Contact</a>
+            </div>
+        </div>
+
+        <button class="kf-nav-hamburger @(navOpen ? "open" : "")" @onclick="ToggleMenu" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+
+        <a href="@ContactHref" class="kf-nav-contact-btn @(CurrentPage == "booking" ? "active" : "")">@ContactLabel</a>
+    </div>
+
+    <div class="kf-nav-mobile @(navOpen ? "open" : "")">
+        <a href="/" @onclick="CloseMenu">Home</a>
+        <a href="/om-os" @onclick="CloseMenu">About</a>
+        <a href="/ydelser" @onclick="CloseMenu">Services</a>
+        <a href="/ydelser#brand-strategi" class="kf-nav-mobile-sub" @onclick="CloseMenu">Brand Strategy</a>
+        <a href="/ydelser#webudvikling" class="kf-nav-mobile-sub" @onclick="CloseMenu">Web Development</a>
+        <a href="/ydelser#lead-generation" class="kf-nav-mobile-sub" @onclick="CloseMenu">Lead Generation</a>
+        <a href="/ydelser#design-ux" class="kf-nav-mobile-sub" @onclick="CloseMenu">Design & UX</a>
+        <a href="@ContactHref" @onclick="CloseMenu">Contact</a>
+    </div>
+</nav>
+
+@code {
+    [Parameter] public string CurrentPage { get; set; } = "";
+    [Parameter] public string ContactHref { get; set; } = "/booking";
+    [Parameter] public string ContactLabel { get; set; } = "Book et møde";
+    [Parameter] public string BannerText { get; set; } = "Klar til en ny hjemmeside?";
+    [Parameter] public string BannerCtaText { get; set; } = "Book et møde";
+    [Parameter] public string BannerCtaHref { get; set; } = "/booking";
+
+    private bool navOpen;
+    private bool showBanner = true;
+
+    private bool IsServicesActive => CurrentPage == "services";
+
+    private string GetLinkClass(string key) => CurrentPage == key ? "kf-nav-active" : string.Empty;
+
+    private void ToggleMenu() => navOpen = !navOpen;
+
+    private void CloseMenu() => navOpen = false;
+
+    private void CloseBanner() => showBanner = false;
+}

@@ -5,25 +5,7 @@
 
 <!-- NAV + HERO WRAPPER -->
 <div class="yd-hero-wrapper">
-
-    <nav class="kf-nav">
-        <div class="kf-nav-inner">
-            <a href="/" class="kf-logo-link"><span class="kf-logo">KRYDSFELT</span></a>
-            <div class="kf-nav-links">
-                <a href="/ydelser" class="kf-nav-active">Ydelser</a>
-                <a href="/om-os">Om os</a>
-            </div>
-            <button class="kf-nav-hamburger @(navOpen ? "open" : "")" @onclick="() => navOpen = !navOpen" aria-label="Menu">
-                <span></span><span></span><span></span>
-            </button>
-            <a href="/#contact" class="kf-nav-contact-btn">Kontakt</a>
-        </div>
-        <div class="kf-nav-mobile @(navOpen ? "open" : "")">
-            <a href="/ydelser" @onclick="() => navOpen = false">Ydelser</a>
-            <a href="/om-os" @onclick="() => navOpen = false">Om os</a>
-            <a href="/#contact" @onclick="() => navOpen = false">Kontakt</a>
-        </div>
-    </nav>
+    <SiteHeader CurrentPage="services" ContactHref="/booking" />
 
     <!-- HERO - DARK WITH GLOW -->
     <section class="yd-hero-v2">
@@ -32,7 +14,7 @@
                 <span class="yd-hero-badge">YDELSER</span>
                 <h1 class="yd-hero-title">Hvor digital vækst struktureres</h1>
                 <p class="yd-hero-desc">Vores ydelser danner et stærkt digitalt fundament. Fra strategi og design til udvikling og systemer, der giver klar indsigt i performance.</p>
-                <a href="/#contact" class="yd-hero-btn">DISKUTER DIT PROJEKT →</a>
+                <a href="/booking" class="yd-hero-btn">BOOK ET MØDE →</a>
             </div>
         </div>
     </section>
@@ -52,7 +34,7 @@
             <!-- RIGHT: Service List -->
             <div class="expertise-right">
                 <!-- 01: Brand Strategy & Identity -->
-                <div class="expertise-item reveal">
+                <div class="expertise-item reveal" id="brand-strategi">
                     <div class="expertise-item-header">
                         <span class="expertise-item-num">01</span>
                         <h3 class="expertise-item-title">Brand Strategi & Identitet</h3>
@@ -61,17 +43,18 @@
                 </div>
 
                 <!-- 02: Webudvikling -->
-                <div class="expertise-item reveal" data-delay="100">
+                <div class="expertise-item reveal" data-delay="100" id="webudvikling">
                     <div class="expertise-item-header">
                         <span class="expertise-item-num">02</span>
                         <h3 class="expertise-item-title">Webudvikling</h3>
                         <span class="expertise-item-arrow">→</span>
                     </div>
                     <p class="expertise-item-desc">Vi udvikler skalerbare hjemmesider, der styrker din digitale tilstedeværelse, tiltrækker det rette publikum og konverterer besøgende til muligheder.</p>
+                    <a href="#pricing" class="expertise-item-cta">Let's Go</a>
                 </div>
 
                 <!-- 03: Skræddersyede Systemer -->
-                <div class="expertise-item reveal" data-delay="200">
+                <div class="expertise-item reveal" data-delay="200" id="lead-generation">
                     <div class="expertise-item-header">
                         <span class="expertise-item-num">03</span>
                         <h3 class="expertise-item-title">Lead Generation</h3>
@@ -81,7 +64,7 @@
                 </div>
 
                 <!-- 04: Design & UX -->
-                <div class="expertise-item reveal" data-delay="300">
+                <div class="expertise-item reveal" data-delay="300" id="design-ux">
                     <div class="expertise-item-header">
                         <span class="expertise-item-num">04</span>
                         <h3 class="expertise-item-title">Design & UX</h3>
@@ -104,7 +87,7 @@
                 <span class="approach-label">VOR TILGANG</span>
                 <h2 class="approach-heading">Sådan arbejder vi sammen</h2>
                 <p class="approach-description">Vores tilgang er klar og struktureret. Gennem definerede trin bygger vi digitale løsninger, der giver mening, skaber klarhed og fortsætter med at performe fra første indsigt til løbende udvikling.</p>
-                <a href="/#contact" class="approach-btn">DISKUTER DIT PROJEKT →</a>
+                <a href="/booking" class="approach-btn">BOOK ET MØDE →</a>
             </div>
 
             <!-- RIGHT: Timeline -->
@@ -160,40 +143,76 @@
     </div>
 </section>
 
-<!-- FOOTER -->
-<footer class="kf-footer">
+<section class="yd-pricing yd-pricing-after" id="pricing">
     <div class="kf-container">
-        <div class="kf-footer-content">
-            <div class="kf-footer-cta">
-                <p class="kf-footer-cta-label">Klar til at blive noget stort?</p>
-                <a href="mailto:krydsfelt.info@gmail.com" class="kf-footer-email">krydsfelt.info@gmail.com</a>
-                <p style="font-size: 0.85rem; color: #999; margin-top: 0.75rem; font-weight: 500;">Tony Xtruong, Founder & CTO</p>
-            </div>
-            <div class="kf-footer-links">
-                <div class="kf-footer-col">
-                    <h5>Udforsk</h5>
-                    <a href="/">Hjem</a>
-                    <a href="/ydelser">Ydelser</a>
-                    <a href="/om-os">Om os</a>
-                    <a href="/#contact">Kontakt</a>
-                </div>
-                <div class="kf-footer-col">
-                    <h5>Sociale</h5>
-                    <a href="#" target="_blank">LinkedIn</a>
-                    <a href="#" target="_blank">Instagram</a>
-                    <a href="#" target="_blank">GitHub</a>
-                </div>
-            </div>
+        <div class="yd-pricing-head reveal">
+            <span class="oo2-section-label">Pricing</span>
+            <h2>Tre website-pakker afhængigt af omfang og kompleksitet.</h2>
+            <p>Alle priser tager udgangspunkt i skræddersyede hjemmesider. Den sidste løsning er til projekter, hvor vi først sætter pris efter behov, scope og integrationer.</p>
         </div>
-        <div class="kf-footer-bottom">
-            <p>&copy; 2026 KrydsFelt. Alle rettigheder forbeholdes.</p>
+
+        <div class="yd-pricing-shell">
+            <article class="yd-price-card yd-price-card-dark reveal">
+                <span class="yd-price-pill">Standard</span>
+                <p class="yd-price-from">Fra</p>
+                <h3>8.000 kr.</h3>
+                <p class="yd-price-text">Til virksomheder der har brug for en enkel, skarp hjemmeside med ét klart budskab og en hurtig vej til launch.</p>
+                <div class="yd-price-includes">
+                    <h4>Hvad er med</h4>
+                    <ul>
+                        <li>One-page hjemmeside</li>
+                        <li>Skræddersyet design</li>
+                        <li>Mobiloptimering</li>
+                        <li>Kontaktsektion eller CTA-flow</li>
+                        <li>Launch og overlevering</li>
+                    </ul>
+                </div>
+                <a href="/booking" class="yd-price-btn">Book et møde</a>
+            </article>
+
+            <article class="yd-price-card yd-price-card-dark yd-price-card-featured reveal" data-delay="100">
+                <span class="yd-price-pill">Multipage</span>
+                <span class="yd-price-tag">Bestseller</span>
+                <p class="yd-price-from">Fra</p>
+                <h3>15.000 kr.</h3>
+                <p class="yd-price-text">Til virksomheder der vil have en rigtig hjemmeside med flere undersider, stærkere struktur og mere plads til at præsentere forretningen ordentligt.</p>
+                <div class="yd-price-includes">
+                    <h4>Hvad er med</h4>
+                    <ul>
+                        <li>Op til 5 undersider</li>
+                        <li>Struktur og content-flow</li>
+                        <li>Skræddersyet design og frontend</li>
+                        <li>Mobiloptimering og teknisk opsætning</li>
+                        <li>Launch og overlevering</li>
+                    </ul>
+                </div>
+                <a href="/booking" class="yd-price-btn">Book et møde</a>
+            </article>
+
+            <article class="yd-price-card yd-price-card-light reveal" data-delay="200">
+                <span class="yd-price-pill">Third</span>
+                <p class="yd-price-from">Efter behov</p>
+                <h3>Lad os tale</h3>
+                <p class="yd-price-text">Til virksomheder der skal bruge mere end et klassisk website. Her sætter vi pris efter behov, kompleksitet, funktioner og integrationer.</p>
+                <div class="yd-price-includes">
+                    <h4>Typisk indhold</h4>
+                    <ul>
+                        <li>Større sidearkitektur</li>
+                        <li>Custom funktioner</li>
+                        <li>Integrationer til eksterne systemer</li>
+                        <li>Avancerede flows og formularer</li>
+                        <li>Tæt teknisk sparring</li>
+                    </ul>
+                </div>
+                <a href="/booking" class="yd-price-btn yd-price-btn-light">Book et møde</a>
+            </article>
         </div>
     </div>
-</footer>
+</section>
+
+<SiteFooter />
 
 @code {
-    bool navOpen = false;
-
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)

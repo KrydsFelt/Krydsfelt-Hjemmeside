@@ -3,455 +3,162 @@
 
 <PageTitle>KrydsFelt</PageTitle>
 
-<!-- NAV -->
-<nav class="kf-nav">
-    <div class="kf-nav-inner">
-        <a href="/" class="kf-logo-link"><span class="kf-logo">KRYDSFELT</span></a>
-        <div class="kf-nav-links">
-            <a href="/ydelser">Ydelser</a>
-            <a href="/om-os">Om os</a>
-        </div>
-        <button class="kf-nav-hamburger @(navOpen ? "open" : "")" @onclick="() => navOpen = !navOpen" aria-label="Menu">
-            <span></span><span></span><span></span>
-        </button>
-        <a href="#contact" class="kf-nav-contact-btn">Kontakt</a>
-    </div>
-    <div class="kf-nav-mobile @(navOpen ? "open" : "")">
-        <a href="/ydelser" @onclick="() => navOpen = false">Ydelser</a>
-        <a href="/om-os" @onclick="() => navOpen = false">Om os</a>
-        <a href="mailto:krydsfelt.info@gmail.com" @onclick="() => navOpen = false">Kontakt</a>
-    </div>
-</nav>
+<SiteHeader CurrentPage="home" ContactHref="/booking" />
 
-<!-- HERO -->
-<section class="kf-hero">
+<section class="kh-home-hero">
     <div class="kf-container">
-        <div class="kf-hero-content">
-            <div class="kf-hero-status">
-                <span class="kf-status-text">Europa, Danmark</span>
-            </div>
-
-            <h1 class="kf-hero-title" data-animate="words">
-                Vi Bygger Digitale Magtsystemer for Vækst
-            </h1>
-
-            <p class="kf-hero-description reveal">
-                Et dedikeret team af udviklere og designere baseret i Aarhus. Vi skaber skræddersyede webløsninger og systemer, der transformerer virksomheder. Hurtig levering, høj kvalitet, målbare resultater.
-            </p>
-
-            <div class="kf-hero-ctas">
-                <a href="mailto:krydsfelt.info@gmail.com" class="kf-btn kf-btn-primary">
-                    <span>↳ Kom i gang</span>
-                </a>
-                <a href="/ydelser" class="kf-btn kf-btn-secondary">
-                    <span>↳ Se vores arbejde</span>
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- APPROACH PROCESS -->
-<section class="kf-approach-process">
-    <div class="kf-container">
-        <div class="kf-process-intro">
-            <p class="kf-process-intro-text">
-                Vi bygger digitale løsninger for etablerede virksomheder, startups og alt derimelllem. Fokus er det samme: <span class="kf-process-highlight">systemer der skalerer</span>, løser de kommunikations-problemer der betyder noget, og holder <span class="kf-process-highlight">mennesker først</span> hele vejen igennem.
-            </p>
-        </div>
-
-        <div class="kf-process-content">
-            <div class="kf-process-left">
-                <h2 data-animate="words">Vores tilgang til digital design</h2>
-                <p class="reveal">
-                    Vi designer digitale oplevelser der virker for de mennesker der bruger dem og de teams der vedligeholder dem. Vi starter med hvad brugerne rent faktisk skal bruge, mapper flows, tester tidligt, og bygger interfaces der ikke skal have manualer.
+        <div class="kh-home-hero-grid kh-home-hero-grid-minimal">
+            <div class="kh-home-hero-copy">
+                <span class="kh-home-pill">Aarhus, Danmark</span>
+                <h1 class="kh-home-title" data-animate="words">Vi bygger hjemmesider og digitale løsninger med mere ro, mere retning og bedre execution.</h1>
+                <p class="kh-home-text reveal">
+                    KrydsFelt hjælper mindre virksomheder og brands, der er vokset fra standardløsninger, men som stadig vil have et lille team tæt på processen.
+                    Vi samler strategi, design og udvikling, så det færdige resultat føles mere gennemført og er lettere at bygge videre på.
                 </p>
-                <p class="reveal" style="margin-top: 1.5rem;">
-                    Arbejdet dækker UX, interaction design, information architecture og brand evolution. Design for virkelighed. Rodet sker. Hvis brugere bliver lost eller klienten ikke kan update indhold uden at bryde noget – det er et problem. God design holder stand når det bliver kompliceret.
-                </p>
-                <a href="/ydelser" class="kf-process-cta">↳ Se vores arbejde</a>
+                <div class="kh-home-actions">
+                    <a href="/booking" class="kf-btn kf-btn-primary"><span>Book et møde</span></a>
+                    <a href="/ydelser" class="kf-btn kf-btn-secondary"><span>Se services</span></a>
+                </div>
             </div>
 
-            <div class="kf-process-right">
-                <div class="kf-process-accordion">
-                    <div class="kf-process-accordion-item">
-                        <button class="kf-process-accordion-trigger">
-                            <span>Strategi</span>
-                            <span class="kf-process-accordion-icon">+</span>
-                        </button>
-                        <div class="kf-process-accordion-content">
-                            <p>Vi starter med en grundig forståelse af dit marked, din målgruppe og position. Ud fra det definerer vi strukturen, strategien og retningen for din digitale platform.</p>
-                        </div>
-                    </div>
+            <div class="kh-home-hero-side reveal" data-delay="120"></div>
+        </div>
+    </div>
+</section>
 
-                    <div class="kf-process-accordion-item">
-                        <button class="kf-process-accordion-trigger">
-                            <span>User Experience</span>
-                            <span class="kf-process-accordion-icon">+</span>
-                        </button>
-                        <div class="kf-process-accordion-content">
-                            <p>Vi designer oplevelser omkring brugerens behov. Hver interaktion, hvert flow, hver skærm er designet for at løse problemer og skabe værdi for brugere.</p>
-                        </div>
-                    </div>
+<section class="kh-home-profile">
+    <div class="kf-container kh-home-profile-grid">
+        <div class="kh-home-profile-copy reveal">
+            <span class="oo2-section-label">Hvem er vi?</span>
+            <h2>Et mindre team med fokus på at gøre digitale løsninger mere klare, mere præcise og mere brugbare.</h2>
+            <p>
+                Vi arbejder tæt med virksomheder, der ikke har brug for et stort bureauapparat, men stadig vil have høj kvalitet i både design og udvikling.
+                Det giver kortere vej fra idé til launch og et mere sammenhængende resultat.
+            </p>
+            <p>
+                Vores styrke er ikke volumen. Det er smag, fokus og evnen til at bygge noget der både ser bedre ud nu og holder bedre bagefter.
+            </p>
+            <p>
+                KrydsFelt er bygget omkring et lille hold, hvor strategi, design og udvikling spiller tæt sammen. Det gør processen hurtigere, mere direkte og mindre tung.
+                Når et brand eller en virksomhed har brug for et tydeligere digitalt niveau, men stadig vil arbejde tæt med dem der udfører arbejdet, er det typisk dér vi passer bedst ind.
+            </p>
+            <a href="/om-os" class="kh-home-inline-link">Læs mere om os</a>
 
-                    <div class="kf-process-accordion-item">
-                        <button class="kf-process-accordion-trigger">
-                            <span>Design</span>
-                            <span class="kf-process-accordion-icon">+</span>
-                        </button>
-                        <div class="kf-process-accordion-content">
-                            <p>Fra wireframes til pixel-perfekt design. Vi skaber visuelt sammenhængende systemer der fungerer på alle enheder og bakker virksomhedens mærke op.</p>
-                        </div>
-                    </div>
+            <div class="kh-home-socials">
+                <a href="#" aria-label="Instagram" class="kh-home-social-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+                        <circle cx="12" cy="12" r="4"></circle>
+                        <circle cx="17.5" cy="6.5" r="1"></circle>
+                    </svg>
+                </a>
+                <a href="#" aria-label="LinkedIn" class="kh-home-social-link">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M6.94 8.5H3.56V20h3.38V8.5Zm-1.69-1.56c1.08 0 1.94-.74 1.94-1.72-.02-1-.86-1.72-1.92-1.72-1.06 0-1.94.72-1.94 1.72 0 .98.84 1.72 1.9 1.72h.02ZM20 13.05c0-3.47-1.85-5.08-4.32-5.08-1.99 0-2.88 1.1-3.37 1.87V8.5H8.94c.05.89 0 11.5 0 11.5h3.37v-6.42c0-.34.02-.68.12-.92.27-.68.88-1.38 1.91-1.38 1.35 0 1.89 1.04 1.89 2.56V20H20v-6.95Z"></path>
+                    </svg>
+                </a>
+                <a href="mailto:krydsfelt.info@gmail.com" aria-label="Email" class="kh-home-social-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+                        <path d="M3 7l9 6 9-6"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
 
-                    <div class="kf-process-accordion-item">
-                        <button class="kf-process-accordion-trigger">
-                            <span>Udvikling</span>
-                            <span class="kf-process-accordion-icon">+</span>
-                        </button>
-                        <div class="kf-process-accordion-content">
-                            <p>Vi udvikler robust, skalerbar kode der måler sig selv. Performance, sikkerhed og vedligeholdelse bygges ind fra start.</p>
-                        </div>
-                    </div>
+        <div class="kh-home-profile-media reveal" data-delay="140">
+            <img src="Pictures/Tony.jpeg" alt="Tony Xtruong" />
+            <div class="kh-home-profile-stats">
+                <div>
+                    <strong>4+</strong>
+                    <span>Års erfaring</span>
+                </div>
+                <div>
+                    <strong>43</strong>
+                    <span>Partners</span>
+                </div>
+                <div>
+                    <strong>100%</strong>
+                    <span>Tilfredshed</span>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- SERVICES -->
-<section class="kf-services" id="services">
-    <div class="kf-container kf-services-content">
-        <div class="kf-services-left">
-            <h2 class="reveal" data-animate="words">Designet til skalerbar performance</h2>
-            <p class="kf-section-sub reveal" data-delay="100">Vores team af strategier og specialister strukturerer, bygger og optimerer digital vækst med disciplin og klart fokus på resultater.</p>
-        </div>
-        <div class="kf-services-swipe-hint">Swipe for at se mere →</div>
-        <div class="kf-case-grid">
-            <div class="kf-case-study" data-delay="0">
-                <div class="kf-case-study-wrap">
-                    <div class="kf-case-study-visual kf-case-study-icon">
-                        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="32" cy="32" r="30" stroke="currentColor" stroke-width="2"/>
-                            <path d="M20 28H44M20 36H44M24 44H40" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                            <path d="M32 16V48" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
-                        </svg>
-                    </div>
-                    <div class="kf-case-study-content">
-                        <div class="kf-case-study-top">
-                            <h3>Web Development</h3>
-                            <p>Bygger robuste, skalerbare webapplikationer med moderne teknologi og best practices.</p>
-                        </div>
-                        <div class="kf-case-study-bottom">
-                            <a href="/ydelser" class="kf-case-study-link">
-                                <span>View Service</span>
-                                <svg width="12" height="8" viewBox="0 0 15 10" fill="currentColor">
-                                    <path d="M10 10L15 5L10 0L8.83333 1.16667L11.8333 4.16667H1.66667V0.833333H0V5.83333H11.8333L8.83333 8.83333L10 10Z" />
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="kf-case-study" data-delay="120">
-                <div class="kf-case-study-wrap">
-                    <div class="kf-case-study-visual kf-case-study-icon">
-                        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="16" y="18" width="32" height="24" stroke="currentColor" stroke-width="2" rx="2"/>
-                            <path d="M20 22H44M20 30H44M20 38H40" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
-                            <circle cx="48" cy="20" r="3" fill="currentColor"/>
-                        </svg>
-                    </div>
-                    <div class="kf-case-study-content">
-                        <div class="kf-case-study-top">
-                            <h3>UI/UX Design</h3>
-                            <p>Designer intuitive brugergrænseflader som kombinerer skønhed med funktionalitet og brugervenlighed.</p>
-                        </div>
-                        <div class="kf-case-study-bottom">
-                            <a href="/ydelser" class="kf-case-study-link">
-                                <span>View Service</span>
-                                <svg width="12" height="8" viewBox="0 0 15 10" fill="currentColor">
-                                    <path d="M10 10L15 5L10 0L8.83333 1.16667L11.8333 4.16667H1.66667V0.833333H0V5.83333H11.8333L8.83333 8.83333L10 10Z" />
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="kf-case-study" data-delay="240">
-                <div class="kf-case-study-wrap">
-                    <div class="kf-case-study-visual kf-case-study-icon">
-                        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M32 16L40 22V44H24V22L32 16Z" stroke="currentColor" stroke-width="2"/>
-                            <path d="M28 28H36M28 34H36M28 40H32" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                            <circle cx="48" cy="32" r="8" stroke="currentColor" stroke-width="2"/>
-                            <path d="M48 28V36M44 32H52" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                        </svg>
-                    </div>
-                    <div class="kf-case-study-content">
-                        <div class="kf-case-study-top">
-                            <h3>Custom Development</h3>
-                            <p>Løsninger der er skræddersyet til dine specifikke behov og integreres seamlessly med eksisterende systemer.</p>
-                        </div>
-                        <div class="kf-case-study-bottom">
-                            <a href="/ydelser" class="kf-case-study-link">
-                                <span>View Service</span>
-                                <svg width="12" height="8" viewBox="0 0 15 10" fill="currentColor">
-                                    <path d="M10 10L15 5L10 0L8.83333 1.16667L11.8333 4.16667H1.66667V0.833333H0V5.83333H11.8333L8.83333 8.83333L10 10Z" />
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="kf-case-study" data-delay="360">
-                <div class="kf-case-study-wrap">
-                    <div class="kf-case-study-visual kf-case-study-icon">
-                        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="22" y="14" width="20" height="36" stroke="currentColor" stroke-width="2" rx="2"/>
-                            <path d="M24 18H40M24 24H40M24 30H40M24 36H40M24 42H40" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
-                            <circle cx="32" cy="50" r="1.5" fill="currentColor"/>
-                        </svg>
-                    </div>
-                    <div class="kf-case-study-content">
-                        <div class="kf-case-study-top">
-                            <h3>Mobile Solutions</h3>
-                            <p>Native og cross-platform mobile apps designet for performance og brugeroplevelse på alle enheder.</p>
-                        </div>
-                        <div class="kf-case-study-bottom">
-                            <a href="/ydelser" class="kf-case-study-link">
-                                <span>View Service</span>
-                                <svg width="12" height="8" viewBox="0 0 15 10" fill="currentColor">
-                                    <path d="M10 10L15 5L10 0L8.83333 1.16667L11.8333 4.16667H1.66667V0.833333H0V5.83333H11.8333L8.83333 8.83333L10 10Z" />
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-<!-- OUR APPROACH -->
-<section class="kf-approach">
+<section class="kh-home-services">
     <div class="kf-container">
-        <h2 data-animate="words">Vores tilgang til arbejde og projekter</h2>
-        <p class="kf-approach-sub reveal">Vi bygger løsninger der varer, skalerer og driver vækst for din virksomhed</p>
-
-        <ul class="kf-approach-list" role="list">
-            <li class="kf-approach-item">
-                <div class="kf-approach-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 29" fill="none" preserveAspectRatio="xMidYMid meet">
-                        <path d="M25.2136 14.6623L16.4793 12.5214L21.2749 1.35146L2.43587 15.2517L11.1701 17.3927L6.37459 28.5626L25.2136 14.6623Z" fill="url(#grad1)"></path>
-                        <defs><radialGradient id="grad1"><stop offset="0.127034" stop-color="currentColor" stop-opacity="0"></stop><stop offset="1" stop-color="currentColor"></stop></radialGradient></defs>
-                    </svg>
-                </div>
-                <div class="kf-approach-content">
-                    <h3>Hurtigt til Marked</h3>
-                    <p>Vi handler hurtigt uden at miste kvalitet. Din idé fra whiteboard til live produkt – effektivt og uden unødigt spild.</p>
-                </div>
-                <div class="kf-approach-divider"></div>
-            </li>
-
-            <li class="kf-approach-item">
-                <div class="kf-approach-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 29" fill="none" preserveAspectRatio="xMidYMid meet">
-                        <rect x="2" y="13" width="24" height="5" fill="url(#grad2)"></rect>
-                        <defs><linearGradient id="grad2" x1="14" y1="13" x2="14" y2="18"><stop stop-color="currentColor"></stop><stop offset="1" stop-color="currentColor" stop-opacity="0"></stop></linearGradient></defs>
-                    </svg>
-                </div>
-                <div class="kf-approach-content">
-                    <h3>Kvalitet Første</h3>
-                    <p>Vi leverer clean code, solid arkitektur og løsninger der holder. Ingen shortcuts – kun arbejde vi er stolte af.</p>
-                </div>
-                <div class="kf-approach-divider"></div>
-            </li>
-
-            <li class="kf-approach-item">
-                <div class="kf-approach-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 29" fill="none" preserveAspectRatio="xMidYMid meet">
-                        <rect x="0.636719" y="2.0603" width="4.49198" height="25.4545" fill="url(#grad3)"></rect>
-                        <rect x="6.25195" y="4.68115" width="4.49198" height="19.4652" fill="url(#grad4)"></rect>
-                        <rect x="11.8672" y="7.67505" width="4.49198" height="13.8503" fill="url(#grad5)"></rect>
-                        <rect x="17.4805" y="10.6699" width="4.49198" height="7.86096" fill="url(#grad6)"></rect>
-                        <rect x="23.0957" y="13.6643" width="4.49198" height="1.87166" fill="url(#grad7)"></rect>
-                        <defs>
-                            <linearGradient id="grad3" x1="5.1287" y1="14.8847" x2="0.636719" y2="14.8847"><stop stop-color="currentColor" stop-opacity="0"></stop><stop offset="1" stop-color="currentColor"></stop></linearGradient>
-                            <linearGradient id="grad4" x1="10.7439" y1="14.4881" x2="6.25195" y2="14.4881"><stop stop-color="currentColor" stop-opacity="0"></stop><stop offset="1" stop-color="currentColor"></stop></linearGradient>
-                            <linearGradient id="grad5" x1="16.3592" y1="14.653" x2="11.8672" y2="14.653"><stop stop-color="currentColor" stop-opacity="0"></stop><stop offset="1" stop-color="currentColor"></stop></linearGradient>
-                            <linearGradient id="grad6" x1="21.9724" y1="14.6304" x2="17.4805" y2="14.6304"><stop stop-color="currentColor" stop-opacity="0"></stop><stop offset="1" stop-color="currentColor"></stop></linearGradient>
-                            <linearGradient id="grad7" x1="27.5877" y1="14.6073" x2="23.0957" y2="14.6073"><stop stop-color="currentColor" stop-opacity="0"></stop><stop offset="1" stop-color="currentColor"></stop></linearGradient>
-                        </defs>
-                    </svg>
-                </div>
-                <div class="kf-approach-content">
-                    <h3>Skalerbar fra Dag 1</h3>
-                    <p>Din løsning skalerer uden problemer – fra 10 brugere til 10,000. Vi designer arkitektur der vokser med dig, uden rewrite.</p>
-                </div>
-                <div class="kf-approach-divider"></div>
-            </li>
-
-            <li class="kf-approach-item">
-                <div class="kf-approach-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 29" fill="none" preserveAspectRatio="xMidYMid meet">
-                        <path d="M1.90918 14.7304H25.9765M13.9428 2.69678L13.9428 26.764" stroke="url(#grad8)" stroke-width="3.00841"></path>
-                        <defs><radialGradient id="grad8"><stop offset="0.102159" stop-color="currentColor" stop-opacity="0"></stop><stop offset="1" stop-color="currentColor"></stop></radialGradient></defs>
-                    </svg>
-                </div>
-                <div class="kf-approach-content">
-                    <h3>Langsigtet Investering</h3>
-                    <p>Vi tænker langsigtet. Dine løsninger vokser med din virksomhed – vi bygger arkitektur der holder i mange år fremover.</p>
-                </div>
-                <div class="kf-approach-divider"></div>
-            </li>
-
-            <li class="kf-approach-item">
-                <div class="kf-approach-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 29" fill="none" preserveAspectRatio="xMidYMid meet">
-                        <g clip-path="url(#clip0)">
-                            <path d="M6 23H2V29H6V23Z" fill="url(#grad9)"></path>
-                            <path d="M13 16H9V29H13V16Z" fill="url(#grad10)"></path>
-                            <path d="M20 9H16V29H20V9Z" fill="url(#grad11)"></path>
-                            <path d="M27 1H23V29H27V1Z" fill="url(#grad12)"></path>
-                        </g>
-                        <defs>
-                            <linearGradient id="grad9" x1="2" y1="26" x2="6" y2="26"><stop stop-color="currentColor"></stop><stop offset="1" stop-color="currentColor" stop-opacity="0"></stop></linearGradient>
-                            <linearGradient id="grad10" x1="9" y1="22.5" x2="13" y2="22.5"><stop stop-color="currentColor"></stop><stop offset="1" stop-color="currentColor" stop-opacity="0"></stop></linearGradient>
-                            <linearGradient id="grad11" x1="15.7571" y1="17.8997" x2="20.1207" y2="17.8997"><stop stop-color="currentColor"></stop><stop offset="1" stop-color="currentColor" stop-opacity="0"></stop></linearGradient>
-                            <linearGradient id="grad12" x1="23.1822" y1="14.0165" x2="27.0004" y2="14.0165"><stop stop-color="currentColor"></stop><stop offset="1" stop-color="currentColor" stop-opacity="0"></stop></linearGradient>
-                            <clipPath id="clip0"><rect width="28" height="29" fill="white"></rect></clipPath>
-                        </defs>
-                    </svg>
-                </div>
-                <div class="kf-approach-content">
-                    <h3>Performance & Effektivitet</h3>
-                    <p>Lynhurtige load times, optimeret for SEO og konvertering. Vi bygger ikke bare – vi bygger smart og målrettet.</p>
-                </div>
-            </li>
-        </ul>
-    </div>
-</section>
-
-<!-- FAQ -->
-<section class="kf-faq">
-    <div class="kf-container">
-        <div class="kf-faq-header">
-            <h2 data-animate="words">Ofte stillede spørgsmål.</h2>
+        <div class="kh-home-section-head reveal">
+            <span class="oo2-section-label">Services</span>
+            <h2>Det vi typisk hjælper med, når et website eller digitalt setup skal løftes.</h2>
+            <p>Vi holder det enkelt og fokuserer på det, der gør størst forskel for næste version af virksomheden.</p>
         </div>
 
-        <div class="kf-faq-content">
-            <div class="kf-faq-items">
-                    <div class="kf-faq-item">
-                        <button class="kf-faq-question">
-                            <span>Hvad koster et projekt?</span>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="6 9 12 15 18 9"></polyline>
-                            </svg>
-                        </button>
-                        <div class="kf-faq-answer">
-                            <p>Prisen varierer afhængigt af projektets størrelse og kompleksitet. Vi giver altid et konkret tilbud efter en initial konsultation.</p>
-                        </div>
-                    </div>
-
-                    <div class="kf-faq-item">
-                        <button class="kf-faq-question">
-                            <span>Hvor lang tid tager det?</span>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="6 9 12 15 18 9"></polyline>
-                            </svg>
-                        </button>
-                        <div class="kf-faq-answer">
-                            <p>Små projekter kan tage 2-4 uger, mens større systemer kan tage 2-6 måneder. Vi planlægger altid med realistiske tidslinjer.</p>
-                        </div>
-                    </div>
-
-                    <div class="kf-faq-item">
-                        <button class="kf-faq-question">
-                            <span>Hvilke teknologier bruger I?</span>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="6 9 12 15 18 9"></polyline>
-                            </svg>
-                        </button>
-                        <div class="kf-faq-answer">
-                            <p>Vi bruger moderne tech som Blazor, React, .NET, Azure, og SQL. Vi vælger tools baseret på dit projekts behov.</p>
-                        </div>
-                    </div>
-
-                    <div class="kf-faq-item">
-                        <button class="kf-faq-question">
-                            <span>Er løsningerne SEO-optimeret?</span>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="6 9 12 15 18 9"></polyline>
-                            </svg>
-                        </button>
-                        <div class="kf-faq-answer">
-                            <p>Ja, alle vores webløsninger er optimeret for SEO fra dag 1. Vi sikrer hurtige load times og Google-venlige strukturer.</p>
-                        </div>
-                    </div>
-
-                    <div class="kf-faq-item">
-                        <button class="kf-faq-question">
-                            <span>Tilbyder I support efter launch?</span>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="6 9 12 15 18 9"></polyline>
-                            </svg>
-                        </button>
-                        <div class="kf-faq-answer">
-                            <p>Ja, vi tilbyder support og vedligeholdelse. Vi kan aftale en support-pakke der passer til dine behov.</p>
-                        </div>
-                    </div>
-
-                    <div class="kf-faq-item">
-                        <button class="kf-faq-question">
-                            <span>Hvorfor ikke bruge en page builder?</span>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="6 9 12 15 18 9"></polyline>
-                            </svg>
-                        </button>
-                        <div class="kf-faq-answer">
-                            <p>Page builders har begrænsninger. Skræddersyet udvikling giver dig fuld kontrol, bedre performance, og løsninger der skalerer.</p>
-                        </div>
-                    </div>
-            </div>
+        <div class="kh-home-service-grid kh-home-service-grid-minimal">
+            <article class="kh-home-service-card reveal">
+                <span>01</span>
+                <h3>Website Design & Build</h3>
+                <p>Hjemmesider med bedre struktur, stærkere branding og et mere roligt, gennemført udtryk.</p>
+            </article>
+            <article class="kh-home-service-card reveal" data-delay="100">
+                <span>02</span>
+                <h3>Frontend & UX</h3>
+                <p>Interfaces og brugerflows der både ser skarpere ud og fungerer bedre i praksis.</p>
+            </article>
+            <article class="kh-home-service-card reveal" data-delay="200">
+                <span>03</span>
+                <h3>Custom Development</h3>
+                <p>Skræddersyede løsninger når standardværktøjer ikke længere passer til behovet.</p>
+            </article>
         </div>
     </div>
 </section>
 
-<!-- FOOTER -->
-<footer class="kf-footer">
-    <div class="kf-container">
-        <div class="kf-footer-content">
-            <div class="kf-footer-cta">
-                <p class="kf-footer-cta-label">Klar til at blive noget stort?</p>
-                <a href="mailto:krydsfelt.info@gmail.com" class="kf-footer-email">krydsfelt.info@gmail.com</a>
-                <p style="font-size: 0.85rem; color: #999; margin-top: 0.75rem; font-weight: 500;">Tony Xtruong, Founder & CTO</p>
-            </div>
-            <div class="kf-footer-links">
-                <div class="kf-footer-col">
-                    <h5>Udforsk</h5>
-                    <a href="/">Hjem</a>
-                    <a href="/ydelser">Ydelser</a>
-                    <a href="/om-os">Om os</a>
-                    <a href="#contact">Kontakt</a>
-                </div>
-                <div class="kf-footer-col">
-                    <h5>Sociale</h5>
-                    <a href="#" target="_blank">LinkedIn</a>
-                    <a href="#" target="_blank">Instagram</a>
-                    <a href="#" target="_blank">GitHub</a>
-                </div>
-            </div>
+<section class="kh-home-process">
+    <div class="kf-container kh-home-process-grid">
+        <div class="kh-home-process-copy reveal">
+            <span class="oo2-section-label">Proces</span>
+            <h2>En enkel proces med højere kvalitet og mindre støj.</h2>
+            <p>Vi holder projektet tæt, så retningen er klar og execution bliver bedre hele vejen gennem.</p>
+            <a href="/booking" class="kh-home-inline-link">Start en samtale</a>
         </div>
-        <div class="kf-footer-bottom">
-            <p>&copy; 2026 KrydsFelt. Alle rettigheder forbeholdes.</p>
+
+        <div class="kh-home-process-list">
+            <article class="kh-home-process-item reveal">
+                <strong>01</strong>
+                <div>
+                    <h3>Afklaring</h3>
+                    <p>Vi starter med mål, scope og hvor løsningen skal skabe reel værdi.</p>
+                </div>
+            </article>
+            <article class="kh-home-process-item reveal" data-delay="100">
+                <strong>02</strong>
+                <div>
+                    <h3>Design & struktur</h3>
+                    <p>Indhold, retning og visuel form sættes før vi bygger det færdige produkt.</p>
+                </div>
+            </article>
+            <article class="kh-home-process-item reveal" data-delay="200">
+                <strong>03</strong>
+                <div>
+                    <h3>Build & launch</h3>
+                    <p>Vi designer, udvikler og afleverer noget der både kan gå live nu og fungere bagefter.</p>
+                </div>
+            </article>
         </div>
     </div>
-</footer>
+</section>
+
+<section class="kh-home-cta">
+    <div class="kf-container kh-home-cta-inner">
+        <span class="oo2-section-label">Kontakt</span>
+        <h2>Hvis jeres website eller digitale udtryk skal være skarpere, tager vi gerne den første samtale.</h2>
+        <p>Vi passer bedst til virksomheder, der vil løfte niveauet med et lille team og en mere gennemført proces.</p>
+        <a href="/booking" class="oo2-cta-link">BOOK ET MØDE</a>
+    </div>
+</section>
+
+<SiteFooter />
 
 @code {
     protected override async Task OnAfterRenderAsync(bool firstRender)
@@ -461,6 +168,4 @@
             await JS.InvokeVoidAsync("initAnimations");
         }
     }
-
-    bool navOpen = false;
 }

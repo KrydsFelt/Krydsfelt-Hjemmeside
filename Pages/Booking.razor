@@ -1,0 +1,115 @@
+@page "/booking"
+@using System.ComponentModel.DataAnnotations
+@inject IJSRuntime JS
+
+<PageTitle>Booking – KrydsFelt</PageTitle>
+
+<SiteHeader CurrentPage="booking" ContactHref="/booking" />
+
+<section class="bk-shell">
+    <div class="kf-container">
+        <div class="bk-layout">
+            <div class="bk-copy reveal">
+                <span class="bk-label">Booking</span>
+                <h1>Fortæl os kort, hvad I har brug for, så tager vi den derfra.</h1>
+                <p>
+                    Brug formularen til at sende en bookinganmodning. Vi vender tilbage med næste skridt, et forslag til møde og en hurtig vurdering af,
+                    hvordan vi bedst kan hjælpe.
+                </p>
+            </div>
+
+            <div class="bk-card reveal" data-delay="120">
+                <EditForm Model="@request" OnValidSubmit="@SubmitForm">
+                    <DataAnnotationsValidator />
+                    <div class="bk-grid">
+                        <div class="bk-field">
+                            <label for="customerName">Navn på kunden</label>
+                            <InputText id="customerName" @bind-Value="request.CustomerName" />
+                            <ValidationMessage For="@(() => request.CustomerName)" />
+                        </div>
+
+                        <div class="bk-field">
+                            <label for="companyName">Virksomhed</label>
+                            <InputText id="companyName" @bind-Value="request.CompanyName" />
+                            <ValidationMessage For="@(() => request.CompanyName)" />
+                        </div>
+
+                        <div class="bk-field">
+                            <label for="cvr">CVR (valgfrit)</label>
+                            <InputText id="cvr" @bind-Value="request.Cvr" />
+                        </div>
+
+                        <div class="bk-field">
+                            <label for="email">Email</label>
+                            <InputText id="email" @bind-Value="request.Email" type="email" />
+                            <ValidationMessage For="@(() => request.Email)" />
+                        </div>
+
+                        <div class="bk-field bk-field-full">
+                            <label for="helpNeeded">Hvad har I brug for hjælp til?</label>
+                            <InputTextArea id="helpNeeded" @bind-Value="request.HelpNeeded" />
+                            <ValidationMessage For="@(() => request.HelpNeeded)" />
+                        </div>
+                    </div>
+
+                    <button type="submit" class="bk-submit">Send bookinganmodning</button>
+                </EditForm>
+
+                @if (!string.IsNullOrWhiteSpace(statusMessage))
+                {
+                    <p class="bk-status">@statusMessage</p>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
+<SiteFooter />
+
+@code {
+    private BookingRequest request = new();
+    private string? statusMessage;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JS.InvokeVoidAsync("initAnimations");
+        }
+    }
+
+    private async Task SubmitForm()
+    {
+        var subject = Uri.EscapeDataString($"Bookinganmodning fra {request.CompanyName}");
+        var body = Uri.EscapeDataString(
+$@"Navn: {request.CustomerName}
+Virksomhed: {request.CompanyName}
+CVR: {request.Cvr}
+Email: {request.Email}
+
+Behov:
+{request.HelpNeeded}");
+
+        var mailto = $"mailto:krydsfelt.info@gmail.com?subject={subject}&body={body}";
+        statusMessage = "Din mailklient åbnes med bookinganmodningen.";
+        await JS.InvokeVoidAsync("open", mailto);
+    }
+
+    private sealed class BookingRequest
+    {
+        [Required(ErrorMessage = "Indtast navn.")]
+        public string CustomerName { get; set; } = string.Empty;
+
+        [Required(ErrorMessage = "Indtast virksomhed.")]
+        public string CompanyName { get; set; } = string.Empty;
+
+        public string Cvr { get; set; } = string.Empty;
+
+        [Required(ErrorMessage = "Indtast email.")]
+        [EmailAddress(ErrorMessage = "Indtast en gyldig email.")]
+        public string Email { get; set; } = string.Empty;
+
+        [Required(ErrorMessage = "Beskriv kort behovet.")]
+        public string HelpNeeded { get; set; } = string.Empty;
+    }
+}
