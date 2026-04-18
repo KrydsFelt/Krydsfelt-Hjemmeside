@@ -25,6 +25,14 @@
     padding: 0;
 }
 
+/* Prevent ugly highlight on gradient text elements */
+h1::selection, h2::selection, h3::selection,
+h1 span::selection, h2 span::selection, h3 span::selection {
+    background: rgba(80, 108, 131, 0.35);
+    -webkit-text-fill-color: #e8ecf0;
+    color: #e8ecf0;
+}
+
 html {
     scroll-behavior: smooth;
     overflow-x: hidden;
@@ -3832,6 +3840,40 @@ body {
     color: var(--text-dark);
 }
 
+@media (max-width: 900px) {
+    .yd-pricing-shell {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+        gap: 1rem;
+    }
+
+    .yd-price-card-featured {
+        order: -1;
+    }
+
+    .yd-price-card {
+        padding: 1.35rem;
+    }
+
+    .yd-price-text {
+        max-width: 100%;
+    }
+
+    .yd-pricing-after {
+        padding-top: 4rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .yd-pricing-head h2 {
+        font-size: 1.55rem;
+    }
+
+    .yd-price-card h3 {
+        font-size: 2rem;
+    }
+}
+
 /* ── APPROACH SECTION ── */
 .approach-section {
     position: relative;
@@ -5470,6 +5512,12 @@ body {
     font-size: 0.95rem;
 }
 
+/* Mobile duplicate image — hidden on desktop, shown inside copy column on mobile */
+.kh-home-profile-media-mobile {
+    display: none;
+    margin: 0.5rem 0 0.25rem;
+}
+
 .kh-home-profile-media {
     position: relative;
     padding: 0.65rem;
@@ -5751,6 +5799,15 @@ body {
     .kh-home-profile-stats {
         position: static;
         margin-top: 1rem;
+    }
+
+    /* Mobile: show inline image between heading and text, hide the right-column media */
+    .kh-home-profile-media-mobile {
+        display: block;
+    }
+
+    .kh-home-profile-grid > .kh-home-profile-media:not(.kh-home-profile-media-mobile) {
+        display: none;
     }
 
     .kh-home-actions,
