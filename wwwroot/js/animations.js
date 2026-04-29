@@ -89,6 +89,48 @@ window.init3DButtons = function() {
     });
 };
 
+window.initFloatingCallStatus = function () {
+    if (window.__kfFloatingCallStatusTimer) {
+        window.clearInterval(window.__kfFloatingCallStatusTimer);
+        window.__kfFloatingCallStatusTimer = null;
+    }
+
+    const status = document.querySelector('.kf-floating-call-status');
+    if (!status) return;
+
+    const label = status.querySelector('.kf-floating-call-status-label');
+    if (!label) return;
+
+    const defaultLabel = status.dataset.defaultLabel || 'Svar inden for 24 timer';
+    const copenhagenFormatter = new Intl.DateTimeFormat('da-DK', {
+        timeZone: 'Europe/Copenhagen',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false
+    });
+
+    const updateStatus = () => {
+        const parts = copenhagenFormatter.formatToParts(new Date());
+        const getPart = (type) => Number(parts.find((part) => part.type === type)?.value || '0');
+        const hour = getPart('hour');
+        const minute = getPart('minute');
+        const second = getPart('second');
+        const secondsOfDay = (hour * 3600) + (minute * 60) + second;
+        const isBusinessHours = secondsOfDay >= (7 * 3600) && secondsOfDay < (18 * 3600);
+        const alternateLabel = isBusinessHours ? 'Aktiv' : 'Offline';
+        const showAlternate = Math.floor(secondsOfDay / 20) % 2 === 1;
+
+        label.textContent = showAlternate ? alternateLabel : defaultLabel;
+        status.classList.toggle('is-default', !showAlternate);
+        status.classList.toggle('is-active', showAlternate && isBusinessHours);
+        status.classList.toggle('is-offline', showAlternate && !isBusinessHours);
+    };
+
+    updateStatus();
+    window.__kfFloatingCallStatusTimer = window.setInterval(updateStatus, 1000);
+};
+
 window.initAnimations = function () {
     const clearGhostSelection = () => {
         const selection = window.getSelection ? window.getSelection() : null;

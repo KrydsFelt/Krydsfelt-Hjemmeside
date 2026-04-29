@@ -1,15 +1,25 @@
 @inherits LayoutComponentBase
+@implements IDisposable
 @inject NavigationManager Navigation
+@inject IJSRuntime JS
 
 @Body
 
 @if (!IsBookingPage)
 {
-    <a class="kf-floating-call" href="/booking" aria-label="Book a call">
-        <img src="Pictures/Tony.jpeg" alt="KrydsFelt" class="kf-floating-call-avatar" />
+    <a class="kf-floating-call @(IsHomePage ? "kf-floating-call-home" : string.Empty)" href="/booking" aria-label="Book a call">
+        <span class="kf-floating-call-avatar-wrap">
+            <img src="Pictures/Tony.jpeg" alt="KrydsFelt" class="kf-floating-call-avatar" />
+            @if (IsHomePage)
+            {
+                <span class="kf-floating-call-bubble" aria-hidden="true">Hej, Kontakt os i dag!</span>
+            }
+        </span>
         <span class="kf-floating-call-copy">
             <strong>Book et møde</strong>
-            <span>Svar indenfor 24 timer</span>
+            <span class="kf-floating-call-meta kf-floating-call-status" data-default-label="Svar inden for 24 timer">
+                <span class="kf-floating-call-status-label">Svar inden for 24 timer</span>
+            </span>
         </span>
         <span class="kf-floating-call-dots" aria-hidden="true">
             <span></span><span></span><span></span>
@@ -20,6 +30,30 @@
 }
 
 @code {
-    private bool IsBookingPage =>
-        Navigation.ToBaseRelativePath(Navigation.Uri).TrimEnd('/') == "booking";
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        await JS.InvokeVoidAsync("initFloatingCallStatus");
+    }
+
+    protected override void OnInitialized()
+    {
+        Navigation.LocationChanged += HandleLocationChanged;
+    }
+
+    private string CurrentPath =>
+        Navigation.ToBaseRelativePath(Navigation.Uri).TrimEnd('/');
+
+    private bool IsBookingPage => CurrentPath == "booking";
+
+    private bool IsHomePage => string.IsNullOrEmpty(CurrentPath);
+
+    private void HandleLocationChanged(object? sender, LocationChangedEventArgs args)
+    {
+        _ = InvokeAsync(StateHasChanged);
+    }
+
+    public void Dispose()
+    {
+        Navigation.LocationChanged -= HandleLocationChanged;
+    }
 }
