@@ -264,7 +264,7 @@
 }
 
 .kh-home-process-stage-media {
-    min-height: 100%;
+    /*min-height: 100%;*/
     align-self: end;
     justify-self: end;
     padding: 0.55rem;
