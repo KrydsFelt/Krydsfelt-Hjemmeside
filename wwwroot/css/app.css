@@ -7825,3 +7825,9 @@ body {
         border-radius: 16px;
     }
 }
+
+.yd-pricing-head h2 {
+    background: none;
+    color: #17212b;
+    -webkit-text-fill-color: currentColor;
+}
