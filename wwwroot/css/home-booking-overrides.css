@@ -309,14 +309,20 @@
 
 .bk-location-media {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+    grid-template-rows: repeat(2, minmax(190px, 1fr));
     min-height: 100%;
+    background: #d9e0e6;
 }
 
 .bk-location-image {
     position: relative;
     min-height: 380px;
     overflow: hidden;
+}
+
+.bk-location-image-main {
+    grid-row: 1 / span 2;
 }
 
 .bk-location-image::after {
@@ -334,48 +340,12 @@
     object-fit: cover;
 }
 
-.bk-location-image span,
-.bk-location-cities span {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.55rem;
-}
-
-.bk-location-image span {
-    position: absolute;
-    left: 1.15rem;
-    bottom: 1.15rem;
-    z-index: 1;
-    color: #ffffff;
-    font-size: 1.05rem;
-    font-weight: 500;
-}
-
-.bk-location-image span i,
-.bk-location-cities span i {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: #7b97ae;
-    display: inline-block;
-}
-
 .bk-location-content {
     padding: 2rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     color: #17212b;
-}
-
-.bk-location-cities {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem 1.5rem;
-    margin-bottom: 1.8rem;
-    font-size: clamp(1.6rem, 2.5vw, 2.25rem);
-    line-height: 1.1;
-    font-weight: 300;
 }
 
 .bk-location-meta {
@@ -497,6 +467,16 @@
     }
 
     .bk-location-media {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-rows: minmax(220px, 1fr);
+        min-height: 220px;
+    }
+
+    .bk-location-image-main {
+        grid-row: auto;
+    }
+
+    .bk-location-content {
+        padding-top: 1.15rem;
     }
 }
