@@ -1,0 +1,502 @@
+/* ── HOME + BOOKING OVERRIDES 2026-04-29 ── */
+.yd-price-card-light,
+.yd-price-card-light .yd-price-from,
+.yd-price-card-light .yd-price-text,
+.yd-price-card-light .yd-price-includes li,
+.yd-price-card-light .yd-price-pill,
+.yd-price-card-light h3,
+.yd-price-card-light .yd-price-includes h4 {
+    color: #17191d;
+    -webkit-text-fill-color: currentColor;
+}
+
+.kh-home-services-top {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.kh-home-services-top .kh-home-section-head {
+    margin-bottom: 0;
+}
+
+.kh-home-services-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 52px;
+    padding: 0.95rem 1.6rem;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.12);
+    background: rgba(255,255,255,0.04);
+    color: #f6f2eb;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.kh-home-services-link:hover {
+    background: #364958;
+    border-color: rgba(255,255,255,0.18);
+    color: #f6f2eb;
+}
+
+.kh-home-service-grid-featured {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.25rem;
+}
+
+.kh-home-service-card-featured {
+    position: relative;
+    isolation: isolate;
+    padding: 2rem;
+    min-height: 420px;
+    border-radius: 26px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 1rem;
+    background:
+        radial-gradient(circle at top right, rgba(255,255,255,0.08), transparent 35%),
+        linear-gradient(180deg, rgba(28, 31, 36, 0.98) 0%, rgba(18, 20, 24, 0.98) 100%);
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.kh-home-service-card-featured::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(54, 73, 88, 0.88) 0%, #364958 100%);
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    z-index: 0;
+}
+
+.kh-home-service-card-featured > * {
+    position: relative;
+    z-index: 1;
+}
+
+.kh-home-service-card-featured:hover {
+    transform: translateY(-8px);
+    border-color: rgba(255,255,255,0.16);
+    box-shadow: 0 22px 48px rgba(0,0,0,0.25);
+}
+
+.kh-home-service-card-featured:hover::before {
+    opacity: 1;
+}
+
+.kh-home-service-icon {
+    width: 48px;
+    height: 48px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: auto;
+    color: rgba(255,255,255,0.92);
+}
+
+.kh-home-service-icon svg {
+    width: 32px;
+    height: 32px;
+}
+
+.kh-home-service-card-featured h3 {
+    margin: 0;
+    color: #f6f2eb;
+    font-size: clamp(1.5rem, 2vw, 2rem);
+    line-height: 1.05;
+    font-weight: 300;
+}
+
+.kh-home-service-card-featured p {
+    color: rgba(246, 242, 235, 0.78);
+    line-height: 1.75;
+    max-width: 26ch;
+}
+
+.kh-home-process {
+    background:
+        radial-gradient(circle at 12% 12%, rgba(255,255,255,0.04), transparent 24%),
+        linear-gradient(180deg, #0d0d0d 0%, #14181f 100%);
+}
+
+.kh-home-process-intro-text {
+    color: rgba(240,237,232,0.72);
+    line-height: 1.9;
+    font-size: 0.96rem;
+    max-width: 54ch;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
+
+.kh-home-process-stage {
+    position: relative;
+    padding: 2.65rem;
+    border-radius: 30px;
+    background:
+        radial-gradient(circle at top left, rgba(255,255,255,0.8), rgba(255,255,255,0) 38%),
+        linear-gradient(180deg, #edf2f6 0%, #e4ebf1 100%);
+    border: 1px solid rgba(196, 207, 217, 0.9);
+    color: #17212b;
+    overflow: hidden;
+}
+
+.kh-home-process-stage-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.98fr) minmax(360px, 0.9fr);
+    gap: 2.8rem;
+    align-items: end;
+}
+
+.kh-home-process-stage-controls {
+    position: absolute;
+    top: 1.9rem;
+    right: 1.9rem;
+    display: flex;
+    gap: 0.75rem;
+    z-index: 2;
+}
+
+.kh-home-process-arrow {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: 1px solid rgba(23, 33, 43, 0.12);
+    background: rgba(255,255,255,0.82);
+    color: #17212b;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.kh-home-process-arrow svg {
+    width: 22px;
+    height: 22px;
+}
+
+.kh-home-process-arrow:hover {
+    background: #364958;
+    color: #f6f2eb;
+    transform: translateY(-1px);
+}
+
+.kh-home-process-stage-copy {
+    display: flex;
+    flex-direction: column;
+    align-self: stretch;
+    max-width: 41rem;
+    padding: 0.4rem 0 0.2rem 0.45rem;
+}
+
+.kh-home-process-stage-number {
+    width: 72px;
+    height: 72px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.8rem;
+    border-radius: 18px;
+    background: rgba(255,255,255,0.92);
+    border: 1px solid rgba(23, 33, 43, 0.08);
+    color: #17212b;
+    font-size: 2rem;
+    font-weight: 300;
+}
+
+.kh-home-process-stage-copy h3 {
+    margin: 0 0 1rem;
+    color: #17212b;
+    font-size: clamp(2rem, 3vw, 3rem);
+    line-height: 1.02;
+    font-weight: 300;
+}
+
+.kh-home-process-stage-description {
+    color: rgba(23, 33, 43, 0.78);
+    font-size: 0.98rem;
+    line-height: 1.85;
+    max-width: 54ch;
+    margin-bottom: 1.6rem;
+}
+
+.kh-home-process-stage-includes {
+    max-width: 28rem;
+    padding-top: 1.2rem;
+    border-top: 1px solid rgba(80, 108, 131, 0.3);
+}
+
+.kh-home-process-stage-includes ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.55rem;
+    padding: 0;
+    margin: 0;
+}
+
+.kh-home-process-stage-includes li {
+    position: relative;
+    padding-left: 1rem;
+    color: rgba(23, 33, 43, 0.92);
+    line-height: 1.45;
+    font-size: 0.82rem;
+}
+
+.kh-home-process-stage-includes li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.42rem;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #506c83;
+}
+
+.kh-home-process-stage-media {
+    min-height: 100%;
+    align-self: end;
+    justify-self: end;
+    padding: 0.55rem;
+    border-radius: 24px;
+    background: rgba(166, 183, 197, 0.62);
+    width: min(100%, 540px);
+    margin: 2.2rem 0 0 auto;
+}
+
+.kh-home-process-stage-media img {
+    width: 100%;
+    height: 100%;
+    min-height: 360px;
+    display: block;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.bk-locations {
+    margin-top: 2rem;
+}
+
+.bk-location-head {
+    margin-bottom: 1.35rem;
+}
+
+.bk-location-head h2 {
+    margin-top: 1rem;
+    color: #f6f2eb;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    line-height: 1.05;
+    font-weight: 300;
+}
+
+.bk-location-card {
+    display: grid;
+    grid-template-columns: minmax(300px, 0.9fr) minmax(0, 1.1fr);
+    gap: 0;
+    background: #f7f4ee;
+    border: 1px solid rgba(186, 194, 202, 0.65);
+    border-radius: 26px;
+    overflow: hidden;
+}
+
+.bk-location-media {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    min-height: 100%;
+}
+
+.bk-location-image {
+    position: relative;
+    min-height: 380px;
+    overflow: hidden;
+}
+
+.bk-location-image::after {
+    content: "";
+    position: absolute;
+    inset: auto 0 0 0;
+    height: 40%;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.48) 100%);
+}
+
+.bk-location-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.bk-location-image span,
+.bk-location-cities span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+}
+
+.bk-location-image span {
+    position: absolute;
+    left: 1.15rem;
+    bottom: 1.15rem;
+    z-index: 1;
+    color: #ffffff;
+    font-size: 1.05rem;
+    font-weight: 500;
+}
+
+.bk-location-image span i,
+.bk-location-cities span i {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #7b97ae;
+    display: inline-block;
+}
+
+.bk-location-content {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #17212b;
+}
+
+.bk-location-cities {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 1.5rem;
+    margin-bottom: 1.8rem;
+    font-size: clamp(1.6rem, 2.5vw, 2.25rem);
+    line-height: 1.1;
+    font-weight: 300;
+}
+
+.bk-location-meta {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem 1.5rem;
+}
+
+.bk-location-meta-item {
+    display: flex;
+    align-items: start;
+    gap: 0.85rem;
+    color: rgba(23, 33, 43, 0.82);
+    line-height: 1.8;
+}
+
+.bk-location-meta-item svg {
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+    margin-top: 0.2rem;
+}
+
+.bk-location-meta-item a {
+    color: #17212b;
+    text-decoration: none;
+}
+
+.bk-location-meta-item a:hover {
+    color: #364958;
+}
+
+.bk-location-contact-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+@media (max-width: 1100px) {
+    .kh-home-services-top,
+    .kh-home-process-stage-grid,
+    .bk-location-card {
+        grid-template-columns: 1fr;
+    }
+
+    .kh-home-services-top {
+        flex-direction: column;
+        align-items: start;
+    }
+
+    .kh-home-service-grid-featured {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .kh-home-process-stage-copy {
+        max-width: none;
+        padding: 0;
+    }
+
+    .bk-location-media {
+        min-height: 320px;
+    }
+}
+
+@media (max-width: 700px) {
+    .kh-home-service-grid-featured,
+    .bk-location-meta {
+        grid-template-columns: 1fr;
+    }
+
+    .kh-home-services-link {
+        width: 100%;
+    }
+
+    .kh-home-service-card-featured,
+    .kh-home-process-stage,
+    .bk-location-content {
+        padding: 1.35rem;
+    }
+
+    .kh-home-service-card-featured {
+        min-height: 320px;
+    }
+
+    .kh-home-process-stage {
+        padding-top: 5.9rem;
+    }
+
+    .kh-home-process-stage-controls {
+        top: 1.25rem;
+        right: 1.25rem;
+    }
+
+    .kh-home-process-arrow {
+        width: 48px;
+        height: 48px;
+    }
+
+    .kh-home-process-stage-number {
+        width: 64px;
+        height: 64px;
+        margin-bottom: 1.25rem;
+        font-size: 1.8rem;
+    }
+
+    .kh-home-process-stage-includes {
+        max-width: none;
+        padding-top: 1rem;
+    }
+
+    .kh-home-process-stage-media {
+        width: 100%;
+        margin-top: 1.35rem;
+    }
+
+    .kh-home-process-stage-media img,
+    .bk-location-image {
+        min-height: 240px;
+    }
+
+    .bk-location-media {
+        grid-template-columns: 1fr;
+    }
+}
