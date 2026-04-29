@@ -1,7 +1,6 @@
 @inherits LayoutComponentBase
 @implements IDisposable
 @inject NavigationManager Navigation
-@inject IJSRuntime JS
 
 @Body
 
@@ -17,9 +16,7 @@
         </span>
         <span class="kf-floating-call-copy">
             <strong>Book et møde</strong>
-            <span class="kf-floating-call-meta kf-floating-call-status" data-default-label="Svar inden for 24 timer">
-                <span class="kf-floating-call-status-label">Svar inden for 24 timer</span>
-            </span>
+            <span class="kf-floating-call-meta">Svar inden for 24 timer</span>
         </span>
         <span class="kf-floating-call-dots" aria-hidden="true">
             <span></span><span></span><span></span>
@@ -30,11 +27,6 @@
 }
 
 @code {
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        await JS.InvokeVoidAsync("initFloatingCallStatus");
-    }
-
     protected override void OnInitialized()
     {
         Navigation.LocationChanged += HandleLocationChanged;

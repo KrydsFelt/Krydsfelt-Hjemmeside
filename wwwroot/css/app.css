@@ -7823,6 +7823,63 @@ body {
     -webkit-text-fill-color: currentColor;
 }
 
+/* ── FINAL HEADER + CTA FIXES ── */
+.kf-nav-language-trigger {
+    border: none;
+    background: transparent;
+    font: inherit;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.kf-nav-language-trigger span {
+    pointer-events: none;
+}
+
+.kf-floating-call-home {
+    animation: kf-floating-call-pulse 3.8s ease-in-out infinite;
+}
+
+.kf-floating-call-home .kf-floating-call-bubble {
+    animation:
+        kf-floating-bubble-in 0.45s cubic-bezier(0.2, 0.75, 0.3, 1) 0.45s forwards,
+        kf-floating-bubble-out 0.42s ease 15s forwards,
+        kf-floating-bubble-float 3.6s ease-in-out 0.9s infinite;
+}
+
+@keyframes kf-floating-call-pulse {
+    0%, 100% {
+        transform: translateY(0);
+        box-shadow: 0 22px 40px rgba(0, 0, 0, 0.26);
+    }
+    50% {
+        transform: translateY(-3px);
+        box-shadow: 0 28px 48px rgba(0, 0, 0, 0.3);
+    }
+}
+
+@keyframes kf-floating-bubble-float {
+    0%, 100% {
+        transform: translate3d(0, -50%, 0);
+    }
+    50% {
+        transform: translate3d(-0.18rem, calc(-50% - 3px), 0);
+    }
+}
+
+@media (max-width: 700px) {
+    .kh-home-actions .kf-btn,
+    .oo2-cta-link {
+        width: auto;
+        max-width: calc(100vw - 2rem);
+    }
+
+    .kf-floating-call {
+        width: auto;
+        max-width: min(16.5rem, calc(100vw - 2rem));
+    }
+}
+
 @media (max-width: 560px) {
     .kf-container {
         padding: 0 1rem;
