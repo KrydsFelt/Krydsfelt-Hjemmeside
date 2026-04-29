@@ -80,28 +80,23 @@ if (!document.querySelector('style[data-word-reveal]')) {
 window.init3DButtons = function() {
     document.querySelectorAll('.kf-btn').forEach(button => {
         button.addEventListener('mouseenter', () => {
-            button.style.transition = 'transform 0.5s cubic-bezier(0.23, 1, 0.320, 1)';
-        });
-
-        button.addEventListener('mousemove', (e) => {
-            const rect = button.getBoundingClientRect();
-            const centerX = rect.left + rect.width / 2;
-            const centerY = rect.top + rect.height / 2;
-
-            const x = (e.clientX - centerX) / rect.width;
-            const y = (e.clientY - centerY) / rect.height;
-
-            button.style.transform = `perspective(600px) rotateY(${x * 8}deg) rotateX(${-y * 5}deg) translateY(-3px)`;
+            button.style.transform = 'translateY(-1px)';
         });
 
         button.addEventListener('mouseleave', () => {
-            button.style.transition = 'transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1)';
-            button.style.transform = 'perspective(600px) rotateY(0) rotateX(0) translateY(0)';
+            button.style.transform = '';
         });
     });
 };
 
 window.initAnimations = function () {
+    const clearGhostSelection = () => {
+        const selection = window.getSelection ? window.getSelection() : null;
+        if (selection && selection.rangeCount > 0) {
+            selection.removeAllRanges();
+        }
+    };
+
     // Services cards reveal on scroll (when section fills entire screen)
     const servicesSection = document.querySelector('.kf-services');
     const cardsContainer = document.querySelector('.kf-cards');
@@ -161,7 +156,6 @@ window.initAnimations = function () {
     if (nav) {
         const onScroll = () => {
             const isAtTop = window.scrollY <= 8;
-
             nav.classList.toggle('scrolled', !isAtTop);
             nav.classList.toggle('kf-nav-hidden', !isAtTop);
         };
@@ -260,6 +254,13 @@ window.initAnimations = function () {
 
     // Initialize word-reveal animations
     window.initWordReveal();
+
+    // Some browsers briefly restore a text-selection range on load/reload.
+    // Clear it after paint so headings don't look highlighted.
+    requestAnimationFrame(() => {
+        clearGhostSelection();
+        setTimeout(clearGhostSelection, 120);
+    });
 
     // Initialize 3D button effects
     window.init3DButtons();

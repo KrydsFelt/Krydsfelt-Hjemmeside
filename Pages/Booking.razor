@@ -10,15 +10,33 @@
     <div class="kf-container">
         <div class="bk-layout">
             <div class="bk-copy reveal">
-                <span class="bk-label">Booking</span>
-                <h1>Fortæl os kort, hvad I har brug for, så tager vi den derfra.</h1>
+                <span class="bk-label">Book a call</span>
+                <h1>En første samtale, hvis jeres website skal føles skarpere, roligere og mere gennemført.</h1>
                 <p>
-                    Brug formularen til at sende en bookinganmodning. Vi vender tilbage med næste skridt, et forslag til møde og en hurtig vurdering af,
-                    hvordan vi bedst kan hjælpe.
+                    Vi bruger den første samtale på at forstå, hvad der skal løftes, hvor friktionen er i dag, og om vi er det rigtige team til næste version.
                 </p>
+                <p>
+                    Ingen tung pitch. Bare en ærlig vurdering, et par klare vinkler og en retning, hvis der er et godt match.
+                </p>
+
+                <div class="bk-quick-points">
+                    <div>
+                        <span>Format</span>
+                        <strong>20-30 min. intro call</strong>
+                    </div>
+                    <div>
+                        <span>Typisk fokus</span>
+                        <strong>Website, UX og digital retning</strong>
+                    </div>
+                </div>
             </div>
 
             <div class="bk-card reveal" data-delay="120">
+                <div class="bk-card-intro">
+                    <span>Fortæl os lidt om projektet</span>
+                    <p>Vi vender tilbage med næste skridt og et forslag til mødetid.</p>
+                </div>
+
                 <EditForm Model="@request" OnValidSubmit="@SubmitForm">
                     <DataAnnotationsValidator />
                     <div class="bk-grid">
@@ -52,13 +70,23 @@
                         </div>
                     </div>
 
-                    <button type="submit" class="bk-submit">Send bookinganmodning</button>
+                    <button type="submit" class="bk-submit">Send forespørgsel</button>
                 </EditForm>
 
                 @if (!string.IsNullOrWhiteSpace(statusMessage))
                 {
                     <p class="bk-status">@statusMessage</p>
                 }
+            </div>
+        </div>
+
+        <div class="bk-proof reveal">
+            <div class="bk-proof-copy">
+                <span class="bk-label bk-label-muted">Why KrydsFelt</span>
+                <h2>Et lille team, når I hellere vil have smag, fokus og execution end bureaufriktion.</h2>
+                <p>
+                    Vi passer bedst til virksomheder, der vil have et roligere og mere premium digitalt udtryk, men stadig have direkte kontakt med dem der faktisk designer og bygger.
+                </p>
             </div>
         </div>
     </div>

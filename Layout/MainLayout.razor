@@ -1,2 +1,25 @@
 @inherits LayoutComponentBase
+@inject NavigationManager Navigation
+
 @Body
+
+@if (!IsBookingPage)
+{
+    <a class="kf-floating-call" href="/booking" aria-label="Book a call">
+        <img src="Pictures/Tony.jpeg" alt="KrydsFelt" class="kf-floating-call-avatar" />
+        <span class="kf-floating-call-copy">
+            <strong>Book et møde</strong>
+            <span>Svar indenfor 24 timer</span>
+        </span>
+        <span class="kf-floating-call-dots" aria-hidden="true">
+            <span></span><span></span><span></span>
+            <span></span><span></span><span></span>
+            <span></span><span></span><span></span>
+        </span>
+    </a>
+}
+
+@code {
+    private bool IsBookingPage =>
+        Navigation.ToBaseRelativePath(Navigation.Uri).TrimEnd('/') == "booking";
+}
