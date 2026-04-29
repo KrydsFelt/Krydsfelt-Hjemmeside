@@ -3512,6 +3512,7 @@ body {
     text-align: center;
     max-width: 800px;
     margin: 0 auto;
+    transform: translateY(-2.25rem);
 }
 
 .yd-hero-badge {
@@ -6786,6 +6787,10 @@ h1, h2, h3, h4, h5, h6,
         padding: 8.5rem 0 4.5rem;
     }
 
+    .yd-hero-card-v2 {
+        transform: translateY(-1rem);
+    }
+
     .yd-hero-card-v2,
     .kh-home-hero-copy,
     .kh-about-hero-copy,
@@ -7620,22 +7625,120 @@ body {
     pointer-events: none;
 }
 
+.expertise-heading,
+.yd-pricing-head h2 {
+    background: none;
+    color: #17212b;
+    -webkit-text-fill-color: currentColor;
+}
+
 @media (max-width: 560px) {
     .kf-container {
         padding: 0 1rem;
     }
 
     .kf-topbar-inner {
-        gap: 0.5rem;
+        position: relative;
+        min-height: 56px;
+        justify-content: center;
+        padding: 0.45rem 2.9rem 0.45rem 1rem;
+        gap: 0;
     }
 
     .kf-topbar-copy {
-        gap: 0.5rem;
+        width: 100%;
+        max-width: 100%;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        text-align: center;
+        gap: 0.45rem 0.55rem;
+        font-size: 0.76rem;
+        line-height: 1.25;
+    }
+
+    .kf-topbar-message {
+        display: inline-flex;
+        align-items: center;
+    }
+
+    .kf-topbar-dot {
+        width: 9px;
+        height: 9px;
+        box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.14);
     }
 
     .kf-topbar-cta {
-        width: 100%;
+        width: auto;
+        min-height: 28px;
+        padding: 0.28rem 0.72rem;
+        font-size: 0.74rem;
         justify-content: center;
+    }
+
+    .kf-topbar-close {
+        position: absolute;
+        top: 50%;
+        right: 0.7rem;
+        transform: translateY(-50%);
+        width: 30px;
+        height: 30px;
+        display: grid;
+        place-items: center;
+        padding: 0;
+        font-size: 1.15rem;
+        line-height: 1;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.06);
+        color: rgba(255, 255, 255, 0.9);
+    }
+
+    .kf-nav {
+        left: 0;
+        right: 0;
+        padding: 0.8rem 0.8rem 0;
+    }
+
+    .kf-nav.with-topbar {
+        top: 58px;
+    }
+
+    .kf-nav-inner {
+        width: 100%;
+        gap: 0.75rem;
+        padding: 0.45rem 0.75rem;
+        border-radius: 18px;
+    }
+
+    .kf-logo-link {
+        display: flex;
+        align-items: center;
+        min-height: 44px;
+    }
+
+    .kf-logo {
+        font-size: 1rem;
+        display: inline-flex;
+        align-items: center;
+        line-height: 1;
+    }
+
+    .kf-nav-hamburger {
+        width: 44px;
+        height: 44px;
+        padding: 0;
+        gap: 4px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .kf-nav-hamburger span {
+        width: 19px;
+    }
+
+    .kf-nav-mobile {
+        margin-top: 0.7rem;
+        border-radius: 18px;
     }
 
     .kh-home-hero,
