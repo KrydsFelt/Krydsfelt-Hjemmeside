@@ -1,4 +1,5 @@
 @page "/ydelser"
+@inherits LocalizedComponentBase
 @inject IJSRuntime JS
 
 <PageTitle>Ydelser – KrydsFelt</PageTitle>
@@ -11,10 +12,10 @@
     <section class="yd-hero-v2">
         <div class="kf-container">
             <div class="yd-hero-card-v2">
-                <span class="yd-hero-badge">YDELSER</span>
-                <h1 class="yd-hero-title">Ydelser der løfter jeres digitale niveau</h1>
-                <p class="yd-hero-desc">Vi samler strategi, design og udvikling i et mere roligt setup, så jeres website føles stærkere visuelt, tydeligere i struktur og skarpere i konverteringen.</p>
-                <a href="/booking" class="yd-hero-btn">BOOK ET MØDE</a>
+                <span class="yd-hero-badge">@Lang.T("yd.hero.badge")</span>
+                <h1 class="yd-hero-title">@Lang.T("yd.hero.title")</h1>
+                <p class="yd-hero-desc">@Lang.T("yd.hero.desc")</p>
+                <a href="/booking" class="yd-hero-btn">@Lang.T("yd.hero.btn")</a>
             </div>
         </div>
     </section>
@@ -26,9 +27,9 @@
         <div class="expertise-layout">
             <!-- LEFT: Heading & Description -->
             <div class="expertise-left">
-                <span class="expertise-label reveal">EKSPERTISE</span>
-                <h2 class="expertise-heading reveal">Bygget til virksomheder der vil stå skarpere digitalt</h2>
-                <p class="expertise-description reveal" data-delay="100">Vi hjælper med at gøre brand, website og brugeroplevelse mere sammenhængende, så virksomheden fremstår stærkere og er lettere at vælge til.</p>
+                <span class="expertise-label reveal">@Lang.T("yd.expertise.label")</span>
+                <h2 class="expertise-heading reveal">@Lang.T("yd.expertise.heading")</h2>
+                <p class="expertise-description reveal" data-delay="100">@Lang.T("yd.expertise.desc")</p>
             </div>
 
             <!-- RIGHT: Service List -->
@@ -37,37 +38,37 @@
                 <div class="expertise-item reveal" id="brand-strategi">
                     <div class="expertise-item-header">
                         <span class="expertise-item-num">01</span>
-                        <h3 class="expertise-item-title">Brand Strategi & Identitet</h3>
+                        <h3 class="expertise-item-title">@Lang.T("yd.item1.title")</h3>
                     </div>
-                    <p class="expertise-item-desc">Vi skaber et tydeligere fundament for positionering, tone og visuel retning, så jeres brand kommunikerer mere præcist digitalt.</p>
+                    <p class="expertise-item-desc">@Lang.T("yd.item1.desc")</p>
                 </div>
 
-                <!-- 02: Webudvikling -->
+                <!-- 02: Web Development -->
                 <div class="expertise-item reveal" data-delay="100" id="webudvikling">
                     <div class="expertise-item-header">
                         <span class="expertise-item-num">02</span>
-                        <h3 class="expertise-item-title">Webudvikling</h3>
+                        <h3 class="expertise-item-title">@Lang.T("yd.item2.title")</h3>
                     </div>
-                    <p class="expertise-item-desc">Vi udvikler skræddersyede hjemmesider med bedre struktur, højere kvalitet i detaljerne og en mere sikker vej fra besøg til henvendelse.</p>
-                    <a href="/ydelser#pricing" class="expertise-item-cta">Se pakker</a>
+                    <p class="expertise-item-desc">@Lang.T("yd.item2.desc")</p>
+                    <a href="/ydelser#pricing" class="expertise-item-cta">@Lang.T("yd.item2.cta")</a>
                 </div>
 
-                <!-- 03: Skræddersyede Systemer -->
+                <!-- 03: Lead Generation -->
                 <div class="expertise-item reveal" data-delay="200" id="lead-generation">
                     <div class="expertise-item-header">
                         <span class="expertise-item-num">03</span>
-                        <h3 class="expertise-item-title">Lead Generation</h3>
+                        <h3 class="expertise-item-title">@Lang.T("yd.item3.title")</h3>
                     </div>
-                    <p class="expertise-item-desc">Vi bygger landingssider, funnels og kampagneflows, der gør trafikken mere værdifuld og gør næste skridt mere oplagt for den rigtige kunde.</p>
+                    <p class="expertise-item-desc">@Lang.T("yd.item3.desc")</p>
                 </div>
 
                 <!-- 04: Design & UX -->
                 <div class="expertise-item reveal" data-delay="300" id="design-ux">
                     <div class="expertise-item-header">
                         <span class="expertise-item-num">04</span>
-                        <h3 class="expertise-item-title">Design & UX</h3>
+                        <h3 class="expertise-item-title">@Lang.T("yd.item4.title")</h3>
                     </div>
-                    <p class="expertise-item-desc">Vi designer mere intuitive oplevelser med roligere visuelle hierarkier, bedre læsbarhed og mindre friktion på tværs af enheder.</p>
+                    <p class="expertise-item-desc">@Lang.T("yd.item4.desc")</p>
                 </div>
             </div>
         </div>
@@ -81,57 +82,52 @@
         <div class="approach-layout">
             <!-- LEFT: Heading & CTA -->
             <div class="approach-left">
-                <span class="approach-label">VOR TILGANG</span>
-                <h2 class="approach-heading">Sådan arbejder vi sammen</h2>
-                <p class="approach-description">Vores tilgang er klar og struktureret. Gennem definerede trin bygger vi digitale løsninger, der giver mening, skaber klarhed og fortsætter med at performe fra første indsigt til løbende udvikling.</p>
-                <a href="/booking" class="approach-btn">BOOK ET MØDE</a>
+                <span class="approach-label">@Lang.T("yd.approach.label")</span>
+                <h2 class="approach-heading">@Lang.T("yd.approach.heading")</h2>
+                <p class="approach-description">@Lang.T("yd.approach.desc")</p>
+                <a href="/booking" class="approach-btn">@Lang.T("yd.approach.btn")</a>
             </div>
 
             <!-- RIGHT: Timeline -->
             <div class="approach-right">
                 <div class="approach-timeline">
-                    <!-- Step 1 -->
                     <div class="approach-step reveal">
                         <div class="approach-step-circle">1</div>
                         <div class="approach-step-content">
-                            <h3 class="approach-step-title">INDSIGT</h3>
-                            <p class="approach-step-desc">Vi tager os tid til at forstå din organisation, mål og udfordringer. Det giver os den kontekst, vi har brug for, før vi træffer strategiske beslutninger.</p>
+                            <h3 class="approach-step-title">@Lang.T("yd.step1.title")</h3>
+                            <p class="approach-step-desc">@Lang.T("yd.step1.desc")</p>
                         </div>
                     </div>
 
-                    <!-- Step 2 -->
                     <div class="approach-step reveal" data-delay="100">
                         <div class="approach-step-circle">2</div>
                         <div class="approach-step-content">
-                            <h3 class="approach-step-title">STRATEGI</h3>
-                            <p class="approach-step-desc">Vi definerer retningen og prioriteterne i en klar plan, der danner fundament for alt det, der følger.</p>
+                            <h3 class="approach-step-title">@Lang.T("yd.step2.title")</h3>
+                            <p class="approach-step-desc">@Lang.T("yd.step2.desc")</p>
                         </div>
                     </div>
 
-                    <!-- Step 3 -->
                     <div class="approach-step reveal" data-delay="200">
                         <div class="approach-step-circle">3</div>
                         <div class="approach-step-content">
-                            <h3 class="approach-step-title">OPBYGNING</h3>
-                            <p class="approach-step-desc">Vi designer og udvikler en løsning, der er logisk struktureret, teknisk robust og klar til at understøtte vækst.</p>
+                            <h3 class="approach-step-title">@Lang.T("yd.step3.title")</h3>
+                            <p class="approach-step-desc">@Lang.T("yd.step3.desc")</p>
                         </div>
                     </div>
 
-                    <!-- Step 4 -->
                     <div class="approach-step reveal" data-delay="300">
                         <div class="approach-step-circle">4</div>
                         <div class="approach-step-content">
-                            <h3 class="approach-step-title">LANCERING</h3>
-                            <p class="approach-step-desc">Vi tester grundigt, guider lanceringen og sikrer, at alt går live smooth og pålideligt.</p>
+                            <h3 class="approach-step-title">@Lang.T("yd.step4.title")</h3>
+                            <p class="approach-step-desc">@Lang.T("yd.step4.desc")</p>
                         </div>
                     </div>
 
-                    <!-- Step 5 -->
                     <div class="approach-step reveal" data-delay="400">
                         <div class="approach-step-circle">5</div>
                         <div class="approach-step-content">
-                            <h3 class="approach-step-title">SUPPORT</h3>
-                            <p class="approach-step-desc">Efter lancering forbliver vi involveret med vedligeholdelse, optimering og løbende udvikling.</p>
+                            <h3 class="approach-step-title">@Lang.T("yd.step5.title")</h3>
+                            <p class="approach-step-desc">@Lang.T("yd.step5.desc")</p>
                         </div>
                     </div>
                 </div>
@@ -143,65 +139,65 @@
 <section class="yd-pricing yd-pricing-after" id="pricing">
     <div class="kf-container">
         <div class="yd-pricing-head reveal">
-            <span class="oo2-section-label">Pakker</span>
-            <h2>Tre website-pakker afhængigt af omfang og kompleksitet.</h2>
-            <p>Alle priser tager udgangspunkt i skræddersyede hjemmesider. Den sidste løsning er til projekter, hvor vi først sætter pris efter behov, scope og integrationer.</p>
+            <span class="oo2-section-label">@Lang.T("yd.pricing.label")</span>
+            <h2>@Lang.T("yd.pricing.heading")</h2>
+            <p>@Lang.T("yd.pricing.text")</p>
         </div>
 
         <div class="yd-pricing-shell">
             <article class="yd-price-card yd-price-card-dark reveal">
-                <span class="yd-price-pill">Standard</span>
-                <p class="yd-price-from">Fra</p>
-                <h3>8.000 kr.</h3>
-                <p class="yd-price-text">Til virksomheder der har brug for en enkel, skarp hjemmeside med ét klart budskab og en hurtig vej til launch.</p>
+                <span class="yd-price-pill">@Lang.T("yd.card1.name")</span>
+                <p class="yd-price-from">@Lang.T("yd.from")</p>
+                <h3>@Lang.T("yd.card1.price")</h3>
+                <p class="yd-price-text">@Lang.T("yd.card1.desc")</p>
                 <div class="yd-price-includes">
-                    <h4>Inkluderer</h4>
+                    <h4>@Lang.T("yd.includes")</h4>
                     <ul>
-                        <li>One-page hjemmeside</li>
-                        <li>Skræddersyet design</li>
-                        <li>Mobiloptimering</li>
-                        <li>Kontaktsektion eller CTA-flow</li>
-                        <li>Launch og overlevering</li>
+                        <li>@Lang.T("yd.card1.i1")</li>
+                        <li>@Lang.T("yd.card1.i2")</li>
+                        <li>@Lang.T("yd.card1.i3")</li>
+                        <li>@Lang.T("yd.card1.i4")</li>
+                        <li>@Lang.T("yd.card1.i5")</li>
                     </ul>
                 </div>
-                <a href="/booking" class="yd-price-btn">Book et møde</a>
+                <a href="/booking" class="yd-price-btn">@Lang.T("yd.bookMeeting")</a>
             </article>
 
             <article class="yd-price-card yd-price-card-dark yd-price-card-featured reveal" data-delay="100">
-                <span class="yd-price-pill">Multipage</span>
-                <span class="yd-price-tag">Mest valgt</span>
-                <p class="yd-price-from">Fra</p>
-                <h3>15.000 kr.</h3>
-                <p class="yd-price-text">Til virksomheder der vil have en rigtig hjemmeside med flere undersider, stærkere struktur og mere plads til at præsentere forretningen ordentligt.</p>
+                <span class="yd-price-pill">@Lang.T("yd.card2.name")</span>
+                <span class="yd-price-tag">@Lang.T("yd.card2.tag")</span>
+                <p class="yd-price-from">@Lang.T("yd.from")</p>
+                <h3>@Lang.T("yd.card2.price")</h3>
+                <p class="yd-price-text">@Lang.T("yd.card2.desc")</p>
                 <div class="yd-price-includes">
-                    <h4>Inkluderer</h4>
+                    <h4>@Lang.T("yd.includes")</h4>
                     <ul>
-                        <li>Op til 5 undersider</li>
-                        <li>Struktur og content-flow</li>
-                        <li>Skræddersyet design og frontend</li>
-                        <li>Mobiloptimering og teknisk opsætning</li>
-                        <li>Launch og overlevering</li>
+                        <li>@Lang.T("yd.card2.i1")</li>
+                        <li>@Lang.T("yd.card2.i2")</li>
+                        <li>@Lang.T("yd.card2.i3")</li>
+                        <li>@Lang.T("yd.card2.i4")</li>
+                        <li>@Lang.T("yd.card2.i5")</li>
                     </ul>
                 </div>
-                <a href="/booking" class="yd-price-btn">Book et møde</a>
+                <a href="/booking" class="yd-price-btn">@Lang.T("yd.bookMeeting")</a>
             </article>
 
             <article class="yd-price-card yd-price-card-light reveal" data-delay="200">
-                <span class="yd-price-pill">Custom</span>
-                <p class="yd-price-from">Efter behov</p>
-                <h3>Lad os tale</h3>
-                <p class="yd-price-text">Til virksomheder der skal bruge mere end et klassisk website. Her sætter vi pris efter behov, kompleksitet, funktioner og integrationer.</p>
+                <span class="yd-price-pill">@Lang.T("yd.card3.name")</span>
+                <p class="yd-price-from">@Lang.T("yd.onRequest")</p>
+                <h3>@Lang.T("yd.card3.price")</h3>
+                <p class="yd-price-text">@Lang.T("yd.card3.desc")</p>
                 <div class="yd-price-includes">
-                    <h4>Inkluderer</h4>
+                    <h4>@Lang.T("yd.includes")</h4>
                     <ul>
-                        <li>Større sidearkitektur</li>
-                        <li>Custom funktioner</li>
-                        <li>Integrationer til eksterne systemer</li>
-                        <li>Avancerede flows og formularer</li>
-                        <li>Tæt teknisk sparring</li>
+                        <li>@Lang.T("yd.card3.i1")</li>
+                        <li>@Lang.T("yd.card3.i2")</li>
+                        <li>@Lang.T("yd.card3.i3")</li>
+                        <li>@Lang.T("yd.card3.i4")</li>
+                        <li>@Lang.T("yd.card3.i5")</li>
                     </ul>
                 </div>
-                <a href="/booking" class="yd-price-btn yd-price-btn-light">Book et møde</a>
+                <a href="/booking" class="yd-price-btn yd-price-btn-light">@Lang.T("yd.bookMeeting")</a>
             </article>
         </div>
     </div>

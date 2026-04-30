@@ -1,4 +1,5 @@
 @page "/om-os"
+@inherits LocalizedComponentBase
 @inject IJSRuntime JS
 
 <PageTitle>Om Os – KrydsFelt</PageTitle>
@@ -8,15 +9,12 @@
 <section class="kh-about-hero">
     <div class="kf-container kh-about-hero-grid kh-about-hero-grid-minimal">
         <div class="kh-about-hero-copy">
-            <span class="oo2-section-label">Om os</span>
-            <h1 class="kh-about-title">Et mindre digitalt team med fokus på websites, struktur og mere præcis execution.</h1>
-            <p class="kh-about-text">
-                KrydsFelt består af designere og udviklere, der arbejder tæt sammen om at bygge løsninger, som både føles stærkere visuelt og fungerer bedre i praksis.
-                Vi holder det bevidst enkelt, fordi det giver bedre beslutninger og mindre friktion.
-            </p>
+            <span class="oo2-section-label">@Lang.T("about.hero.label")</span>
+            <h1 class="kh-about-title">@Lang.T("about.hero.title")</h1>
+            <p class="kh-about-text">@Lang.T("about.hero.text")</p>
             <div class="kh-about-actions">
-                <a href="/booking" class="kf-btn kf-btn-primary"><span>Book et møde</span></a>
-                <a href="/ydelser" class="kf-btn kf-btn-secondary"><span>Se ydelser</span></a>
+                <a href="/booking" class="kf-btn kf-btn-primary"><span>@Lang.T("about.hero.bookMeeting")</span></a>
+                <a href="/ydelser" class="kf-btn kf-btn-secondary"><span>@Lang.T("about.hero.seeServices")</span></a>
             </div>
         </div>
     </div>
@@ -25,21 +23,21 @@
 <section class="kh-about-values">
     <div class="kf-container">
         <div class="kh-home-section-head reveal">
-            <span class="oo2-section-label">Hvordan vi arbejder</span>
-            <h2>Vi prøver ikke at fylde mere. Vi prøver at gøre det vigtigste bedre.</h2>
-            <p>Det betyder færre lag, mere ejerskab og et setup hvor kvaliteten sidder i detaljerne.</p>
+            <span class="oo2-section-label">@Lang.T("about.values.label")</span>
+            <h2>@Lang.T("about.values.heading")</h2>
+            <p>@Lang.T("about.values.text")</p>
         </div>
 
         <div class="kh-about-values-grid kh-about-values-grid-minimal">
             <article class="kh-about-value-card reveal">
                 <span>01</span>
-                <h3>Klar retning</h3>
-                <p>Vi starter med at forstå hvad siden eller systemet faktisk skal gøre for virksomheden.</p>
+                <h3>@Lang.T("about.value1.title")</h3>
+                <p>@Lang.T("about.value1.desc")</p>
             </article>
             <article class="kh-about-value-card reveal" data-delay="100">
                 <span>02</span>
-                <h3>Tæt samarbejde</h3>
-                <p>Du arbejder tættere på dem der designer og bygger, i stedet for gennem flere led.</p>
+                <h3>@Lang.T("about.value2.title")</h3>
+                <p>@Lang.T("about.value2.desc")</p>
             </article>
         </div>
     </div>
@@ -48,9 +46,9 @@
 <section class="kh-about-team">
     <div class="kf-container">
         <div class="kh-home-section-head reveal">
-            <span class="oo2-section-label">Team</span>
-            <h2>Tre profiler. Ét samlet leveranceteam.</h2>
-            <p>Vi holder holdet lille med vilje, så der er kort vej fra idé til implementering.</p>
+            <span class="oo2-section-label">@Lang.T("about.team.label")</span>
+            <h2>@Lang.T("about.team.heading")</h2>
+            <p>@Lang.T("about.team.text")</p>
         </div>
 
         <div class="kh-about-team-grid">
@@ -59,7 +57,7 @@
                 <div>
                     <h3>Tony Truong</h3>
                     <p>Founder & CTO</p>
-                    <span>Megamind bag backend, arkitektur og den tekniske retning. Den slags profil der får tunge tekniske ting til at opføre sig langt pænere, end de egentlig har lyst til.</span>
+                    <span>@Lang.T("about.tony.bio")</span>
                 </div>
             </article>
             <article class="kh-about-team-card reveal" data-delay="100">
@@ -67,7 +65,7 @@
                 <div>
                     <h3>Giorgio Kevin Beshara</h3>
                     <p>Co-Founder & Developer</p>
-                    <span>Kan, hvis nødvendigt, starte i Windows Paint og stadig lande i noget der ligner niveau. Ellers hedder det Figma, Framer og Adobe, når frontend og det visuelle skal sidde skarpt.</span>
+                    <span>@Lang.T("about.gio.bio")</span>
                 </div>
             </article>
             <article class="kh-about-team-card reveal" data-delay="200">
@@ -75,7 +73,7 @@
                 <div>
                     <h3>Minh Quan Dinh</h3>
                     <p>Co-Founder & Developer</p>
-                    <span>Kendt internt som blæksprutten. Lidt over det hele på den gode måde, og det allround krydderi der får full-stack, integrationer og teknisk struktur til at hænge urimeligt godt sammen.</span>
+                    <span>@Lang.T("about.minh.bio")</span>
                 </div>
             </article>
         </div>
@@ -84,10 +82,10 @@
 
 <section class="kh-about-cta">
     <div class="kf-container kh-home-cta-inner">
-        <span class="oo2-section-label">Kontakt</span>
-        <h2>Hvis I mangler et mindre team med mere fokus og bedre digital execution, så lad os tage første møde.</h2>
-        <p>Vi tager helst projekter ind, hvor der er ambition om at bygge noget skarpere end standard.</p>
-        <a href="/booking" class="oo2-cta-link">BOOK ET MØDE</a>
+        <span class="oo2-section-label">@Lang.T("about.cta.label")</span>
+        <h2>@Lang.T("about.cta.heading")</h2>
+        <p>@Lang.T("about.cta.text")</p>
+        <a href="/booking" class="oo2-cta-link">@Lang.T("about.cta.link")</a>
     </div>
 </section>
 

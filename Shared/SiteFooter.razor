@@ -1,21 +1,23 @@
+@inherits LocalizedComponentBase
+
 <footer class="kf-footer">
     <div class="kf-container">
         <div class="kf-footer-content">
             <div class="kf-footer-cta">
-                <p class="kf-footer-cta-label">Klar til at bygge noget skarpt?</p>
+                <p class="kf-footer-cta-label">@Lang.T("footer.cta")</p>
                 <a href="mailto:krydsfelt.info@gmail.com" class="kf-footer-email">krydsfelt.info@gmail.com</a>
                 <p style="font-size: 0.8rem; color: #8f949d; margin-top: 0.75rem; font-weight: 400;">Minh Quan Dinh, Co-Founder & Web & Integration Specialist</p>
             </div>
             <div class="kf-footer-links">
                 <div class="kf-footer-col">
-                    <h5>Udforsk</h5>
-                    <a href="/">Hjem</a>
-                    <a href="/om-os">Om os</a>
-                    <a href="/ydelser">Ydelser</a>
-                    <a href="/booking">Kontakt</a>
+                    <h5>@Lang.T("footer.explore")</h5>
+                    <a href="/">@Lang.T("footer.home")</a>
+                    <a href="/om-os">@Lang.T("footer.about")</a>
+                    <a href="/ydelser">@Lang.T("footer.servicesLink")</a>
+                    <a href="/booking">@Lang.T("footer.contact")</a>
                 </div>
                 <div class="kf-footer-col">
-                    <h5>Ydelser</h5>
+                    <h5>@Lang.T("footer.services")</h5>
                     <a href="/ydelser#brand-strategi">Brand Strategy</a>
                     <a href="/ydelser#webudvikling">Web Development</a>
                     <a href="/ydelser#lead-generation">Lead Generation</a>
@@ -24,7 +26,7 @@
             </div>
         </div>
         <div class="kf-footer-bottom">
-            <p>&copy; 2026 KrydsFelt. Alle rettigheder forbeholdes.</p>
+            <p>@Lang.T("footer.copyright")</p>
         </div>
     </div>
 </footer>

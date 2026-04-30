@@ -1,5 +1,6 @@
 @page "/booking"
 @using System.ComponentModel.DataAnnotations
+@inherits LocalizedComponentBase
 @inject IJSRuntime JS
 
 <PageTitle>Booking – KrydsFelt</PageTitle>
@@ -10,67 +11,63 @@
     <div class="kf-container">
         <div class="bk-layout">
             <div class="bk-copy reveal">
-                <span class="bk-label">Book et møde</span>
-                <h1>En første samtale, hvis jeres website skal føles skarpere, roligere og mere gennemført.</h1>
-                <p>
-                    Vi bruger den første samtale på at forstå, hvad der skal løftes, hvor friktionen er i dag, og om vi er det rigtige team til næste version.
-                </p>
-                <p>
-                    Ingen tung pitch. Bare en ærlig vurdering, et par klare vinkler og en retning, hvis der er et godt match.
-                </p>
+                <span class="bk-label">@Lang.T("bk.label")</span>
+                <h1>@Lang.T("bk.heading")</h1>
+                <p>@Lang.T("bk.p1")</p>
+                <p>@Lang.T("bk.p2")</p>
 
                 <div class="bk-quick-points">
                     <div>
-                        <span>Format</span>
-                        <strong>20-30 min. intro call</strong>
+                        <span>@Lang.T("bk.format.label")</span>
+                        <strong>@Lang.T("bk.format.value")</strong>
                     </div>
                     <div>
-                        <span>Typisk fokus</span>
-                        <strong>Website, UX og digital retning</strong>
+                        <span>@Lang.T("bk.focus.label")</span>
+                        <strong>@Lang.T("bk.focus.value")</strong>
                     </div>
                 </div>
             </div>
 
             <div class="bk-card reveal" data-delay="120">
                 <div class="bk-card-intro">
-                    <span>Fortæl os lidt om projektet</span>
-                    <p>Vi vender tilbage med næste skridt og et forslag til mødetid.</p>
+                    <span>@Lang.T("bk.card.intro")</span>
+                    <p>@Lang.T("bk.card.sub")</p>
                 </div>
 
                 <EditForm Model="@request" OnValidSubmit="@SubmitForm">
                     <DataAnnotationsValidator />
                     <div class="bk-grid">
                         <div class="bk-field">
-                            <label for="customerName">Navn på kunden</label>
+                            <label for="customerName">@Lang.T("bk.field.name")</label>
                             <InputText id="customerName" @bind-Value="request.CustomerName" />
                             <ValidationMessage For="@(() => request.CustomerName)" />
                         </div>
 
                         <div class="bk-field">
-                            <label for="companyName">Virksomhed</label>
+                            <label for="companyName">@Lang.T("bk.field.company")</label>
                             <InputText id="companyName" @bind-Value="request.CompanyName" />
                             <ValidationMessage For="@(() => request.CompanyName)" />
                         </div>
 
                         <div class="bk-field">
-                            <label for="cvr">CVR (valgfrit)</label>
+                            <label for="cvr">@Lang.T("bk.field.cvr")</label>
                             <InputText id="cvr" @bind-Value="request.Cvr" />
                         </div>
 
                         <div class="bk-field">
-                            <label for="email">Email</label>
+                            <label for="email">@Lang.T("bk.field.email")</label>
                             <InputText id="email" @bind-Value="request.Email" type="email" />
                             <ValidationMessage For="@(() => request.Email)" />
                         </div>
 
                         <div class="bk-field bk-field-full">
-                            <label for="helpNeeded">Hvad har I brug for hjælp til?</label>
+                            <label for="helpNeeded">@Lang.T("bk.field.help")</label>
                             <InputTextArea id="helpNeeded" @bind-Value="request.HelpNeeded" />
                             <ValidationMessage For="@(() => request.HelpNeeded)" />
                         </div>
                     </div>
 
-                    <button type="submit" class="bk-submit">Send forespørgsel</button>
+                    <button type="submit" class="bk-submit">@Lang.T("bk.submit")</button>
                 </EditForm>
 
                 @if (!string.IsNullOrWhiteSpace(statusMessage))
@@ -82,18 +79,16 @@
 
         <div class="bk-proof reveal">
             <div class="bk-proof-copy">
-                <span class="bk-label bk-label-muted">Hvorfor vælge Krydsfelt?</span>
-                <h2>Et lille team, når I hellere vil have smag, fokus og execution end bureaufriktion.</h2>
-                <p>
-                    Vi passer bedst til virksomheder, der vil have et roligere og mere premium digitalt udtryk, men stadig have direkte kontakt med dem der faktisk designer og bygger.
-                </p>
+                <span class="bk-label bk-label-muted">@Lang.T("bk.proof.label")</span>
+                <h2>@Lang.T("bk.proof.heading")</h2>
+                <p>@Lang.T("bk.proof.text")</p>
             </div>
         </div>
 
         <section class="bk-locations reveal" data-delay="120">
             <div class="bk-location-head">
-                <span class="bk-label bk-label-muted">Lokationer</span>
-                <h2>Her arbejder vi fra</h2>
+                <span class="bk-label bk-label-muted">@Lang.T("bk.locations.label")</span>
+                <h2>@Lang.T("bk.locations.heading")</h2>
             </div>
 
             <article class="bk-location-card">
@@ -145,12 +140,25 @@
     private BookingRequest request = new();
     private string? statusMessage;
 
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        Lang.OnLanguageChanged += ResetForm;
+    }
+
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
             await JS.InvokeVoidAsync("initAnimations");
         }
+    }
+
+    private void ResetForm()
+    {
+        request = new BookingRequest();
+        statusMessage = null;
+        InvokeAsync(StateHasChanged);
     }
 
     private async Task SubmitForm()
@@ -166,25 +174,31 @@ Behov:
 {request.HelpNeeded}");
 
         var mailto = $"mailto:krydsfelt.info@gmail.com?subject={subject}&body={body}";
-        statusMessage = "Din mailklient åbnes med bookinganmodningen.";
+        statusMessage = Lang.T("bk.mailOpened");
         await JS.InvokeVoidAsync("open", mailto);
+    }
+
+    public new void Dispose()
+    {
+        Lang.OnLanguageChanged -= ResetForm;
+        base.Dispose();
     }
 
     private sealed class BookingRequest
     {
-        [Required(ErrorMessage = "Indtast navn.")]
+        [Required(ErrorMessage = "Required.")]
         public string CustomerName { get; set; } = string.Empty;
 
-        [Required(ErrorMessage = "Indtast virksomhed.")]
+        [Required(ErrorMessage = "Required.")]
         public string CompanyName { get; set; } = string.Empty;
 
         public string Cvr { get; set; } = string.Empty;
 
-        [Required(ErrorMessage = "Indtast email.")]
-        [EmailAddress(ErrorMessage = "Indtast en gyldig email.")]
+        [Required(ErrorMessage = "Required.")]
+        [EmailAddress(ErrorMessage = "Please enter a valid email address.")]
         public string Email { get; set; } = string.Empty;
 
-        [Required(ErrorMessage = "Beskriv kort behovet.")]
+        [Required(ErrorMessage = "Required.")]
         public string HelpNeeded { get; set; } = string.Empty;
     }
 }
