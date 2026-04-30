@@ -16,7 +16,7 @@
 
 <nav class="kf-nav @(showBanner ? "with-topbar" : "")">
     <div class="kf-nav-inner">
-        <a href="/" class="kf-logo-link"><span class="kf-logo">by KrydsFelt.</span></a>
+        <a href="/" class="kf-logo-link"><span class="kf-logo">By KrydsFelt.</span></a>
 
         <div class="kf-nav-center">
             <div class="kf-nav-links">
@@ -32,7 +32,7 @@
                         <a href="/ydelser#design-ux">Design & UX</a>
                     </div>
                 </div>
-                <a href="/booking" class="@GetLinkClass("contact")">Contact</a>
+                <a href="/booking" class="@GetLinkClass("contact")">Kontakt</a>
             </div>
         </div>
 
@@ -77,14 +77,14 @@
     </div>
 
     <div id="kf-nav-mobile" class="kf-nav-mobile @(navOpen ? "open" : "")">
-        <a href="/" @onclick="CloseMenu">Home</a>
-        <a href="/om-os" @onclick="CloseMenu">About</a>
-        <a href="/ydelser" @onclick="CloseMenu">Services</a>
+        <a href="/" @onclick="CloseMenu">Hjem</a>
+        <a href="/om-os" @onclick="CloseMenu">Om os</a>
+        <a href="/ydelser" @onclick="CloseMenu">Ydelser</a>
         <a href="/ydelser#brand-strategi" class="kf-nav-mobile-sub" @onclick="CloseMenu">Brand Strategy</a>
         <a href="/ydelser#webudvikling" class="kf-nav-mobile-sub" @onclick="CloseMenu">Web Development</a>
         <a href="/ydelser#lead-generation" class="kf-nav-mobile-sub" @onclick="CloseMenu">Lead Generation</a>
         <a href="/ydelser#design-ux" class="kf-nav-mobile-sub" @onclick="CloseMenu">Design & UX</a>
-        <a href="@ContactHref" @onclick="CloseMenu">Contact</a>
+        <a href="@ContactHref" @onclick="CloseMenu">Kontakt</a>
     </div>
 </nav>
 
