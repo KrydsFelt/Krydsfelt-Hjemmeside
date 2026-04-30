@@ -6799,30 +6799,45 @@ h1, h2, h3, h4, h5, h6,
 
 .kf-floating-call {
     min-width: 248px;
-    padding: 0.65rem 0.86rem 0.65rem 0.65rem;
-    background: rgba(244, 239, 232, 0.94);
-    border-color: rgba(255, 255, 255, 0.68);
-    box-shadow: 0 22px 40px rgba(0, 0, 0, 0.26);
+    padding: 0.48rem 0.78rem 0.48rem 0.48rem;
+    background: #ffffff;
+    border: 1px solid rgba(80, 108, 131, 0.16);
+    box-shadow: 0 12px 26px rgba(7, 18, 26, 0.16);
 }
 
 .kf-floating-call-copy strong {
-    font-size: 0.92rem;
-    font-weight: 800;
-    color: #10202b;
-    letter-spacing: -0.02em;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: #506c83;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
 }
 
 .kf-floating-call-meta {
-    color: rgba(16, 32, 43, 0.64);
-    font-size: 0.76rem;
+    color: rgba(80, 108, 131, 0.72);
+    font-size: 0.72rem;
     text-transform: none;
     letter-spacing: 0.01em;
 }
 
 .kf-floating-call:hover {
-    background: #f8f3ec;
-    border-color: rgba(255, 255, 255, 0.86);
-    transform: translateY(-2px);
+    background: #506c83;
+    border-color: #506c83;
+    box-shadow: 0 12px 26px rgba(7, 18, 26, 0.2);
+    transform: none;
+}
+
+.kf-floating-call:hover .kf-floating-call-copy strong,
+.kf-floating-call:hover .kf-floating-call-meta {
+    color: #ffffff;
+}
+
+.kf-floating-call:hover .kf-floating-call-dots {
+    border-left-color: rgba(255, 255, 255, 0.22);
+}
+
+.kf-floating-call:hover .kf-floating-call-dots span {
+    background: rgba(255, 255, 255, 0.68);
 }
 
 .kf-footer {
@@ -7847,37 +7862,6 @@ body {
     pointer-events: none;
 }
 
-.kf-floating-call-home {
-    animation: kf-floating-call-pulse 3.8s ease-in-out infinite;
-}
-
-.kf-floating-call-home .kf-floating-call-bubble {
-    animation:
-        kf-floating-bubble-in 0.45s cubic-bezier(0.2, 0.75, 0.3, 1) 0.45s forwards,
-        kf-floating-bubble-out 0.42s ease 15s forwards,
-        kf-floating-bubble-float 3.6s ease-in-out 0.9s infinite;
-}
-
-@keyframes kf-floating-call-pulse {
-    0%, 100% {
-        transform: translateY(0);
-        box-shadow: 0 22px 40px rgba(0, 0, 0, 0.26);
-    }
-    50% {
-        transform: translateY(-3px);
-        box-shadow: 0 28px 48px rgba(0, 0, 0, 0.3);
-    }
-}
-
-@keyframes kf-floating-bubble-float {
-    0%, 100% {
-        transform: translate3d(0, -50%, 0);
-    }
-    50% {
-        transform: translate3d(-0.18rem, calc(-50% - 3px), 0);
-    }
-}
-
 @media (max-width: 700px) {
     .kh-home-actions .kf-btn,
     .oo2-cta-link {
@@ -7888,16 +7872,6 @@ body {
     .kf-floating-call {
         width: auto;
         max-width: min(16.5rem, calc(100vw - 2rem));
-    }
-
-    .kf-floating-call-home .kf-floating-call-bubble {
-        right: calc(100% + 0.85rem);
-        width: clamp(7.5rem, 30vw, 8.5rem);
-        max-width: clamp(7.5rem, 30vw, 8.5rem);
-        min-height: 50px;
-        padding: 0.65rem 0.8rem;
-        font-size: 0.72rem;
-        line-height: 1.05;
     }
 }
 
