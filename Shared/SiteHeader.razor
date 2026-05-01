@@ -1,3 +1,4 @@
+@inherits LocalizedComponentBase
 @inject IJSRuntime JS
 
 @if (showBanner)
@@ -6,25 +7,25 @@
         <div class="kf-topbar-inner">
             <div class="kf-topbar-copy">
                 <span class="kf-topbar-dot"></span>
-                <span class="kf-topbar-message">@BannerText</span>
-                <a href="@BannerCtaHref" class="kf-topbar-cta">@BannerCtaText</a>
+                <span class="kf-topbar-message">@Lang.T("banner.text")</span>
+                <a href="@BannerCtaHref" class="kf-topbar-cta">@Lang.T("banner.cta")</a>
             </div>
-            <button class="kf-topbar-close" type="button" @onclick="CloseBanner" aria-label="Luk besked">×</button>
+            <button class="kf-topbar-close" type="button" @onclick="CloseBanner" aria-label="@Lang.T("nav.closeMessage")">×</button>
         </div>
     </div>
 }
 
 <nav class="kf-nav @(showBanner ? "with-topbar" : "")">
     <div class="kf-nav-inner">
-        <a href="/" class="kf-logo-link"><span class="kf-logo">by KrydsFelt.</span></a>
+        <a href="/" class="kf-logo-link"><span class="kf-logo">By KrydsFelt</span></a>
 
         <div class="kf-nav-center">
             <div class="kf-nav-links">
-                <a href="/" class="@GetLinkClass("home")">Home</a>
-                <a href="/om-os" class="@GetLinkClass("about")">About</a>
+                <a href="/" class="@GetLinkClass("home")">@Lang.T("nav.home")</a>
+                <a href="/om-os" class="@GetLinkClass("about")">@Lang.T("nav.about")</a>
 
                 <div class="kf-nav-dropdown @(IsServicesActive ? "active" : "")">
-                    <a href="/ydelser" class="kf-nav-dropdown-trigger">Services</a>
+                    <a href="/ydelser" class="kf-nav-dropdown-trigger">@Lang.T("nav.services")</a>
                     <div class="kf-nav-dropdown-menu">
                         <a href="/ydelser#brand-strategi">Brand Strategy</a>
                         <a href="/ydelser#webudvikling">Web Development</a>
@@ -32,7 +33,7 @@
                         <a href="/ydelser#design-ux">Design & UX</a>
                     </div>
                 </div>
-                <a href="/booking" class="@GetLinkClass("contact")">Contact</a>
+                <a href="/booking" class="@GetLinkClass("contact")">@Lang.T("nav.contact")</a>
             </div>
         </div>
 
@@ -42,7 +43,7 @@
                     type="button"
                     class="kf-nav-dropdown-trigger kf-nav-language-trigger"
                     @onclick="ToggleLanguageMenu"
-                    aria-label="@($"Vælg sprog. Aktuelt sprog er {CurrentLanguage.Label}.")"
+                    aria-label="@string.Format(Lang.T("nav.langSelect"), CurrentLanguage.Label)"
                     aria-expanded="@languageMenuOpen"
                     aria-controls="kf-nav-language-menu">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -58,7 +59,7 @@
                     {
                         <button
                             type="button"
-                            class="kf-nav-language-option @(selectedLanguageCode == language.Code ? "active" : "")"
+                            class="kf-nav-language-option @(Lang.CurrentLanguage == language.Code ? "active" : "")"
                             @onclick="() => SelectLanguage(language.Code)"
                             role="menuitem">
                             <span>@language.Label</span>
@@ -72,25 +73,23 @@
                 <span></span><span></span><span></span>
             </button>
 
-            <a href="@ContactHref" class="kf-nav-contact-btn @(CurrentPage == "booking" ? "active" : "")">@ContactLabel</a>
+            <a href="@ContactHref" class="kf-nav-contact-btn @(CurrentPage == "booking" ? "active" : "")">@Lang.T("nav.bookMeeting")</a>
         </div>
     </div>
 
     <div id="kf-nav-mobile" class="kf-nav-mobile @(navOpen ? "open" : "")">
-        <a href="/" @onclick="CloseMenu">Home</a>
-        <a href="/om-os" @onclick="CloseMenu">About</a>
-        <a href="/ydelser" @onclick="CloseMenu">Services</a>
+        <a href="/" @onclick="CloseMenu">@Lang.T("nav.home")</a>
+        <a href="/om-os" @onclick="CloseMenu">@Lang.T("nav.about")</a>
+        <a href="/ydelser" @onclick="CloseMenu">@Lang.T("nav.services")</a>
         <a href="/ydelser#brand-strategi" class="kf-nav-mobile-sub" @onclick="CloseMenu">Brand Strategy</a>
         <a href="/ydelser#webudvikling" class="kf-nav-mobile-sub" @onclick="CloseMenu">Web Development</a>
         <a href="/ydelser#lead-generation" class="kf-nav-mobile-sub" @onclick="CloseMenu">Lead Generation</a>
         <a href="/ydelser#design-ux" class="kf-nav-mobile-sub" @onclick="CloseMenu">Design & UX</a>
-        <a href="@ContactHref" @onclick="CloseMenu">Contact</a>
+        <a href="@ContactHref" @onclick="CloseMenu">@Lang.T("nav.contact")</a>
     </div>
 </nav>
 
 @code {
-    private const string LanguageStorageKey = "kf-language";
-
     private static readonly LanguageOption[] LanguageOptions =
     [
         new("da", "Dansk", "DA"),
@@ -101,34 +100,21 @@
 
     [Parameter] public string CurrentPage { get; set; } = "";
     [Parameter] public string ContactHref { get; set; } = "/booking";
-    [Parameter] public string ContactLabel { get; set; } = "Book et møde";
-    [Parameter] public string BannerText { get; set; } = "Klar til en ny hjemmeside?";
-    [Parameter] public string BannerCtaText { get; set; } = "Book et møde";
     [Parameter] public string BannerCtaHref { get; set; } = "/booking";
 
     private bool navOpen;
     private bool showBanner = true;
     private bool languageMenuOpen;
-    private string selectedLanguageCode = "da";
 
     private bool IsServicesActive => CurrentPage == "services";
 
     private LanguageOption CurrentLanguage =>
-        LanguageOptions.First(option => option.Code == selectedLanguageCode);
+        LanguageOptions.First(option => option.Code == Lang.CurrentLanguage);
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        if (!firstRender)
-        {
-            return;
-        }
-
-        var storedLanguage = await JS.InvokeAsync<string?>("localStorage.getItem", LanguageStorageKey);
-        if (TryGetLanguage(storedLanguage, out var knownLanguage))
-        {
-            selectedLanguageCode = knownLanguage.Code;
-            await InvokeAsync(StateHasChanged);
-        }
+        if (!firstRender) return;
+        await Lang.InitializeAsync(JS);
     }
 
     private string GetLinkClass(string key) =>
@@ -158,21 +144,9 @@
 
     private async Task SelectLanguage(string code)
     {
-        if (!TryGetLanguage(code, out var language))
-        {
-            return;
-        }
-
-        selectedLanguageCode = language.Code;
         languageMenuOpen = false;
         navOpen = false;
-        await JS.InvokeVoidAsync("localStorage.setItem", LanguageStorageKey, selectedLanguageCode);
-    }
-
-    private static bool TryGetLanguage(string? code, out LanguageOption language)
-    {
-        language = LanguageOptions.FirstOrDefault(option => option.Code == code) ?? LanguageOptions[0];
-        return LanguageOptions.Any(option => option.Code == code);
+        await Lang.SetLanguageAsync(code, JS);
     }
 
     private sealed record LanguageOption(string Code, string Label, string ShortLabel);
