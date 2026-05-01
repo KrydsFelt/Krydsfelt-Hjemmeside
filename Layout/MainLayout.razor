@@ -6,13 +6,9 @@
 
 @if (!IsBookingPage)
 {
-    <a class="kf-floating-call @(IsHomePage ? "kf-floating-call-home" : string.Empty)" href="/booking" aria-label="Book a call">
+    <a class="kf-floating-call" href="/booking" aria-label="Book a call">
         <span class="kf-floating-call-avatar-wrap">
             <img src="Pictures/Tony.jpeg" alt="KrydsFelt" class="kf-floating-call-avatar" />
-            @if (IsHomePage)
-            {
-                <span class="kf-floating-call-bubble" aria-hidden="true">Hej, kontakt os i dag!</span>
-            }
         </span>
         <span class="kf-floating-call-copy">
             <strong>Book et møde</strong>
@@ -36,8 +32,6 @@
         Navigation.ToBaseRelativePath(Navigation.Uri).TrimEnd('/');
 
     private bool IsBookingPage => CurrentPath == "booking";
-
-    private bool IsHomePage => string.IsNullOrEmpty(CurrentPath);
 
     private void HandleLocationChanged(object? sender, LocationChangedEventArgs args)
     {
