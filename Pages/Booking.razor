@@ -173,16 +173,20 @@
 
         var payload = new Dictionary<string, string>
         {
-            ["name"]    = request.CustomerName,
-            ["company"] = request.CompanyName,
-            ["cvr"]     = request.Cvr,
-            ["email"]   = request.Email,
-            ["message"] = request.HelpNeeded
+            ["access_key"] = "97cc8c1a-4ec9-498f-a4f9-7360cbd89549",
+            ["subject"]    = $"Ny bookinganmodning fra {request.CompanyName}",
+            ["from_name"]  = "KrydsFelt Booking",
+            ["name"]       = request.CustomerName,
+            ["email"]      = request.Email,
+            ["replyto"]    = request.Email,
+            ["company"]    = request.CompanyName,
+            ["cvr"]        = request.Cvr,
+            ["message"]    = request.HelpNeeded
         };
 
         try
         {
-            var response = await Http.PostAsJsonAsync("https://formspree.io/f/xykozaeq", payload);
+            var response = await Http.PostAsJsonAsync("https://api.web3forms.com/submit", payload);
             if (response.IsSuccessStatusCode)
             {
                 statusMessage = Lang.T("bk.submitSuccess");
