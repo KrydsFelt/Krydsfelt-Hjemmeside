@@ -1,7 +1,9 @@
 @page "/booking"
 @using System.ComponentModel.DataAnnotations
+@using System.Net.Http.Json
 @inherits LocalizedComponentBase
 @inject IJSRuntime JS
+@inject HttpClient Http
 
 <PageTitle>Booking – KrydsFelt</PageTitle>
 
@@ -67,7 +69,9 @@
                         </div>
                     </div>
 
-                    <button type="submit" class="bk-submit">@Lang.T("bk.submit")</button>
+                    <button type="submit" class="bk-submit" disabled="@isSubmitting">
+                        @(isSubmitting ? Lang.T("bk.submitting") : Lang.T("bk.submit"))
+                    </button>
                 </EditForm>
 
                 @if (!string.IsNullOrWhiteSpace(statusMessage))
@@ -139,6 +143,7 @@
 @code {
     private BookingRequest request = new();
     private string? statusMessage;
+    private bool isSubmitting;
 
     protected override void OnInitialized()
     {
@@ -163,19 +168,39 @@
 
     private async Task SubmitForm()
     {
-        var subject = Uri.EscapeDataString($"Bookinganmodning fra {request.CompanyName}");
-        var body = Uri.EscapeDataString(
-$@"Navn: {request.CustomerName}
-Virksomhed: {request.CompanyName}
-CVR: {request.Cvr}
-Email: {request.Email}
+        isSubmitting = true;
+        statusMessage = null;
 
-Behov:
-{request.HelpNeeded}");
+        var payload = new Dictionary<string, string>
+        {
+            ["name"]    = request.CustomerName,
+            ["company"] = request.CompanyName,
+            ["cvr"]     = request.Cvr,
+            ["email"]   = request.Email,
+            ["message"] = request.HelpNeeded
+        };
 
-        var mailto = $"mailto:krydsfelt.info@gmail.com?subject={subject}&body={body}";
-        statusMessage = Lang.T("bk.mailOpened");
-        await JS.InvokeVoidAsync("open", mailto);
+        try
+        {
+            var response = await Http.PostAsJsonAsync("https://formspree.io/f/xykozaeq", payload);
+            if (response.IsSuccessStatusCode)
+            {
+                statusMessage = Lang.T("bk.submitSuccess");
+                request = new BookingRequest();
+            }
+            else
+            {
+                statusMessage = Lang.T("bk.submitError");
+            }
+        }
+        catch
+        {
+            statusMessage = Lang.T("bk.submitError");
+        }
+        finally
+        {
+            isSubmitting = false;
+        }
     }
 
     public new void Dispose()
