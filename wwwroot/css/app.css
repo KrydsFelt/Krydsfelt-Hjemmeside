@@ -7007,7 +7007,7 @@ h1, h2, h3, h4, h5, h6,
 
     .kh-home-hero,
     .kh-about-hero {
-        padding-bottom: 5.5rem;
+        padding-bottom: 2.5rem;
     }
 
     .kh-home-title,
@@ -8201,4 +8201,110 @@ body {
     background: none;
     color: #17212b;
     -webkit-text-fill-color: currentColor;
+}
+
+/* ── HERO SPOTS BADGE ── */
+.kh-hero-spots-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 999px;
+    padding: 0.35rem 0.85rem 0.35rem 0.6rem;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: rgba(255,255,255,0.75);
+    margin-bottom: 1.6rem;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+}
+
+.kh-hero-spots-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #4ade80;
+    box-shadow: 0 0 6px #4ade80, 0 0 12px rgba(74,222,128,0.4);
+    flex-shrink: 0;
+    animation: kh-spots-pulse 2s ease-in-out infinite;
+}
+
+@keyframes kh-spots-pulse {
+    0%, 100% { opacity: 1; box-shadow: 0 0 6px #4ade80, 0 0 12px rgba(74,222,128,0.4); }
+    50% { opacity: 0.6; box-shadow: 0 0 3px #4ade80, 0 0 6px rgba(74,222,128,0.2); }
+}
+
+/* ── TRUST BANNER ── */
+.kh-trust-banner {
+    background: #0d0d0d;
+    padding: 3.5rem 0 5.5rem;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    overflow: hidden;
+}
+
+.kh-trust-label {
+    text-align: center;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+    font-weight: 500;
+    margin-bottom: 2rem;
+}
+
+.kh-trust-track-wrapper {
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.6) 8%, black 20%, black 80%, rgba(0,0,0,0.6) 92%, transparent 100%);
+    mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.6) 8%, black 20%, black 80%, rgba(0,0,0,0.6) 92%, transparent 100%);
+}
+
+.kh-trust-track {
+    display: flex;
+    align-items: center;
+    gap: 4.5rem;
+    width: max-content;
+    animation: kh-trust-scroll 45s linear infinite;
+}
+
+@keyframes kh-trust-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
+.kh-trust-track:hover {
+    animation-play-state: paused;
+}
+
+.kh-trust-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    color: rgba(255,255,255,0.28);
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    white-space: nowrap;
+    transition: color 0.3s ease;
+}
+
+.kh-trust-logo svg {
+    width: 26px;
+    height: 26px;
+    flex-shrink: 0;
+    fill: currentColor;
+}
+
+.kh-trust-logo:hover {
+    color: rgba(255,255,255,0.55);
+}
+
+@media (max-width: 640px) {
+    .kh-trust-banner {
+        padding: 2.5rem 0 4rem;
+    }
+    .kh-trust-track {
+        gap: 3rem;
+    }
 }
