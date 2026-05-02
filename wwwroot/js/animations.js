@@ -1,3 +1,103 @@
+window.initKfLoader = function () {
+    const loader = document.getElementById('kf-loader');
+    const app = document.getElementById('app');
+
+    if (!loader || !app) return;
+
+    const minVisibleMs = 1800;
+    const exitDurationMs = 1050;
+    const startTime = performance.now();
+
+    let visualProgress = 0;
+    let realProgress = 0;
+    let appReady = false;
+    let hiding = false;
+
+    document.body.classList.remove('kf-app-visible');
+
+    const parseProgressValue = (value) => {
+        const parsed = Number.parseFloat((value || '').replace('%', '').trim());
+        return Number.isFinite(parsed) ? parsed : 0;
+    };
+
+    const readBlazorProgress = () => {
+        const sources = [app, document.documentElement, document.body];
+
+        for (const source of sources) {
+            if (!source) continue;
+
+            const value = getComputedStyle(source).getPropertyValue('--blazor-load-percentage');
+            const parsed = parseProgressValue(value);
+            if (parsed > 0) {
+                return Math.min(parsed, 100);
+            }
+        }
+
+        return 0;
+    };
+
+    const hideLoader = () => {
+        if (hiding) return;
+
+        hiding = true;
+        document.body.classList.add('kf-app-visible');
+        window.requestAnimationFrame(() => {
+            window.requestAnimationFrame(() => {
+                loader.classList.add('is-hiding');
+            });
+        });
+        window.setTimeout(() => {
+            loader.remove();
+        }, exitDurationMs + 80);
+    };
+
+    const appObserver = new MutationObserver(() => {
+        if (app.childNodes.length > 0) {
+            appReady = true;
+            appObserver.disconnect();
+        }
+    });
+
+    appObserver.observe(app, { childList: true, subtree: true });
+
+    const tick = () => {
+        if (hiding) return;
+
+        const elapsed = performance.now() - startTime;
+        realProgress = Math.max(realProgress, readBlazorProgress());
+
+        const stagedProgress = Math.min(94, (elapsed / minVisibleMs) * 88);
+        const targetProgress = appReady
+            ? 100
+            : Math.max(realProgress, stagedProgress);
+
+        const easing = appReady ? 0.12 : 0.065;
+        visualProgress += (targetProgress - visualProgress) * easing;
+
+        if (!appReady && visualProgress > 96) {
+            visualProgress = 96;
+        }
+
+        const roundedProgress = Math.min(100, Math.max(0, visualProgress));
+        loader.style.setProperty('--loader-progress', `${roundedProgress.toFixed(2)}%`);
+
+        if (appReady && elapsed >= minVisibleMs && roundedProgress >= 99.4) {
+            loader.style.setProperty('--loader-progress', '100%');
+            hideLoader();
+            return;
+        }
+
+        window.requestAnimationFrame(tick);
+    };
+
+    window.requestAnimationFrame(tick);
+};
+
+if (!window.__kfLoaderInitialized) {
+    window.__kfLoaderInitialized = true;
+    window.initKfLoader();
+}
+
 window.initBackgroundPaths = function (containerId) {
     const container = document.getElementById(containerId);
     if (!container) return;

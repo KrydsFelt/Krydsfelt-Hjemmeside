@@ -20,10 +20,12 @@ public static class Translations
         ["banner.cta"] = "Book et møde",
 
         // --- Home: Hero ---
-        ["home.hero.title"] = "Vi bygger hurtigt – fordi vi arbejder tæt sammen med jer.",
-        ["home.hero.text"] = "Hos Krydsfelt er der ikke langt fra idé til handling. Du arbejder direkte med os, der udvikler løsningen, og vi justerer undervejs, så det hele giver mening i praksis.",
+        ["home.hero.spotsLabel"] = "Are you ready?",
+        ["home.trust.label"] = "Betroet af virksomheder vi har arbejdet med",
+        ["home.hero.title"] = "Vi bygger hjemmesider og digitale løsninger med mere ro, mere retning og bedre execution.",
+        ["home.hero.text"] = "KrydsFelt hjælper mindre virksomheder og brands, der er vokset fra standardløsninger, men som stadig vil have et lille team tæt på processen. Vi samler strategi, design og udvikling, så det færdige resultat føles mere gennemført og er lettere at bygge videre på.",
         ["home.hero.bookMeeting"] = "Book et møde",
-        ["home.hero.seeServices"] = "Se ydelser",
+        ["home.hero.seeServices"] = "Udforsk vores ydelser",
 
         // --- Home: Profile ---
         ["home.profile.label"] = "Hvem er vi?",
@@ -40,7 +42,7 @@ public static class Translations
         ["home.services.label"] = "Ydelser",
         ["home.services.heading"] = "Det vi typisk hjælper med, når et website eller digitalt setup skal løftes.",
         ["home.services.text"] = "Vi holder det enkelt og fokuserer på det, der gør størst forskel for næste version af virksomheden.",
-        ["home.services.seeAll"] = "Se alle ydelser",
+        ["home.services.seeAll"] = "Udforsk vores ydelser",
         ["home.service1.title"] = "Webdesign & udvikling",
         ["home.service1.desc"] = "Vi designer og bygger hjemmesider, der løfter førstehåndsindtrykket og gør næste skridt lettere for kunden.",
         ["home.service2.title"] = "Frontend & UX",
@@ -230,10 +232,12 @@ public static class Translations
         ["banner.cta"] = "Book a meeting",
 
         // --- Home: Hero ---
+        ["home.hero.spotsLabel"] = "Are you ready?",
+        ["home.trust.label"] = "Trusted by companies we've worked with",
         ["home.hero.title"] = "We build websites and digital solutions with more clarity, more direction, and better execution.",
         ["home.hero.text"] = "At KrydsFelt, there's no one between you and the people doing the work. That's what makes the process faster and the result more considered.",
         ["home.hero.bookMeeting"] = "Book a meeting",
-        ["home.hero.seeServices"] = "See services",
+        ["home.hero.seeServices"] = "Explore our services",
 
         // --- Home: Profile ---
         ["home.profile.label"] = "Who are we?",
@@ -250,7 +254,7 @@ public static class Translations
         ["home.services.label"] = "Services",
         ["home.services.heading"] = "What we typically help with when a website or digital setup needs to be elevated.",
         ["home.services.text"] = "We keep it simple and focus on what makes the biggest difference for the next version of the business.",
-        ["home.services.seeAll"] = "See all services",
+        ["home.services.seeAll"] = "Explore our services",
         ["home.service1.title"] = "Web Design & Development",
         ["home.service1.desc"] = "We design and build websites that elevate the first impression and make the next step easier for the customer.",
         ["home.service2.title"] = "Frontend & UX",

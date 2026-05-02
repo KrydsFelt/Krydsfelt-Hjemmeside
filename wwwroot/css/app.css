@@ -1888,26 +1888,140 @@ body {
 }
 
 /* ── LOADING SCREEN ── */
+#app {
+    opacity: 0;
+    transform: scale(1.02);
+    filter: blur(6px);
+    transform-origin: center center;
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease,
+        filter 0.8s ease;
+}
+
+body.kf-app-visible #app {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+}
+
 .loading-screen {
+    --loader-progress: 0%;
     position: fixed;
     inset: 0;
-    background: var(--bg);
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 9999;
+    overflow: hidden;
+    isolation: isolate;
 }
 
-.loading-logo {
-    width: 80px;
-    height: 80px;
-    object-fit: contain;
-    animation: loadingPulse 1.4s ease-in-out infinite;
+.loading-screen::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at top, rgba(120, 147, 168, 0.18), transparent 40%),
+        radial-gradient(circle at bottom, rgba(232, 236, 240, 0.08), transparent 38%),
+        var(--bg);
+    opacity: 1;
+    transition: opacity 0.85s ease;
 }
 
-@keyframes loadingPulse {
-    0%, 100% { opacity: 0.4; transform: scale(0.95); }
-    50%       { opacity: 1;   transform: scale(1.05); }
+.loading-screen.is-hiding {
+    pointer-events: none;
+}
+
+.loading-screen.is-hiding::before {
+    opacity: 0;
+}
+
+.loading-screen.is-hiding .loading-monogram {
+    transform: scale(1.04);
+    opacity: 0;
+}
+
+.loading-monogram {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    text-align: center;
+    transition: transform 0.8s ease, opacity 0.8s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.loading-wordmark {
+    width: min(92vw, 920px);
+    height: auto;
+    overflow: visible;
+    transform-origin: center center;
+    transition: transform 0.8s ease, opacity 0.8s ease, filter 0.8s ease;
+}
+
+.loading-screen.is-hiding .loading-wordmark {
+    transform: scale(1.08);
+    opacity: 0;
+    filter: blur(4px);
+}
+
+.loading-svg-text {
+    font-family: 'Poppins', 'Manrope', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 75px;
+    font-weight: 200;
+    letter-spacing: -0.05em;
+    text-anchor: middle;
+}
+
+.loading-svg-mask {
+    fill: white;
+}
+
+.loading-svg-outline {
+    fill: rgba(240, 237, 232, 0.06);
+    stroke: rgba(240, 237, 232, 0.3);
+    stroke-width: 1.25px;
+    paint-order: stroke fill;
+}
+
+.loading-svg-fill,
+.loading-svg-glow {
+    fill: url(#kf-loader-gradient);
+    transform-box: fill-box;
+    transform-origin: center bottom;
+    transform: translateY(calc(100% - var(--loader-progress)));
+    transition: transform 0.22s ease-out;
+}
+
+.loading-svg-glow {
+    opacity: 0.42;
+}
+
+@media (max-width: 640px) {
+    .loading-wordmark {
+        width: min(94vw, 620px);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #app {
+        transition: opacity 0.3s ease;
+        transform: none;
+        filter: none;
+    }
+
+    .loading-svg-fill,
+    .loading-svg-glow {
+        transition: none;
+    }
+
+    .loading-monogram,
+    .loading-wordmark,
+    .loading-screen::before {
+        transition-duration: 0.3s !important;
+    }
 }
 
 /* ── BLAZOR ERROR ── */
@@ -1930,17 +2044,6 @@ body {
     position: absolute;
     right: 0.75rem;
     top: 0.5rem;
-}
-
-.loading-progress-text {
-    text-align: center;
-    font-weight: 200;
-    color: #fff;
-    font-size: 3rem;
-}
-
-.loading-progress-text::after {
-    content: var(--blazor-load-percentage-text, "Loading");
 }
 
 /* ── KEYFRAMES ── */
@@ -6904,7 +7007,7 @@ h1, h2, h3, h4, h5, h6,
 
     .kh-home-hero,
     .kh-about-hero {
-        padding-bottom: 5.5rem;
+        padding-bottom: 2.5rem;
     }
 
     .kh-home-title,
@@ -8098,4 +8201,110 @@ body {
     background: none;
     color: #17212b;
     -webkit-text-fill-color: currentColor;
+}
+
+/* ── HERO SPOTS BADGE ── */
+.kh-hero-spots-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 999px;
+    padding: 0.35rem 0.85rem 0.35rem 0.6rem;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: rgba(255,255,255,0.75);
+    margin-bottom: 1.6rem;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+}
+
+.kh-hero-spots-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #4ade80;
+    box-shadow: 0 0 6px #4ade80, 0 0 12px rgba(74,222,128,0.4);
+    flex-shrink: 0;
+    animation: kh-spots-pulse 2s ease-in-out infinite;
+}
+
+@keyframes kh-spots-pulse {
+    0%, 100% { opacity: 1; box-shadow: 0 0 6px #4ade80, 0 0 12px rgba(74,222,128,0.4); }
+    50% { opacity: 0.6; box-shadow: 0 0 3px #4ade80, 0 0 6px rgba(74,222,128,0.2); }
+}
+
+/* ── TRUST BANNER ── */
+.kh-trust-banner {
+    background: #0d0d0d;
+    padding: 3.5rem 0 5.5rem;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    overflow: hidden;
+}
+
+.kh-trust-label {
+    text-align: center;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+    font-weight: 500;
+    margin-bottom: 2rem;
+}
+
+.kh-trust-track-wrapper {
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.6) 8%, black 20%, black 80%, rgba(0,0,0,0.6) 92%, transparent 100%);
+    mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.6) 8%, black 20%, black 80%, rgba(0,0,0,0.6) 92%, transparent 100%);
+}
+
+.kh-trust-track {
+    display: flex;
+    align-items: center;
+    gap: 4.5rem;
+    width: max-content;
+    animation: kh-trust-scroll 45s linear infinite;
+}
+
+@keyframes kh-trust-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
+.kh-trust-track:hover {
+    animation-play-state: paused;
+}
+
+.kh-trust-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    color: rgba(255,255,255,0.28);
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    white-space: nowrap;
+    transition: color 0.3s ease;
+}
+
+.kh-trust-logo svg {
+    width: 26px;
+    height: 26px;
+    flex-shrink: 0;
+    fill: currentColor;
+}
+
+.kh-trust-logo:hover {
+    color: rgba(255,255,255,0.55);
+}
+
+@media (max-width: 640px) {
+    .kh-trust-banner {
+        padding: 2.5rem 0 4rem;
+    }
+    .kh-trust-track {
+        gap: 3rem;
+    }
 }

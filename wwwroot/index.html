@@ -17,7 +17,7 @@
     <meta property="og:locale" content="da_DK" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet" />
     <base href="/" />
     <link rel="preload" id="webassembly" />
     <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css" />
@@ -29,9 +29,34 @@
 </head>
 
 <body>
-    <div id="app">
-        <div class="loading-screen">
-            <div class="loading-progress-text"></div>
+    <div id="app"></div>
+
+    <div id="kf-loader" class="loading-screen">
+        <div class="loading-monogram" role="status" aria-live="polite" aria-label="KrydsFelt loader">
+            <svg class="loading-wordmark" viewBox="0 0 920 240" aria-hidden="true">
+                <defs>
+                    <linearGradient id="kf-loader-gradient" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#f7f1e7" />
+                        <stop offset="46%" stop-color="#d4dde4" />
+                        <stop offset="100%" stop-color="#7893a8" />
+                    </linearGradient>
+
+                    <mask id="kf-loader-word-mask" maskUnits="userSpaceOnUse">
+                        <rect width="920" height="240" fill="black" />
+                        <text class="loading-svg-text loading-svg-mask" x="460" y="140">Krydsfelt</text>
+                    </mask>
+
+                    <filter id="kf-loader-glow" x="-20%" y="-40%" width="140%" height="180%">
+                        <feGaussianBlur stdDeviation="9" />
+                    </filter>
+                </defs>
+
+                <text class="loading-svg-text loading-svg-outline" x="460" y="140">Krydsfelt</text>
+                <g mask="url(#kf-loader-word-mask)">
+                    <rect class="loading-svg-fill" x="0" y="0" width="920" height="240" />
+                    <rect class="loading-svg-glow" x="0" y="0" width="920" height="240" filter="url(#kf-loader-glow)" />
+                </g>
+            </svg>
         </div>
     </div>
 
