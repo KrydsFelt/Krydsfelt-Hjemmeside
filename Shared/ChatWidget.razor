@@ -120,6 +120,7 @@
             {
                 messages = Messages
                     .Where(m => m.Role != "system")
+                    .Skip(1)
                     .Select(m => new { role = m.Role, content = m.Content })
                     .ToArray()
             };
@@ -161,5 +162,5 @@
     public void Dispose() { }
 
     private record ChatMessage(string Role, string Content);
-    private record WorkerResponse(string Reply);
+    private record WorkerResponse([property: System.Text.Json.Serialization.JsonPropertyName("reply")] string Reply);
 }
