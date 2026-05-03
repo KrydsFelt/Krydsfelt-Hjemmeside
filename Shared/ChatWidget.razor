@@ -61,6 +61,14 @@
         </div>
     }
 
+    @if (!IsOpen && ShowPromo)
+    {
+        <div class="kf-chat-promo" @onclick="OpenFromPromo">
+            <span class="kf-chat-promo-text">Har du brug for hjælp?</span>
+            <button class="kf-chat-promo-close" @onclick:stopPropagation="true" @onclick="DismissPromo" aria-label="Luk">×</button>
+        </div>
+    }
+
     <button class="kf-chat-bubble-btn" @onclick="Toggle" aria-label="@(IsOpen ? "Luk chat" : "Åbn chat")">
         @if (IsOpen)
         {
@@ -82,6 +90,7 @@
     private bool IsLoading = false;
     private string InputText = "";
     private int UnreadCount = 0;
+    private bool ShowPromo = false;
     private ElementReference MessagesContainer;
 
     private const string WorkerUrl = "https://mute-breeze-c6f3.krydsfelt-info.workers.dev";
@@ -91,10 +100,33 @@
         new("assistant", "Hej! Jeg er Leika, KrydsFelts AI-assistent. Hvad kan jeg hjælpe dig med?")
     };
 
+    protected override async Task OnInitializedAsync()
+    {
+        await Task.Delay(4000);
+        ShowPromo = true;
+        StateHasChanged();
+    }
+
     private void Toggle()
     {
         IsOpen = !IsOpen;
-        if (IsOpen) UnreadCount = 0;
+        if (IsOpen)
+        {
+            UnreadCount = 0;
+            ShowPromo = false;
+        }
+    }
+
+    private void OpenFromPromo()
+    {
+        ShowPromo = false;
+        IsOpen = true;
+        UnreadCount = 0;
+    }
+
+    private void DismissPromo()
+    {
+        ShowPromo = false;
     }
 
     private async Task HandleKeyDown(KeyboardEventArgs e)

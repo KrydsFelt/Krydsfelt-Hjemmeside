@@ -1893,18 +1893,14 @@ body {
 /* ── LOADING SCREEN ── */
 #app {
     opacity: 0;
-    transform: scale(1.02);
     filter: blur(6px);
-    transform-origin: center center;
     transition:
         opacity 0.8s ease,
-        transform 0.8s ease,
         filter 0.8s ease;
 }
 
 body.kf-app-visible #app {
     opacity: 1;
-    transform: scale(1);
     filter: blur(0);
 }
 
@@ -8326,6 +8322,46 @@ body {
     flex-direction: column;
     align-items: flex-start;
     transform: none !important;
+}
+
+.kf-chat-promo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #fff;
+    color: #111;
+    border-radius: 1rem;
+    padding: 0.6rem 0.9rem;
+    margin-bottom: 0.6rem;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+    cursor: pointer;
+    animation: kf-promo-in 0.3s ease;
+    max-width: 220px;
+}
+
+.kf-chat-promo-text {
+    font-size: 0.9rem;
+    font-weight: 500;
+    flex: 1;
+}
+
+.kf-chat-promo-close {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    color: #888;
+    line-height: 1;
+    padding: 0 0 0 0.3rem;
+}
+
+.kf-chat-promo-close:hover {
+    color: #333;
+}
+
+@keyframes kf-promo-in {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
 }
 
 .kf-chat-bubble-btn {
