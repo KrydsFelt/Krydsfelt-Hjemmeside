@@ -42,10 +42,11 @@ body {
     color: var(--text-primary);
     background: var(--bg);
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
 }
 
 #app {
-    overflow-x: clip;
+    overflow-x: visible;
 }
 
 /* ── SHARED ── */
