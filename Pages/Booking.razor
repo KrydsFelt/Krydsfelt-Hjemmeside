@@ -1,9 +1,6 @@
 @page "/booking"
-@using System.ComponentModel.DataAnnotations
-@using System.Net.Http.Json
 @inherits LocalizedComponentBase
 @inject IJSRuntime JS
-@inject HttpClient Http
 
 <PageTitle>Booking – KrydsFelt</PageTitle>
 
@@ -30,54 +27,10 @@
                 </div>
             </div>
 
-            <div class="bk-card reveal" data-delay="120">
-                <div class="bk-card-intro">
-                    <span>@Lang.T("bk.card.intro")</span>
-                    <p>@Lang.T("bk.card.sub")</p>
-                </div>
-
-                <EditForm Model="@request" OnValidSubmit="@SubmitForm">
-                    <DataAnnotationsValidator />
-                    <div class="bk-grid">
-                        <div class="bk-field">
-                            <label for="customerName">@Lang.T("bk.field.name")</label>
-                            <InputText id="customerName" @bind-Value="request.CustomerName" />
-                            <ValidationMessage For="@(() => request.CustomerName)" />
-                        </div>
-
-                        <div class="bk-field">
-                            <label for="companyName">@Lang.T("bk.field.company")</label>
-                            <InputText id="companyName" @bind-Value="request.CompanyName" />
-                            <ValidationMessage For="@(() => request.CompanyName)" />
-                        </div>
-
-                        <div class="bk-field">
-                            <label for="cvr">@Lang.T("bk.field.cvr")</label>
-                            <InputText id="cvr" @bind-Value="request.Cvr" />
-                        </div>
-
-                        <div class="bk-field">
-                            <label for="email">@Lang.T("bk.field.email")</label>
-                            <InputText id="email" @bind-Value="request.Email" type="email" />
-                            <ValidationMessage For="@(() => request.Email)" />
-                        </div>
-
-                        <div class="bk-field bk-field-full">
-                            <label for="helpNeeded">@Lang.T("bk.field.help")</label>
-                            <InputTextArea id="helpNeeded" @bind-Value="request.HelpNeeded" />
-                            <ValidationMessage For="@(() => request.HelpNeeded)" />
-                        </div>
-                    </div>
-
-                    <button type="submit" class="bk-submit" disabled="@isSubmitting">
-                        @(isSubmitting ? Lang.T("bk.submitting") : Lang.T("bk.submit"))
-                    </button>
-                </EditForm>
-
-                @if (!string.IsNullOrWhiteSpace(statusMessage))
-                {
-                    <p class="bk-status">@statusMessage</p>
-                }
+            <div class="reveal" data-delay="120">
+                <button class="kf-btn kf-btn-primary" @onclick="OpenCalendly">
+                    @Lang.T("bk.openCalendly")
+                </button>
             </div>
         </div>
 
@@ -141,16 +94,6 @@
 <SiteFooter />
 
 @code {
-    private BookingRequest request = new();
-    private string? statusMessage;
-    private bool isSubmitting;
-
-    protected override void OnInitialized()
-    {
-        base.OnInitialized();
-        Lang.OnLanguageChanged += ResetForm;
-    }
-
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
@@ -159,75 +102,8 @@
         }
     }
 
-    private void ResetForm()
+    private async Task OpenCalendly()
     {
-        request = new BookingRequest();
-        statusMessage = null;
-        InvokeAsync(StateHasChanged);
-    }
-
-    private async Task SubmitForm()
-    {
-        isSubmitting = true;
-        statusMessage = null;
-
-        var payload = new Dictionary<string, string>
-        {
-            ["access_key"] = "97cc8c1a-4ec9-498f-a4f9-7360cbd89549",
-            ["subject"]    = $"Ny bookinganmodning fra {request.CompanyName}",
-            ["from_name"]  = "KrydsFelt Booking",
-            ["name"]       = request.CustomerName,
-            ["email"]      = request.Email,
-            ["replyto"]    = request.Email,
-            ["company"]    = request.CompanyName,
-            ["cvr"]        = request.Cvr,
-            ["message"]    = request.HelpNeeded
-        };
-
-        try
-        {
-            var response = await Http.PostAsJsonAsync("https://api.web3forms.com/submit", payload);
-            if (response.IsSuccessStatusCode)
-            {
-                statusMessage = Lang.T("bk.submitSuccess");
-                request = new BookingRequest();
-            }
-            else
-            {
-                statusMessage = Lang.T("bk.submitError");
-            }
-        }
-        catch
-        {
-            statusMessage = Lang.T("bk.submitError");
-        }
-        finally
-        {
-            isSubmitting = false;
-        }
-    }
-
-    public new void Dispose()
-    {
-        Lang.OnLanguageChanged -= ResetForm;
-        base.Dispose();
-    }
-
-    private sealed class BookingRequest
-    {
-        [Required(ErrorMessage = "Required.")]
-        public string CustomerName { get; set; } = string.Empty;
-
-        [Required(ErrorMessage = "Required.")]
-        public string CompanyName { get; set; } = string.Empty;
-
-        public string Cvr { get; set; } = string.Empty;
-
-        [Required(ErrorMessage = "Required.")]
-        [EmailAddress(ErrorMessage = "Please enter a valid email address.")]
-        public string Email { get; set; } = string.Empty;
-
-        [Required(ErrorMessage = "Required.")]
-        public string HelpNeeded { get; set; } = string.Empty;
+        await JS.InvokeVoidAsync("Calendly.showPopupWidget", "https://calendly.com/krydsfelt-info/30min");
     }
 }
