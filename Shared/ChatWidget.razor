@@ -5,12 +5,21 @@
 
     @if (IsOpen)
     {
-        <div class="kf-chat-window" role="dialog" aria-label="KrydsFelt AI Assistent">
+        <div class="kf-chat-window" role="dialog" aria-label="Leika Assistent">
             <div class="kf-chat-header">
                 <div class="kf-chat-header-info">
-                    <div class="kf-chat-avatar">KF</div>
+                    <div class="kf-chat-avatar">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20">
+                            <rect x="3" y="8" width="18" height="12" rx="3"/>
+                            <path d="M8 8V6a4 4 0 018 0v2"/>
+                            <circle cx="9" cy="14" r="1.5" fill="currentColor" stroke="none"/>
+                            <circle cx="15" cy="14" r="1.5" fill="currentColor" stroke="none"/>
+                            <path d="M9 18h6" stroke-linecap="round"/>
+                            <path d="M12 3v1" stroke-linecap="round"/>
+                        </svg>
+                    </div>
                     <div>
-                        <strong>KrydsFelt Assistent</strong>
+                        <strong>Leika Assistent</strong>
                         <span class="kf-chat-status">Online</span>
                     </div>
                 </div>
@@ -79,7 +88,7 @@
 
     private List<ChatMessage> Messages = new()
     {
-        new("assistant", "Hej! Jeg er KrydsFelts AI-assistent. Hvad kan jeg hjælpe dig med?")
+        new("assistant", "Hej! Jeg er Leika, KrydsFelts AI-assistent. Hvad kan jeg hjælpe dig med?")
     };
 
     private void Toggle()
