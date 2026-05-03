@@ -1,0 +1,156 @@
+@inject HttpClient Http
+@implements IDisposable
+
+<div class="kf-chat-widget @(IsOpen ? "kf-chat-open" : "")">
+
+    @if (IsOpen)
+    {
+        <div class="kf-chat-window" role="dialog" aria-label="KrydsFelt AI Assistent">
+            <div class="kf-chat-header">
+                <div class="kf-chat-header-info">
+                    <div class="kf-chat-avatar">KF</div>
+                    <div>
+                        <strong>KrydsFelt Assistent</strong>
+                        <span class="kf-chat-status">Online</span>
+                    </div>
+                </div>
+                <button class="kf-chat-close" @onclick="Toggle" aria-label="Luk chat">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                </button>
+            </div>
+
+            <div class="kf-chat-messages" @ref="MessagesContainer">
+                @foreach (var msg in Messages)
+                {
+                    <div class="kf-chat-msg kf-chat-msg--@msg.Role">
+                        <div class="kf-chat-bubble">@((MarkupString)FormatMessage(msg.Content))</div>
+                    </div>
+                }
+                @if (IsLoading)
+                {
+                    <div class="kf-chat-msg kf-chat-msg--assistant">
+                        <div class="kf-chat-bubble kf-chat-typing">
+                            <span></span><span></span><span></span>
+                        </div>
+                    </div>
+                }
+            </div>
+
+            <div class="kf-chat-input-area">
+                <textarea class="kf-chat-input"
+                          placeholder="Skriv en besked..."
+                          @bind="InputText"
+                          @bind:event="oninput"
+                          @onkeydown="HandleKeyDown"
+                          rows="1"
+                          disabled="@IsLoading"
+                          aria-label="Skriv besked"></textarea>
+                <button class="kf-chat-send" @onclick="SendMessage" disabled="@(IsLoading || string.IsNullOrWhiteSpace(InputText))" aria-label="Send">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z"/></svg>
+                </button>
+            </div>
+        </div>
+    }
+
+    <button class="kf-chat-bubble-btn" @onclick="Toggle" aria-label="@(IsOpen ? "Luk chat" : "Åbn chat")">
+        @if (IsOpen)
+        {
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        }
+        else
+        {
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4a2 2 0 00-2 2v18l4-4h14a2 2 0 002-2V4a2 2 0 00-2-2z"/></svg>
+        }
+        @if (!IsOpen && UnreadCount > 0)
+        {
+            <span class="kf-chat-badge">@UnreadCount</span>
+        }
+    </button>
+</div>
+
+@code {
+    private bool IsOpen = false;
+    private bool IsLoading = false;
+    private string InputText = "";
+    private int UnreadCount = 0;
+    private ElementReference MessagesContainer;
+
+    private const string WorkerUrl = "https://mute-breeze-c6f3.krydsfelt-info.workers.dev";
+
+    private List<ChatMessage> Messages = new()
+    {
+        new("assistant", "Hej! Jeg er KrydsFelts AI-assistent. Hvad kan jeg hjælpe dig med?")
+    };
+
+    private void Toggle()
+    {
+        IsOpen = !IsOpen;
+        if (IsOpen) UnreadCount = 0;
+    }
+
+    private async Task HandleKeyDown(KeyboardEventArgs e)
+    {
+        if (e.Key == "Enter" && !e.ShiftKey && !IsLoading && !string.IsNullOrWhiteSpace(InputText))
+            await SendMessage();
+    }
+
+    private async Task SendMessage()
+    {
+        var text = InputText.Trim();
+        if (string.IsNullOrEmpty(text)) return;
+
+        InputText = "";
+        Messages.Add(new("user", text));
+        IsLoading = true;
+        StateHasChanged();
+        await ScrollToBottom();
+
+        try
+        {
+            var payload = new
+            {
+                messages = Messages
+                    .Where(m => m.Role != "system")
+                    .Select(m => new { role = m.Role, content = m.Content })
+                    .ToArray()
+            };
+
+            var response = await Http.PostAsJsonAsync(WorkerUrl, payload);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var result = await response.Content.ReadFromJsonAsync<WorkerResponse>();
+                Messages.Add(new("assistant", result?.Reply ?? "Beklager, noget gik galt."));
+                if (!IsOpen) UnreadCount++;
+            }
+            else
+            {
+                Messages.Add(new("assistant", "Beklager, jeg kan ikke svare lige nu. Prøv igen om lidt."));
+            }
+        }
+        catch
+        {
+            Messages.Add(new("assistant", "Beklager, der opstod en fejl. Prøv igen om lidt."));
+        }
+        finally
+        {
+            IsLoading = false;
+            StateHasChanged();
+            await ScrollToBottom();
+        }
+    }
+
+    private async Task ScrollToBottom()
+    {
+        await Task.Delay(50);
+        StateHasChanged();
+    }
+
+    private string FormatMessage(string text) =>
+        System.Net.WebUtility.HtmlEncode(text).Replace("\n", "<br/>");
+
+    public void Dispose() { }
+
+    private record ChatMessage(string Role, string Content);
+    private record WorkerResponse(string Reply);
+}
