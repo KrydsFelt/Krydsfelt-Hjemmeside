@@ -20,7 +20,7 @@ public static class Translations
         ["banner.cta"] = "Book et møde",
 
         // --- Home: Hero ---
-        ["home.hero.spotsLabel"] = "Are you ready?",
+        ["home.hero.spotsLabel"] = "Er du klar?",
         ["home.trust.label"] = "Betroet af virksomheder vi har arbejdet med",
         ["home.hero.title"] = "Vi bygger hjemmesider og digitale løsninger med mere ro, mere retning og bedre execution.",
         ["home.hero.text"] = "KrydsFelt hjælper mindre virksomheder og brands, der er vokset fra standardløsninger, men som stadig vil have et lille team tæt på processen. Vi samler strategi, design og udvikling, så det færdige resultat føles mere gennemført og er lettere at bygge videre på.",
