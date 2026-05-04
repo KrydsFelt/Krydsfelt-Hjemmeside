@@ -9069,6 +9069,31 @@ body {
     color: rgba(39, 65, 85, 0.7);
 }
 
+.kf-btn,
+.kf-nav-contact-btn,
+.kf-topbar-cta,
+.yd-hero-btn,
+.approach-btn,
+.yd-price-btn,
+.yd-price-btn-light,
+.bk-submit,
+.oo2-cta-link,
+.expertise-item-cta,
+.kh-home-services-link,
+.kf-chat-bubble-btn,
+.kf-floating-call,
+.kf-nav-language-trigger,
+.kh-home-process-arrow,
+.kf-topbar-close,
+.kf-nav-dropdown-menu button {
+    font-weight: 100 !important;
+}
+
+.kf-floating-call-copy strong,
+.kf-floating-call-meta {
+    font-weight: 100 !important;
+}
+
 .kf-floating-dock .kf-floating-call-dots {
     border-left-color: rgba(39, 65, 85, 0.12);
 }
