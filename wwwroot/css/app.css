@@ -5877,7 +5877,7 @@ body {
     right: 0;
     bottom: 0;
     height: 180px;
-    background: linear-gradient(180deg, rgba(13, 13, 13, 0) 0%, rgba(13, 13, 13, 0.82) 62%, #0d0d0d 100%);
+    background: linear-gradient(180deg, rgba(12, 23, 33, 0) 0%, rgba(12, 23, 33, 0.78) 62%, #0c1721 100%);
     pointer-events: none;
     z-index: 0;
 }
@@ -8045,6 +8045,24 @@ body {
     }
 }
 
+@media (min-width: 901px) and (max-width: 1700px) {
+    .kh-home-hero {
+        min-height: auto;
+        padding-top: 12rem;
+        padding-bottom: 4.5rem;
+    }
+
+    .kh-trust-banner {
+        margin-top: 12.25rem !important;
+    }
+}
+
+@media (min-width: 1200px) and (min-height: 950px) {
+    .kh-trust-banner {
+        margin-top: 6rem;
+    }
+}
+
 @media (max-width: 560px) {
     .kf-container {
         padding: 0 1rem;
@@ -8305,9 +8323,12 @@ body {
 
 /* ── TRUST BANNER ── */
 .kh-trust-banner {
-    background: #0d0d0d;
-    padding: 3.5rem 0 5.5rem;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
+    background: transparent;
+    position: relative;
+    z-index: 1;
+    margin-top: 3.25rem;
+    padding: 2rem 0 0;
+    border-bottom: 0;
     overflow: hidden;
 }
 
