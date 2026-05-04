@@ -1,7 +1,7 @@
 @inject HttpClient Http
 @implements IDisposable
 
-<div class="kf-chat-widget @(IsOpen ? "kf-chat-open" : "")">
+<div class="kf-chat-widget @(IsOpen ? "kf-chat-open" : "") @(ShowAttention ? "is-attention" : "")">
 
     @if (IsOpen)
     {
@@ -92,6 +92,7 @@
     private int UnreadCount = 0;
     private bool ShowPromo = false;
     private ElementReference MessagesContainer;
+    private bool ShowAttention => ShowPromo && !IsOpen;
 
     private const string WorkerUrl = "https://mute-breeze-c6f3.krydsfelt-info.workers.dev";
 

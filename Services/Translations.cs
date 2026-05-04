@@ -14,28 +14,32 @@ public static class Translations
         ["nav.prevStep"] = "Forrige trin",
         ["nav.nextStep"] = "Næste trin",
         ["nav.langSelect"] = "Vælg sprog. Aktuelt sprog er {0}.",
+        ["nav.services.web"] = "Webudvikling",
+        ["nav.services.metaads"] = "Meta Ads",
+        ["nav.services.branding"] = "Branding & Design",
+        ["nav.services.custom"] = "Custom Projekt",
 
         // --- Banner ---
         ["banner.text"] = "Klar til en ny hjemmeside?",
         ["banner.cta"] = "Book et møde",
 
         // --- Home: Hero ---
-        ["home.hero.spotsLabel"] = "Er du klar?",
+        ["home.hero.spotsLabel"] = "For B2B- og servicevirksomheder",
         ["home.trust.label"] = "Betroet af virksomheder vi har arbejdet med",
-        ["home.hero.title"] = "Vi bygger hjemmesider og digitale løsninger med mere ro, mere retning og bedre execution.",
-        ["home.hero.text"] = "KrydsFelt hjælper mindre virksomheder og brands, der er vokset fra standardløsninger, men som stadig vil have et lille team tæt på processen. Vi samler strategi, design og udvikling, så det færdige resultat føles mere gennemført og er lettere at bygge videre på.",
+        ["home.hero.title"] = "Digital vækstpartner for B2B- og servicevirksomheder",
+        ["home.hero.text"] = "Vi hjælper B2B- og servicevirksomheder med at skabe flere relevante henvendelser gennem performance-drevet leadgenerering, skarpe websites og digitale kunderejser, der konverterer.",
         ["home.hero.bookMeeting"] = "Book et møde",
         ["home.hero.seeServices"] = "Udforsk vores ydelser",
 
         // --- Home: Profile ---
         ["home.profile.label"] = "Hvem er vi?",
-        ["home.profile.heading"] = "Et mindre team med fokus på at gøre digitale løsninger mere klare, mere præcise og mere brugbare.",
+        ["home.profile.heading"] = "Et kompakt leveranceteam for virksomheder, der vil have høj kvalitet uden at købe sig ind i et helt bureauhierarki.",
         ["home.profile.stat.years"] = "Års erfaring",
         ["home.profile.stat.partners"] = "Samarbejder",
         ["home.profile.stat.satisfaction"] = "Tilfredshed",
-        ["home.profile.p1"] = "Vi arbejder tæt med virksomheder, der ikke har brug for et stort bureauapparat, men stadig vil have høj kvalitet i både design og udvikling. Det giver kortere vej fra idé til launch og et mere sammenhængende resultat.",
-        ["home.profile.p2"] = "Vores styrke er ikke volumen. Det er smag, fokus og evnen til at bygge noget der både ser bedre ud nu og holder bedre bagefter.",
-        ["home.profile.p3"] = "KrydsFelt er bygget omkring et lille hold, hvor strategi, design og udvikling spiller tæt sammen. Det gør processen hurtigere, mere direkte og mindre tung. Når et brand eller en virksomhed har brug for et tydeligere digitalt niveau, men stadig vil arbejde tæt med dem der udfører arbejdet, er det typisk dér vi passer bedst ind.",
+        ["home.profile.p1"] = "Vi arbejder tæt med virksomheder, der vil have strategi, design og udvikling til at hænge sammen fra start. Det giver kortere vej fra beslutning til launch, færre led i processen og markant mindre projektteater.",
+        ["home.profile.p2"] = "Vi er ikke sat i verden for at være flest. Vi er sat i verden for at være skarpe, ordentlige og behageligt svære at erstatte, når først samarbejdet fungerer.",
+        ["home.profile.p3"] = "KrydsFelt er bygget som et lille, sammentømret hold, hvor strategi, design og udvikling arbejder i samme retning. Det betyder hurtigere afklaringer, bedre execution og færre møder, der kunne have været en email. Når en virksomhed vil løfte sit digitale niveau uden at miste nærheden til dem, der faktisk bygger, er det typisk dér, vi passer bedst ind.",
         ["home.profile.readMore"] = "Læs mere om os",
 
         // --- Home: Services ---
@@ -172,6 +176,38 @@ public static class Translations
         ["yd.card3.i4"] = "Avancerede flows og formularer",
         ["yd.card3.i5"] = "Tæt teknisk sparring",
 
+        // --- Services Overview (Ydelser) ---
+        ["yd2.hero.badge"] = "YDELSER",
+        ["yd2.hero.title"] = "Alt hvad din virksomhed behøver, digitalt",
+        ["yd2.hero.desc"] = "Vi samler strategi, design og udvikling i ét lille team. Det giver dig adgang til folk der kan løftet hele vejen.",
+        ["yd2.logos.label"] = "Betroet af virksomheder vi har arbejdet med",
+        ["yd2.services.label"] = "VORES YDELSER",
+        ["yd2.services.heading"] = "Fire måder, vi hjælper virksomheder med at stå skarpere digitalt",
+        ["yd2.card.webudvikling.title"] = "Webudvikling",
+        ["yd2.card.webudvikling.desc"] = "Vi designar og bygger hjemmesider der løfter første indryk, gør næste skridt lettere og konverterer bedre.",
+        ["yd2.card.metaads.title"] = "Meta Ads",
+        ["yd2.card.metaads.desc"] = "Kampagner som er sat op til at ramme de rigtige med det rigtige budskab på det rigtige tidspunkt.",
+        ["yd2.card.branding.title"] = "Branding & Design",
+        ["yd2.card.branding.desc"] = "Vi skærper jeres visuelle identitet, så brand, typografi, farver og hierarki hænger bedre sammen.",
+        ["yd2.card.custom.title"] = "Custom Projekt",
+        ["yd2.card.custom.desc"] = "Unikke løsninger tailored til jeres virksomhed. Alt fra integrationer til helt custom-bygget funktionalitet.",
+        ["yd2.cta.label"] = "NÆSTE SKRIDT",
+        ["yd2.cta.heading"] = "Klar til at løfte dit digitale niveau?",
+        ["yd2.cta.desc"] = "Vi sætter os gerne ned og snakker om hvad der skal til for at få taget næste skridt.",
+        ["yd2.cta.link"] = "BOOK ET MØDE",
+
+        // --- Meta Ads Service Page ---
+        ["metaads.hero.title"] = "Performance-drevet Marketing på Meta",
+        ["metaads.hero.desc"] = "Vi udsætter targeted kampagner til at løfte salgspipeline og bygge brand awareness hvor din målgruppe allerede er.",
+
+        // --- Branding & Design Service Page ---
+        ["branding.hero.title"] = "Visuel identitet, der skaber forskel",
+        ["branding.hero.desc"] = "Fra logodesign til fuld brand system — vi sørger for at dit brand fremstår klart, konsistent og compelling.",
+
+        // --- Custom Project Service Page ---
+        ["custom.hero.title"] = "Skræddersyede digitale løsninger",
+        ["custom.hero.desc"] = "Har du et unikt projekt eller funktion i tankerne? Vi bygger præcis det I har brug for, ikke mere, ikke mindre.",
+
         // --- Booking ---
         ["bk.label"] = "Book et møde",
         ["bk.heading"] = "En første samtale, hvis jeres website skal føles skarpere, roligere og mere gennemført.",
@@ -194,8 +230,8 @@ public static class Translations
         ["bk.submitSuccess"] = "Tak for din besked. Vi vender tilbage hurtigst muligt.",
         ["bk.submitError"] = "Noget gik galt. Prøv igen eller skriv direkte til krydsfelt.info@gmail.com.",
         ["bk.proof.label"] = "Hvorfor vælge Krydsfelt?",
-        ["bk.proof.heading"] = "Et lille team, når I hellere vil have smag, fokus og execution end bureaufriktion.",
-        ["bk.proof.text"] = "Vi passer bedst til virksomheder, der vil have et roligere og mere premium digitalt udtryk, men stadig have direkte kontakt med dem der faktisk designer og bygger.",
+        ["bk.proof.heading"] = "Direkte samarbejde, højere niveau og mindre bureaufriktion.",
+        ["bk.proof.text"] = "Vi arbejder bedst med virksomheder, der vil løfte deres digitale udtryk og kunderejse uden at drukne i lag, processer og overleveringer. Hos os er der kort vej fra strategi til design og build, og I har direkte adgang til dem, der faktisk gør arbejdet.",
         ["bk.locations.label"] = "Lokationer",
         ["bk.locations.heading"] = "Her arbejder vi fra",
         ["bk.val.name"] = "Indtast navn.",
@@ -227,28 +263,32 @@ public static class Translations
         ["nav.prevStep"] = "Previous step",
         ["nav.nextStep"] = "Next step",
         ["nav.langSelect"] = "Select language. Current language is {0}.",
+        ["nav.services.web"] = "Web Development",
+        ["nav.services.metaads"] = "Meta Ads",
+        ["nav.services.branding"] = "Branding & Design",
+        ["nav.services.custom"] = "Custom Project",
 
         // --- Banner ---
         ["banner.text"] = "Ready for a new website?",
         ["banner.cta"] = "Book a meeting",
 
         // --- Home: Hero ---
-        ["home.hero.spotsLabel"] = "Are you ready?",
+        ["home.hero.spotsLabel"] = "For B2B and service businesses",
         ["home.trust.label"] = "Trusted by companies we've worked with",
-        ["home.hero.title"] = "We build websites and digital solutions with more clarity, more direction, and better execution.",
-        ["home.hero.text"] = "At KrydsFelt, there's no one between you and the people doing the work. That's what makes the process faster and the result more considered.",
+        ["home.hero.title"] = "A digital growth partner for B2B and service businesses",
+        ["home.hero.text"] = "We help B2B and service businesses generate more qualified leads through performance-driven lead generation, sharp websites, and digital customer journeys built to convert.",
         ["home.hero.bookMeeting"] = "Book a meeting",
         ["home.hero.seeServices"] = "Explore our services",
 
         // --- Home: Profile ---
         ["home.profile.label"] = "Who are we?",
-        ["home.profile.heading"] = "A small team focused on making digital solutions clearer, more precise, and more usable.",
+        ["home.profile.heading"] = "A compact delivery team for businesses that want high quality without buying into a full agency hierarchy.",
         ["home.profile.stat.years"] = "Years of experience",
         ["home.profile.stat.partners"] = "Collaborations",
         ["home.profile.stat.satisfaction"] = "Satisfaction",
-        ["home.profile.p1"] = "We work closely with businesses that don't need a large agency setup, but still want high quality in both design and development. That means a shorter path from idea to launch and a more cohesive result.",
-        ["home.profile.p2"] = "Our strength isn't volume. It's taste, focus, and the ability to build something that looks better now and holds up better over time.",
-        ["home.profile.p3"] = "KrydsFelt is built around a small team where strategy, design, and development work closely together. That makes the process faster, more direct, and less heavy. When a brand or business needs a clearer digital standard, but still wants to work closely with the people doing the work, that's typically where we fit best.",
+        ["home.profile.p1"] = "We work closely with businesses that want strategy, design, and development to move in the same direction from day one. That means a shorter path from decision to launch, fewer layers in the process, and noticeably less project theatre.",
+        ["home.profile.p2"] = "We are not built to be the biggest team in the room. We are built to be sharp, dependable, and pleasantly difficult to replace once the collaboration starts working.",
+        ["home.profile.p3"] = "KrydsFelt is built as a tight delivery team where strategy, design, and development stay aligned. That leads to faster clarification, better execution, and fewer meetings that could have been an email. When a business wants to raise its digital standard without losing proximity to the people actually building it, that is usually where we fit best.",
         ["home.profile.readMore"] = "Read more about us",
 
         // --- Home: Services ---
@@ -385,6 +425,38 @@ public static class Translations
         ["yd.card3.i4"] = "Advanced flows and forms",
         ["yd.card3.i5"] = "Close technical consultation",
 
+        // --- Services Overview (Ydelser) ---
+        ["yd2.hero.badge"] = "SERVICES",
+        ["yd2.hero.title"] = "Everything your business needs, digitally.",
+        ["yd2.hero.desc"] = "We bring together strategy, design, and development in one small team. That gives you access to people who can lift things all the way through.",
+        ["yd2.logos.label"] = "Trusted by companies we've worked with",
+        ["yd2.services.label"] = "OUR SERVICES",
+        ["yd2.services.heading"] = "Four ways we help businesses stand out digitally",
+        ["yd2.card.webudvikling.title"] = "Web Development",
+        ["yd2.card.webudvikling.desc"] = "We design and build websites that lift first impressions, make the next step easier, and convert better.",
+        ["yd2.card.metaads.title"] = "Meta Ads",
+        ["yd2.card.metaads.desc"] = "Campaigns set up to reach the right people with the right message at the right time.",
+        ["yd2.card.branding.title"] = "Branding & Design",
+        ["yd2.card.branding.desc"] = "We sharpen your visual identity, so brand, typography, colours, and hierarchy work together better.",
+        ["yd2.card.custom.title"] = "Custom Project",
+        ["yd2.card.custom.desc"] = "Unique solutions tailored to your business. Everything from integrations to fully custom-built functionality.",
+        ["yd2.cta.label"] = "NEXT STEP",
+        ["yd2.cta.heading"] = "Ready to elevate your digital standard?",
+        ["yd2.cta.desc"] = "We'd be happy to sit down and talk about what it takes to take the next step.",
+        ["yd2.cta.link"] = "BOOK A MEETING",
+
+        // --- Meta Ads Service Page ---
+        ["metaads.hero.title"] = "Performance-driven Marketing on Meta",
+        ["metaads.hero.desc"] = "We set up targeted campaigns to lift your sales pipeline and build brand awareness where your audience is already spending time.",
+
+        // --- Branding & Design Service Page ---
+        ["branding.hero.title"] = "Visual identity that makes a difference",
+        ["branding.hero.desc"] = "From logo design to full brand system — we ensure your brand appears clear, consistent, and compelling.",
+
+        // --- Custom Project Service Page ---
+        ["custom.hero.title"] = "Custom digital solutions",
+        ["custom.hero.desc"] = "Got a unique project or function in mind? We build exactly what you need, no more, no less.",
+
         // --- Booking ---
         ["bk.label"] = "Book a meeting",
         ["bk.heading"] = "A first conversation, if your website needs to feel sharper, calmer, and more refined.",
@@ -407,8 +479,8 @@ public static class Translations
         ["bk.submitSuccess"] = "Thanks for your message. We'll get back to you as soon as possible.",
         ["bk.submitError"] = "Something went wrong. Please try again or email us directly at krydsfelt.info@gmail.com.",
         ["bk.proof.label"] = "Why choose KrydsFelt?",
-        ["bk.proof.heading"] = "A small team, when you'd rather have taste, focus, and execution than agency friction.",
-        ["bk.proof.text"] = "We're the best fit for businesses that want a calmer, more premium digital presence, but still want direct contact with the people actually designing and building.",
+        ["bk.proof.heading"] = "Direct collaboration, a higher standard, and less agency friction.",
+        ["bk.proof.text"] = "We're the best fit for businesses that want to elevate their digital presence and customer journey without getting buried in layers, process, and handoffs. With us, there's a short path from strategy to design and build, and direct access to the people actually doing the work.",
         ["bk.locations.label"] = "Locations",
         ["bk.locations.heading"] = "Where we work from",
         ["bk.val.name"] = "Please enter your name.",

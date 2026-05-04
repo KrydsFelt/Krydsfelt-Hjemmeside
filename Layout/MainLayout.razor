@@ -1,13 +1,9 @@
 @inherits LayoutComponentBase
-@implements IDisposable
-@inject NavigationManager Navigation
 
 @Body
 
-<ChatWidget />
-
-@if (!IsBookingPage)
-{
+<div class="kf-floating-dock">
+    <ChatWidget />
     <a class="kf-floating-call" href="/booking" aria-label="Book a call">
         <span class="kf-floating-call-avatar-wrap">
             <img src="Pictures/Tony.jpeg" alt="KrydsFelt" class="kf-floating-call-avatar" />
@@ -22,26 +18,4 @@
             <span></span><span></span><span></span>
         </span>
     </a>
-}
-
-@code {
-    protected override void OnInitialized()
-    {
-        Navigation.LocationChanged += HandleLocationChanged;
-    }
-
-    private string CurrentPath =>
-        Navigation.ToBaseRelativePath(Navigation.Uri).TrimEnd('/');
-
-    private bool IsBookingPage => CurrentPath == "booking";
-
-    private void HandleLocationChanged(object? sender, LocationChangedEventArgs args)
-    {
-        _ = InvokeAsync(StateHasChanged);
-    }
-
-    public void Dispose()
-    {
-        Navigation.LocationChanged -= HandleLocationChanged;
-    }
-}
+</div>

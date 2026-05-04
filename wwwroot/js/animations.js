@@ -231,6 +231,77 @@ window.initFloatingCallStatus = function () {
     window.__kfFloatingCallStatusTimer = window.setInterval(updateStatus, 1000);
 };
 
+window.initKfLocationsMap = function (containerId) {
+    if (!window.maplibregl) return;
+
+    const container = document.getElementById(containerId);
+    if (!container) return;
+
+    window.__kfMapInstances = window.__kfMapInstances || {};
+
+    if (window.__kfMapInstances[containerId]) {
+        window.__kfMapInstances[containerId].remove();
+        delete window.__kfMapInstances[containerId];
+    }
+
+    const locations = [
+        { name: "Aarhus", lng: 10.2039, lat: 56.1629 },
+        { name: "Aalborg", lng: 9.9217, lat: 57.0488 }
+    ];
+
+    const denmarkBounds = [
+        [7.8, 54.45],
+        [15.35, 57.95]
+    ];
+
+    const map = new window.maplibregl.Map({
+        container: containerId,
+        style: "https://tiles.openfreemap.org/styles/fiord",
+        center: [11.1, 56.2],
+        zoom: 5.3,
+        attributionControl: false,
+        cooperativeGestures: true
+    });
+
+    window.__kfMapInstances[containerId] = map;
+
+    map.addControl(new window.maplibregl.NavigationControl({ showCompass: false }), "top-right");
+    map.addControl(new window.maplibregl.AttributionControl({ compact: true }), "bottom-right");
+    map.scrollZoom.disable();
+
+    locations.forEach((location) => {
+        const markerElement = document.createElement("button");
+        markerElement.type = "button";
+        markerElement.className = "bk-map-marker";
+        markerElement.setAttribute("aria-label", location.name);
+        markerElement.title = location.name;
+
+        const popup = new window.maplibregl.Popup({
+            offset: 18,
+            closeButton: false,
+            closeOnClick: true,
+            className: "bk-map-popup"
+        }).setHTML(
+            `<div class="bk-map-popup-card"><strong>${location.name}</strong><span>Danmark</span></div>`
+        );
+
+        new window.maplibregl.Marker({ element: markerElement, anchor: "center" })
+            .setLngLat([location.lng, location.lat])
+            .setPopup(popup)
+            .addTo(map);
+    });
+
+    map.on("load", () => {
+        map.fitBounds(denmarkBounds, {
+            padding: { top: 56, right: 56, bottom: 56, left: 56 },
+            maxZoom: 6.1,
+            duration: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 1200
+        });
+
+        window.requestAnimationFrame(() => map.resize());
+    });
+};
+
 window.initAnimations = function () {
     const clearGhostSelection = () => {
         const selection = window.getSelection ? window.getSelection() : null;
