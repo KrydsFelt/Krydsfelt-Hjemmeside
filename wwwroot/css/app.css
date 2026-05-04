@@ -7357,6 +7357,36 @@ body {
     color: rgba(226, 219, 210, 0.78);
 }
 
+.kh-home-services-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 52px;
+    padding: 0 1.45rem;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.04);
+    color: rgba(246, 242, 235, 0.92);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: border-radius 0.2s ease, background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.kh-home-services-link:hover {
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.22);
+    color: #ffffff;
+    transform: translateY(-1px);
+}
+
+.kh-home-cta .oo2-cta-link {
+    font-weight: 100;
+}
+
 @media (max-width: 1100px) {
     .kh-home-hero-grid-minimal,
     .kh-about-hero-grid-minimal {
@@ -8455,6 +8485,10 @@ body {
     animation: chatSlideIn 0.2s ease;
 }
 
+.kf-chat-overlay {
+    display: none;
+}
+
 @keyframes chatSlideIn {
     from { opacity: 0; transform: translateY(12px) scale(0.97); }
     to   { opacity: 1; transform: translateY(0) scale(1); }
@@ -8953,12 +8987,14 @@ body {
 
 .kf-floating-dock {
     position: fixed;
+    left: 1.35rem;
     right: 1.35rem;
     bottom: 1.35rem;
     z-index: 99999;
     display: flex;
     align-items: flex-end;
-    gap: 0.85rem;
+    justify-content: space-between;
+    gap: 1rem;
     pointer-events: none;
 }
 
@@ -8971,7 +9007,7 @@ body {
     bottom: auto !important;
     left: auto !important;
     z-index: 1 !important;
-    align-items: flex-end;
+    align-items: flex-start;
 }
 
 .kf-floating-dock .kf-chat-promo {
@@ -8983,8 +9019,8 @@ body {
 }
 
 .kf-floating-dock .kf-chat-window {
-    right: 0;
-    left: auto;
+    left: 0;
+    right: auto;
     bottom: 72px;
     width: min(340px, calc(100vw - 2rem));
     border-radius: 22px;
@@ -9081,6 +9117,7 @@ body {
 
 @media (max-width: 700px) {
     .kf-floating-dock {
+        left: 0.8rem;
         right: 0.8rem;
         bottom: 0.8rem;
         gap: 0.65rem;
@@ -9089,6 +9126,45 @@ body {
     .kf-floating-dock .kf-chat-bubble-btn {
         width: 54px;
         height: 54px;
+    }
+
+    .kf-floating-dock .kf-chat-overlay {
+        display: block;
+        position: fixed;
+        inset: 0;
+        padding: 0;
+        margin: 0;
+        border: 0;
+        background: rgba(7, 12, 17, 0.46);
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+        z-index: 0;
+    }
+
+    .kf-floating-dock .kf-chat-window {
+        position: fixed;
+        left: max(0.8rem, env(safe-area-inset-left));
+        right: max(0.8rem, env(safe-area-inset-right));
+        top: max(0.8rem, env(safe-area-inset-top));
+        bottom: max(0.8rem, env(safe-area-inset-bottom));
+        width: auto;
+        max-width: none;
+        border-radius: 24px;
+        z-index: 1;
+    }
+
+    .kf-floating-dock .kf-chat-header {
+        padding: 1rem 1rem 0.9rem;
+    }
+
+    .kf-floating-dock .kf-chat-messages {
+        max-height: none;
+        min-height: 0;
+        padding: 0.95rem 1rem;
+    }
+
+    .kf-floating-dock .kf-chat-input-area {
+        padding: 0.85rem 1rem max(0.85rem, env(safe-area-inset-bottom));
     }
 
     .kf-floating-dock .kf-floating-call {

@@ -26,8 +26,8 @@ public static class Translations
         // --- Home: Hero ---
         ["home.hero.spotsLabel"] = "For B2B- og servicevirksomheder",
         ["home.trust.label"] = "Betroet af virksomheder vi har arbejdet med",
-        ["home.hero.title"] = "Digital vækstpartner for B2B- og servicevirksomheder",
-        ["home.hero.text"] = "Vi hjælper B2B- og servicevirksomheder med at skabe flere relevante henvendelser gennem performance-drevet leadgenerering, skarpe websites og digitale kunderejser, der konverterer.",
+        ["home.hero.title"] = "Websites, brand og digitale kunderejser, der løfter niveauet og skaber flere relevante henvendelser.",
+        ["home.hero.text"] = "Vi hjælper B2B- og servicevirksomheder med at bygge et skarpere digitalt udtryk gennem performance-drevet leadgenerering, premium websites og løsninger, der er designet til at konvertere.",
         ["home.hero.bookMeeting"] = "Book et møde",
         ["home.hero.seeServices"] = "Udforsk vores ydelser",
 
@@ -37,7 +37,7 @@ public static class Translations
         ["home.profile.stat.years"] = "Års erfaring",
         ["home.profile.stat.partners"] = "Samarbejder",
         ["home.profile.stat.satisfaction"] = "Tilfredshed",
-        ["home.profile.p1"] = "Vi arbejder tæt med virksomheder, der vil have strategi, design og udvikling til at hænge sammen fra start. Det giver kortere vej fra beslutning til launch, færre led i processen og markant mindre projektteater.",
+        ["home.profile.p1"] = "Vi arbejder tæt med virksomheder, der vil have strategi, design og udvikling til at hænge sammen fra start. Det giver kortere vej fra beslutning til launch, færre led i processen og markant mindre bureaukoreografi.",
         ["home.profile.p2"] = "Vi er ikke sat i verden for at være flest. Vi er sat i verden for at være skarpe, ordentlige og behageligt svære at erstatte, når først samarbejdet fungerer.",
         ["home.profile.p3"] = "KrydsFelt er bygget som et lille, sammentømret hold, hvor strategi, design og udvikling arbejder i samme retning. Det betyder hurtigere afklaringer, bedre execution og færre møder, der kunne have været en email. Når en virksomhed vil løfte sit digitale niveau uden at miste nærheden til dem, der faktisk bygger, er det typisk dér, vi passer bedst ind.",
         ["home.profile.readMore"] = "Læs mere om os",
@@ -53,8 +53,8 @@ public static class Translations
         ["home.service2.desc"] = "Vi skaber roligere interfaces og bedre contentflow, så siderne er nemmere at bruge og nemmere at stole på.",
         ["home.service3.title"] = "Branding & visuel retning",
         ["home.service3.desc"] = "Vi skærper den visuelle retning, så brand, typografi, farver og sidehierarki hænger bedre sammen.",
-        ["home.service4.title"] = "Custom funktioner",
-        ["home.service4.desc"] = "Vi bygger de flows, integrationer og små systemer, der gør løsningen mere brugbar end en standardtemplate.",
+        ["home.service4.title"] = "Skræddersyede løsninger",
+        ["home.service4.desc"] = "Vi bygger det, der mangler, hvad enten det er integrationer, member areas, interne flows eller noget mere specialbygget end det, en template kan klare.",
 
         // --- Home: Process ---
         ["home.process.label"] = "Proces",
@@ -275,8 +275,8 @@ public static class Translations
         // --- Home: Hero ---
         ["home.hero.spotsLabel"] = "For B2B and service businesses",
         ["home.trust.label"] = "Trusted by companies we've worked with",
-        ["home.hero.title"] = "A digital growth partner for B2B and service businesses",
-        ["home.hero.text"] = "We help B2B and service businesses generate more qualified leads through performance-driven lead generation, sharp websites, and digital customer journeys built to convert.",
+        ["home.hero.title"] = "Websites, brand systems, and digital journeys that raise the bar and generate more qualified leads.",
+        ["home.hero.text"] = "We help B2B and service businesses build a sharper digital presence through performance-driven lead generation, premium websites, and solutions designed to convert.",
         ["home.hero.bookMeeting"] = "Book a meeting",
         ["home.hero.seeServices"] = "Explore our services",
 
@@ -286,7 +286,7 @@ public static class Translations
         ["home.profile.stat.years"] = "Years of experience",
         ["home.profile.stat.partners"] = "Collaborations",
         ["home.profile.stat.satisfaction"] = "Satisfaction",
-        ["home.profile.p1"] = "We work closely with businesses that want strategy, design, and development to move in the same direction from day one. That means a shorter path from decision to launch, fewer layers in the process, and noticeably less project theatre.",
+        ["home.profile.p1"] = "We work closely with businesses that want strategy, design, and development moving in the same direction from day one. That means a shorter path from decision to launch, fewer layers in the process, and noticeably less agency choreography.",
         ["home.profile.p2"] = "We are not built to be the biggest team in the room. We are built to be sharp, dependable, and pleasantly difficult to replace once the collaboration starts working.",
         ["home.profile.p3"] = "KrydsFelt is built as a tight delivery team where strategy, design, and development stay aligned. That leads to faster clarification, better execution, and fewer meetings that could have been an email. When a business wants to raise its digital standard without losing proximity to the people actually building it, that is usually where we fit best.",
         ["home.profile.readMore"] = "Read more about us",
@@ -302,8 +302,8 @@ public static class Translations
         ["home.service2.desc"] = "We create calmer interfaces and better content flow, making pages easier to use and easier to trust.",
         ["home.service3.title"] = "Branding & Visual Direction",
         ["home.service3.desc"] = "We sharpen the visual direction so that brand, typography, colours, and page hierarchy work together more cohesively.",
-        ["home.service4.title"] = "Custom Features",
-        ["home.service4.desc"] = "We build the flows, integrations, and small systems that make the solution more useful than a standard template.",
+        ["home.service4.title"] = "Tailored Builds",
+        ["home.service4.desc"] = "We build what is missing, whether that is integrations, member areas, internal flows, or something more custom than a template can realistically handle.",
 
         // --- Home: Process ---
         ["home.process.label"] = "Process",
