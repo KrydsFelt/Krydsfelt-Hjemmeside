@@ -5,201 +5,125 @@
 <PageTitle>Ydelser – KrydsFelt</PageTitle>
 
 <!-- NAV + HERO WRAPPER -->
-<div class="yd-hero-wrapper">
+<div class="yd2-hero-wrapper">
     <SiteHeader CurrentPage="services" ContactHref="/booking" />
 
-    <!-- HERO - DARK WITH GLOW -->
-    <section class="yd-hero-v2">
-        <div class="kf-container">
-            <div class="yd-hero-card-v2">
-                <span class="yd-hero-badge">@Lang.T("yd.hero.badge")</span>
-                <h1 class="yd-hero-title">@Lang.T("yd.hero.title")</h1>
-                <p class="yd-hero-desc">@Lang.T("yd.hero.desc")</p>
-                <a href="/booking" class="yd-hero-btn">@Lang.T("yd.hero.btn")</a>
+    <!-- HERO - DARK WITH BLUE GLOW -->
+    <section class="yd2-hero">
+        <div class="yd2-hero-glow"></div>
+        <div class="kf-container yd2-hero-inner">
+            <div class="yd2-hero-content">
+                <span class="yd2-hero-badge">@Lang.T("yd2.hero.badge")</span>
+                <h1 class="yd2-hero-title">@Lang.T("yd2.hero.title")</h1>
+                <p class="yd2-hero-desc">@Lang.T("yd2.hero.desc")</p>
+
+                <!-- Service Badge Tags -->
+                <div class="yd2-service-tags">
+                    <span class="yd2-service-tag">Webudvikling</span>
+                    <span class="yd2-service-tag">Meta Ads</span>
+                    <span class="yd2-service-tag">Branding & Design</span>
+                    <span class="yd2-service-tag">Custom Projekt</span>
+                </div>
             </div>
         </div>
     </section>
 </div>
 
-<!-- EXPERTISE SECTION - TEXT BASED LIST -->
-<section class="expertise-section">
+<!-- CLIENT LOGOS STRIP -->
+<section class="yd2-logos">
     <div class="kf-container">
-        <div class="expertise-layout">
-            <!-- LEFT: Heading & Description -->
-            <div class="expertise-left">
-                <span class="expertise-label reveal">@Lang.T("yd.expertise.label")</span>
-                <h2 class="expertise-heading reveal">@Lang.T("yd.expertise.heading")</h2>
-                <p class="expertise-description reveal" data-delay="100">@Lang.T("yd.expertise.desc")</p>
+        <p class="yd2-logos-label">@Lang.T("yd2.logos.label")</p>
+        <div class="yd2-logos-grid">
+            <div class="yd2-logo-item">
+                <span>Herthadalen</span>
             </div>
-
-            <!-- RIGHT: Service List -->
-            <div class="expertise-right">
-                <!-- 01: Brand Strategy & Identity -->
-                <div class="expertise-item reveal" id="brand-strategi">
-                    <div class="expertise-item-header">
-                        <span class="expertise-item-num">01</span>
-                        <h3 class="expertise-item-title">@Lang.T("yd.item1.title")</h3>
-                    </div>
-                    <p class="expertise-item-desc">@Lang.T("yd.item1.desc")</p>
-                </div>
-
-                <!-- 02: Web Development -->
-                <div class="expertise-item reveal" data-delay="100" id="webudvikling">
-                    <div class="expertise-item-header">
-                        <span class="expertise-item-num">02</span>
-                        <h3 class="expertise-item-title">@Lang.T("yd.item2.title")</h3>
-                    </div>
-                    <p class="expertise-item-desc">@Lang.T("yd.item2.desc")</p>
-                    <a href="/ydelser#pricing" class="expertise-item-cta">@Lang.T("yd.item2.cta")</a>
-                </div>
-
-                <!-- 03: Lead Generation -->
-                <div class="expertise-item reveal" data-delay="200" id="lead-generation">
-                    <div class="expertise-item-header">
-                        <span class="expertise-item-num">03</span>
-                        <h3 class="expertise-item-title">@Lang.T("yd.item3.title")</h3>
-                    </div>
-                    <p class="expertise-item-desc">@Lang.T("yd.item3.desc")</p>
-                </div>
-
-                <!-- 04: Design & UX -->
-                <div class="expertise-item reveal" data-delay="300" id="design-ux">
-                    <div class="expertise-item-header">
-                        <span class="expertise-item-num">04</span>
-                        <h3 class="expertise-item-title">@Lang.T("yd.item4.title")</h3>
-                    </div>
-                    <p class="expertise-item-desc">@Lang.T("yd.item4.desc")</p>
-                </div>
+            <div class="yd2-logo-item">
+                <span>Falcon</span>
+            </div>
+            <div class="yd2-logo-item">
+                <span>Pit Stop</span>
+            </div>
+            <div class="yd2-logo-item">
+                <span>Polax</span>
             </div>
         </div>
     </div>
 </section>
 
-<!-- APPROACH SECTION - VERTICAL TIMELINE -->
-<section class="approach-section">
-    <div class="approach-bg-map"></div>
+<!-- SERVICES GRID -->
+<section class="yd2-services">
     <div class="kf-container">
-        <div class="approach-layout">
-            <!-- LEFT: Heading & CTA -->
-            <div class="approach-left">
-                <span class="approach-label">@Lang.T("yd.approach.label")</span>
-                <h2 class="approach-heading">@Lang.T("yd.approach.heading")</h2>
-                <p class="approach-description">@Lang.T("yd.approach.desc")</p>
-                <a href="/booking" class="approach-btn">@Lang.T("yd.approach.btn")</a>
-            </div>
+        <div class="yd2-services-head reveal">
+            <span class="oo2-section-label">@Lang.T("yd2.services.label")</span>
+            <h2>@Lang.T("yd2.services.heading")</h2>
+        </div>
 
-            <!-- RIGHT: Timeline -->
-            <div class="approach-right">
-                <div class="approach-timeline">
-                    <div class="approach-step reveal">
-                        <div class="approach-step-circle">1</div>
-                        <div class="approach-step-content">
-                            <h3 class="approach-step-title">@Lang.T("yd.step1.title")</h3>
-                            <p class="approach-step-desc">@Lang.T("yd.step1.desc")</p>
-                        </div>
-                    </div>
-
-                    <div class="approach-step reveal" data-delay="100">
-                        <div class="approach-step-circle">2</div>
-                        <div class="approach-step-content">
-                            <h3 class="approach-step-title">@Lang.T("yd.step2.title")</h3>
-                            <p class="approach-step-desc">@Lang.T("yd.step2.desc")</p>
-                        </div>
-                    </div>
-
-                    <div class="approach-step reveal" data-delay="200">
-                        <div class="approach-step-circle">3</div>
-                        <div class="approach-step-content">
-                            <h3 class="approach-step-title">@Lang.T("yd.step3.title")</h3>
-                            <p class="approach-step-desc">@Lang.T("yd.step3.desc")</p>
-                        </div>
-                    </div>
-
-                    <div class="approach-step reveal" data-delay="300">
-                        <div class="approach-step-circle">4</div>
-                        <div class="approach-step-content">
-                            <h3 class="approach-step-title">@Lang.T("yd.step4.title")</h3>
-                            <p class="approach-step-desc">@Lang.T("yd.step4.desc")</p>
-                        </div>
-                    </div>
-
-                    <div class="approach-step reveal" data-delay="400">
-                        <div class="approach-step-circle">5</div>
-                        <div class="approach-step-content">
-                            <h3 class="approach-step-title">@Lang.T("yd.step5.title")</h3>
-                            <p class="approach-step-desc">@Lang.T("yd.step5.desc")</p>
-                        </div>
-                    </div>
+        <div class="yd2-services-grid">
+            <!-- Webudvikling Card -->
+            <a href="/ydelser/webudvikling" class="yd2-service-card reveal">
+                <div class="yd2-service-card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <rect x="2" y="3" width="20" height="14" rx="2"></rect>
+                        <line x1="2" y1="17" x2="22" y2="17"></line>
+                        <line x1="6" y1="21" x2="18" y2="21"></line>
+                    </svg>
                 </div>
-            </div>
+                <h3>@Lang.T("yd2.card.webudvikling.title")</h3>
+                <p>@Lang.T("yd2.card.webudvikling.desc")</p>
+                <span class="yd2-service-card-link">Læs mere →</span>
+            </a>
+
+            <!-- Meta Ads Card -->
+            <a href="/ydelser/meta-ads" class="yd2-service-card reveal" data-delay="100">
+                <div class="yd2-service-card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M6 9l6-3 6 3v6l-6 3-6-3V9z"></path>
+                        <path d="M9 14v3"></path>
+                        <path d="M15 14v3"></path>
+                    </svg>
+                </div>
+                <h3>@Lang.T("yd2.card.metaads.title")</h3>
+                <p>@Lang.T("yd2.card.metaads.desc")</p>
+                <span class="yd2-service-card-link">Læs mere →</span>
+            </a>
+
+            <!-- Branding & Design Card -->
+            <a href="/ydelser/branding-design" class="yd2-service-card reveal" data-delay="200">
+                <div class="yd2-service-card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2z"></path>
+                        <path d="M12 7v10"></path>
+                        <path d="M7 12h10"></path>
+                    </svg>
+                </div>
+                <h3>@Lang.T("yd2.card.branding.title")</h3>
+                <p>@Lang.T("yd2.card.branding.desc")</p>
+                <span class="yd2-service-card-link">Læs mere →</span>
+            </a>
+
+            <!-- Custom Project Card -->
+            <a href="/ydelser/custom-project" class="yd2-service-card reveal" data-delay="300">
+                <div class="yd2-service-card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"></path>
+                        <polyline points="10 17 14 13 10 9"></polyline>
+                    </svg>
+                </div>
+                <h3>@Lang.T("yd2.card.custom.title")</h3>
+                <p>@Lang.T("yd2.card.custom.desc")</p>
+                <span class="yd2-service-card-link">Læs mere →</span>
+            </a>
         </div>
     </div>
 </section>
 
-<section class="yd-pricing yd-pricing-after" id="pricing">
-    <div class="kf-container">
-        <div class="yd-pricing-head reveal">
-            <span class="oo2-section-label">@Lang.T("yd.pricing.label")</span>
-            <h2>@Lang.T("yd.pricing.heading")</h2>
-            <p>@Lang.T("yd.pricing.text")</p>
-        </div>
-
-        <div class="yd-pricing-shell">
-            <article class="yd-price-card yd-price-card-dark reveal">
-                <span class="yd-price-pill">@Lang.T("yd.card1.name")</span>
-                <p class="yd-price-from">@Lang.T("yd.from")</p>
-                <h3>@Lang.T("yd.card1.price")</h3>
-                <p class="yd-price-text">@Lang.T("yd.card1.desc")</p>
-                <div class="yd-price-includes">
-                    <h4>@Lang.T("yd.includes")</h4>
-                    <ul>
-                        <li>@Lang.T("yd.card1.i1")</li>
-                        <li>@Lang.T("yd.card1.i2")</li>
-                        <li>@Lang.T("yd.card1.i3")</li>
-                        <li>@Lang.T("yd.card1.i4")</li>
-                        <li>@Lang.T("yd.card1.i5")</li>
-                    </ul>
-                </div>
-                <a href="/booking" class="yd-price-btn">@Lang.T("yd.bookMeeting")</a>
-            </article>
-
-            <article class="yd-price-card yd-price-card-dark yd-price-card-featured reveal" data-delay="100">
-                <span class="yd-price-pill">@Lang.T("yd.card2.name")</span>
-                <span class="yd-price-tag">@Lang.T("yd.card2.tag")</span>
-                <p class="yd-price-from">@Lang.T("yd.from")</p>
-                <h3>@Lang.T("yd.card2.price")</h3>
-                <p class="yd-price-text">@Lang.T("yd.card2.desc")</p>
-                <div class="yd-price-includes">
-                    <h4>@Lang.T("yd.includes")</h4>
-                    <ul>
-                        <li>@Lang.T("yd.card2.i1")</li>
-                        <li>@Lang.T("yd.card2.i2")</li>
-                        <li>@Lang.T("yd.card2.i3")</li>
-                        <li>@Lang.T("yd.card2.i4")</li>
-                        <li>@Lang.T("yd.card2.i5")</li>
-                    </ul>
-                </div>
-                <a href="/booking" class="yd-price-btn">@Lang.T("yd.bookMeeting")</a>
-            </article>
-
-            <article class="yd-price-card yd-price-card-light reveal" data-delay="200">
-                <span class="yd-price-pill">@Lang.T("yd.card3.name")</span>
-                <p class="yd-price-from">@Lang.T("yd.onRequest")</p>
-                <h3>@Lang.T("yd.card3.price")</h3>
-                <p class="yd-price-text">@Lang.T("yd.card3.desc")</p>
-                <div class="yd-price-includes">
-                    <h4>@Lang.T("yd.includes")</h4>
-                    <ul>
-                        <li>@Lang.T("yd.card3.i1")</li>
-                        <li>@Lang.T("yd.card3.i2")</li>
-                        <li>@Lang.T("yd.card3.i3")</li>
-                        <li>@Lang.T("yd.card3.i4")</li>
-                        <li>@Lang.T("yd.card3.i5")</li>
-                    </ul>
-                </div>
-                <a href="/booking" class="yd-price-btn yd-price-btn-light">@Lang.T("yd.bookMeeting")</a>
-            </article>
-        </div>
+<!-- BOTTOM CTA -->
+<section class="kh-about-cta">
+    <div class="kf-container kh-home-cta-inner">
+        <span class="oo2-section-label">@Lang.T("yd2.cta.label")</span>
+        <h2>@Lang.T("yd2.cta.heading")</h2>
+        <p>@Lang.T("yd2.cta.desc")</p>
+        <a href="/booking" class="oo2-cta-link">@Lang.T("yd2.cta.link")</a>
     </div>
 </section>
 

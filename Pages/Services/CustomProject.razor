@@ -1,0 +1,44 @@
+@page "/ydelser/custom-project"
+@inherits LocalizedComponentBase
+@inject IJSRuntime JS
+
+<PageTitle>Custom Project – KrydsFelt</PageTitle>
+
+<!-- NAV + HERO WRAPPER -->
+<div class="yd-hero-wrapper">
+    <SiteHeader CurrentPage="services" ContactHref="/booking" />
+
+    <!-- HERO - DARK WITH GLOW -->
+    <section class="yd-hero-v2">
+        <div class="kf-container">
+            <div class="yd-hero-card-v2">
+                <span class="yd-hero-badge">Kommer snart</span>
+                <h1 class="yd-hero-title">@Lang.T("custom.hero.title")</h1>
+                <p class="yd-hero-desc">@Lang.T("custom.hero.desc")</p>
+                <a href="/booking" class="yd-hero-btn">@Lang.T("yd.hero.btn")</a>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- CTA SECTION -->
+<section class="kh-about-cta">
+    <div class="kf-container kh-home-cta-inner">
+        <span class="oo2-section-label">@Lang.T("yd.approach.label")</span>
+        <h2>Skræddersyede løsninger til dine behov</h2>
+        <p>Har du et unikt projekt i tankerne? Lad os tale om hvordan vi kan realisere din vision.</p>
+        <a href="/booking" class="oo2-cta-link">Book et møde →</a>
+    </div>
+</section>
+
+<SiteFooter />
+
+@code {
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JS.InvokeVoidAsync("initAnimations");
+        }
+    }
+}

@@ -1,0 +1,44 @@
+@page "/ydelser/branding-design"
+@inherits LocalizedComponentBase
+@inject IJSRuntime JS
+
+<PageTitle>Branding & Design – KrydsFelt</PageTitle>
+
+<!-- NAV + HERO WRAPPER -->
+<div class="yd-hero-wrapper">
+    <SiteHeader CurrentPage="services" ContactHref="/booking" />
+
+    <!-- HERO - DARK WITH GLOW -->
+    <section class="yd-hero-v2">
+        <div class="kf-container">
+            <div class="yd-hero-card-v2">
+                <span class="yd-hero-badge">Kommer snart</span>
+                <h1 class="yd-hero-title">@Lang.T("branding.hero.title")</h1>
+                <p class="yd-hero-desc">@Lang.T("branding.hero.desc")</p>
+                <a href="/booking" class="yd-hero-btn">@Lang.T("yd.hero.btn")</a>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- CTA SECTION -->
+<section class="kh-about-cta">
+    <div class="kf-container kh-home-cta-inner">
+        <span class="oo2-section-label">@Lang.T("yd.approach.label")</span>
+        <h2>Skab et stærkt visuelt identitet</h2>
+        <p>Lad os hjælpe dig med at udvikle et brand, som resonerer med dit publikum og skiller sig ud fra konkurrencen.</p>
+        <a href="/booking" class="oo2-cta-link">Book et møde →</a>
+    </div>
+</section>
+
+<SiteFooter />
+
+@code {
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JS.InvokeVoidAsync("initAnimations");
+        }
+    }
+}

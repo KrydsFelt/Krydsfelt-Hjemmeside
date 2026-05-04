@@ -1,0 +1,216 @@
+@page "/ydelser/webudvikling"
+@inherits LocalizedComponentBase
+@inject IJSRuntime JS
+
+<PageTitle>Webudvikling – KrydsFelt</PageTitle>
+
+<!-- NAV + HERO WRAPPER -->
+<div class="yd-hero-wrapper">
+    <SiteHeader CurrentPage="services" ContactHref="/booking" />
+
+    <!-- HERO - DARK WITH GLOW -->
+    <section class="yd-hero-v2">
+        <div class="kf-container">
+            <div class="yd-hero-card-v2">
+                <span class="yd-hero-badge">@Lang.T("yd.hero.badge")</span>
+                <h1 class="yd-hero-title">@Lang.T("yd.hero.title")</h1>
+                <p class="yd-hero-desc">@Lang.T("yd.hero.desc")</p>
+                <a href="/booking" class="yd-hero-btn">@Lang.T("yd.hero.btn")</a>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- EXPERTISE SECTION - TEXT BASED LIST -->
+<section class="expertise-section">
+    <div class="kf-container">
+        <div class="expertise-layout">
+            <!-- LEFT: Heading & Description -->
+            <div class="expertise-left">
+                <span class="expertise-label reveal">@Lang.T("yd.expertise.label")</span>
+                <h2 class="expertise-heading reveal">@Lang.T("yd.expertise.heading")</h2>
+                <p class="expertise-description reveal" data-delay="100">@Lang.T("yd.expertise.desc")</p>
+            </div>
+
+            <!-- RIGHT: Service List -->
+            <div class="expertise-right">
+                <!-- 01: Brand Strategy & Identity -->
+                <div class="expertise-item reveal" id="brand-strategi">
+                    <div class="expertise-item-header">
+                        <span class="expertise-item-num">01</span>
+                        <h3 class="expertise-item-title">@Lang.T("yd.item1.title")</h3>
+                    </div>
+                    <p class="expertise-item-desc">@Lang.T("yd.item1.desc")</p>
+                </div>
+
+                <!-- 02: Web Development -->
+                <div class="expertise-item reveal" data-delay="100" id="webudvikling">
+                    <div class="expertise-item-header">
+                        <span class="expertise-item-num">02</span>
+                        <h3 class="expertise-item-title">@Lang.T("yd.item2.title")</h3>
+                    </div>
+                    <p class="expertise-item-desc">@Lang.T("yd.item2.desc")</p>
+                    <a href="/ydelser/webudvikling#pricing" class="expertise-item-cta">@Lang.T("yd.item2.cta")</a>
+                </div>
+
+                <!-- 03: Lead Generation -->
+                <div class="expertise-item reveal" data-delay="200" id="lead-generation">
+                    <div class="expertise-item-header">
+                        <span class="expertise-item-num">03</span>
+                        <h3 class="expertise-item-title">@Lang.T("yd.item3.title")</h3>
+                    </div>
+                    <p class="expertise-item-desc">@Lang.T("yd.item3.desc")</p>
+                </div>
+
+                <!-- 04: Design & UX -->
+                <div class="expertise-item reveal" data-delay="300" id="design-ux">
+                    <div class="expertise-item-header">
+                        <span class="expertise-item-num">04</span>
+                        <h3 class="expertise-item-title">@Lang.T("yd.item4.title")</h3>
+                    </div>
+                    <p class="expertise-item-desc">@Lang.T("yd.item4.desc")</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- APPROACH SECTION - VERTICAL TIMELINE -->
+<section class="approach-section">
+    <div class="approach-bg-map"></div>
+    <div class="kf-container">
+        <div class="approach-layout">
+            <!-- LEFT: Heading & CTA -->
+            <div class="approach-left">
+                <span class="approach-label">@Lang.T("yd.approach.label")</span>
+                <h2 class="approach-heading">@Lang.T("yd.approach.heading")</h2>
+                <p class="approach-description">@Lang.T("yd.approach.desc")</p>
+                <a href="/booking" class="approach-btn">@Lang.T("yd.approach.btn")</a>
+            </div>
+
+            <!-- RIGHT: Timeline -->
+            <div class="approach-right">
+                <div class="approach-timeline">
+                    <div class="approach-step reveal">
+                        <div class="approach-step-circle">1</div>
+                        <div class="approach-step-content">
+                            <h3 class="approach-step-title">@Lang.T("yd.step1.title")</h3>
+                            <p class="approach-step-desc">@Lang.T("yd.step1.desc")</p>
+                        </div>
+                    </div>
+
+                    <div class="approach-step reveal" data-delay="100">
+                        <div class="approach-step-circle">2</div>
+                        <div class="approach-step-content">
+                            <h3 class="approach-step-title">@Lang.T("yd.step2.title")</h3>
+                            <p class="approach-step-desc">@Lang.T("yd.step2.desc")</p>
+                        </div>
+                    </div>
+
+                    <div class="approach-step reveal" data-delay="200">
+                        <div class="approach-step-circle">3</div>
+                        <div class="approach-step-content">
+                            <h3 class="approach-step-title">@Lang.T("yd.step3.title")</h3>
+                            <p class="approach-step-desc">@Lang.T("yd.step3.desc")</p>
+                        </div>
+                    </div>
+
+                    <div class="approach-step reveal" data-delay="300">
+                        <div class="approach-step-circle">4</div>
+                        <div class="approach-step-content">
+                            <h3 class="approach-step-title">@Lang.T("yd.step4.title")</h3>
+                            <p class="approach-step-desc">@Lang.T("yd.step4.desc")</p>
+                        </div>
+                    </div>
+
+                    <div class="approach-step reveal" data-delay="400">
+                        <div class="approach-step-circle">5</div>
+                        <div class="approach-step-content">
+                            <h3 class="approach-step-title">@Lang.T("yd.step5.title")</h3>
+                            <p class="approach-step-desc">@Lang.T("yd.step5.desc")</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="yd-pricing yd-pricing-after" id="pricing">
+    <div class="kf-container">
+        <div class="yd-pricing-head reveal">
+            <span class="oo2-section-label">@Lang.T("yd.pricing.label")</span>
+            <h2>@Lang.T("yd.pricing.heading")</h2>
+            <p>@Lang.T("yd.pricing.text")</p>
+        </div>
+
+        <div class="yd-pricing-shell">
+            <article class="yd-price-card yd-price-card-dark reveal">
+                <span class="yd-price-pill">@Lang.T("yd.card1.name")</span>
+                <p class="yd-price-from">@Lang.T("yd.from")</p>
+                <h3>@Lang.T("yd.card1.price")</h3>
+                <p class="yd-price-text">@Lang.T("yd.card1.desc")</p>
+                <div class="yd-price-includes">
+                    <h4>@Lang.T("yd.includes")</h4>
+                    <ul>
+                        <li>@Lang.T("yd.card1.i1")</li>
+                        <li>@Lang.T("yd.card1.i2")</li>
+                        <li>@Lang.T("yd.card1.i3")</li>
+                        <li>@Lang.T("yd.card1.i4")</li>
+                        <li>@Lang.T("yd.card1.i5")</li>
+                    </ul>
+                </div>
+                <a href="/booking" class="yd-price-btn">@Lang.T("yd.bookMeeting")</a>
+            </article>
+
+            <article class="yd-price-card yd-price-card-dark yd-price-card-featured reveal" data-delay="100">
+                <span class="yd-price-pill">@Lang.T("yd.card2.name")</span>
+                <span class="yd-price-tag">@Lang.T("yd.card2.tag")</span>
+                <p class="yd-price-from">@Lang.T("yd.from")</p>
+                <h3>@Lang.T("yd.card2.price")</h3>
+                <p class="yd-price-text">@Lang.T("yd.card2.desc")</p>
+                <div class="yd-price-includes">
+                    <h4>@Lang.T("yd.includes")</h4>
+                    <ul>
+                        <li>@Lang.T("yd.card2.i1")</li>
+                        <li>@Lang.T("yd.card2.i2")</li>
+                        <li>@Lang.T("yd.card2.i3")</li>
+                        <li>@Lang.T("yd.card2.i4")</li>
+                        <li>@Lang.T("yd.card2.i5")</li>
+                    </ul>
+                </div>
+                <a href="/booking" class="yd-price-btn">@Lang.T("yd.bookMeeting")</a>
+            </article>
+
+            <article class="yd-price-card yd-price-card-light reveal" data-delay="200">
+                <span class="yd-price-pill">@Lang.T("yd.card3.name")</span>
+                <p class="yd-price-from">@Lang.T("yd.onRequest")</p>
+                <h3>@Lang.T("yd.card3.price")</h3>
+                <p class="yd-price-text">@Lang.T("yd.card3.desc")</p>
+                <div class="yd-price-includes">
+                    <h4>@Lang.T("yd.includes")</h4>
+                    <ul>
+                        <li>@Lang.T("yd.card3.i1")</li>
+                        <li>@Lang.T("yd.card3.i2")</li>
+                        <li>@Lang.T("yd.card3.i3")</li>
+                        <li>@Lang.T("yd.card3.i4")</li>
+                        <li>@Lang.T("yd.card3.i5")</li>
+                    </ul>
+                </div>
+                <a href="/booking" class="yd-price-btn yd-price-btn-light">@Lang.T("yd.bookMeeting")</a>
+            </article>
+        </div>
+    </div>
+</section>
+
+<SiteFooter />
+
+@code {
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JS.InvokeVoidAsync("initAnimations");
+        }
+    }
+}

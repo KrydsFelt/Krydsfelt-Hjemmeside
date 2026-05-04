@@ -27,10 +27,10 @@
                 <div class="kf-nav-dropdown @(IsServicesActive ? "active" : "")">
                     <a href="/ydelser" class="kf-nav-dropdown-trigger">@Lang.T("nav.services")</a>
                     <div class="kf-nav-dropdown-menu">
-                        <a href="/ydelser#brand-strategi">Brand Strategy</a>
-                        <a href="/ydelser#webudvikling">Web Development</a>
-                        <a href="/ydelser#lead-generation">Lead Generation</a>
-                        <a href="/ydelser#design-ux">Design & UX</a>
+                        <a href="/ydelser/webudvikling">@Lang.T("nav.services.web")</a>
+                        <a href="/ydelser/meta-ads">@Lang.T("nav.services.metaads")</a>
+                        <a href="/ydelser/branding-design">@Lang.T("nav.services.branding")</a>
+                        <a href="/ydelser/custom-project">@Lang.T("nav.services.custom")</a>
                     </div>
                 </div>
                 <a href="/booking" class="@GetLinkClass("contact")">@Lang.T("nav.contact")</a>
@@ -81,10 +81,10 @@
         <a href="/" @onclick="CloseMenu">@Lang.T("nav.home")</a>
         <a href="/om-os" @onclick="CloseMenu">@Lang.T("nav.about")</a>
         <a href="/ydelser" @onclick="CloseMenu">@Lang.T("nav.services")</a>
-        <a href="/ydelser#brand-strategi" class="kf-nav-mobile-sub" @onclick="CloseMenu">Brand Strategy</a>
-        <a href="/ydelser#webudvikling" class="kf-nav-mobile-sub" @onclick="CloseMenu">Web Development</a>
-        <a href="/ydelser#lead-generation" class="kf-nav-mobile-sub" @onclick="CloseMenu">Lead Generation</a>
-        <a href="/ydelser#design-ux" class="kf-nav-mobile-sub" @onclick="CloseMenu">Design & UX</a>
+        <a href="/ydelser/webudvikling" class="kf-nav-mobile-sub" @onclick="CloseMenu">@Lang.T("nav.services.web")</a>
+        <a href="/ydelser/meta-ads" class="kf-nav-mobile-sub" @onclick="CloseMenu">@Lang.T("nav.services.metaads")</a>
+        <a href="/ydelser/branding-design" class="kf-nav-mobile-sub" @onclick="CloseMenu">@Lang.T("nav.services.branding")</a>
+        <a href="/ydelser/custom-project" class="kf-nav-mobile-sub" @onclick="CloseMenu">@Lang.T("nav.services.custom")</a>
         <a href="@ContactHref" @onclick="CloseMenu">@Lang.T("nav.contact")</a>
     </div>
 </nav>

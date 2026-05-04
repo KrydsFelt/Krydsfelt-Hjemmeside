@@ -7403,7 +7403,7 @@ body {
 }
 
 .kf-nav-inner {
-    width: min(100%, 1280px);
+    /*width: min(100%, 1280px);*/
     padding: 0.7rem 1rem 0.7rem 1.2rem;
     border-radius: 20px;
     background: rgba(8, 14, 20, 0.38);
