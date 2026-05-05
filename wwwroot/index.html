@@ -25,6 +25,21 @@
     <link rel="stylesheet" href="css/app.css" />
     <link rel="stylesheet" href="css/home-booking-overrides.css" />
     <link rel="icon" type="image/png" href="favicon.png?v=2" />
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "KrydsFelt",
+        "url": "https://krydsfelt.com",
+        "email": "krydsfelt.info@gmail.com",
+        "description": "KrydsFelt er et lille dansk webbureau der bygger skræddersyede hjemmesider og digitale løsninger.",
+        "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "DK"
+        },
+        "inLanguage": "da"
+    }
+    </script>
     <link href="KrydsfeltHjemmeside.styles.css" rel="stylesheet" />
     <script type="importmap"></script>
 </head>
@@ -61,11 +76,26 @@
         </div>
     </div>
 
-    <div id="blazor-error-ui">
-        An unhandled error has occurred.
-        <a href="." class="reload">Reload</a>
+    <div id="blazor-error-ui" aria-hidden="true">
+        <span class="error-text">Der opstod en fejl. <a href="." class="reload">Genindlæs</a></span>
         <span class="dismiss">🗙</span>
     </div>
+
+    <!-- SEO: static content for crawlers (hidden visually, readable by Google) -->
+    <noscript>
+        <div style="font-family:sans-serif;max-width:800px;margin:2rem auto;padding:1rem">
+            <h1>KrydsFelt — Webdesign &amp; Udvikling</h1>
+            <p>KrydsFelt er et lille dansk webbureau der bygger skræddersyede hjemmesider og digitale løsninger. Strategi, design og udvikling samlet i ét lille team.</p>
+            <p>Vi hjælper små og mellemstore virksomheder med at etablere og styrke deres digitale tilstedeværelse. Kontakt os på <a href="mailto:krydsfelt.info@gmail.com">krydsfelt.info@gmail.com</a>.</p>
+            <h2>Vores ydelser</h2>
+            <ul>
+                <li>Webdesign &amp; udvikling</li>
+                <li>Branding &amp; identitet</li>
+                <li>Digitale løsninger</li>
+            </ul>
+            <p>Besøg os på <a href="https://krydsfelt.com">krydsfelt.com</a></p>
+        </div>
+    </noscript>
     <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
     <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
     <script src="https://unpkg.com/maplibre-gl@5.20.1/dist/maplibre-gl.js"></script>
