@@ -1852,6 +1852,28 @@ body {
     font-weight: 500;
 }
 
+.kf-footer-contact-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+    color: var(--brand-heading);
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+    transition: color 0.2s ease;
+}
+
+.kf-footer-contact-link svg {
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+    opacity: 0.6;
+}
+
+.kf-footer-contact-link:hover {
+    color: #fff;
+}
+
 .kf-footer-links {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
