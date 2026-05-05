@@ -5,46 +5,29 @@
 <PageTitle>Ydelser – KrydsFelt</PageTitle>
 
 <!-- NAV + HERO WRAPPER -->
-<div class="yd2-hero-wrapper">
+<div class="yd-hero-wrapper">
     <SiteHeader CurrentPage="services" ContactHref="/booking" />
 
-    <!-- HERO - DARK WITH BLUE GLOW -->
-    <section class="yd2-hero">
-        <div class="yd2-hero-glow"></div>
-        <div class="kf-container yd2-hero-inner">
-            <div class="yd2-hero-content">
-                <span class="yd2-hero-badge">@Lang.T("yd2.hero.badge")</span>
-                <h1 class="yd2-hero-title">@Lang.T("yd2.hero.title")</h1>
-                <p class="yd2-hero-desc">@Lang.T("yd2.hero.desc")</p>
-
-                <!-- Service Badge Tags -->
-                <div class="yd2-service-tags">
-                    <span class="yd2-service-tag">Webudvikling</span>
-                    <span class="yd2-service-tag">Meta Ads</span>
-                    <span class="yd2-service-tag">Branding & Design</span>
-                    <span class="yd2-service-tag">Custom Projekt</span>
-                </div>
+    <section class="yd-hero-v2">
+        <div class="kf-container">
+            <div class="yd-hero-card-v2">
+                <span class="yd-hero-badge">@Lang.T("yd2.hero.badge")</span>
+                <h1 class="yd-hero-title">@Lang.T("yd2.hero.title")</h1>
+                <p class="yd-hero-desc">@Lang.T("yd2.hero.desc")</p>
+                <a href="/booking" class="yd-hero-btn">@Lang.T("yd.hero.btn")</a>
             </div>
         </div>
     </section>
 </div>
 
-<!-- CLIENT LOGOS STRIP -->
-<section class="yd2-logos">
+<section class="yd2-quote-scene">
     <div class="kf-container">
-        <p class="yd2-logos-label">@Lang.T("yd2.logos.label")</p>
-        <div class="yd2-logos-grid">
-            <div class="yd2-logo-item">
-                <span>Herthadalen</span>
-            </div>
-            <div class="yd2-logo-item">
-                <span>Falcon</span>
-            </div>
-            <div class="yd2-logo-item">
-                <span>Pit Stop</span>
-            </div>
-            <div class="yd2-logo-item">
-                <span>Polax</span>
+        <div class="yd2-quote-sticky">
+            <div class="yd2-quote-content" data-quote-scroll>
+                <span class="yd2-quote-mark" aria-hidden="true">"</span>
+                <h2><span data-quote-title>We build what works.</span></h2>
+                <p class="yd2-quote-text">For os handler godt digitalt arbejde ikke kun om at få noget online. Det handler om at bygge løsninger, der skaber værdi for virksomheden, giver mening for slutbrugeren og fungerer i praksis. Vi står inde for ordentligt håndværk, tydelige beslutninger og oplevelser, der føles rigtige hele vejen igennem.</p>
+                <p class="yd2-quote-author">Minh Quan Dinh, Co-Founder</p>
             </div>
         </div>
     </div>
@@ -60,7 +43,13 @@
 
         <div class="yd2-services-grid">
             <!-- Webudvikling Card -->
-            <a href="/ydelser/webudvikling" class="yd2-service-card reveal">
+            <a href="/ydelser/webudvikling" class="yd2-service-card yd2-service-card--trace-start-right reveal">
+                <div class="yd2-service-card-laser" aria-hidden="true">
+                    <span class="yd2-laser-edge yd2-laser-edge-top"></span>
+                    <span class="yd2-laser-edge yd2-laser-edge-right"></span>
+                    <span class="yd2-laser-edge yd2-laser-edge-bottom"></span>
+                    <span class="yd2-laser-edge yd2-laser-edge-left"></span>
+                </div>
                 <div class="yd2-service-card-icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                         <rect x="2" y="3" width="20" height="14" rx="2"></rect>
@@ -75,6 +64,12 @@
 
             <!-- Meta Ads Card -->
             <a href="/ydelser/meta-ads" class="yd2-service-card reveal" data-delay="100">
+                <div class="yd2-service-card-laser" aria-hidden="true">
+                    <span class="yd2-laser-edge yd2-laser-edge-top"></span>
+                    <span class="yd2-laser-edge yd2-laser-edge-right"></span>
+                    <span class="yd2-laser-edge yd2-laser-edge-bottom"></span>
+                    <span class="yd2-laser-edge yd2-laser-edge-left"></span>
+                </div>
                 <div class="yd2-service-card-icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                         <path d="M6 9l6-3 6 3v6l-6 3-6-3V9z"></path>
@@ -89,6 +84,12 @@
 
             <!-- Branding & Design Card -->
             <a href="/ydelser/branding-design" class="yd2-service-card reveal" data-delay="200">
+                <div class="yd2-service-card-laser" aria-hidden="true">
+                    <span class="yd2-laser-edge yd2-laser-edge-top"></span>
+                    <span class="yd2-laser-edge yd2-laser-edge-right"></span>
+                    <span class="yd2-laser-edge yd2-laser-edge-bottom"></span>
+                    <span class="yd2-laser-edge yd2-laser-edge-left"></span>
+                </div>
                 <div class="yd2-service-card-icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                         <path d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2z"></path>
@@ -103,6 +104,12 @@
 
             <!-- Custom Project Card -->
             <a href="/ydelser/custom-project" class="yd2-service-card reveal" data-delay="300">
+                <div class="yd2-service-card-laser" aria-hidden="true">
+                    <span class="yd2-laser-edge yd2-laser-edge-top"></span>
+                    <span class="yd2-laser-edge yd2-laser-edge-right"></span>
+                    <span class="yd2-laser-edge yd2-laser-edge-bottom"></span>
+                    <span class="yd2-laser-edge yd2-laser-edge-left"></span>
+                </div>
                 <div class="yd2-service-card-icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                         <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"></path>
@@ -111,6 +118,28 @@
                 </div>
                 <h3>@Lang.T("yd2.card.custom.title")</h3>
                 <p>@Lang.T("yd2.card.custom.desc")</p>
+                <span class="yd2-service-card-link">Læs mere →</span>
+            </a>
+
+            <!-- Integration Card -->
+            <a href="/booking" class="yd2-service-card reveal" data-delay="400">
+                <div class="yd2-service-card-laser" aria-hidden="true">
+                    <span class="yd2-laser-edge yd2-laser-edge-top"></span>
+                    <span class="yd2-laser-edge yd2-laser-edge-right"></span>
+                    <span class="yd2-laser-edge yd2-laser-edge-bottom"></span>
+                    <span class="yd2-laser-edge yd2-laser-edge-left"></span>
+                </div>
+                <div class="yd2-service-card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M8 7h4"></path>
+                        <path d="M8 17h4"></path>
+                        <path d="M14 7h2a3 3 0 0 1 0 6h-2"></path>
+                        <path d="M10 17H8a3 3 0 0 1 0-6h2"></path>
+                        <path d="M10 12h4"></path>
+                    </svg>
+                </div>
+                <h3>Integration</h3>
+                <p>AI-drevet chatbot, der kan besvare spørgsmål, kvalificere henvendelser og give hurtige svar direkte på jeres hjemmeside.</p>
                 <span class="yd2-service-card-link">Læs mere →</span>
             </a>
         </div>

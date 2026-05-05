@@ -302,6 +302,80 @@ window.initKfLocationsMap = function (containerId) {
     });
 };
 
+window.initYdelserQuoteScene = function () {
+    if (window.__yd2QuoteSceneCleanup) {
+        window.__yd2QuoteSceneCleanup();
+        window.__yd2QuoteSceneCleanup = null;
+    }
+
+    const scene = document.querySelector('.yd2-quote-scene');
+    const frame = document.querySelector('.yd2-quote-sticky');
+    const quote = document.querySelector('[data-quote-scroll]');
+    const title = document.querySelector('[data-quote-title]');
+
+    if (!scene || !frame || !quote) return;
+
+    const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
+    const easeInOut = (t) => 0.5 - (Math.cos(Math.PI * t) / 2);
+
+    const updateQuote = () => {
+        const rect = scene.getBoundingClientRect();
+        const sceneTravel = Math.max(1, rect.height - window.innerHeight);
+        const progress = clamp((-rect.top) / sceneTravel, 0, 1);
+
+        let visibility = 0;
+        let titleFill = 0;
+        let blur = 14;
+        let translateY = 0;
+        let scale = 1;
+        const isLocked = progress >= 0.02 && progress < 0.985;
+
+        if (progress < 0.18) {
+            visibility = easeInOut(clamp(progress / 0.18, 0, 1));
+            blur = 14 * (1 - visibility);
+        } else if (progress < 0.76) {
+            visibility = 1;
+            blur = 0;
+        } else if (progress < 0.96) {
+            visibility = 1 - easeInOut(clamp((progress - 0.76) / 0.2, 0, 1));
+            blur = 14 * (1 - visibility);
+        }
+
+        if (progress < 0.22) {
+            titleFill = 0;
+        } else if (progress < 0.62) {
+            titleFill = easeInOut(clamp((progress - 0.22) / 0.4, 0, 1));
+        } else {
+            titleFill = 1;
+        }
+
+        const opacity = clamp(visibility, 0, 1);
+
+        frame.classList.toggle('is-locked', isLocked);
+        quote.style.opacity = opacity.toFixed(3);
+        quote.style.filter = `blur(${blur.toFixed(2)}px)`;
+        quote.style.transform = `translateY(${translateY.toFixed(2)}px) scale(${scale.toFixed(4)})`;
+        quote.classList.toggle('is-active', opacity > 0.04);
+
+        if (title) {
+            title.style.setProperty('--yd2-title-fill', titleFill.toFixed(3));
+        }
+    };
+
+    const onScroll = () => window.requestAnimationFrame(updateQuote);
+    const onResize = () => window.requestAnimationFrame(updateQuote);
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onResize, { passive: true });
+    window.requestAnimationFrame(updateQuote);
+
+    window.__yd2QuoteSceneCleanup = () => {
+        window.removeEventListener('scroll', onScroll);
+        window.removeEventListener('resize', onResize);
+        frame.classList.remove('is-locked');
+    };
+};
+
 window.initAnimations = function () {
     const clearGhostSelection = () => {
         const selection = window.getSelection ? window.getSelection() : null;
@@ -467,6 +541,9 @@ window.initAnimations = function () {
 
     // Initialize word-reveal animations
     window.initWordReveal();
+
+    // Ydelser quote scroll scene
+    window.initYdelserQuoteScene();
 
     // Some browsers briefly restore a text-selection range on load/reload.
     // Clear it after paint so headings don't look highlighted.

@@ -18,6 +18,7 @@ public static class Translations
         ["nav.services.metaads"] = "Meta Ads",
         ["nav.services.branding"] = "Branding & Design",
         ["nav.services.custom"] = "Custom Projekt",
+        ["nav.services.integration"] = "Integration",
 
         // --- Banner ---
         ["banner.text"] = "Klar til en ny hjemmeside?",
@@ -267,6 +268,7 @@ public static class Translations
         ["nav.services.metaads"] = "Meta Ads",
         ["nav.services.branding"] = "Branding & Design",
         ["nav.services.custom"] = "Custom Project",
+        ["nav.services.integration"] = "Integration",
 
         // --- Banner ---
         ["banner.text"] = "Ready for a new website?",
