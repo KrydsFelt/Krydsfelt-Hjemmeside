@@ -364,6 +364,7 @@ body {
     background-clip: text;
     color: transparent;
     -webkit-text-fill-color: transparent;
+    padding-bottom: 0.12em;
 }
 
 .kf-footer-email {
@@ -3058,6 +3059,7 @@ body.kf-app-visible #app {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    padding-bottom: 0.12em;
 }
 
 .oo-values h2::after {
@@ -3635,6 +3637,7 @@ body.kf-app-visible #app {
     background-clip: text;
     color: transparent;
     -webkit-text-fill-color: transparent;
+    padding-bottom: 0.12em;
 }
 
 .yd-hero-title {
@@ -3908,6 +3911,7 @@ body.kf-app-visible #app {
     background-clip: text;
     color: transparent;
     -webkit-text-fill-color: transparent;
+    padding-bottom: 0.12em;
 }
 
 .yd-price-card-light h3 {
@@ -5273,6 +5277,7 @@ body {
     background-clip: text;
     color: transparent;
     -webkit-text-fill-color: transparent;
+    padding-bottom: 0.12em;
 }
 
 .kf-hero-description,
@@ -5515,6 +5520,7 @@ body {
     color: transparent;
     -webkit-text-fill-color: transparent;
     max-width: 12ch;
+    padding-bottom: 0.12em;
 }
 
 .bk-label-muted {
@@ -6001,6 +6007,7 @@ body {
     color: transparent;
     -webkit-text-fill-color: transparent;
     font-weight: 300;
+    padding-bottom: 0.12em;
 }
 
 .kh-home-card-footer span,
@@ -6081,6 +6088,7 @@ body {
     line-height: 1.08;
     font-weight: 200;
     letter-spacing: -0.04em;
+    padding-bottom: 0.12em;
 }
 
 .kh-home-intro-text,
@@ -6181,6 +6189,7 @@ body {
     font-size: clamp(1.8rem, 3vw, 2.3rem);
     font-weight: 200;
     margin-bottom: 0.25rem;
+    padding-bottom: 0.12em;
 }
 
 .kh-home-profile-stats span {
@@ -7969,6 +7978,7 @@ body {
     background-clip: text;
     color: transparent;
     -webkit-text-fill-color: transparent;
+    padding-bottom: 0.12em;
 }
 
 .kh-home-title,
