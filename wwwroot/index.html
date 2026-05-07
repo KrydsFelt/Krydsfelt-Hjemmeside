@@ -18,6 +18,78 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+    <style>
+      #kf-loader {
+        position: fixed; inset: 0; z-index: 99999;
+        background:
+          radial-gradient(circle at 12% 8%, rgba(80,108,131,0.18), transparent 28%),
+          radial-gradient(circle at 88% 18%, rgba(232,236,240,0.07), transparent 24%),
+          linear-gradient(180deg, #101319 0%, #0d0d0d 100%);
+        display: flex; align-items: center; justify-content: center;
+        font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        transition: opacity .55s ease, visibility .55s ease;
+      }
+      #kf-loader.kf-hide { opacity: 0; visibility: hidden; pointer-events: none; }
+
+      #kf-loader .kf-stack { display: flex; flex-direction: column; align-items: center; gap: 28px; }
+
+      #kf-loader svg { display: block; }
+      #kf-loader svg path {
+        fill: #ffffff;
+        stroke: #ffffff;
+        stroke-width: 1.5;
+        stroke-dasharray: 360;
+        stroke-dashoffset: 360;
+        fill-opacity: 0;
+        animation: kf-draw 2.2s cubic-bezier(.65,.05,.36,1) .6s forwards,
+                   kf-fill .9s ease 2.1s forwards;
+      }
+      #kf-loader svg path:nth-child(2) { animation-delay: .75s, 2.25s; }
+
+      @keyframes kf-draw { to { stroke-dashoffset: 0; } }
+      @keyframes kf-fill { to { fill-opacity: 1; } }
+
+      #kf-loader .kf-word {
+        color: #ffffff;
+        font-weight: 500;
+        font-size: 22px;
+        letter-spacing: .42em;
+        padding-left: .42em;
+        height: 28px;
+        display: flex; align-items: center;
+        overflow: hidden;
+      }
+      #kf-loader .kf-word .kf-letter {
+        display: inline-block;
+        opacity: 0;
+        transform: translateY(6px);
+        animation: kf-letter .5s ease forwards;
+      }
+      @keyframes kf-letter { to { opacity: 1; transform: translateY(0); } }
+
+      #kf-loader .kf-dots {
+        position: absolute; bottom: 56px; left: 50%; transform: translateX(-50%);
+        display: flex; gap: 10px;
+      }
+      #kf-loader .kf-dots span {
+        width: 6px; height: 6px; border-radius: 50%; background: #ffffff;
+        opacity: .2;
+        animation: kf-dot 1.2s ease-in-out infinite;
+      }
+      #kf-loader .kf-dots span:nth-child(2) { animation-delay: .15s; }
+      #kf-loader .kf-dots span:nth-child(3) { animation-delay: .3s; }
+      @keyframes kf-dot {
+        0%, 100% { opacity: .2; }
+        50%      { opacity: 1; }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        #kf-loader svg path { stroke-dashoffset: 0; fill-opacity: 1; animation: none; }
+        #kf-loader .kf-word .kf-letter { opacity: 1; transform: none; animation: none; }
+        #kf-loader .kf-dots span { animation: none; opacity: .5; }
+      }
+    </style>
     <base href="/" />
     <link rel="preload" id="webassembly" />
     <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css" />
@@ -47,33 +119,24 @@
 <body>
     <div id="app"></div>
 
-    <div id="kf-loader" class="loading-screen">
-        <div class="loading-monogram" role="status" aria-live="polite" aria-label="KrydsFelt loader">
-            <svg class="loading-wordmark" viewBox="0 0 920 240" aria-hidden="true">
-                <defs>
-                    <linearGradient id="kf-loader-gradient" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="0%" stop-color="#f7f1e7" />
-                        <stop offset="46%" stop-color="#d4dde4" />
-                        <stop offset="100%" stop-color="#7893a8" />
-                    </linearGradient>
-
-                    <mask id="kf-loader-word-mask" maskUnits="userSpaceOnUse">
-                        <rect width="920" height="240" fill="black" />
-                        <text class="loading-svg-text loading-svg-mask" x="460" y="140">Krydsfelt</text>
-                    </mask>
-
-                    <filter id="kf-loader-glow" x="-20%" y="-40%" width="140%" height="180%">
-                        <feGaussianBlur stdDeviation="9" />
-                    </filter>
-                </defs>
-
-                <text class="loading-svg-text loading-svg-outline" x="460" y="140">Krydsfelt</text>
-                <g mask="url(#kf-loader-word-mask)">
-                    <rect class="loading-svg-fill" x="0" y="0" width="920" height="240" />
-                    <rect class="loading-svg-glow" x="0" y="0" width="920" height="240" filter="url(#kf-loader-glow)" />
-                </g>
-            </svg>
+    <div id="kf-loader" role="status" aria-label="Loading KrydsFelt">
+      <div class="kf-stack">
+        <svg width="140" height="140" viewBox="0 0 200 200" aria-hidden="true">
+          <path d="M 20 18 L 50 18 L 100 100 L 50 182 L 20 182 L 70 100 Z" />
+          <path d="M 180 18 L 150 18 L 100 100 L 150 182 L 180 182 L 130 100 Z" />
+        </svg>
+        <div class="kf-word" aria-hidden="true">
+          <span class="kf-letter" style="animation-delay:2.3s">K</span>
+          <span class="kf-letter" style="animation-delay:2.42s">R</span>
+          <span class="kf-letter" style="animation-delay:2.54s">Y</span>
+          <span class="kf-letter" style="animation-delay:2.66s">D</span>
+          <span class="kf-letter" style="animation-delay:2.78s">S</span>
+          <span class="kf-letter" style="animation-delay:2.90s">F</span>
+          <span class="kf-letter" style="animation-delay:3.02s">E</span>
+          <span class="kf-letter" style="animation-delay:3.14s">L</span>
+          <span class="kf-letter" style="animation-delay:3.26s">T</span>
         </div>
+      </div>
     </div>
 
     <div id="blazor-error-ui" aria-hidden="true">
@@ -104,6 +167,26 @@
 
     <!-- Cloudflare Web Analytics -->
     <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "1743340428fa495fb44424cf19ec12a4"}'></script>
-    <!-- End Cloudflare Web Analytics --></body>
+    <!-- End Cloudflare Web Analytics -->
+
+    <script>
+      (function () {
+        var loader = document.getElementById('kf-loader');
+        if (!loader) return;
+        var MIN_MS = 4800;
+        var MAX_MS = 8000;
+        var started = performance.now();
+
+        function hide() {
+          var elapsed = performance.now() - started;
+          var wait = Math.max(0, MIN_MS - elapsed);
+          setTimeout(function () { loader.classList.add('kf-hide'); }, wait);
+        }
+        if (document.readyState === 'complete') hide();
+        else window.addEventListener('load', hide);
+        setTimeout(hide, MAX_MS);
+      })();
+    </script>
+</body>
 
 </html>
