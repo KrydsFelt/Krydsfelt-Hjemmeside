@@ -39,8 +39,8 @@
         fill: #ffffff;
         stroke: #ffffff;
         stroke-width: 1.5;
-        stroke-dasharray: 360;
-        stroke-dashoffset: 360;
+        stroke-dasharray: 500;
+        stroke-dashoffset: 500;
         fill-opacity: 0;
         animation: kf-draw 2.2s cubic-bezier(.65,.05,.36,1) .6s forwards,
                    kf-fill .9s ease 2.1s forwards;
@@ -180,7 +180,10 @@
         function hide() {
           var elapsed = performance.now() - started;
           var wait = Math.max(0, MIN_MS - elapsed);
-          setTimeout(function () { loader.classList.add('kf-hide'); }, wait);
+          setTimeout(function () {
+            document.body.classList.add('kf-app-visible');
+            loader.classList.add('kf-hide');
+          }, wait);
         }
         if (document.readyState === 'complete') hide();
         else window.addEventListener('load', hide);

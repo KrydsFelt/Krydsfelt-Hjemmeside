@@ -93,10 +93,7 @@ window.initKfLoader = function () {
     window.requestAnimationFrame(tick);
 };
 
-if (!window.__kfLoaderInitialized) {
-    window.__kfLoaderInitialized = true;
-    window.initKfLoader();
-}
+// Old loader logic disabled — new loader is managed by inline script in index.html
 
 window.initBackgroundPaths = function (containerId) {
     const container = document.getElementById(containerId);
