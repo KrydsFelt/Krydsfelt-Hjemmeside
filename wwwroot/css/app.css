@@ -9622,3 +9622,201 @@ body {
         width: 100vw;
     }
 }
+
+/* ── SHOWCASE PAGE ── */
+.showcase-hero {
+    min-height: 100vh;
+    padding: 12rem 0 6rem;
+    background:
+        radial-gradient(circle at 12% 8%, rgba(80,108,131,0.18), transparent 28%),
+        radial-gradient(circle at 88% 18%, rgba(232,236,240,0.07), transparent 24%),
+        linear-gradient(180deg, #101319 0%, #0d0d0d 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.showcase-inner {
+    text-align: center;
+}
+
+.showcase-eyebrow {
+    display: inline-block;
+    font-size: 0.75rem;
+    letter-spacing: 0.3em;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+}
+
+.showcase-title {
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 200;
+    margin-bottom: 1rem;
+    background: var(--brand-heading-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    padding-bottom: 0.12em;
+    letter-spacing: -0.02em;
+}
+
+.showcase-sub {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    max-width: 540px;
+    margin: 0 auto 4rem;
+    line-height: 1.6;
+}
+
+.showcase-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.75rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.showcase-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    padding: 2.25rem 2rem 2rem;
+    border-radius: 18px;
+    border: 1px solid rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.03);
+    backdrop-filter: blur(10px);
+    text-decoration: none;
+    color: inherit;
+    overflow: hidden;
+    transition: transform 0.35s ease, border-color 0.3s ease, box-shadow 0.35s ease;
+    min-height: 420px;
+}
+
+.showcase-card:hover {
+    transform: translateY(-6px);
+}
+
+.showcase-card-glow {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    background:
+        radial-gradient(circle at 30% 0%, rgba(34,197,94,0.18), transparent 55%),
+        radial-gradient(circle at 80% 100%, rgba(255,77,141,0.12), transparent 50%);
+}
+
+.showcase-card-arcade {
+    cursor: pointer;
+}
+
+.showcase-card-arcade:hover {
+    border-color: rgba(34,197,94,0.5);
+    box-shadow: 0 20px 60px rgba(34,197,94,0.2), 0 0 0 1px rgba(34,197,94,0.4);
+}
+
+.showcase-card-arcade:hover .showcase-card-glow {
+    opacity: 1;
+}
+
+.showcase-card-tag {
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+}
+
+.showcase-card-art {
+    width: 88px;
+    height: 88px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.75rem;
+    transition: transform 0.4s ease;
+}
+
+.showcase-card-art-arcade {
+    background: rgba(34,197,94,0.12);
+    border: 1px solid rgba(34,197,94,0.4);
+}
+
+.showcase-card-art-arcade svg {
+    width: 50px;
+    height: 50px;
+    fill: #22c55e;
+    filter: drop-shadow(0 0 12px rgba(34,197,94,0.5));
+}
+
+.showcase-card-arcade:hover .showcase-card-art {
+    transform: scale(1.08);
+}
+
+.showcase-card-art-locked {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    color: rgba(255,255,255,0.3);
+}
+
+.showcase-card-art-locked svg {
+    width: 36px;
+    height: 36px;
+}
+
+.showcase-card-title {
+    font-size: 1.6rem;
+    font-weight: 300;
+    color: #fff;
+    margin-bottom: 0.6rem;
+    letter-spacing: -0.01em;
+}
+
+.showcase-card-desc {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.55;
+    margin-bottom: auto;
+}
+
+.showcase-card-cta {
+    margin-top: 1.5rem;
+    font-size: 0.85rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #22c55e;
+    font-weight: 500;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.showcase-card-arcade:hover .showcase-card-cta {
+    color: #4ade80;
+    transform: translateX(4px);
+}
+
+.showcase-card-locked {
+    cursor: not-allowed;
+    opacity: 0.55;
+}
+
+.showcase-card-locked:hover {
+    transform: none;
+}
+
+.showcase-card-locked .showcase-card-title {
+    color: rgba(255,255,255,0.6);
+}
+
+.showcase-card-locked .showcase-card-cta {
+    color: rgba(255,255,255,0.35);
+}
+
+@media (max-width: 960px) {
+    .showcase-grid { grid-template-columns: 1fr; max-width: 480px; }
+    .showcase-card { min-height: auto; }
+}
