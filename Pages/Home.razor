@@ -6,22 +6,24 @@
 
 <SiteHeader CurrentPage="home" ContactHref="/booking" />
 
-<section class="kh-home-hero">
-    <div class="kf-container">
-        <div class="kh-home-hero-grid kh-home-hero-grid-minimal">
-            <div class="kh-home-hero-copy">
-                <div class="kh-hero-spots-badge">
-                    <span class="kh-hero-spots-dot"></span>
-                    @Lang.T("home.hero.spotsLabel")
-                </div>
-                <h1 class="kh-home-title" data-animate="words" @key="Lang.CurrentLanguage">@Lang.T("home.hero.title")</h1>
-                <p class="kh-home-text reveal">@Lang.T("home.hero.text")</p>
-                <div class="kh-home-actions">
-                    <a href="/booking" class="kf-btn kf-btn-primary"><span>@Lang.T("home.hero.bookMeeting")</span></a>
-                </div>
-            </div>
-        </div>
+<section class="ns-hero">
+    <div class="ns-sky" aria-hidden="true">
+        <span class="ns-shooter" style="--angle:-38deg;left:86%;top:6%;animation-delay:0s"></span>
+        <span class="ns-shooter" style="--angle:-60deg;left:68%;top:2%;animation-delay:2s"></span>
+        <span class="ns-shooter" style="--angle:-122deg;left:12%;top:8%;animation-delay:4s"></span>
+        <span class="ns-shooter" style="--angle:-26deg;left:94%;top:20%;animation-delay:6s"></span>
+        <span class="ns-shooter" style="--angle:-142deg;left:24%;top:3%;animation-delay:8s"></span>
+        <span class="ns-shooter" style="--angle:-50deg;left:52%;top:12%;animation-delay:10s"></span>
     </div>
+    <div class="kf-container ns-hero-inner">
+        <span class="ns-eyebrow">Digitalt bureau</span>
+        <h1 class="ns-hero-title">Vi bygger hjemmesider &amp; digitale løsninger</h1>
+        <p class="ns-hero-sub">Strategi, design og udvikling — samlet i ét lille, dedikeret team.</p>
+        <a href="/booking" class="kf-btn kf-btn-primary"><span>Book et møde</span></a>
+    </div>
+</section>
+
+<section class="kh-tech-strip">
     <div class="kh-trust-banner">
         <div class="kf-container">
             <div class="kh-trust-track-wrapper">

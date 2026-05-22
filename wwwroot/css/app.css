@@ -116,7 +116,7 @@ body {
     left: 0;
     right: 0;
     z-index: 100;
-    padding: 2rem 0;
+    padding: 1.25rem 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -10084,4 +10084,168 @@ body {
 
 @media (max-width: 480px) {
     .kh-showcase-chip-3 { display: none; }
+}
+
+/* ── HERO NIGHT SKY — faint stars + calm shooting stars ── */
+.kf-sky {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.kf-star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    border-radius: 50%;
+    background: #e8eef3;
+    opacity: 0.3;
+    animation: kf-star-twinkle 4.5s ease-in-out infinite;
+}
+
+@keyframes kf-star-twinkle {
+    0%, 100% { opacity: 0.12; }
+    50%      { opacity: 0.6; }
+}
+
+.kf-shooting-star {
+    position: absolute;
+    width: 130px;
+    height: 2px;
+    background: linear-gradient(90deg, #eef3f8, rgba(238,243,248,0));
+    border-radius: 999px;
+    transform: rotate(-45deg) translateX(0);
+    opacity: 0;
+    animation: kf-shoot 9s linear infinite;
+}
+
+.kf-shooting-star::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 4px;
+    height: 4px;
+    margin-top: -2px;
+    border-radius: 50%;
+    background: #ffffff;
+    box-shadow: 0 0 9px 3px rgba(232,238,243,0.75);
+}
+
+@keyframes kf-shoot {
+    0%    { opacity: 0; transform: rotate(-45deg) translateX(0); }
+    1.5%  { opacity: 1; }
+    13%   { opacity: 1; }
+    15%   { opacity: 0; transform: rotate(-45deg) translateX(-460px); }
+    100%  { opacity: 0; transform: rotate(-45deg) translateX(-460px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .kf-star { animation: none; opacity: 0.3; }
+    .kf-shooting-star { display: none; }
+}
+
+/* ── NEW NIGHT-SKY HERO ── */
+.ns-hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background:
+        linear-gradient(180deg, rgba(13,13,15,0.35) 0%, rgba(13,13,15,0.1) 45%, rgba(13,13,15,0.82) 100%),
+        url('../Pictures/HeroBackground.png') center / cover no-repeat;
+}
+
+.ns-sky {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.ns-shooter {
+    position: absolute;
+    width: 150px;
+    height: 2px;
+    background: linear-gradient(90deg, #ffffff, rgba(255,255,255,0));
+    border-radius: 999px;
+    opacity: 0;
+    transform: rotate(var(--angle)) translateX(0);
+    animation: ns-shoot 12s linear infinite;
+}
+
+.ns-shooter::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 4px;
+    height: 4px;
+    margin-top: -2px;
+    border-radius: 50%;
+    background: #ffffff;
+    box-shadow: 0 0 10px 3px rgba(255,255,255,0.7);
+}
+
+@keyframes ns-shoot {
+    0%   { opacity: 0; transform: rotate(var(--angle)) translateX(0); }
+    2%   { opacity: 1; }
+    11%  { opacity: 1; }
+    13%  { opacity: 0; transform: rotate(var(--angle)) translateX(-520px); }
+    100% { opacity: 0; transform: rotate(var(--angle)) translateX(-520px); }
+}
+
+.ns-hero-inner {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 760px;
+}
+
+.ns-eyebrow {
+    display: inline-block;
+    font-size: 0.78rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 1.5rem;
+}
+
+.ns-hero-title {
+    font-size: clamp(2.4rem, 5.5vw, 4.4rem);
+    font-weight: 200;
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+    color: #ffffff;
+    margin-bottom: 1.4rem;
+    text-shadow: 0 2px 24px rgba(0,0,0,0.7);
+}
+
+.ns-hero-sub {
+    color: rgba(240,237,232,0.82);
+    font-size: 1.15rem;
+    line-height: 1.6;
+    max-width: 520px;
+    margin: 0 auto 2.4rem;
+    text-shadow: 0 1px 14px rgba(0,0,0,0.7);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .ns-shooter { display: none; }
+}
+
+/* ── TECH STACK STRIP (between hero image and "Hvem er vi") ── */
+.kh-tech-strip {
+    position: relative;
+    background: #0d0d0d;
+    padding: 1rem 0 3.5rem;
+}
+
+.kh-tech-strip .kh-trust-banner {
+    margin-top: 0;
 }

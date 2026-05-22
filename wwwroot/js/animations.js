@@ -435,13 +435,25 @@ window.initAnimations = function () {
         revealEls.forEach(el => observer.observe(el));
     }
 
-    // Hide header once the page is no longer at the very top
+    // Nav: hide when scrolling down, reveal when scrolling up
     const nav = document.querySelector('.kf-nav');
     if (nav) {
+        let lastY = window.scrollY;
         const onScroll = () => {
-            const isAtTop = window.scrollY <= 8;
+            const y = window.scrollY;
+            const isAtTop = y <= 8;
+
             nav.classList.toggle('scrolled', !isAtTop);
-            nav.classList.toggle('kf-nav-hidden', !isAtTop);
+
+            if (isAtTop) {
+                nav.classList.remove('kf-nav-hidden');
+            } else if (y > lastY && y > 120) {
+                nav.classList.add('kf-nav-hidden');
+            } else if (y < lastY) {
+                nav.classList.remove('kf-nav-hidden');
+            }
+
+            lastY = y;
         };
 
         window.addEventListener('scroll', onScroll, { passive: true });
