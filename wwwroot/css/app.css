@@ -1904,13 +1904,34 @@ body {
 }
 
 .kf-footer-bottom {
-    padding: 2rem 0;
+    padding: 2rem 0 7rem;
     border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
 }
 
 .kf-footer-bottom p {
     font-size: 0.8rem;
     color: var(--text-muted);
+}
+
+.kf-footer-legal {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.kf-footer-legal a {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.kf-footer-legal a:hover {
+    color: #fff;
 }
 
 /* ── LOADING SCREEN ── */
@@ -9819,4 +9840,248 @@ body {
 @media (max-width: 960px) {
     .showcase-grid { grid-template-columns: 1fr; max-width: 480px; }
     .showcase-card { min-height: auto; }
+}
+
+/* ── LEGAL PAGES (privacy / terms) ── */
+.legal-page {
+    min-height: 100vh;
+    padding: 12rem 0 6rem;
+    background:
+        radial-gradient(circle at 12% 8%, rgba(80,108,131,0.18), transparent 28%),
+        linear-gradient(180deg, #101319 0%, #0d0d0d 100%);
+}
+
+.legal-inner {
+    max-width: 780px;
+    margin: 0 auto;
+}
+
+.legal-eyebrow {
+    display: inline-block;
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 1rem;
+}
+
+.legal-title {
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 200;
+    background: var(--brand-heading-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    padding-bottom: 0.12em;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.02em;
+}
+
+.legal-updated {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 3rem;
+}
+
+.legal-page h2 {
+    color: #fff;
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin: 2.75rem 0 0.9rem;
+}
+
+.legal-page h3 {
+    color: #fff;
+    font-size: 1.05rem;
+    font-weight: 500;
+    margin: 1.75rem 0 0.6rem;
+}
+
+.legal-page p,
+.legal-page li {
+    color: rgba(240,237,232,0.78);
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 0.9rem;
+}
+
+.legal-page ul {
+    padding-left: 1.4rem;
+    margin-bottom: 0.9rem;
+}
+
+.legal-page li {
+    margin-bottom: 0.4rem;
+}
+
+.legal-page a {
+    color: #38bdf8;
+    text-decoration: none;
+}
+
+.legal-page a:hover {
+    text-decoration: underline;
+}
+
+.legal-page strong {
+    color: rgba(240,237,232,0.95);
+    font-weight: 600;
+}
+
+.legal-divider {
+    height: 1px;
+    background: rgba(255,255,255,0.08);
+    margin: 3rem 0;
+    border: none;
+}
+
+/* ── HOME SHOWCASE SECTION ── */
+.kh-home-showcase {
+    position: relative;
+    padding: 2rem 0 5rem;
+    background: #0d0d0d;
+}
+
+.kh-showcase-banner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+    padding: 3.5rem;
+    border-radius: 24px;
+    border: 1px solid rgba(255,255,255,0.08);
+    background: linear-gradient(135deg, rgba(80,108,131,0.12) 0%, rgba(255,255,255,0.03) 100%);
+    text-decoration: none;
+    overflow: hidden;
+    transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.kh-showcase-banner:hover {
+    transform: translateY(-4px);
+    border-color: rgba(34,197,94,0.35);
+    box-shadow: 0 24px 60px rgba(0,0,0,0.4);
+}
+
+.kh-showcase-glow {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    background: radial-gradient(circle at 78% 30%, rgba(34,197,94,0.18), transparent 55%);
+}
+
+.kh-showcase-banner:hover .kh-showcase-glow {
+    opacity: 1;
+}
+
+.kh-showcase-copy {
+    position: relative;
+    max-width: 520px;
+}
+
+.kh-showcase-copy h2 {
+    font-size: clamp(1.6rem, 2.6vw, 2.2rem);
+    font-weight: 200;
+    color: #fff;
+    margin: 0.8rem 0 0.9rem;
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+}
+
+.kh-showcase-copy p {
+    color: var(--text-muted);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.kh-showcase-cta {
+    display: inline-flex;
+    font-size: 0.9rem;
+    letter-spacing: 0.04em;
+    color: #38bdf8;
+    font-weight: 500;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.kh-showcase-banner:hover .kh-showcase-cta {
+    transform: translateX(5px);
+    color: #7dd3fc;
+}
+
+.kh-showcase-previews {
+    position: relative;
+    display: flex;
+    gap: 1rem;
+    flex-shrink: 0;
+}
+
+.kh-showcase-chip {
+    width: 130px;
+    height: 168px;
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.03);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    transition: transform 0.4s ease;
+}
+
+.kh-showcase-chip-1 {
+    background: rgba(34,197,94,0.1);
+    border-color: rgba(34,197,94,0.35);
+}
+
+.kh-showcase-chip-1 svg {
+    width: 44px;
+    height: 44px;
+    fill: #22c55e;
+    filter: drop-shadow(0 0 10px rgba(34,197,94,0.5));
+}
+
+.kh-showcase-chip-1 span {
+    color: #22c55e;
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+.kh-showcase-chip-2 { transform: translateY(14px); }
+.kh-showcase-chip-3 { transform: translateY(28px); }
+
+.kh-showcase-banner:hover .kh-showcase-chip-1 { transform: translateY(-6px); }
+.kh-showcase-banner:hover .kh-showcase-chip-2 { transform: translateY(8px); }
+.kh-showcase-banner:hover .kh-showcase-chip-3 { transform: translateY(22px); }
+
+.kh-showcase-soon {
+    color: rgba(255,255,255,0.3);
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+@media (max-width: 860px) {
+    .kh-showcase-banner {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 2.5rem 2rem;
+        gap: 2.5rem;
+    }
+    .kh-showcase-previews {
+        align-self: center;
+    }
+    .kh-showcase-chip {
+        width: 90px;
+        height: 120px;
+    }
+}
+
+@media (max-width: 480px) {
+    .kh-showcase-chip-3 { display: none; }
 }

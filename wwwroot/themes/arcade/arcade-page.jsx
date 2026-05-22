@@ -218,13 +218,13 @@ const Ticker = ({ to, prefix = '', suffix = '', duration = 1200 }) => {
 // ============= MARQUEE BAR =============
 const MarqueeBar = () => {
   const items = [
-    'INSERT COIN TO START',
+    'INDSÆT MØNT FOR AT STARTE',
     'KRYDSFELT.DK',
-    'NEW HIGH SCORE',
-    'PLAYER 1 READY',
-    'BONUS LEVEL UNLOCKED',
+    'NY HIGH SCORE',
+    'SPILLER 1 KLAR',
+    'BONUSBANE LÅST OP',
     '★ ★ ★ ★ ★',
-    'PRESS START',
+    'TRYK START',
   ];
   const repeated = [...items, ...items, ...items];
   return (
@@ -250,13 +250,13 @@ const Nav = () => (
         <span style={{ fontFamily: '"Press Start 2P", monospace', fontSize: 14, letterSpacing: 2 }}>KRYDSFELT</span>
       </div>
       <div style={arcadeStyles.navLinks} className="arcade-nav-links">
-        {['GAMES', 'LEVELS', 'SCORES', 'SHOP'].map(l => (
+        {['SPIL', 'BANER', 'SCORES', 'SHOP'].map(l => (
           <a key={l} href="#" style={arcadeStyles.navLink}>{l}</a>
         ))}
       </div>
       <div style={arcadeStyles.navCoin}>
         <PixelIcon kind="coin" size={18} />
-        <span>CREDITS: 03</span>
+        <span>MØNTER: 03</span>
       </div>
     </div>
   </nav>
@@ -286,7 +286,7 @@ const Hero = () => {
             <span style={arcadeStyles.marqueeText}>KRYDSFELT</span>
           </div>
           <div style={arcadeStyles.marqueeSub}>
-            <Blink>★</Blink>&nbsp;ARCADE EDITION&nbsp;<Blink>★</Blink>
+            <Blink>★</Blink>&nbsp;ARCADE-UDGAVE&nbsp;<Blink>★</Blink>
           </div>
         </div>
 
@@ -297,18 +297,18 @@ const Hero = () => {
             <div style={arcadeStyles.crt}>
 
               <div style={arcadeStyles.heroTagline}>
-                ◤ PLAYER 1 — DIGITAL BUREAU ◥
+                ◤ SPILLER 1 — DIGITALT BUREAU ◥
               </div>
 
               <h1 style={arcadeStyles.heroTitle}>
-                BUILD YOUR<br/>
-                <span style={{ color: GREEN, textShadow: `0 0 20px ${GREEN}` }}>NEXT LEVEL</span><br/>
-                BUSINESS
+                TAG DIN<br/>
+                FORRETNING TIL<br/>
+                <span style={{ color: GREEN, textShadow: `0 0 20px ${GREEN}` }}>NÆSTE LEVEL</span>
               </h1>
 
               <p style={arcadeStyles.heroSub}>
-                websites &nbsp;·&nbsp; systems &nbsp;·&nbsp; google &amp; meta ads<br/>
-                press start to begin your quest
+                hjemmesider &nbsp;·&nbsp; systemer &nbsp;·&nbsp; google &amp; meta ads<br/>
+                tryk start for at begynde dit eventyr
               </p>
 
               <div style={arcadeStyles.heroCtaRow}>
@@ -319,17 +319,17 @@ const Hero = () => {
                   onMouseLeave={() => setPressStart(false)}
                 >
                   <PixelIcon kind="coin" size={22} />
-                  <span><Blink speed={500}>▶</Blink> INSERT COIN</span>
+                  <span><Blink speed={500}>▶</Blink> INDSÆT MØNT</span>
                 </button>
                 <button style={arcadeStyles.btnGhost}>
-                  HOW TO PLAY →
+                  SÅDAN SPILLER DU →
                 </button>
               </div>
 
               <div style={arcadeStyles.heroStatRow} className="arcade-stats">
-                <Stat label="HI-SCORE" value="047,832" color={GREEN} />
+                <Stat label="HI-SCORE" value="047.832" color={GREEN} />
                 <Stat label="LEVEL" value="08" color={YELLOW} />
-                <Stat label="LIVES" value="∞" color={PINK} />
+                <Stat label="LIV" value="∞" color={PINK} />
                 <Stat label="COMBO" value="x12" color={CYAN} />
               </div>
             </div>
@@ -372,15 +372,15 @@ const FloatIcon = ({ kind, left, top, delay, color }) => (
 
 // ============= GAME SELECT (services) =============
 const GAMES = [
-  { code: '01', name: 'WEB QUEST', tag: 'WEBSITES', icon: 'rocket', color: GREEN, lines: ['+ NEXT.JS / ASTRO', '+ HEADLESS CMS', '+ A/B TESTING', '+ SEO BOSS BATTLE'] },
-  { code: '02', name: 'AD BLASTER', tag: 'GOOGLE & META', icon: 'bolt', color: YELLOW, lines: ['+ PERFORMANCE MAX', '+ META ADVANTAGE+', '+ CREATIVE TESTING', '+ ROAS POWER-UP'] },
-  { code: '03', name: 'SYSTEM RAIDER', tag: 'SYSTEMS & APPS', icon: 'controller', color: PINK, lines: ['+ CRM / ERP DUNGEONS', '+ AUTOMATION COMBOS', '+ AI INTEGRATIONS', '+ INTERNAL TOOLS'] },
-  { code: '04', name: 'CONVERSION RUSH', tag: 'CRO / FUNNELS', icon: 'diamond', color: CYAN, lines: ['+ HEATMAP DIVE', '+ CHECKOUT BOSS', '+ FORM HACKING', '+ +30% CONVERSION'] },
+  { code: '01', name: 'WEB QUEST', tag: 'HJEMMESIDER', icon: 'rocket', color: GREEN, lines: ['+ NEXT.JS / ASTRO', '+ HEADLESS CMS', '+ A/B-TEST', '+ SEO BOSS-KAMP'] },
+  { code: '02', name: 'AD BLASTER', tag: 'GOOGLE & META', icon: 'bolt', color: YELLOW, lines: ['+ PERFORMANCE MAX', '+ META ADVANTAGE+', '+ ANNONCE-TEST', '+ ROAS POWER-UP'] },
+  { code: '03', name: 'SYSTEM RAIDER', tag: 'SYSTEMER & APPS', icon: 'controller', color: PINK, lines: ['+ CRM / ERP-FANGEHULLER', '+ AUTOMATISERINGS-COMBOS', '+ AI-INTEGRATIONER', '+ INTERNE VÆRKTØJER'] },
+  { code: '04', name: 'CONVERSION RUSH', tag: 'CRO / FUNNELS', icon: 'diamond', color: CYAN, lines: ['+ HEATMAP-DYK', '+ CHECKOUT-BOSS', '+ FORMULAR-HACKING', '+ +30% KONVERTERING'] },
 ];
 
 const GameSelect = () => (
   <section style={arcadeStyles.section}>
-    <SectionHeader chip="SELECT GAME" title="WHAT WE PLAY" sub="Choose your bureau-quest. All games include unlimited continues." />
+    <SectionHeader chip="VÆLG SPIL" title="HVAD VI SPILLER" sub="Vælg dit bureau-eventyr. Alle spil inkluderer ubegrænsede continues." />
     <div style={arcadeStyles.gameGrid} className="arcade-grid-4">
       {GAMES.map(g => <GameCard key={g.code} {...g} />)}
     </div>
@@ -401,7 +401,7 @@ const GameCard = ({ code, name, tag, icon, color, lines }) => {
       onMouseLeave={() => setHover(false)}
     >
       <div style={arcadeStyles.gameCardTop}>
-        <div style={{ ...arcadeStyles.gameCode, color }}>GAME #{code}</div>
+        <div style={{ ...arcadeStyles.gameCode, color }}>SPIL #{code}</div>
         <div style={arcadeStyles.gameStatus}>
           <span style={{ color: GREEN }}>●</span> ONLINE
         </div>
@@ -415,7 +415,7 @@ const GameCard = ({ code, name, tag, icon, color, lines }) => {
         {lines.map((l, i) => <div key={i} style={arcadeStyles.gameLine}>{l}</div>)}
       </div>
       <div style={{ ...arcadeStyles.gamePlay, color }}>
-        <Blink>▶</Blink>&nbsp;PRESS A TO START
+        <Blink>▶</Blink>&nbsp;TRYK A FOR AT STARTE
       </div>
     </div>
   );
@@ -423,15 +423,15 @@ const GameCard = ({ code, name, tag, icon, color, lines }) => {
 
 // ============= LEVELS (process) =============
 const LEVELS = [
-  { num: '01', name: 'DISCOVERY', desc: 'Map the dungeon. Learn your enemies (competitors), allies (audience), and treasure (KPIs).', icon: 'pacdot' },
-  { num: '02', name: 'STRATEGY',  desc: 'Pick your loadout. Channels, messaging, tech-stack, budget allocation.', icon: 'star' },
-  { num: '03', name: 'BUILD',     desc: 'Forge your weapons: site, ads, automations. Ship to staging arena.', icon: 'rocket' },
-  { num: '04', name: 'OPTIMIZE',  desc: 'Grind XP forever. Weekly tests, creative refresh, scaling whats working.', icon: 'bolt' },
+  { num: '01', name: 'OPDAGELSE', desc: 'Kortlæg fangehullet. Lær dine fjender (konkurrenter), allierede (målgruppe) og skatten (KPI’er) at kende.', icon: 'pacdot' },
+  { num: '02', name: 'STRATEGI',  desc: 'Vælg dit udstyr. Kanaler, budskab, tech-stack og budgetfordeling.', icon: 'star' },
+  { num: '03', name: 'BYG',       desc: 'Smed dine våben: hjemmeside, annoncer, automatiseringer. Send til staging-arenaen.', icon: 'rocket' },
+  { num: '04', name: 'OPTIMÉR',   desc: 'Grind XP for evigt. Ugentlige tests, nye kreativer og skalering af det der virker.', icon: 'bolt' },
 ];
 
 const Levels = () => (
   <section style={arcadeStyles.section}>
-    <SectionHeader chip="LEVELS 01–04" title="HOW THE GAME GOES" sub="A four-level loop. Beat one, the next unlocks." />
+    <SectionHeader chip="BANER 01–04" title="SÅDAN FORLØBER SPILLET" sub="Et forløb på fire baner. Klar én, og den næste låses op." />
     <div style={arcadeStyles.levelStrip} className="arcade-grid-4">
       {LEVELS.map((lv, i) => (
         <div key={lv.num} style={arcadeStyles.levelCard}>
@@ -470,14 +470,14 @@ const SCORES = [
 
 const HighScores = () => (
   <section style={arcadeStyles.section}>
-    <SectionHeader chip="HIGH SCORES" title="LEADERBOARD" sub="Real client wins. No cheat codes." />
+    <SectionHeader chip="HIGH SCORES" title="TOPLISTE" sub="Ægte kundesejre. Ingen snydekoder." />
     <div style={arcadeStyles.board}>
       <div style={arcadeStyles.boardHead}>
-        <div style={{ width: 60 }}>RANK</div>
-        <div style={{ width: 90 }}>NAME</div>
-        <div style={{ flex: 1 }}>CLIENT</div>
+        <div style={{ width: 60 }}>PLADS</div>
+        <div style={{ width: 90 }}>NAVN</div>
+        <div style={{ flex: 1 }}>KUNDE</div>
         <div style={{ width: 130 }}>BADGE</div>
-        <div style={{ width: 140, textAlign: 'right' }}>METRIC</div>
+        <div style={{ width: 140, textAlign: 'right' }}>RESULTAT</div>
         <div style={{ width: 110, textAlign: 'right' }}>SCORE</div>
       </div>
       {SCORES.map((s, i) => (
@@ -509,15 +509,15 @@ const HighScores = () => (
 
 // ============= POWER-UPS (why us) =============
 const POWERS = [
-  { icon: 'bolt',     name: 'TURBO MODE',    desc: 'Lightning sites. Sub-1s LCP. Core Web Vitals all green.', color: YELLOW },
-  { icon: 'heart',    name: 'EXTRA LIFE',    desc: 'We dont disappear after launch. Monthly optimization included.', color: PINK },
-  { icon: 'rocket',   name: 'SPEED BOOST',   desc: 'From kickoff to live in 4–8 weeks. No 6-month sagas.', color: GREEN },
-  { icon: 'star',     name: 'POWER STAR',    desc: 'Senior-only crew. No juniors learning on your invoice.', color: CYAN },
+  { icon: 'bolt',     name: 'TURBO MODE',    desc: 'Lynhurtige sider. Under 1s LCP. Core Web Vitals helt grønne.', color: YELLOW },
+  { icon: 'heart',    name: 'EKSTRA LIV',    desc: 'Vi forsvinder ikke efter launch. Månedlig optimering er inkluderet.', color: PINK },
+  { icon: 'rocket',   name: 'SPEED BOOST',   desc: 'Fra opstart til live på 4–8 uger. Ingen 6-måneders sagaer.', color: GREEN },
+  { icon: 'star',     name: 'POWER STAR',    desc: 'Kun seniorer på holdet. Ingen juniorer der øver sig på din regning.', color: CYAN },
 ];
 
 const PowerUps = () => (
   <section style={arcadeStyles.section}>
-    <SectionHeader chip="POWER-UPS" title="WHY KRYDSFELT" sub="The buffs you get when you team up with us." />
+    <SectionHeader chip="POWER-UPS" title="HVORFOR KRYDSFELT" sub="De buffs du får, når du går sammen med os." />
     <div style={arcadeStyles.powerGrid} className="arcade-grid-4">
       {POWERS.map(p => (
         <div key={p.name} style={arcadeStyles.powerCard}>
@@ -542,26 +542,26 @@ const Cta = () => (
         <PixelIcon kind="coin" size={48} />
         <PixelIcon kind="coin" size={48} />
       </div>
-      <div style={arcadeStyles.ctaChip}>GAME OVER? NOT YET.</div>
+      <div style={arcadeStyles.ctaChip}>GAME OVER? IKKE ENDNU.</div>
       <h2 style={arcadeStyles.ctaTitle}>
-        INSERT COIN<br />
-        <span style={{ color: GREEN }}>CONTINUE?</span>
+        INDSÆT MØNT<br />
+        <span style={{ color: GREEN }}>FORTSÆT?</span>
       </h2>
       <div style={arcadeStyles.ctaCounter}>
         10 &nbsp; 9 &nbsp; <span style={{ color: PINK }}>8</span> &nbsp; 7 &nbsp; 6 &nbsp; ...
       </div>
       <p style={arcadeStyles.ctaSub}>
-        Book a 30-min discovery call. No quarters required.
+        Book et 30-min opklaringsmøde. Ingen mønter påkrævet.
       </p>
       <div style={arcadeStyles.ctaBtnRow}>
         <button style={arcadeStyles.btnStart}>
           <PixelIcon kind="coin" size={22} />
-          <span><Blink>▶</Blink> START NEW GAME</span>
+          <span><Blink>▶</Blink> START NYT SPIL</span>
         </button>
-        <button style={arcadeStyles.btnGhost}>VIEW CARTRIDGES →</button>
+        <button style={arcadeStyles.btnGhost}>SE CARTRIDGES →</button>
       </div>
       <div style={arcadeStyles.ctaFinePrint}>
-        © {new Date().getFullYear()} KRYDSFELT ARCADE · ALL HIGH SCORES PRESERVED
+        © {new Date().getFullYear()} KRYDSFELT ARCADE · ALLE HIGH SCORES BEVARET
       </div>
     </div>
   </section>
@@ -576,30 +576,30 @@ const Footer = () => (
           <KrydsX size={24} color={GREEN} />
           <span style={{ fontFamily: '"Press Start 2P", monospace', fontSize: 12, letterSpacing: 2 }}>KRYDSFELT</span>
         </div>
-        <div style={arcadeStyles.footerSmall}>The arcade for ambitious bureauer.</div>
+        <div style={arcadeStyles.footerSmall}>Arkaden for ambitiøse virksomheder.</div>
       </div>
       <div style={arcadeStyles.footerCol}>
-        <div style={arcadeStyles.footerHead}>GAMES</div>
+        <div style={arcadeStyles.footerHead}>SPIL</div>
         {['Web Quest', 'Ad Blaster', 'System Raider', 'Conversion Rush'].map(x => (
           <a key={x} href="#" style={arcadeStyles.footerLink}>{x}</a>
         ))}
       </div>
       <div style={arcadeStyles.footerCol}>
         <div style={arcadeStyles.footerHead}>LOBBY</div>
-        {['About', 'Cases', 'Career', 'Contact'].map(x => (
+        {['Om os', 'Cases', 'Karriere', 'Kontakt'].map(x => (
           <a key={x} href="#" style={arcadeStyles.footerLink}>{x}</a>
         ))}
       </div>
       <div style={arcadeStyles.footerCol}>
-        <div style={arcadeStyles.footerHead}>FIND US</div>
-        <div style={arcadeStyles.footerSmall}>hello@krydsfelt.dk</div>
-        <div style={arcadeStyles.footerSmall}>+45 00 00 00 00</div>
-        <div style={arcadeStyles.footerSmall}>København, DK</div>
+        <div style={arcadeStyles.footerHead}>FIND OS</div>
+        <div style={arcadeStyles.footerSmall}>krydsfelt.info@gmail.com</div>
+        <div style={arcadeStyles.footerSmall}>+45 50 36 61 31</div>
+        <div style={arcadeStyles.footerSmall}>Danmark</div>
       </div>
     </div>
     <div style={arcadeStyles.footerBottom}>
-      <span><Blink>●</Blink> 1 PLAYER NOW PLAYING</span>
-      <span>PUSH START TO RESTART</span>
+      <span><Blink>●</Blink> 1 SPILLER SPILLER NU</span>
+      <span>TRYK START FOR AT GENSTARTE</span>
     </div>
   </footer>
 );
