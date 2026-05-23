@@ -10,18 +10,6 @@
     -webkit-text-fill-color: currentColor;
 }
 
-.kh-home-services-top {
-    display: flex;
-    align-items: end;
-    justify-content: space-between;
-    gap: 1.5rem;
-    margin-bottom: 2.5rem;
-}
-
-.kh-home-services-top .kh-home-section-head {
-    margin-bottom: 0;
-}
-
 .kh-home-services-link {
     display: inline-flex;
     align-items: center;
@@ -45,35 +33,101 @@
 
 .kh-home-service-grid-featured {
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 1.25rem;
+    grid-template-areas:
+        "intro intro service-1 service-2"
+        "intro intro service-3 service-4";
+    grid-auto-rows: minmax(250px, 1fr);
+    gap: 0;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 32px;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at top left, rgba(255,255,255,0.03), transparent 24%),
+        linear-gradient(180deg, #171717 0%, #101010 100%);
 }
 
+.kh-home-service-card-intro,
 .kh-home-service-card-featured {
     position: relative;
     isolation: isolate;
     padding: 2rem;
-    min-height: 420px;
-    border-radius: 26px;
+    min-height: 100%;
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: flex-start;
     gap: 1rem;
-    background:
-        radial-gradient(circle at top right, rgba(255,255,255,0.08), transparent 35%),
-        linear-gradient(180deg, rgba(28, 31, 36, 0.98) 0%, rgba(18, 20, 24, 0.98) 100%);
-    border: 1px solid rgba(255,255,255,0.1);
-    transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+    background: transparent;
+    border-right: 1px solid rgba(255,255,255,0.08);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    transition: background 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease, transform 0.35s ease;
 }
 
-.kh-home-service-card-featured::before {
+.kh-home-service-card-featured::before,
+.kh-home-service-card-intro::before {
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(54, 73, 88, 0.88) 0%, #364958 100%);
+    background:
+        radial-gradient(circle at 22% 100%, rgba(245, 138, 19, 0.85), transparent 38%),
+        radial-gradient(circle at 66% 18%, rgba(255,255,255,0.12), transparent 30%),
+        linear-gradient(180deg, rgba(45, 36, 29, 0.94) 0%, rgba(25, 23, 21, 0.98) 100%);
     opacity: 0;
     transition: opacity 0.35s ease;
     z-index: 0;
+}
+
+.kh-home-service-card-intro {
+    grid-area: intro;
+    padding: 2rem 2rem 1.85rem;
+    justify-content: space-between;
+    border-radius: 0 0 32px 0;
+}
+
+.kh-home-service-card-intro::before {
+    opacity: 1;
+}
+
+.kh-home-service-card-intro h2 {
+    max-width: 14ch;
+    margin: 0;
+    color: #f7f1e8;
+    font-size: clamp(2.35rem, 3.8vw, 4.25rem);
+    line-height: 0.96;
+    font-weight: 300;
+}
+
+.kh-home-service-card-intro p {
+    max-width: 34rem;
+    margin: 0;
+    color: rgba(247, 241, 232, 0.82);
+    line-height: 1.8;
+}
+
+.kh-home-service-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    color: rgba(247, 241, 232, 0.88);
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: lowercase;
+}
+
+.kh-home-service-card-service-1 { grid-area: service-1; }
+.kh-home-service-card-service-2 { grid-area: service-2; }
+.kh-home-service-card-service-3 { grid-area: service-3; }
+.kh-home-service-card-service-4 { grid-area: service-4; }
+
+.kh-home-service-card-service-2,
+.kh-home-service-card-service-4 {
+    border-right: 0;
+}
+
+.kh-home-service-card-service-3,
+.kh-home-service-card-service-4 {
+    border-bottom: 0;
 }
 
 .kh-home-service-card-featured > * {
@@ -81,14 +135,35 @@
     z-index: 1;
 }
 
+.kh-home-service-card-intro > * {
+    position: relative;
+    z-index: 1;
+}
+
 .kh-home-service-card-featured:hover {
-    transform: translateY(-8px);
-    border-color: rgba(255,255,255,0.16);
-    box-shadow: 0 22px 48px rgba(0,0,0,0.25);
+    transform: translateY(-4px);
+    background: rgba(255,255,255,0.02);
+    border-color: rgba(255,255,255,0.12);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.03);
 }
 
 .kh-home-service-card-featured:hover::before {
-    opacity: 1;
+    opacity: 0.24;
+}
+
+.kh-home-service-meta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    color: rgba(247, 241, 232, 0.5);
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.kh-home-service-meta span:first-child {
+    color: #f5a11d;
+    font-weight: 600;
 }
 
 .kh-home-service-icon {
@@ -97,27 +172,30 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: auto;
-    color: rgba(255,255,255,0.92);
+    margin-top: auto;
+    margin-left: auto;
+    color: rgba(255,255,255,0.52);
 }
 
 .kh-home-service-icon svg {
-    width: 32px;
-    height: 32px;
+    width: 36px;
+    height: 36px;
 }
 
 .kh-home-service-card-featured h3 {
     margin: 0;
     color: #f6f2eb;
-    font-size: clamp(1.5rem, 2vw, 2rem);
-    line-height: 1.05;
+    font-size: clamp(1.55rem, 2vw, 2.15rem);
+    line-height: 1.08;
     font-weight: 300;
+    max-width: 11ch;
 }
 
 .kh-home-service-card-featured p {
-    color: rgba(246, 242, 235, 0.78);
-    line-height: 1.75;
-    max-width: 26ch;
+    margin: 0;
+    color: rgba(246, 242, 235, 0.72);
+    line-height: 1.8;
+    max-width: 28ch;
 }
 
 .kh-home-process {
@@ -498,18 +576,17 @@
 }
 
 @media (max-width: 1100px) {
-    .kh-home-services-top,
     .kh-home-process-stage-grid {
         grid-template-columns: 1fr;
     }
 
-    .kh-home-services-top {
-        flex-direction: column;
-        align-items: start;
-    }
-
     .kh-home-service-grid-featured {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-areas:
+            "intro intro"
+            "service-1 service-2"
+            "service-3 service-4";
+        grid-auto-rows: minmax(220px, auto);
     }
 
     .kh-home-process-stage-copy {
@@ -526,12 +603,20 @@
     .kh-home-service-grid-featured,
     .bk-location-meta {
         grid-template-columns: 1fr;
+        grid-template-areas:
+            "intro"
+            "service-1"
+            "service-2"
+            "service-3"
+            "service-4";
+        border-radius: 26px;
     }
 
     .kh-home-services-link {
         width: 100%;
     }
 
+    .kh-home-service-card-intro,
     .kh-home-service-card-featured,
     .kh-home-process-stage,
     .bk-location-content {
@@ -544,8 +629,24 @@
         max-width: calc(100vw - 2rem);
     }
 
+    .kh-home-service-card-intro,
     .kh-home-service-card-featured {
-        min-height: 320px;
+        min-height: 0;
+        border-right: 0;
+    }
+
+    .kh-home-service-card-intro {
+        border-radius: 0;
+    }
+
+    .kh-home-service-card-intro h2 {
+        font-size: clamp(2rem, 9vw, 2.9rem);
+        max-width: 13ch;
+    }
+
+    .kh-home-service-card-featured p,
+    .kh-home-service-card-intro p {
+        max-width: none;
     }
 
     .kh-home-process-stage {

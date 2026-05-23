@@ -1,12 +1,12 @@
 @inject HttpClient Http
 @implements IDisposable
 
-<div class="kf-chat-widget @(IsOpen ? "kf-chat-open" : "") @(ShowAttention ? "is-attention" : "")">
+<div class="kf-chat-widget @(IsOpen ? "kf-chat-open" : "")">
 
     @if (IsOpen)
     {
         <button class="kf-chat-overlay" @onclick="Toggle" aria-label="Luk chat"></button>
-        <div class="kf-chat-window" role="dialog" aria-label="Leika Assistent">
+        <div class="kf-chat-window" role="dialog" aria-label="Alma Assistent">
             <div class="kf-chat-header">
                 <div class="kf-chat-header-info">
                     <div class="kf-chat-avatar">
@@ -20,7 +20,7 @@
                         </svg>
                     </div>
                     <div>
-                        <strong>Leika Assistent</strong>
+                        <strong>Alma Assistent</strong>
                         <span class="kf-chat-status">Online</span>
                     </div>
                 </div>
@@ -62,14 +62,6 @@
         </div>
     }
 
-    @if (!IsOpen && ShowPromo)
-    {
-        <div class="kf-chat-promo" @onclick="OpenFromPromo">
-            <span class="kf-chat-promo-text">Har du brug for hjælp?</span>
-            <button class="kf-chat-promo-close" @onclick:stopPropagation="true" @onclick="DismissPromo" aria-label="Luk">×</button>
-        </div>
-    }
-
     <button class="kf-chat-bubble-btn" @onclick="Toggle" aria-label="@(IsOpen ? "Luk chat" : "Åbn chat")">
         @if (IsOpen)
         {
@@ -77,7 +69,13 @@
         }
         else
         {
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4a2 2 0 00-2 2v18l4-4h14a2 2 0 002-2V4a2 2 0 00-2-2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4.5 12.5v-1a7.5 7.5 0 0 1 15 0v1"></path>
+                <path d="M6.5 13.5h-1A1.5 1.5 0 0 0 4 15v2a1.5 1.5 0 0 0 1.5 1.5h1.75a.75.75 0 0 0 .75-.75v-3.5a.75.75 0 0 0-.75-.75H6.5Z"></path>
+                <path d="M17.5 13.5h1A1.5 1.5 0 0 1 20 15v2a1.5 1.5 0 0 1-1.5 1.5h-1.75a.75.75 0 0 1-.75-.75v-3.5a.75.75 0 0 1 .75-.75h.75Z"></path>
+                <path d="M8.75 18.5A3.75 3.75 0 0 0 12 20.25h1.25"></path>
+                <path d="M13.25 20.25h1.25"></path>
+            </svg>
         }
         @if (!IsOpen && UnreadCount > 0)
         {
@@ -91,23 +89,14 @@
     private bool IsLoading = false;
     private string InputText = "";
     private int UnreadCount = 0;
-    private bool ShowPromo = false;
     private ElementReference MessagesContainer;
-    private bool ShowAttention => ShowPromo && !IsOpen;
 
     private const string WorkerUrl = "https://mute-breeze-c6f3.krydsfelt-info.workers.dev";
 
     private List<ChatMessage> Messages = new()
     {
-        new("assistant", "Hej! Jeg er Leika, KrydsFelts AI-assistent. Hvad kan jeg hjælpe dig med?")
+        new("assistant", "Hej! Jeg er Alma, KrydsFelts AI-assistent. Hvad kan jeg hjælpe dig med?")
     };
-
-    protected override async Task OnInitializedAsync()
-    {
-        await Task.Delay(4000);
-        ShowPromo = true;
-        StateHasChanged();
-    }
 
     private void Toggle()
     {
@@ -115,20 +104,7 @@
         if (IsOpen)
         {
             UnreadCount = 0;
-            ShowPromo = false;
         }
-    }
-
-    private void OpenFromPromo()
-    {
-        ShowPromo = false;
-        IsOpen = true;
-        UnreadCount = 0;
-    }
-
-    private void DismissPromo()
-    {
-        ShowPromo = false;
     }
 
     private async Task HandleKeyDown(KeyboardEventArgs e)

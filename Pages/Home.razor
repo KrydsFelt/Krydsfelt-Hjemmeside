@@ -127,46 +127,20 @@
     </div>
 </section>
 
-<section class="kh-home-showcase">
-    <div class="kf-container">
-        <a href="/showcase" class="kh-showcase-banner reveal">
-            <div class="kh-showcase-glow"></div>
-            <div class="kh-showcase-copy">
-                <span class="oo2-section-label">Showcase</span>
-                <h2>Se vores arbejde i forskellige temaer</h2>
-                <p>Vi bygger hjemmesider i mange stilarter. Udforsk vores temaer og oplev hvordan den samme idé kan få helt forskellige udtryk.</p>
-                <span class="kh-showcase-cta">Udforsk temaer →</span>
-            </div>
-            <div class="kh-showcase-previews" aria-hidden="true">
-                <div class="kh-showcase-chip kh-showcase-chip-1">
-                    <svg viewBox="0 0 200 200"><path d="M 20 18 L 50 18 L 100 100 L 50 182 L 20 182 L 70 100 Z"/><path d="M 180 18 L 150 18 L 100 100 L 150 182 L 180 182 L 130 100 Z"/></svg>
-                    <span>Arcade</span>
-                </div>
-                <div class="kh-showcase-chip kh-showcase-chip-2">
-                    <span class="kh-showcase-soon">Snart</span>
-                </div>
-                <div class="kh-showcase-chip kh-showcase-chip-3">
-                    <span class="kh-showcase-soon">Snart</span>
-                </div>
-            </div>
-        </a>
-    </div>
-</section>
-
 <section class="kh-home-services">
     <div class="kf-container">
-        <div class="kh-home-services-top reveal">
-            <div class="kh-home-section-head">
-                <span class="oo2-section-label">@Lang.T("home.services.label")</span>
+        <div class="kh-home-service-grid kh-home-service-grid-featured">
+            <article class="kh-home-service-card kh-home-service-card-intro reveal">
+                <span class="kh-home-service-kicker">@Lang.T("home.services.label") /</span>
                 <h2>@Lang.T("home.services.heading")</h2>
                 <p>@Lang.T("home.services.text")</p>
-            </div>
+                <a href="/ydelser" class="kh-home-services-link">@Lang.T("home.services.seeAll")</a>
+            </article>
 
-            <a href="/ydelser" class="kh-home-services-link">@Lang.T("home.services.seeAll")</a>
-        </div>
-
-        <div class="kh-home-service-grid kh-home-service-grid-featured">
-            <article class="kh-home-service-card kh-home-service-card-featured reveal">
+            <article class="kh-home-service-card kh-home-service-card-featured kh-home-service-card-service-1 reveal" data-delay="100">
+                <div class="kh-home-service-meta"><span>01</span><span>// 04</span></div>
+                <h3>@Lang.T("home.service1.title")</h3>
+                <p>@Lang.T("home.service1.desc")</p>
                 <div class="kh-home-service-icon" aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
                         <rect x="3.5" y="5" width="17" height="14" rx="2.5"></rect>
@@ -175,10 +149,11 @@
                         <path d="M13.5 15h2.5"></path>
                     </svg>
                 </div>
-                <h3>@Lang.T("home.service1.title")</h3>
-                <p>@Lang.T("home.service1.desc")</p>
             </article>
-            <article class="kh-home-service-card kh-home-service-card-featured reveal" data-delay="100">
+            <article class="kh-home-service-card kh-home-service-card-featured kh-home-service-card-service-2 reveal" data-delay="200">
+                <div class="kh-home-service-meta"><span>02</span><span>// 04</span></div>
+                <h3>@Lang.T("home.service2.title")</h3>
+                <p>@Lang.T("home.service2.desc")</p>
                 <div class="kh-home-service-icon" aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M8 5.5h8"></path>
@@ -188,10 +163,11 @@
                         <path d="M9 13h6"></path>
                     </svg>
                 </div>
-                <h3>@Lang.T("home.service2.title")</h3>
-                <p>@Lang.T("home.service2.desc")</p>
             </article>
-            <article class="kh-home-service-card kh-home-service-card-featured reveal" data-delay="200">
+            <article class="kh-home-service-card kh-home-service-card-featured kh-home-service-card-service-3 reveal" data-delay="300">
+                <div class="kh-home-service-meta"><span>03</span><span>// 04</span></div>
+                <h3>@Lang.T("home.service3.title")</h3>
+                <p>@Lang.T("home.service3.desc")</p>
                 <div class="kh-home-service-icon" aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
                         <path d="m12 3.5 1.75 3.7 4.05.56-2.95 2.88.72 4.08L12 12.78l-3.57 1.94.72-4.08-2.95-2.88 4.05-.56L12 3.5Z"></path>
@@ -199,10 +175,11 @@
                         <path d="M6 17.5h5"></path>
                     </svg>
                 </div>
-                <h3>@Lang.T("home.service3.title")</h3>
-                <p>@Lang.T("home.service3.desc")</p>
             </article>
-            <article class="kh-home-service-card kh-home-service-card-featured reveal" data-delay="300">
+            <article class="kh-home-service-card kh-home-service-card-featured kh-home-service-card-service-4 reveal" data-delay="400">
+                <div class="kh-home-service-meta"><span>04</span><span>// 04</span></div>
+                <h3>@Lang.T("home.service4.title")</h3>
+                <p>@Lang.T("home.service4.desc")</p>
                 <div class="kh-home-service-icon" aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
                         <rect x="3.5" y="5" width="7" height="7" rx="1.75"></rect>
@@ -213,56 +190,8 @@
                         <path d="M12 12v2"></path>
                     </svg>
                 </div>
-                <h3>@Lang.T("home.service4.title")</h3>
-                <p>@Lang.T("home.service4.desc")</p>
             </article>
         </div>
-    </div>
-</section>
-
-<section class="kh-home-process">
-    <div class="kf-container">
-        <div class="kh-home-process-copy reveal">
-            <span class="oo2-section-label">@Lang.T("home.process.label")</span>
-            <h2>@Lang.T("home.process.heading")</h2>
-            <p class="kh-home-process-intro-text">@Lang.T("home.process.intro")</p>
-        </div>
-
-        <article class="kh-home-process-stage reveal" data-delay="100">
-            <div class="kh-home-process-stage-controls">
-                <button type="button" class="kh-home-process-arrow" @onclick="PreviousProcessStep" aria-label="@Lang.T("nav.prevStep")">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="m15 18-6-6 6-6"></path>
-                    </svg>
-                </button>
-                <button type="button" class="kh-home-process-arrow" @onclick="NextProcessStep" aria-label="@Lang.T("nav.nextStep")">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="m9 18 6-6-6-6"></path>
-                    </svg>
-                </button>
-            </div>
-
-            <div class="kh-home-process-stage-grid">
-                <div class="kh-home-process-stage-copy">
-                    <div class="kh-home-process-stage-number">@ActiveProcessStep.Number</div>
-                    <h3>@ActiveProcessStep.Title</h3>
-                    <p class="kh-home-process-stage-description">@ActiveProcessStep.Description</p>
-
-                    <div class="kh-home-process-stage-includes">
-                        <ul>
-                            @foreach (var item in ActiveProcessStep.Includes)
-                            {
-                                <li>@item</li>
-                            }
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="kh-home-process-stage-media">
-                    <img src="@ActiveProcessStep.ImageUrl" alt="@ActiveProcessStep.ImageAlt" loading="lazy" />
-                </div>
-            </div>
-        </article>
     </div>
 </section>
 
@@ -278,7 +207,6 @@
 <SiteFooter />
 
 @code {
-    private int activeProcessStepIndex;
     private bool _reanimationNeeded;
 
     protected override void OnInitialized()
@@ -288,51 +216,6 @@
     }
 
     private void OnLangChanged() => _reanimationNeeded = true;
-
-    private ProcessStep ActiveProcessStep => GetProcessSteps()[activeProcessStepIndex];
-
-    private ProcessStep[] GetProcessSteps() =>
-    [
-        new(
-            "01",
-            Lang.T("home.step1.title"),
-            Lang.T("home.step1.desc"),
-            [
-                Lang.T("home.step1.i1"),
-                Lang.T("home.step1.i2"),
-                Lang.T("home.step1.i3"),
-                Lang.T("home.step1.i4")
-            ],
-            "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80",
-            Lang.T("home.step1.alt")
-        ),
-        new(
-            "02",
-            Lang.T("home.step2.title"),
-            Lang.T("home.step2.desc"),
-            [
-                Lang.T("home.step2.i1"),
-                Lang.T("home.step2.i2"),
-                Lang.T("home.step2.i3"),
-                Lang.T("home.step2.i4")
-            ],
-            "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80",
-            Lang.T("home.step2.alt")
-        ),
-        new(
-            "03",
-            Lang.T("home.step3.title"),
-            Lang.T("home.step3.desc"),
-            [
-                Lang.T("home.step3.i1"),
-                Lang.T("home.step3.i2"),
-                Lang.T("home.step3.i3"),
-                Lang.T("home.step3.i4")
-            ],
-            "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
-            Lang.T("home.step3.alt")
-        )
-    ];
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
@@ -348,22 +231,4 @@
         Lang.OnLanguageChanged -= OnLangChanged;
         base.Dispose();
     }
-
-    private void PreviousProcessStep()
-    {
-        activeProcessStepIndex = (activeProcessStepIndex - 1 + 3) % 3;
-    }
-
-    private void NextProcessStep()
-    {
-        activeProcessStepIndex = (activeProcessStepIndex + 1) % 3;
-    }
-
-    private sealed record ProcessStep(
-        string Number,
-        string Title,
-        string Description,
-        string[] Includes,
-        string ImageUrl,
-        string ImageAlt);
 }
