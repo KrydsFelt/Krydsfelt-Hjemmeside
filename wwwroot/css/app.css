@@ -5035,7 +5035,7 @@ body {
     top: 0;
     padding: 1rem 0;
     background: transparent;
-    position: fixed;
+    position: absolute;
     transition: opacity 0.22s ease, transform 0.22s ease;
 }
 

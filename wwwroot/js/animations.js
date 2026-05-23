@@ -435,25 +435,15 @@ window.initAnimations = function () {
         revealEls.forEach(el => observer.observe(el));
     }
 
-    // Nav: hide when scrolling down, reveal when scrolling up
+    // Nav: only visible when the page is at the very top
     const nav = document.querySelector('.kf-nav');
     if (nav) {
-        let lastY = window.scrollY;
         const onScroll = () => {
             const y = window.scrollY;
             const isAtTop = y <= 8;
 
             nav.classList.toggle('scrolled', !isAtTop);
-
-            if (isAtTop) {
-                nav.classList.remove('kf-nav-hidden');
-            } else if (y > lastY && y > 120) {
-                nav.classList.add('kf-nav-hidden');
-            } else if (y < lastY) {
-                nav.classList.remove('kf-nav-hidden');
-            }
-
-            lastY = y;
+            nav.classList.toggle('kf-nav-hidden', !isAtTop);
         };
 
         window.addEventListener('scroll', onScroll, { passive: true });
