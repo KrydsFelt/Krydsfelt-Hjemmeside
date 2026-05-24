@@ -10142,3 +10142,8 @@ body {
     margin-top: 0;
     padding: 1.5rem 0;
 }
+
+/* Hide focus outline for mouse users; keep it for keyboard nav (accessibility) */
+*:focus:not(:focus-visible) {
+    outline: none !important;
+}

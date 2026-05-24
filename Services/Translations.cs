@@ -250,6 +250,16 @@ public static class Translations
         ["footer.servicesLink"] = "Ydelser",
         ["footer.contact"] = "Kontakt",
         ["footer.copyright"] = "© 2026 KrydsFelt. Alle rettigheder forbeholdes.",
+        ["footer.helpLabel"] = "Brug for hjælp?",
+        ["footer.privacy"] = "Privatlivspolitik",
+        ["footer.terms"] = "Handelsbetingelser",
+        ["footer.showcase"] = "Showcase",
+
+        // --- Night-sky hero ---
+        ["nshero.eyebrow"] = "Digitalt bureau",
+        ["nshero.title"] = "Vi bygger hjemmesider & digitale løsninger",
+        ["nshero.sub"] = "Strategi, design og udvikling — samlet i ét lille, dedikeret team.",
+        ["nshero.cta"] = "Book et møde",
     };
 
     public static readonly Dictionary<string, string> En = new()
@@ -500,5 +510,15 @@ public static class Translations
         ["footer.servicesLink"] = "Services",
         ["footer.contact"] = "Contact",
         ["footer.copyright"] = "© 2026 KrydsFelt. All rights reserved.",
+        ["footer.helpLabel"] = "Need help?",
+        ["footer.privacy"] = "Privacy Policy",
+        ["footer.terms"] = "Terms & Conditions",
+        ["footer.showcase"] = "Showcase",
+
+        // --- Night-sky hero ---
+        ["nshero.eyebrow"] = "Digital agency",
+        ["nshero.title"] = "We build websites & digital solutions",
+        ["nshero.sub"] = "Strategy, design and development — together in one small, dedicated team.",
+        ["nshero.cta"] = "Book a meeting",
     };
 }
