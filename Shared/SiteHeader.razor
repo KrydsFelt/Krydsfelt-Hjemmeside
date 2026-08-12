@@ -97,6 +97,10 @@
         <a href="/ydelser#webudvikling" class="kf-nav-mobile-sub" @onclick="CloseMenu">@Lang.T("nav.services.web")</a>
         <a href="/ydelser#branding-design" class="kf-nav-mobile-sub" @onclick="CloseMenu">@Lang.T("nav.services.branding")</a>
         <a href="/ydelser#custom-projekt" class="kf-nav-mobile-sub" @onclick="CloseMenu">@Lang.T("nav.services.custom")</a>
+        @if (!HideContactButton)
+        {
+            <a href="@ContactHref" class="kf-nav-mobile-contact" @onclick="CloseMenu">@Lang.T("nav.bookMeeting") <span aria-hidden="true">→</span></a>
+        }
     </div>
 </nav>
 
