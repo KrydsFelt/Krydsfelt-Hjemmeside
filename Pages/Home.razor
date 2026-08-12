@@ -4,7 +4,7 @@
 
 <PageTitle>KrydsFelt</PageTitle>
 
-<SiteHeader CurrentPage="home" ContactHref="/booking" />
+<SiteHeader CurrentPage="home" ContactHref="/kontakt" />
 
 <section class="ns-hero">
     <div class="ns-sky" aria-hidden="true">
@@ -16,12 +16,20 @@
         <span class="ns-shooter" style="--angle:-50deg;left:52%;top:12%;animation-delay:10s"></span>
     </div>
     <div class="kf-container ns-hero-inner">
-        <span class="ns-eyebrow">@Lang.T("nshero.eyebrow")</span>
-        <h1 class="ns-hero-title">@Lang.T("nshero.title")</h1>
-        <p class="ns-hero-sub">@Lang.T("nshero.sub")</p>
-        <a href="/booking" class="kf-btn kf-btn-primary"><span>@Lang.T("nshero.cta")</span></a>
+        <h1 class="ns-hero-title">
+            <span class="ns-hero-title-line">@Lang.T("nshero.titleLine1") <span class="ns-hero-title-accent">@Lang.T("nshero.titleLine2")</span></span>
+            <span class="ns-hero-title-line">@Lang.T("nshero.titleLine3Prefix") <span class="ns-hero-title-accent">@Lang.T("nshero.titleLine3Accent")</span></span>
+        </h1>
     </div>
 </section>
+
+<figure class="ns-hero-media kf-container">
+    <img src="Pictures/krydsfelt-hero-monochrome.jpg"
+         alt="@Lang.T("nshero.imageAlt")"
+         width="1448"
+         height="1086"
+         fetchpriority="high" />
+</figure>
 
 <section class="kh-tech-strip">
     <div class="kh-trust-banner">
@@ -91,11 +99,6 @@
                         <rect x="3" y="3" width="18" height="18" rx="5"></rect>
                         <circle cx="12" cy="12" r="4"></circle>
                         <circle cx="17.5" cy="6.5" r="1"></circle>
-                    </svg>
-                </a>
-                <a href="#" aria-label="LinkedIn" class="kh-home-social-link">
-                    <svg viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M6.94 8.5H3.56V20h3.38V8.5Zm-1.69-1.56c1.08 0 1.94-.74 1.94-1.72-.02-1-.86-1.72-1.92-1.72-1.06 0-1.94.72-1.94 1.72 0 .98.84 1.72 1.9 1.72h.02ZM20 13.05c0-3.47-1.85-5.08-4.32-5.08-1.99 0-2.88 1.1-3.37 1.87V8.5H8.94c.05.89 0 11.5 0 11.5h3.37v-6.42c0-.34.02-.68.12-.92.27-.68.88-1.38 1.91-1.38 1.35 0 1.89 1.04 1.89 2.56V20H20v-6.95Z"></path>
                     </svg>
                 </a>
                 <a href="mailto:krydsfelt.info@gmail.com" aria-label="Email" class="kh-home-social-link">
@@ -200,7 +203,7 @@
         <span class="oo2-section-label">@Lang.T("home.cta.label")</span>
         <h2>@Lang.T("home.cta.heading")</h2>
         <p>@Lang.T("home.cta.text")</p>
-        <a href="/booking" class="oo2-cta-link">@Lang.T("home.cta.link")</a>
+        <a href="/kontakt" class="oo2-cta-link">@Lang.T("home.cta.link")</a>
     </div>
 </section>
 

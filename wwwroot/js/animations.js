@@ -592,3 +592,10 @@ window.initAnimations = function () {
     updateClock();
     setInterval(updateClock, 1000);
 };
+window.scrollAboutValues = function (element, direction) {
+    if (!element) return;
+    const card = element.querySelector('.about-value-deep-card');
+    const gap = parseFloat(getComputedStyle(element).gap) || 24;
+    const distance = card ? card.getBoundingClientRect().width + gap : element.clientWidth * 0.8;
+    element.scrollBy({ left: direction * distance, behavior: 'smooth' });
+};

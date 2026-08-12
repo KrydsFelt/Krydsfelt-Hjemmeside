@@ -4,161 +4,74 @@
 
 <PageTitle>Ydelser – KrydsFelt</PageTitle>
 
-<!-- NAV + HERO WRAPPER -->
-<div class="yd-hero-wrapper">
-    <SiteHeader CurrentPage="services" ContactHref="/booking" />
+<SiteHeader CurrentPage="services" ContactHref="/kontakt" />
 
-    <section class="yd-hero-v2">
+<main class="services-onepage">
+    <section class="services-onepage-hero">
         <div class="kf-container">
-            <div class="yd-hero-card-v2">
-                <span class="yd-hero-badge">@Lang.T("yd2.hero.badge")</span>
-                <h1 class="yd-hero-title">@Lang.T("yd2.hero.title")</h1>
-                <p class="yd-hero-desc">@Lang.T("yd2.hero.desc")</p>
-                <a href="/booking" class="yd-hero-btn">@Lang.T("yd.hero.btn")</a>
-            </div>
+            <h1>@Lang.T("yd.onepage.hero")</h1>
         </div>
     </section>
-</div>
 
-<section class="yd2-quote-scene">
-    <div class="kf-container">
-        <div class="yd2-quote-sticky">
-            <div class="yd2-quote-content" data-quote-scroll>
-                <span class="yd2-quote-mark" aria-hidden="true">"</span>
-                <h2><span data-quote-title>We build what works.</span></h2>
-                <p class="yd2-quote-text">For os handler godt digitalt arbejde ikke kun om at få noget online. Det handler om at bygge løsninger, der skaber værdi for virksomheden, giver mening for slutbrugeren og fungerer i praksis. Vi står inde for ordentligt håndværk, tydelige beslutninger og oplevelser, der føles rigtige hele vejen igennem.</p>
-                <p class="yd2-quote-author">Minh Quan Dinh, Co-Founder</p>
+    <nav class="services-onepage-index" aria-label="@Lang.T("yd2.services.label")">
+        <div class="kf-container">
+            <a href="#webudvikling"><span>01</span>@Lang.T("yd2.card.webudvikling.title")</a>
+            <a href="#branding-design"><span>02</span>@Lang.T("yd2.card.branding.title")</a>
+            <a href="#custom-projekt"><span>03</span>@Lang.T("yd2.card.custom.title")</a>
+        </div>
+    </nav>
+
+    @foreach (var service in Services)
+    {
+        <section id="@service.Id" class="services-onepage-product services-onepage-product-@service.Number">
+            <div class="kf-container services-onepage-product-grid">
+                <div class="services-onepage-product-copy reveal">
+                    <span class="services-onepage-number">@service.Number / 03</span>
+                    <h2>@Lang.T(service.TitleKey)</h2>
+                    <p class="services-onepage-summary">@Lang.T(service.SummaryKey)</p>
+                    <div class="services-onepage-specs">
+                        <span>@Lang.T("yd.onepage.includes")</span>
+                        <ul>
+                            @foreach (var itemKey in service.ItemKeys)
+                            {
+                                <li>@Lang.T(itemKey)</li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+                <div class="services-onepage-visual reveal" data-delay="120" aria-hidden="true">
+                    <span class="services-onepage-crosshair"></span>
+                    <strong>@service.Number</strong>
+                    <small>KRYDSFELT / DIGITAL SYSTEM</small>
+                </div>
             </div>
-        </div>
-    </div>
-</section>
+        </section>
+    }
 
-<!-- SERVICES GRID -->
-<section class="yd2-services">
-    <div class="kf-container">
-        <div class="yd2-services-head reveal">
-            <span class="oo2-section-label">@Lang.T("yd2.services.label")</span>
-            <h2>@Lang.T("yd2.services.heading")</h2>
-        </div>
-
-        <div class="yd2-services-grid">
-            <!-- Webudvikling Card -->
-            <a href="/ydelser/webudvikling" class="yd2-service-card yd2-service-card--trace-start-right reveal">
-                <div class="yd2-service-card-laser" aria-hidden="true">
-                    <span class="yd2-laser-edge yd2-laser-edge-top"></span>
-                    <span class="yd2-laser-edge yd2-laser-edge-right"></span>
-                    <span class="yd2-laser-edge yd2-laser-edge-bottom"></span>
-                    <span class="yd2-laser-edge yd2-laser-edge-left"></span>
-                </div>
-                <div class="yd2-service-card-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <rect x="2" y="3" width="20" height="14" rx="2"></rect>
-                        <line x1="2" y1="17" x2="22" y2="17"></line>
-                        <line x1="6" y1="21" x2="18" y2="21"></line>
-                    </svg>
-                </div>
-                <h3>@Lang.T("yd2.card.webudvikling.title")</h3>
-                <p>@Lang.T("yd2.card.webudvikling.desc")</p>
-                <span class="yd2-service-card-link">Læs mere →</span>
-            </a>
-
-            <!-- Meta Ads Card -->
-            <a href="/ydelser/meta-ads" class="yd2-service-card reveal" data-delay="100">
-                <div class="yd2-service-card-laser" aria-hidden="true">
-                    <span class="yd2-laser-edge yd2-laser-edge-top"></span>
-                    <span class="yd2-laser-edge yd2-laser-edge-right"></span>
-                    <span class="yd2-laser-edge yd2-laser-edge-bottom"></span>
-                    <span class="yd2-laser-edge yd2-laser-edge-left"></span>
-                </div>
-                <div class="yd2-service-card-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <path d="M6 9l6-3 6 3v6l-6 3-6-3V9z"></path>
-                        <path d="M9 14v3"></path>
-                        <path d="M15 14v3"></path>
-                    </svg>
-                </div>
-                <h3>@Lang.T("yd2.card.metaads.title")</h3>
-                <p>@Lang.T("yd2.card.metaads.desc")</p>
-                <span class="yd2-service-card-link">Læs mere →</span>
-            </a>
-
-            <!-- Branding & Design Card -->
-            <a href="/ydelser/branding-design" class="yd2-service-card reveal" data-delay="200">
-                <div class="yd2-service-card-laser" aria-hidden="true">
-                    <span class="yd2-laser-edge yd2-laser-edge-top"></span>
-                    <span class="yd2-laser-edge yd2-laser-edge-right"></span>
-                    <span class="yd2-laser-edge yd2-laser-edge-bottom"></span>
-                    <span class="yd2-laser-edge yd2-laser-edge-left"></span>
-                </div>
-                <div class="yd2-service-card-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <path d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2z"></path>
-                        <path d="M12 7v10"></path>
-                        <path d="M7 12h10"></path>
-                    </svg>
-                </div>
-                <h3>@Lang.T("yd2.card.branding.title")</h3>
-                <p>@Lang.T("yd2.card.branding.desc")</p>
-                <span class="yd2-service-card-link">Læs mere →</span>
-            </a>
-
-            <!-- Custom Project Card -->
-            <a href="/ydelser/custom-project" class="yd2-service-card reveal" data-delay="300">
-                <div class="yd2-service-card-laser" aria-hidden="true">
-                    <span class="yd2-laser-edge yd2-laser-edge-top"></span>
-                    <span class="yd2-laser-edge yd2-laser-edge-right"></span>
-                    <span class="yd2-laser-edge yd2-laser-edge-bottom"></span>
-                    <span class="yd2-laser-edge yd2-laser-edge-left"></span>
-                </div>
-                <div class="yd2-service-card-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"></path>
-                        <polyline points="10 17 14 13 10 9"></polyline>
-                    </svg>
-                </div>
-                <h3>@Lang.T("yd2.card.custom.title")</h3>
-                <p>@Lang.T("yd2.card.custom.desc")</p>
-                <span class="yd2-service-card-link">Læs mere →</span>
-            </a>
-
-            <!-- Integration Card -->
-            <a href="/booking" class="yd2-service-card reveal" data-delay="400">
-                <div class="yd2-service-card-laser" aria-hidden="true">
-                    <span class="yd2-laser-edge yd2-laser-edge-top"></span>
-                    <span class="yd2-laser-edge yd2-laser-edge-right"></span>
-                    <span class="yd2-laser-edge yd2-laser-edge-bottom"></span>
-                    <span class="yd2-laser-edge yd2-laser-edge-left"></span>
-                </div>
-                <div class="yd2-service-card-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <path d="M8 7h4"></path>
-                        <path d="M8 17h4"></path>
-                        <path d="M14 7h2a3 3 0 0 1 0 6h-2"></path>
-                        <path d="M10 17H8a3 3 0 0 1 0-6h2"></path>
-                        <path d="M10 12h4"></path>
-                    </svg>
-                </div>
-                <h3>Integration</h3>
-                <p>AI-drevet chatbot, der kan besvare spørgsmål, kvalificere henvendelser og give hurtige svar direkte på jeres hjemmeside.</p>
-                <span class="yd2-service-card-link">Læs mere →</span>
-            </a>
-        </div>
-    </div>
-</section>
+</main>
 
 <!-- BOTTOM CTA -->
-<section class="kh-about-cta">
+<section class="kh-home-cta">
     <div class="kf-container kh-home-cta-inner">
         <span class="oo2-section-label">@Lang.T("yd2.cta.label")</span>
         <h2>@Lang.T("yd2.cta.heading")</h2>
         <p>@Lang.T("yd2.cta.desc")</p>
-        <a href="/booking" class="oo2-cta-link">@Lang.T("yd2.cta.link")</a>
+        <a href="/kontakt" class="oo2-cta-link">@Lang.T("yd2.cta.link")</a>
     </div>
 </section>
 
 <SiteFooter />
 
 @code {
+    private static readonly ServiceSection[] Services =
+    [
+        new("webudvikling", "01", "yd2.card.webudvikling.title", "yd.onepage.web.summary", ["yd.onepage.web.i1", "yd.onepage.web.i2", "yd.onepage.web.i3", "yd.onepage.web.i4"]),
+        new("branding-design", "02", "yd2.card.branding.title", "yd.onepage.brand.summary", ["yd.onepage.brand.i1", "yd.onepage.brand.i2", "yd.onepage.brand.i3", "yd.onepage.brand.i4"]),
+        new("custom-projekt", "03", "yd2.card.custom.title", "yd.onepage.custom.summary", ["yd.onepage.custom.i1", "yd.onepage.custom.i2", "yd.onepage.custom.i3", "yd.onepage.custom.i4"])
+    ];
+
+    private sealed record ServiceSection(string Id, string Number, string TitleKey, string SummaryKey, string[] ItemKeys);
+
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)

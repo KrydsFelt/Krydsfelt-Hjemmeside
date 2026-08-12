@@ -4,71 +4,102 @@
 
 <PageTitle>Om Os – KrydsFelt</PageTitle>
 
-<SiteHeader CurrentPage="about" ContactHref="/booking" />
+<SiteHeader CurrentPage="about" ContactHref="/kontakt" />
 
-<section class="kh-about-hero">
-    <div class="kf-container kh-about-hero-grid kh-about-hero-grid-minimal">
-        <div class="kh-about-hero-copy">
-            <span class="oo2-section-label">@Lang.T("about.hero.label")</span>
-            <h1 class="kh-about-title">@Lang.T("about.hero.title")</h1>
-            <p class="kh-about-text">@Lang.T("about.hero.text")</p>
-            <div class="kh-about-actions">
-                <a href="/booking" class="kf-btn kf-btn-primary"><span>@Lang.T("about.hero.bookMeeting")</span></a>
-                <a href="/ydelser" class="kf-btn kf-btn-secondary"><span>@Lang.T("about.hero.seeServices")</span></a>
+<main class="about-editorial">
+    <section class="about-intro-hero">
+        <div class="kf-container">
+            <h1>
+                <span>@Lang.T("about.intro.line1")</span>
+                <span>@Lang.T("about.intro.line2") <em>@Lang.T("about.intro.accent")</em></span>
+            </h1>
+        </div>
+    </section>
+
+    <section class="about-editorial-development">
+        <div class="kf-container">
+            <div class="about-editorial-development-grid">
+                <img class="about-editorial-development-image reveal" src="Pictures/krydsfelt-hero-monochrome.jpg" alt="@Lang.T("about.development.imageAlt")" />
+                <div class="about-editorial-development-copy reveal" data-delay="100">
+                    <span class="oo2-section-label about-editorial-development-kicker">@Lang.T("about.development.label")</span>
+                    <h2>@Lang.T("about.development.heading")</h2>
+                    <p>@Lang.T("about.development.p1a") <span class="about-editorial-value-word">@Lang.T("about.value3.title")</span> @Lang.T("about.development.p1b") <span class="about-editorial-value-word">@Lang.T("about.value1.title")</span>@Lang.T("about.development.p1c")</p>
+                    <p>@Lang.T("about.development.p2a") <span class="about-editorial-value-word">@Lang.T("about.value4.title")</span>@Lang.T("about.development.p2b") <span class="about-editorial-value-word">@Lang.T("about.value5.title")</span> @Lang.T("about.development.p2c") <span class="about-editorial-value-word">@Lang.T("about.value2.title")</span>@Lang.T("about.development.p2d")</p>
+                    <p>@Lang.T("about.development.p3a") <span class="about-editorial-value-word">@Lang.T("about.value6.title")</span> @Lang.T("about.development.p3b") <span class="about-editorial-value-word">@Lang.T("about.value7.title")</span>@Lang.T("about.development.p3c")</p>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<section class="kh-about-team">
-    <div class="kf-container">
-        <div class="kh-home-section-head reveal">
+    <section class="about-values-deep-dive">
+        <div class="kf-container">
+            <header class="about-values-deep-head reveal">
+                <div>
+                    <span class="oo2-section-label">@Lang.T("about.values.label")</span>
+                    <h2>@Lang.T("about.values.deepHeading")</h2>
+                </div>
+                <div class="about-values-controls" aria-label="@Lang.T("about.values.navigation")">
+                    <button type="button" @onclick="() => ScrollValues(-1)" aria-label="@Lang.T("about.values.previous")">←</button>
+                    <button type="button" @onclick="() => ScrollValues(1)" aria-label="@Lang.T("about.values.next")">→</button>
+                </div>
+            </header>
+
+            <div class="about-values-track" @ref="ValuesTrack">
+                @for (var index = 1; index <= 7; index++)
+                {
+                    var valueIndex = index;
+                    <article class="about-value-deep-card about-value-deep-card-@valueIndex">
+                        <div class="about-value-symbol" aria-hidden="true"><span>@valueIndex.ToString("00")</span></div>
+                        <div class="about-value-deep-copy">
+                            <h3>@Lang.T($"about.value{valueIndex}.title")</h3>
+                            <p>@Lang.T($"about.value{valueIndex}.desc")</p>
+                        </div>
+                    </article>
+                }
+            </div>
+        </div>
+    </section>
+
+    <section class="about-editorial-team">
+        <div class="kf-container">
             <span class="oo2-section-label">@Lang.T("about.team.label")</span>
-            <h2>@Lang.T("about.team.heading")</h2>
-            <p>@Lang.T("about.team.text")</p>
+            <div class="about-editorial-team-grid">
+                <article class="about-editorial-person reveal">
+                    <img src="Pictures/Tony.jpeg" alt="Tony Truong" />
+                    <div class="about-editorial-person-copy"><span>Founder & CTO</span><h3>Tony Truong</h3><p>@Lang.T("about.tony.bio")</p></div>
+                </article>
+                <article class="about-editorial-person reveal" data-delay="100">
+                    <img src="Pictures/Gio.jpeg" alt="Giorgio Kevin Beshara" />
+                    <div class="about-editorial-person-copy"><span>Co-Founder & Developer</span><h3>Giorgio Kevin Beshara</h3><p>@Lang.T("about.gio.bio")</p></div>
+                </article>
+                <article class="about-editorial-person reveal" data-delay="200">
+                    <img src="Pictures/Minh.jpeg" alt="Minh Quan Dinh" />
+                    <div class="about-editorial-person-copy"><span>Co-Founder & Developer</span><h3>Minh Quan Dinh</h3><p>@Lang.T("about.minh.bio")</p></div>
+                </article>
+            </div>
         </div>
+    </section>
 
-        <div class="kh-about-team-grid">
-            <article class="kh-about-team-card reveal">
-                <img src="Pictures/Tony.jpeg" alt="Tony Truong" />
-                <div>
-                    <h3>Tony Truong</h3>
-                    <p>Founder & CTO</p>
-                    <span>@Lang.T("about.tony.bio")</span>
-                </div>
-            </article>
-            <article class="kh-about-team-card reveal" data-delay="100">
-                <img src="Pictures/Gio.jpeg" alt="Giorgio Kevin Beshara" />
-                <div>
-                    <h3>Giorgio Kevin Beshara</h3>
-                    <p>Co-Founder & Developer</p>
-                    <span>@Lang.T("about.gio.bio")</span>
-                </div>
-            </article>
-            <article class="kh-about-team-card reveal" data-delay="200">
-                <img src="Pictures/Minh.jpeg" alt="Minh Quan Dinh" />
-                <div>
-                    <h3>Minh Quan Dinh</h3>
-                    <p>Co-Founder & Developer</p>
-                    <span>@Lang.T("about.minh.bio")</span>
-                </div>
-            </article>
+    <section class="kh-home-cta">
+        <div class="kf-container kh-home-cta-inner reveal">
+            <span class="oo2-section-label">@Lang.T("about.cta.label")</span>
+            <h2>@Lang.T("about.cta.heading")</h2>
+            <p>@Lang.T("about.cta.text")</p>
+            <a href="/kontakt" class="oo2-cta-link">@Lang.T("about.cta.link")</a>
         </div>
-    </div>
-</section>
-
-<section class="kh-about-cta">
-    <div class="kf-container kh-home-cta-inner">
-        <span class="oo2-section-label">@Lang.T("about.cta.label")</span>
-        <h2>@Lang.T("about.cta.heading")</h2>
-        <p>@Lang.T("about.cta.text")</p>
-        <a href="/booking" class="oo2-cta-link">@Lang.T("about.cta.link")</a>
-    </div>
-</section>
+    </section>
+</main>
 
 <SiteFooter />
 
 @code {
+    private ElementReference ValuesTrack;
+
+    private async Task ScrollValues(int direction)
+    {
+        await JS.InvokeVoidAsync("scrollAboutValues", ValuesTrack, direction);
+    }
+
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
