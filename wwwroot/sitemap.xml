@@ -21,21 +21,6 @@
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://krydsfelt.com/ydelser/webudvikling</loc>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://krydsfelt.com/ydelser/branding-design</loc>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://krydsfelt.com/ydelser/custom-project</loc>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
         <loc>https://krydsfelt.com/privatlivspolitik</loc>
         <changefreq>yearly</changefreq>
         <priority>0.3</priority>
