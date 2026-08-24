@@ -60,16 +60,194 @@
             </aside>
 
             <div class="yd-detail-content">
-                <article class="yd-detail-hero yd-detail-hero-@SelectedService.Number">
-                    <span class="yd-detail-kicker">By Krydsfelt® / @Lang.T(SelectedService.TitleKey)</span>
-                    <h2>@Lang.T(SelectedService.StatementKey)</h2>
-                    <div class="yd-detail-orbit"><i></i><i></i><i></i></div>
-                    <p>@Lang.T(SelectedService.SummaryKey)</p>
-                </article>
-                <article class="yd-detail-spec">
-                    <div><span>@Lang.T("yd.onepage.includes")</span><h2>@Lang.T("yd.showcase.delivery")</h2></div>
-                    <ol>@foreach (var itemKey in SelectedService.ItemKeys) { <li><span>@Lang.T(itemKey)</span><i>+</i></li> }</ol>
-                </article>
+                @if (SelectedService.Id == "webudvikling")
+                {
+                    <section class="yd-detail-introduction">
+                        <h2>@Lang.T("yd.web.introduction.heading")</h2>
+                        <p>@Lang.T("yd.web.introduction.text")</p>
+                    </section>
+                    <section class="yd-web-offerings" aria-labelledby="yd-web-offerings-title">
+                        <header class="yd-web-offerings-head">
+                            <span>@Lang.T("yd.web.offerings.label")</span>
+                            <h2 id="yd-web-offerings-title">@Lang.T("yd.web.offerings.heading")</h2>
+                        </header>
+                        <div class="yd-web-offerings-grid">
+                            <article>
+                                <div class="yd-web-offering-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 9v11"/></svg></div>
+                                <span>01</span>
+                                <h3>@Lang.T("yd.web.offerings.website.title")</h3>
+                                <p>@Lang.T("yd.web.offerings.website.text")</p>
+                            </article>
+                            <article>
+                                <div class="yd-web-offering-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="8" cy="8" r="3"/><circle cx="17" cy="9" r="2"/><path d="M3 20c0-4 2-6 5-6s5 2 5 6M14 15c3-1 6 1 6 5"/></svg></div>
+                                <span>02</span>
+                                <h3>@Lang.T("yd.web.offerings.crm.title")</h3>
+                                <p>@Lang.T("yd.web.offerings.crm.text")</p>
+                            </article>
+                            <article>
+                                <div class="yd-web-offering-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7 8h10M7 12h4M7 16h7"/></svg></div>
+                                <span>03</span>
+                                <h3>@Lang.T("yd.web.offerings.pos.title")</h3>
+                                <p>@Lang.T("yd.web.offerings.pos.text")</p>
+                            </article>
+                            <article>
+                                <div class="yd-web-offering-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l1.7 5.3L19 10l-5.3 1.7L12 17l-1.7-5.3L5 10l5.3-1.7L12 3Z"/><path d="M18.5 15l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8.8-2.2Z"/></svg></div>
+                                <span>04</span>
+                                <h3>@Lang.T("yd.web.offerings.ai.title")</h3>
+                                <p>@Lang.T("yd.web.offerings.ai.text")</p>
+                            </article>
+                        </div>
+                    </section>
+                    <section class="yd-web-working-process" aria-labelledby="yd-web-process-title">
+                        <header class="yd-web-working-process-head">
+                            <span>@Lang.T("yd.web.process.label")</span>
+                            <h2 id="yd-web-process-title">@Lang.T("yd.web.process.heading")</h2>
+                            <p>@Lang.T("yd.web.process.intro")</p>
+                        </header>
+                        <ol class="yd-web-working-process-list">
+                            <li>
+                                <span>01</span>
+                                <h3>@Lang.T("yd.web.process.listen.title")</h3>
+                                <p>@Lang.T("yd.web.process.listen.text")</p>
+                            </li>
+                            <li>
+                                <span>02</span>
+                                <h3>@Lang.T("yd.web.process.direction.title")</h3>
+                                <p>@Lang.T("yd.web.process.direction.text")</p>
+                            </li>
+                            <li>
+                                <span>03</span>
+                                <h3>@Lang.T("yd.web.process.build.title")</h3>
+                                <p>@Lang.T("yd.web.process.build.text")</p>
+                            </li>
+                            <li>
+                                <span>04</span>
+                                <h3>@Lang.T("yd.web.process.launch.title")</h3>
+                                <p>@Lang.T("yd.web.process.launch.text")</p>
+                            </li>
+                        </ol>
+                    </section>
+                }
+                else if (SelectedService.Id == "branding-design")
+                {
+                    <section class="yd-detail-introduction yd-brand-introduction">
+                        <h2>@Lang.T("yd.brand.introduction.heading")</h2>
+                        <p>@Lang.T("yd.brand.introduction.text")</p>
+                    </section>
+                    <section class="yd-brand-toolkit" aria-labelledby="yd-brand-toolkit-title">
+                        <header class="yd-brand-toolkit-head">
+                            <span>@Lang.T("yd.brand.toolkit.label")</span>
+                            <h2 id="yd-brand-toolkit-title">@Lang.T("yd.brand.toolkit.heading")</h2>
+                            <p>@Lang.T("yd.brand.toolkit.text")</p>
+                        </header>
+                        <div class="yd-brand-toolkit-grid">
+                            <article>
+                                <span class="yd-brand-tool-mark yd-brand-tool-figma">Fi</span>
+                                <div><h3>Figma</h3><p>@Lang.T("yd.brand.toolkit.figma")</p></div>
+                            </article>
+                            <article>
+                                <span class="yd-brand-tool-mark yd-brand-tool-illustrator">Ai</span>
+                                <div><h3>Illustrator</h3><p>@Lang.T("yd.brand.toolkit.illustrator")</p></div>
+                            </article>
+                            <article>
+                                <span class="yd-brand-tool-mark yd-brand-tool-photoshop">Ps</span>
+                                <div><h3>Photoshop</h3><p>@Lang.T("yd.brand.toolkit.photoshop")</p></div>
+                            </article>
+                            <article>
+                                <span class="yd-brand-tool-mark yd-brand-tool-effects">Ae</span>
+                                <div><h3>After Effects</h3><p>@Lang.T("yd.brand.toolkit.effects")</p></div>
+                            </article>
+                        </div>
+                        <div class="yd-brand-toolkit-more">
+                            <strong>+7</strong>
+                            <span>@Lang.T("yd.brand.toolkit.more")</span>
+                            <ul aria-label="@Lang.T("yd.brand.toolkit.more")">
+                                <li>InDesign</li><li>Lightroom</li><li>Premiere Pro</li><li>Sketch</li><li>Procreate</li><li>Canva</li><li>Webflow</li>
+                            </ul>
+                        </div>
+                    </section>
+                    <section class="yd-brand-capabilities" aria-labelledby="yd-brand-capabilities-title">
+                        <header class="yd-brand-capabilities-head">
+                            <span>@Lang.T("yd.brand.capabilities.label")</span>
+                            <h2 id="yd-brand-capabilities-title">@Lang.T("yd.brand.capabilities.heading")</h2>
+                            <p>@Lang.T("yd.brand.capabilities.text")</p>
+                        </header>
+                        <div class="yd-brand-capabilities-list">
+                            <details>
+                                <summary><span>01</span><h3>@Lang.T("yd.brand.capabilities.strategy.title")</h3><i aria-hidden="true">+</i></summary>
+                                <p>@Lang.T("yd.brand.capabilities.strategy.text")</p>
+                            </details>
+                            <details>
+                                <summary><span>02</span><h3>@Lang.T("yd.brand.capabilities.voice.title")</h3><i aria-hidden="true">+</i></summary>
+                                <p>@Lang.T("yd.brand.capabilities.voice.text")</p>
+                            </details>
+                            <details>
+                                <summary><span>03</span><h3>@Lang.T("yd.brand.capabilities.digital.title")</h3><i aria-hidden="true">+</i></summary>
+                                <p>@Lang.T("yd.brand.capabilities.digital.text")</p>
+                            </details>
+                            <details>
+                                <summary><span>04</span><h3>@Lang.T("yd.brand.capabilities.logo.title")</h3><i aria-hidden="true">+</i></summary>
+                                <p>@Lang.T("yd.brand.capabilities.logo.text")</p>
+                            </details>
+                            <details>
+                                <summary><span>05</span><h3>@Lang.T("yd.brand.capabilities.rebrand.title")</h3><i aria-hidden="true">+</i></summary>
+                                <p>@Lang.T("yd.brand.capabilities.rebrand.text")</p>
+                            </details>
+                            <details>
+                                <summary><span>06</span><h3>@Lang.T("yd.brand.capabilities.performance.title")</h3><i aria-hidden="true">+</i></summary>
+                                <p>@Lang.T("yd.brand.capabilities.performance.text")</p>
+                            </details>
+                        </div>
+                    </section>
+                }
+                else if (SelectedService.Id == "custom-projekt")
+                {
+                    <section class="yd-detail-introduction yd-custom-introduction">
+                        <h2>@Lang.T("yd.custom.introduction.heading")</h2>
+                        <p>@Lang.T("yd.custom.introduction.text")</p>
+                    </section>
+
+                    <section class="yd-custom-possibilities" aria-labelledby="yd-custom-possibilities-title">
+                        <header class="yd-custom-possibilities-head">
+                            <span>@Lang.T("yd.custom.possibilities.label")</span>
+                            <h2 id="yd-custom-possibilities-title">@Lang.T("yd.custom.possibilities.heading")</h2>
+                            <p>@Lang.T("yd.custom.possibilities.text")</p>
+                        </header>
+                        <div class="yd-custom-possibilities-grid">
+                            <article>
+                                <span>01</span>
+                                <div class="yd-custom-possibility-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 12h8M5 8l-3 4 3 4M19 8l3 4-3 4"/><rect x="7" y="3" width="10" height="6" rx="2"/><rect x="7" y="15" width="10" height="6" rx="2"/></svg></div>
+                                <h3>@Lang.T("yd.custom.possibilities.integrations.title")</h3>
+                                <p>@Lang.T("yd.custom.possibilities.integrations.text")</p>
+                            </article>
+                            <article>
+                                <span>02</span>
+                                <div class="yd-custom-possibility-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 4h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-7l-5 4v-4H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z"/><path d="M8 10h.01M12 10h.01M16 10h.01"/></svg></div>
+                                <h3>@Lang.T("yd.custom.possibilities.ai.title")</h3>
+                                <p>@Lang.T("yd.custom.possibilities.ai.text")</p>
+                            </article>
+                            <article>
+                                <span>03</span>
+                                <div class="yd-custom-possibility-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 6h6v6H4zM14 12h6v6h-6zM10 9h4M17 9v3M7 12v5h7"/></svg></div>
+                                <h3>@Lang.T("yd.custom.possibilities.tools.title")</h3>
+                                <p>@Lang.T("yd.custom.possibilities.tools.text")</p>
+                            </article>
+                            <article>
+                                <span>04</span>
+                                <div class="yd-custom-possibility-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3Z"/><path d="M18 16l.8 2.2L21 19l-2.2.8L18 22l-.8-2.2L15 19l2.2-.8L18 16Z"/></svg></div>
+                                <h3>@Lang.T("yd.custom.possibilities.other.title")</h3>
+                                <p>@Lang.T("yd.custom.possibilities.other.text")</p>
+                            </article>
+                        </div>
+                    </section>
+
+                    <section class="yd-custom-invitation">
+                        <span>@Lang.T("yd.custom.invitation.label")</span>
+                        <h2>@Lang.T("yd.custom.invitation.heading")</h2>
+                        <p>@Lang.T("yd.custom.invitation.text")</p>
+                        <a href="/kontakt">@Lang.T("yd.custom.invitation.link") <span>↗</span></a>
+                    </section>
+                }
             </div>
         </section>
     }

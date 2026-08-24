@@ -429,13 +429,13 @@ window.initAnimations = function () {
         requestHeroMediaUpdate();
     }
 
-    // About hero: expands to a full black viewport, then fades before the next section.
+    // About field: zooms in on entry and back out before the team section.
     if (window.cleanupAboutHeroScene) window.cleanupAboutHeroScene();
     const aboutHero = document.querySelector('.about-intro-hero');
     if (aboutHero) {
         const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-        let targetProgress = 0;
-        let currentProgress = 0;
+        let targetInset = 1;
+        let currentInset = 1;
         let animationFrame = 0;
 
         const renderAboutHero = () => {
@@ -447,30 +447,29 @@ window.initAnimations = function () {
                 return;
             }
 
-            currentProgress += (targetProgress - currentProgress) * .1;
-            const expand = Math.min(1, currentProgress / .38);
-            const smoothExpand = expand * expand * (3 - 2 * expand);
-            const fadeRaw = Math.min(1, Math.max(0, (currentProgress - .72) / .25));
-            const fade = fadeRaw * fadeRaw * (3 - 2 * fadeRaw);
-
-            const horizontalInset = Math.min(112, Math.max(16, window.innerWidth * .06)) * smoothExpand;
-            aboutHero.style.setProperty('--about-v-inset', `${(8 * smoothExpand).toFixed(3)}vh`);
+            currentInset += (targetInset - currentInset) * .13;
+            const horizontalInset = Math.min(112, Math.max(16, window.innerWidth * .06)) * currentInset;
+            aboutHero.style.setProperty('--about-v-inset', `${(4 * currentInset).toFixed(3)}vh`);
             aboutHero.style.setProperty('--about-h-inset', `${horizontalInset.toFixed(2)}px`);
-            aboutHero.style.setProperty('--about-radius', `${(48 * smoothExpand).toFixed(2)}px`);
-            aboutHero.style.setProperty('--about-fade', fade.toFixed(4));
+            aboutHero.style.setProperty('--about-radius', `${(48 * currentInset).toFixed(2)}px`);
+            aboutHero.style.setProperty('--about-fade', '0');
 
-            if (Math.abs(targetProgress - currentProgress) > .001) {
+            if (Math.abs(targetInset - currentInset) > .001) {
                 animationFrame = window.requestAnimationFrame(renderAboutHero);
             } else {
-                currentProgress = targetProgress;
+                currentInset = targetInset;
                 animationFrame = 0;
             }
         };
 
         const requestAboutHeroUpdate = () => {
             const rect = aboutHero.getBoundingClientRect();
-            const scrollable = Math.max(1, aboutHero.offsetHeight - window.innerHeight);
-            targetProgress = Math.min(1, Math.max(0, -rect.top / scrollable));
+            const viewport = window.innerHeight;
+            const enterRaw = Math.min(1, Math.max(0, (viewport - rect.top) / (viewport * .78)));
+            const exitRaw = Math.min(1, Math.max(0, (viewport - rect.bottom) / (viewport * .72)));
+            const enter = enterRaw * enterRaw * (3 - 2 * enterRaw);
+            const exit = exitRaw * exitRaw * (3 - 2 * exitRaw);
+            targetInset = Math.max(1 - enter, exit);
             if (!animationFrame) animationFrame = window.requestAnimationFrame(renderAboutHero);
         };
 
