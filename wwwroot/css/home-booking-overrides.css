@@ -709,6 +709,76 @@
     }
 }
 
+/* Phone topbar alignment - kept last so legacy mobile rules cannot override it */
+@media (max-width: 600px) {
+    .kf-topbar {
+        width: 100% !important;
+        overflow: visible !important;
+    }
+    .kf-topbar-inner {
+        width: 100% !important;
+        height: 48px !important;
+        min-height: 48px !important;
+        padding: 0 2.75rem !important;
+        position: relative;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+    .kf-topbar-copy {
+        width: auto !important;
+        max-width: 100% !important;
+        min-width: 0;
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: .5rem !important;
+        padding: 0 !important;
+        font-size: .68rem !important;
+        line-height: 1 !important;
+        text-align: center;
+    }
+    .kf-topbar-dot {
+        width: 7px !important;
+        height: 7px !important;
+        display: block !important;
+        flex: 0 0 7px !important;
+        box-shadow: 0 0 0 3px rgba(34,197,94,.14) !important;
+    }
+    .kf-topbar-message {
+        display: inline-flex !important;
+        align-items: center !important;
+        min-width: 0;
+        overflow: visible !important;
+        white-space: nowrap !important;
+        text-overflow: clip !important;
+    }
+    .kf-topbar-cta {
+        min-height: 26px !important;
+        padding: .3rem .6rem !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        flex: 0 0 auto;
+        font-size: .66rem !important;
+        line-height: 1 !important;
+        white-space: nowrap !important;
+    }
+    .kf-topbar-close {
+        top: 50% !important;
+        right: .45rem !important;
+        transform: translateY(-50%) !important;
+    }
+    .kf-nav.with-topbar { top: 48px !important; }
+}
+
+@media (max-width: 360px) {
+    .kf-topbar-inner { padding-inline: 2.35rem !important; }
+    .kf-topbar-copy { gap: .35rem !important; font-size: .62rem !important; }
+    .kf-topbar-cta { padding-inline: .48rem !important; font-size: .61rem !important; }
+}
+
 /* ── LIGHT EDITORIAL THEME 2026-08-11 ───────────────────────────────
    Inspired by the supplied reference: generous white space, near-black
    typography, soft spectral colour and crisp black calls to action. */
