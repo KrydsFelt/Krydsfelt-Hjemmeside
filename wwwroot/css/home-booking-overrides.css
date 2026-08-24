@@ -2155,10 +2155,26 @@ h1 span::selection, h2 span::selection, h3 span::selection {
     .yd-showcase-cta {
         margin-top: 2.5rem !important;
         padding: 6rem 0 5rem !important;
+        min-height: auto !important;
+        overflow: visible !important;
     }
     .kh-home-cta-inner {
         width: calc(100% - 2rem) !important;
+        max-width: none !important;
         padding-inline: 0 !important;
+        overflow: visible !important;
+    }
+    .kh-home-cta .kh-home-cta-inner h2,
+    .yd-showcase-cta .kh-home-cta-inner h2 {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-inline: 0 !important;
+        font-size: clamp(2rem, 10vw, 2.65rem) !important;
+        line-height: 1.08 !important;
+        white-space: normal !important;
+        overflow: visible !important;
+        overflow-wrap: break-word;
+        text-wrap: balance;
     }
 
     .about-principles {
