@@ -453,10 +453,10 @@ window.initAnimations = function () {
             const fadeRaw = Math.min(1, Math.max(0, (currentProgress - .72) / .25));
             const fade = fadeRaw * fadeRaw * (3 - 2 * fadeRaw);
 
-            const horizontalInset = Math.min(112, Math.max(16, window.innerWidth * .06)) * (1 - smoothExpand);
-            aboutHero.style.setProperty('--about-v-inset', `${(11 * (1 - smoothExpand)).toFixed(3)}vh`);
+            const horizontalInset = Math.min(112, Math.max(16, window.innerWidth * .06)) * smoothExpand;
+            aboutHero.style.setProperty('--about-v-inset', `${(8 * smoothExpand).toFixed(3)}vh`);
             aboutHero.style.setProperty('--about-h-inset', `${horizontalInset.toFixed(2)}px`);
-            aboutHero.style.setProperty('--about-radius', `${(48 * (1 - smoothExpand)).toFixed(2)}px`);
+            aboutHero.style.setProperty('--about-radius', `${(48 * smoothExpand).toFixed(2)}px`);
             aboutHero.style.setProperty('--about-fade', fade.toFixed(4));
 
             if (Math.abs(targetProgress - currentProgress) > .001) {

@@ -1711,13 +1711,13 @@ h1 span::selection, h2 span::selection, h3 span::selection {
 
 /* About hero — statement inside a contained dark field */
 .about-intro-hero {
-    --about-v-inset: 11vh;
-    --about-h-inset: clamp(1rem, 6vw, 7rem);
-    --about-radius: 48px;
+    --about-v-inset: 0px;
+    --about-h-inset: 0px;
+    --about-radius: 0px;
     --about-fade: 0;
     height: 180vh;
     min-height: 1100px;
-    padding: 9rem 0 0;
+    padding: 0;
     position: relative;
     background: var(--bg);
 }
@@ -2249,4 +2249,22 @@ h1 span::selection, h2 span::selection, h3 span::selection {
         max-width: 12ch;
         font-size: 2.2rem;
     }
+}
+
+/* Final phone header rules — intentionally last to beat legacy media queries */
+@media (max-width: 600px) {
+    .kf-topbar { left: 0 !important; right: auto !important; width: 100vw !important; max-width: none !important; margin: 0 !important; overflow: hidden !important; box-sizing: border-box; }
+    .kf-topbar-inner { width: 100% !important; max-width: none !important; min-height: 52px !important; margin: 0 !important; padding: .45rem 2.65rem .45rem .85rem !important; box-sizing: border-box; }
+    .kf-topbar-copy { width: 100% !important; min-width: 0; display: grid !important; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: .6rem !important; padding: 0 !important; font-size: .7rem !important; line-height: 1.2; text-align: left; }
+    .kf-topbar-dot { display: none !important; }
+    .kf-topbar-message { min-width: 0; white-space: normal !important; overflow: visible; }
+    .kf-topbar-cta { min-height: 28px !important; padding: .3rem .65rem !important; white-space: nowrap !important; font-size: .68rem !important; }
+    .kf-topbar-close { position: absolute !important; top: 50% !important; right: .45rem !important; width: 30px !important; height: 30px !important; transform: translateY(-50%) !important; }
+    .kf-nav.with-topbar { top: 52px !important; }
+
+    .about-intro-hero { width: 100% !important; height: auto !important; min-height: 100svh !important; padding: 0 !important; }
+    .about-intro-hero > .kf-container { width: 100vw !important; max-width: none !important; height: auto !important; min-height: 100svh !important; margin: 0 !important; padding: 7rem 1.25rem 3rem !important; position: relative !important; border-radius: 0 !important; clip-path: none !important; opacity: 1 !important; background: #111310 !important; }
+    .about-hero-content { max-width: 100%; }
+    .about-intro-hero .about-connection-title { max-width: 100% !important; font-size: clamp(1.9rem, 8.8vw, 2.65rem) !important; line-height: 1.12 !important; }
+    .about-hero-support { max-width: 31rem; font-size: .95rem; line-height: 1.55; }
 }
