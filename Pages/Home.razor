@@ -2,7 +2,7 @@
 @inherits LocalizedComponentBase
 @inject IJSRuntime JS
 
-<PageTitle>KrydsFelt</PageTitle>
+<PageTitle>Krydsfelt</PageTitle>
 
 <SiteHeader CurrentPage="home" ContactHref="/kontakt" />
 
@@ -17,8 +17,19 @@
     </div>
     <div class="kf-container ns-hero-inner">
         <h1 class="ns-hero-title">
-            <span class="ns-hero-title-line">@Lang.T("nshero.titleLine1") <span class="ns-hero-title-accent">@Lang.T("nshero.titleLine2")</span></span>
-            <span class="ns-hero-title-line">@Lang.T("nshero.titleLine3Prefix") <span class="ns-hero-title-accent">@Lang.T("nshero.titleLine3Accent")</span></span>
+            <span class="ns-hero-title-line ns-hero-line-one">
+                @Lang.T("nshero.play.line1a")
+                <span class="ns-hero-card-stack" aria-hidden="true">
+                    <span class="ns-hero-icon-card ns-hero-icon-idea">
+                        <svg viewBox="0 0 24 24"><path d="M9 18h6M10 22h4M8.3 14.8A7 7 0 1 1 15.7 14.8C14.6 15.7 14 16.5 14 18h-4c0-1.5-.6-2.3-1.7-3.2Z" /></svg>
+                    </span>
+                </span>
+                @Lang.T("nshero.play.line1b")
+            </span>
+            <span class="ns-hero-title-line">@Lang.T("nshero.play.line2")</span>
+            <span class="ns-hero-title-line ns-hero-line-three">
+                @Lang.T("nshero.play.line3")
+            </span>
         </h1>
     </div>
 </section>

@@ -17,33 +17,14 @@
 
 <nav class="kf-nav @(showBanner ? "with-topbar" : "")">
     <div class="kf-nav-inner">
-        <a href="/" class="kf-logo-link"><span class="kf-logo">By KrydsFelt</span></a>
+        <a href="/" class="kf-logo-link"><span class="kf-logo">By Krydsfelt</span></a>
 
         <div class="kf-nav-center">
             <div class="kf-nav-links">
                 <a href="/" class="@GetLinkClass("home")">@Lang.T("nav.home")</a>
                 <a href="/om-os" class="@GetLinkClass("about")">@Lang.T("nav.about")</a>
 
-                <div class="kf-nav-dropdown @(IsServicesActive ? "active" : "")">
-                    <a href="/ydelser" class="kf-nav-dropdown-trigger">@Lang.T("nav.services")</a>
-                    <div class="kf-nav-dropdown-menu kf-nav-services-menu">
-                        <a href="/ydelser#webudvikling" class="kf-nav-service-card">
-                            <span class="kf-nav-service-title">@Lang.T("nav.services.web")</span>
-                            <span class="kf-nav-service-arrow" aria-hidden="true">→</span>
-                            <span class="kf-nav-service-desc">@Lang.T("nav.services.web.desc")</span>
-                        </a>
-                        <a href="/ydelser#branding-design" class="kf-nav-service-card">
-                            <span class="kf-nav-service-title">@Lang.T("nav.services.branding")</span>
-                            <span class="kf-nav-service-arrow" aria-hidden="true">→</span>
-                            <span class="kf-nav-service-desc">@Lang.T("nav.services.branding.desc")</span>
-                        </a>
-                        <a href="/ydelser#custom-projekt" class="kf-nav-service-card">
-                            <span class="kf-nav-service-title">@Lang.T("nav.services.custom")</span>
-                            <span class="kf-nav-service-arrow" aria-hidden="true">→</span>
-                            <span class="kf-nav-service-desc">@Lang.T("nav.services.custom.desc")</span>
-                        </a>
-                    </div>
-                </div>
+                <a href="/ydelser" class="@GetLinkClass("services")">@Lang.T("nav.services")</a>
             </div>
         </div>
 
@@ -94,9 +75,6 @@
         <a href="/" @onclick="CloseMenu">@Lang.T("nav.home")</a>
         <a href="/om-os" @onclick="CloseMenu">@Lang.T("nav.about")</a>
         <a href="/ydelser" @onclick="CloseMenu">@Lang.T("nav.services")</a>
-        <a href="/ydelser#webudvikling" class="kf-nav-mobile-sub" @onclick="CloseMenu">@Lang.T("nav.services.web")</a>
-        <a href="/ydelser#branding-design" class="kf-nav-mobile-sub" @onclick="CloseMenu">@Lang.T("nav.services.branding")</a>
-        <a href="/ydelser#custom-projekt" class="kf-nav-mobile-sub" @onclick="CloseMenu">@Lang.T("nav.services.custom")</a>
         @if (!HideContactButton)
         {
             <a href="@ContactHref" class="kf-nav-mobile-contact" @onclick="CloseMenu">@Lang.T("nav.bookMeeting") <span aria-hidden="true">→</span></a>
@@ -120,7 +98,6 @@
     private bool showBanner = true;
     private bool languageMenuOpen;
 
-    private bool IsServicesActive => CurrentPage == "services";
 
     private LanguageOption CurrentLanguage =>
         LanguageOptions.First(option => option.Code == Lang.CurrentLanguage);

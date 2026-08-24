@@ -1,4 +1,4 @@
-// KrydsFelt Arcade — retro arcade themed landing page
+// Krydsfelt Arcade — retro arcade themed landing page
 const { useState, useEffect, useRef } = React;
 
 const NAVY = '#0a1420';

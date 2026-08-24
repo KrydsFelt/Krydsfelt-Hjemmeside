@@ -84,7 +84,7 @@
 .kh-home-service-card-featured:hover {
     transform: translateY(-8px);
     border-color: rgba(255,255,255,0.16);
-    box-shadow: 0 22px 48px rgba(0,0,0,0.25);
+    /*box-shadow: 0 22px 48px rgba(0,0,0,0.25);*/
 }
 
 .kh-home-service-card-featured:hover::before {

@@ -3368,7 +3368,7 @@ body.kf-app-visible #app {
     .kf-services h2 { font-size: 2.2rem; }
 
     /* Container */
-    .kf-container { margin-left: 3%; margin-right: 3%; }
+    /*.kf-container { margin-left: 3%; margin-right: 3%; }*/
     .kf-about-inner { grid-template-columns: 1fr; gap: 2.5rem; }
     .kf-footer-content { grid-template-columns: 1fr; gap: 3rem; }
     .kf-footer-links { grid-template-columns: 1fr; gap: 2rem; }

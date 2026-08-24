@@ -2,17 +2,22 @@
 @inherits LocalizedComponentBase
 @inject IJSRuntime JS
 
-<PageTitle>Om Os – KrydsFelt</PageTitle>
+<PageTitle>Om Os – Krydsfelt</PageTitle>
 
 <SiteHeader CurrentPage="about" ContactHref="/kontakt" />
 
 <main class="about-editorial">
     <section class="about-intro-hero">
         <div class="kf-container">
-            <h1>
-                <span>@Lang.T("about.intro.line1")</span>
-                <span>@Lang.T("about.intro.line2") <em>@Lang.T("about.intro.accent")</em></span>
-            </h1>
+            <div class="about-hero-content">
+                <span class="about-hero-eyebrow">@Lang.T("about.intro.eyebrow")</span>
+                <h1 class="about-connection-title">
+                    <span>@Lang.T("about.intro.line1")</span>
+                    <span>@Lang.T("about.intro.line2")</span>
+                    <span><em>@Lang.T("about.intro.accent")</em></span>
+                </h1>
+                <p class="about-hero-support">@Lang.T("about.intro.support")</p>
+            </div>
         </div>
     </section>
 
@@ -31,31 +36,24 @@
         </div>
     </section>
 
-    <section class="about-values-deep-dive">
-        <div class="kf-container">
-            <header class="about-values-deep-head reveal">
-                <div>
-                    <span class="oo2-section-label">@Lang.T("about.values.label")</span>
-                    <h2>@Lang.T("about.values.deepHeading")</h2>
-                </div>
-                <div class="about-values-controls" aria-label="@Lang.T("about.values.navigation")">
-                    <button type="button" @onclick="() => ScrollValues(-1)" aria-label="@Lang.T("about.values.previous")">←</button>
-                    <button type="button" @onclick="() => ScrollValues(1)" aria-label="@Lang.T("about.values.next")">→</button>
-                </div>
+    <section class="about-principles">
+        <div class="kf-container about-principles-panel">
+            <header class="about-principles-head reveal">
+                <h2>@Lang.T("about.principles.heading1") <em>@Lang.T("about.principles.heading2")</em></h2>
             </header>
-
-            <div class="about-values-track" @ref="ValuesTrack">
-                @for (var index = 1; index <= 7; index++)
-                {
-                    var valueIndex = index;
-                    <article class="about-value-deep-card about-value-deep-card-@valueIndex">
-                        <div class="about-value-symbol" aria-hidden="true"><span>@valueIndex.ToString("00")</span></div>
-                        <div class="about-value-deep-copy">
-                            <h3>@Lang.T($"about.value{valueIndex}.title")</h3>
-                            <p>@Lang.T($"about.value{valueIndex}.desc")</p>
-                        </div>
-                    </article>
-                }
+            <div class="about-principles-grid">
+                <article class="about-principle-card reveal">
+                    <div class="about-principle-icon" aria-hidden="true"><svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="22"/><circle cx="32" cy="32" r="9"/><path d="M32 4v9M60 32h-9M32 60v-9M4 32h9"/></svg></div>
+                    <div><h3>@Lang.T("about.principles.clarity.title")</h3><p>@Lang.T("about.principles.clarity.text")</p></div>
+                </article>
+                <article class="about-principle-card reveal" data-delay="100">
+                    <div class="about-principle-icon" aria-hidden="true"><svg viewBox="0 0 64 64"><path d="M25 39l-5 5a10 10 0 0 1-14-14l10-10a10 10 0 0 1 14 0l3 3M39 25l5-5a10 10 0 0 1 14 14L48 44a10 10 0 0 1-14 0l-3-3M22 42l20-20"/></svg></div>
+                    <div><h3>@Lang.T("about.principles.close.title")</h3><p>@Lang.T("about.principles.close.text")</p></div>
+                </article>
+                <article class="about-principle-card reveal" data-delay="200">
+                    <div class="about-principle-icon" aria-hidden="true"><svg viewBox="0 0 64 64"><path d="M32 6l22 10v15c0 14-9 23-22 27C19 54 10 45 10 31V16L32 6Z"/><path d="m21 32 7 7 15-16"/></svg></div>
+                    <div><h3>@Lang.T("about.principles.durable.title")</h3><p>@Lang.T("about.principles.durable.text")</p></div>
+                </article>
             </div>
         </div>
     </section>
@@ -93,13 +91,6 @@
 <SiteFooter />
 
 @code {
-    private ElementReference ValuesTrack;
-
-    private async Task ScrollValues(int direction)
-    {
-        await JS.InvokeVoidAsync("scrollAboutValues", ValuesTrack, direction);
-    }
-
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)

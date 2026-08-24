@@ -381,6 +381,111 @@ window.initAnimations = function () {
         }
     };
 
+    // Home hero image: expands from a compact frame to the footer width on scroll.
+    if (window.cleanupHeroMediaExpand) window.cleanupHeroMediaExpand();
+    const heroMedia = document.querySelector('.ns-hero-media');
+    if (heroMedia) {
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+        let targetProgress = 0;
+        let currentProgress = 0;
+        let animationFrame = 0;
+
+        const renderHeroMedia = () => {
+            if (reduceMotion.matches || window.innerWidth <= 900) {
+                heroMedia.style.removeProperty('width');
+                heroMedia.style.removeProperty('border-radius');
+                heroMedia.style.removeProperty('clip-path');
+                return;
+            }
+
+            currentProgress += (targetProgress - currentProgress) * .115;
+            const inset = 15 * (1 - currentProgress);
+            const radius = 18 + (12 * (1 - currentProgress));
+            heroMedia.style.setProperty('clip-path', `inset(0 ${inset}% round ${radius}px)`, 'important');
+
+            if (Math.abs(targetProgress - currentProgress) > .001) {
+                animationFrame = window.requestAnimationFrame(renderHeroMedia);
+            } else {
+                currentProgress = targetProgress;
+                animationFrame = 0;
+            }
+        };
+
+        const requestHeroMediaUpdate = () => {
+            const rawProgress = Math.min(1, Math.max(0, window.scrollY / (window.innerHeight * .72)));
+            targetProgress = rawProgress * rawProgress * (3 - 2 * rawProgress);
+            if (!animationFrame) animationFrame = window.requestAnimationFrame(renderHeroMedia);
+        };
+
+        window.addEventListener('scroll', requestHeroMediaUpdate, { passive: true });
+        window.addEventListener('resize', requestHeroMediaUpdate, { passive: true });
+        reduceMotion.addEventListener('change', requestHeroMediaUpdate);
+        window.cleanupHeroMediaExpand = () => {
+            if (animationFrame) window.cancelAnimationFrame(animationFrame);
+            window.removeEventListener('scroll', requestHeroMediaUpdate);
+            window.removeEventListener('resize', requestHeroMediaUpdate);
+            reduceMotion.removeEventListener('change', requestHeroMediaUpdate);
+        };
+        requestHeroMediaUpdate();
+    }
+
+    // About hero: expands to a full black viewport, then fades before the next section.
+    if (window.cleanupAboutHeroScene) window.cleanupAboutHeroScene();
+    const aboutHero = document.querySelector('.about-intro-hero');
+    if (aboutHero) {
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+        let targetProgress = 0;
+        let currentProgress = 0;
+        let animationFrame = 0;
+
+        const renderAboutHero = () => {
+            if (reduceMotion.matches || window.innerWidth <= 700) {
+                aboutHero.style.removeProperty('--about-v-inset');
+                aboutHero.style.removeProperty('--about-h-inset');
+                aboutHero.style.removeProperty('--about-radius');
+                aboutHero.style.removeProperty('--about-fade');
+                return;
+            }
+
+            currentProgress += (targetProgress - currentProgress) * .1;
+            const expand = Math.min(1, currentProgress / .38);
+            const smoothExpand = expand * expand * (3 - 2 * expand);
+            const fadeRaw = Math.min(1, Math.max(0, (currentProgress - .72) / .25));
+            const fade = fadeRaw * fadeRaw * (3 - 2 * fadeRaw);
+
+            const horizontalInset = Math.min(112, Math.max(16, window.innerWidth * .06)) * (1 - smoothExpand);
+            aboutHero.style.setProperty('--about-v-inset', `${(11 * (1 - smoothExpand)).toFixed(3)}vh`);
+            aboutHero.style.setProperty('--about-h-inset', `${horizontalInset.toFixed(2)}px`);
+            aboutHero.style.setProperty('--about-radius', `${(48 * (1 - smoothExpand)).toFixed(2)}px`);
+            aboutHero.style.setProperty('--about-fade', fade.toFixed(4));
+
+            if (Math.abs(targetProgress - currentProgress) > .001) {
+                animationFrame = window.requestAnimationFrame(renderAboutHero);
+            } else {
+                currentProgress = targetProgress;
+                animationFrame = 0;
+            }
+        };
+
+        const requestAboutHeroUpdate = () => {
+            const rect = aboutHero.getBoundingClientRect();
+            const scrollable = Math.max(1, aboutHero.offsetHeight - window.innerHeight);
+            targetProgress = Math.min(1, Math.max(0, -rect.top / scrollable));
+            if (!animationFrame) animationFrame = window.requestAnimationFrame(renderAboutHero);
+        };
+
+        window.addEventListener('scroll', requestAboutHeroUpdate, { passive: true });
+        window.addEventListener('resize', requestAboutHeroUpdate, { passive: true });
+        reduceMotion.addEventListener('change', requestAboutHeroUpdate);
+        window.cleanupAboutHeroScene = () => {
+            if (animationFrame) window.cancelAnimationFrame(animationFrame);
+            window.removeEventListener('scroll', requestAboutHeroUpdate);
+            window.removeEventListener('resize', requestAboutHeroUpdate);
+            reduceMotion.removeEventListener('change', requestAboutHeroUpdate);
+        };
+        requestAboutHeroUpdate();
+    }
+
     // Services cards reveal on scroll (when section fills entire screen)
     const servicesSection = document.querySelector('.kf-services');
     const cardsContainer = document.querySelector('.kf-cards');

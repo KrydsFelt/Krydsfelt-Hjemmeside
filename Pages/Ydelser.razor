@@ -2,81 +2,107 @@
 @inherits LocalizedComponentBase
 @inject IJSRuntime JS
 
-<PageTitle>Ydelser – KrydsFelt</PageTitle>
-
+<PageTitle>Ydelser – Krydsfelt</PageTitle>
 <SiteHeader CurrentPage="services" ContactHref="/kontakt" />
 
-<main class="services-onepage">
-    <section class="services-onepage-hero">
-        <div class="kf-container">
-            <h1>@Lang.T("yd.onepage.hero")</h1>
-        </div>
-    </section>
-
-    <nav class="services-onepage-index" aria-label="@Lang.T("yd2.services.label")">
-        <div class="kf-container">
-            <a href="#webudvikling"><span>01</span>@Lang.T("yd2.card.webudvikling.title")</a>
-            <a href="#branding-design"><span>02</span>@Lang.T("yd2.card.branding.title")</a>
-            <a href="#custom-projekt"><span>03</span>@Lang.T("yd2.card.custom.title")</a>
-        </div>
-    </nav>
-
-    @foreach (var service in Services)
+<main class="yd-showcase @(SelectedService is null ? "is-overview" : "is-detail")">
+    @if (SelectedService is null)
     {
-        <section id="@service.Id" class="services-onepage-product services-onepage-product-@service.Number">
-            <div class="kf-container services-onepage-product-grid">
-                <div class="services-onepage-product-copy reveal">
-                    <span class="services-onepage-number">@service.Number / 03</span>
-                    <h2>@Lang.T(service.TitleKey)</h2>
-                    <p class="services-onepage-summary">@Lang.T(service.SummaryKey)</p>
-                    <div class="services-onepage-specs">
-                        <span>@Lang.T("yd.onepage.includes")</span>
-                        <ul>
-                            @foreach (var itemKey in service.ItemKeys)
-                            {
-                                <li>@Lang.T(itemKey)</li>
-                            }
-                        </ul>
+        <section class="yd-showcase-overview">
+            <div class="yd-showcase-profile">
+                <div class="yd-showcase-intro">
+                    <h2>@Lang.T("yd.showcase.hero")</h2>
+                    <button class="yd-showcase-more" type="button" @onclick="ToggleAbout" aria-expanded="@AboutIsOpen">
+                        <span>@Lang.T(AboutIsOpen ? "yd.showcase.less" : "yd.showcase.more")</span>
+                        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 6l5 5 5-5" /></svg>
+                    </button>
+                    <div class="yd-showcase-about @(AboutIsOpen ? "is-open" : "")">
+                        <p>@Lang.T("yd.showcase.about")</p>
                     </div>
                 </div>
-                <div class="services-onepage-visual reveal" data-delay="120" aria-hidden="true">
-                    <span class="services-onepage-crosshair"></span>
-                    <strong>@service.Number</strong>
-                    <small>KRYDSFELT / DIGITAL SYSTEM</small>
+
+                <div class="yd-showcase-menu" aria-label="@Lang.T("yd2.services.label")">
+                    @foreach (var service in Services)
+                    {
+                        <button type="button" class="yd-showcase-menu-item @(HoveredService == service.Id ? "is-hovered" : "")"
+                                @onclick="() => OpenService(service)" @onmouseenter="() => HoveredService = service.Id" @onmouseleave="() => HoveredService = null">
+                            <span>@Lang.T(service.TitleKey)</span>
+                            <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 15L15 5M8 5h7v7" /></svg>
+                        </button>
+                    }
+                </div>
+            </div>
+
+            <div class="yd-showcase-stage" aria-hidden="true">
+                <div class="yd-showcase-glow"></div>
+                <div class="yd-showcase-device">
+                    <div class="yd-showcase-screen">
+                        <div class="yd-screen-bar"><i></i><i></i><i></i><span>By Krydsfelt / @PreviewLabel</span></div>
+                        <div class="yd-screen-canvas yd-screen-@PreviewId">
+                            <small>BUILT AT THE CROSSING OF</small>
+                            <strong>@PreviewHeadline</strong>
+                            <div class="yd-screen-lines"><i></i><i></i><i></i></div>
+                            <span class="yd-screen-chip">@PreviewLabel</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
     }
+    else
+    {
+        <section class="yd-service-detail" id="@SelectedService.Id">
+            <aside class="yd-detail-aside">
+                <button type="button" class="yd-detail-back" @onclick="CloseService" aria-label="@Lang.T("yd.showcase.back")">
+                    <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M13 4l-6 6 6 6" /></svg>
+                </button>
+                <div><h1>@Lang.T(SelectedService.TitleKey)</h1><a href="/kontakt">@Lang.T("yd.showcase.start") <span>↗</span></a></div>
+            </aside>
 
+            <div class="yd-detail-content">
+                <article class="yd-detail-hero yd-detail-hero-@SelectedService.Number">
+                    <span class="yd-detail-kicker">By Krydsfelt® / @Lang.T(SelectedService.TitleKey)</span>
+                    <h2>@Lang.T(SelectedService.StatementKey)</h2>
+                    <div class="yd-detail-orbit"><i></i><i></i><i></i></div>
+                    <p>@Lang.T(SelectedService.SummaryKey)</p>
+                </article>
+                <article class="yd-detail-spec">
+                    <div><span>@Lang.T("yd.onepage.includes")</span><h2>@Lang.T("yd.showcase.delivery")</h2></div>
+                    <ol>@foreach (var itemKey in SelectedService.ItemKeys) { <li><span>@Lang.T(itemKey)</span><i>+</i></li> }</ol>
+                </article>
+            </div>
+        </section>
+    }
 </main>
 
-<!-- BOTTOM CTA -->
-<section class="kh-home-cta">
+<section class="kh-home-cta yd-showcase-cta">
     <div class="kf-container kh-home-cta-inner">
         <span class="oo2-section-label">@Lang.T("yd2.cta.label")</span>
         <h2>@Lang.T("yd2.cta.heading")</h2>
-        <p>@Lang.T("yd2.cta.desc")</p>
         <a href="/kontakt" class="oo2-cta-link">@Lang.T("yd2.cta.link")</a>
     </div>
 </section>
-
 <SiteFooter />
 
 @code {
+    private bool AboutIsOpen;
+    private string? HoveredService;
+    private ServiceSection? SelectedService;
+    private string PreviewId => HoveredService ?? "webudvikling";
+    private ServiceSection PreviewService => Services.First(service => service.Id == PreviewId);
+    private string PreviewLabel => Lang.T(PreviewService.TitleKey).ToUpperInvariant();
+    private string PreviewHeadline => Lang.T(PreviewService.PreviewKey);
+
     private static readonly ServiceSection[] Services =
     [
-        new("webudvikling", "01", "yd2.card.webudvikling.title", "yd.onepage.web.summary", ["yd.onepage.web.i1", "yd.onepage.web.i2", "yd.onepage.web.i3", "yd.onepage.web.i4"]),
-        new("branding-design", "02", "yd2.card.branding.title", "yd.onepage.brand.summary", ["yd.onepage.brand.i1", "yd.onepage.brand.i2", "yd.onepage.brand.i3", "yd.onepage.brand.i4"]),
-        new("custom-projekt", "03", "yd2.card.custom.title", "yd.onepage.custom.summary", ["yd.onepage.custom.i1", "yd.onepage.custom.i2", "yd.onepage.custom.i3", "yd.onepage.custom.i4"])
+        new("webudvikling", "01", "yd2.card.webudvikling.title", "yd.onepage.web.summary", "yd.showcase.web.statement", "yd.showcase.web.preview", ["yd.onepage.web.i1", "yd.onepage.web.i2", "yd.onepage.web.i3", "yd.onepage.web.i4"]),
+        new("branding-design", "02", "yd2.card.branding.title", "yd.onepage.brand.summary", "yd.showcase.brand.statement", "yd.showcase.brand.preview", ["yd.onepage.brand.i1", "yd.onepage.brand.i2", "yd.onepage.brand.i3", "yd.onepage.brand.i4"]),
+        new("custom-projekt", "03", "yd2.card.custom.title", "yd.onepage.custom.summary", "yd.showcase.custom.statement", "yd.showcase.custom.preview", ["yd.onepage.custom.i1", "yd.onepage.custom.i2", "yd.onepage.custom.i3", "yd.onepage.custom.i4"])
     ];
 
-    private sealed record ServiceSection(string Id, string Number, string TitleKey, string SummaryKey, string[] ItemKeys);
-
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        if (firstRender)
-        {
-            await JS.InvokeVoidAsync("initAnimations");
-        }
-    }
+    private void ToggleAbout() => AboutIsOpen = !AboutIsOpen;
+    private void OpenService(ServiceSection service) => SelectedService = service;
+    private void CloseService() => SelectedService = null;
+    private sealed record ServiceSection(string Id, string Number, string TitleKey, string SummaryKey, string StatementKey, string PreviewKey, string[] ItemKeys);
+    protected override async Task OnAfterRenderAsync(bool firstRender) { if (firstRender) await JS.InvokeVoidAsync("initAnimations"); }
 }
