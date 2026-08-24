@@ -2148,3 +2148,89 @@ h1 span::selection, h2 span::selection, h3 span::selection {
     .about-principle-card { min-height: 260px; border-radius: 20px; }
     .about-principle-icon { width: 40px; height: 40px; }
 }
+
+/* Final mobile safeguards for CTA, principles and service details */
+@media (max-width: 600px) {
+    .kh-home-cta,
+    .yd-showcase-cta {
+        margin-top: 2.5rem !important;
+        padding: 6rem 0 5rem !important;
+    }
+    .kh-home-cta-inner {
+        width: calc(100% - 2rem) !important;
+        padding-inline: 0 !important;
+    }
+
+    .about-principles {
+        padding: 3.5rem 0 !important;
+    }
+    .about-principles > .about-principles-panel {
+        width: calc(100% - 1.5rem) !important;
+        padding: 2.5rem 1.25rem 1.25rem !important;
+        border-radius: 24px !important;
+    }
+    .about-principles-head {
+        padding-inline: .25rem;
+    }
+    .about-principles-head h2 {
+        margin: 0 0 2.5rem !important;
+        font-size: clamp(1.85rem, 9vw, 2.5rem) !important;
+        line-height: 1.08 !important;
+    }
+    .about-principles-grid {
+        gap: 1rem !important;
+    }
+    .about-principle-card {
+        min-height: 250px !important;
+        padding: 1.5rem !important;
+    }
+
+    .yd-showcase-overview {
+        padding: 10rem 1rem 4rem !important;
+    }
+    .yd-service-detail {
+        padding: 10.75rem 1rem 4rem !important;
+        gap: 2.75rem !important;
+    }
+    .yd-detail-aside {
+        width: 100%;
+        height: auto !important;
+        position: relative !important;
+        top: auto !important;
+        grid-template-columns: 48px minmax(0, 1fr) !important;
+        gap: 1rem !important;
+        align-items: start;
+    }
+    .yd-detail-aside h1 {
+        max-width: 100%;
+        margin-top: .15rem;
+        font-size: 1.65rem;
+    }
+    .yd-detail-content {
+        min-width: 0;
+        gap: 1.25rem;
+    }
+    .yd-detail-hero {
+        min-height: 460px !important;
+        padding: 1.5rem !important;
+    }
+    .yd-detail-hero h2 {
+        max-width: 10ch;
+        margin-top: 2.5rem;
+        font-size: clamp(2.25rem, 11vw, 3.2rem) !important;
+        line-height: .94;
+    }
+    .yd-detail-hero p {
+        font-size: .92rem;
+        line-height: 1.6;
+    }
+    .yd-detail-spec {
+        min-height: 0;
+        padding: 1.5rem !important;
+        gap: 1.5rem !important;
+    }
+    .yd-detail-spec h2 {
+        max-width: 12ch;
+        font-size: 2.2rem;
+    }
+}
