@@ -821,7 +821,7 @@ h1 span::selection, h2 span::selection, h3 span::selection {
     color: #fff;
 }
 .kf-nav,
-.kf-nav.scrolled { background: #fff !important; backdrop-filter: none; }
+.kf-nav.scrolled { background: rgb(255 255 255 / 0) !important; backdrop-filter: none; }
 .kf-nav-inner,
 .kf-nav.scrolled .kf-nav-inner {
     width: min(91.5%, 1460px); padding: .8rem 0; border: 0;
