@@ -1733,7 +1733,24 @@ h1 span::selection, h2 span::selection, h3 span::selection {
 .showcase-sub { color: #686a65; }
 .showcase-card-arcade { background: linear-gradient(145deg, #d9f1e1, #e4e3f6) !important; }
 .legal-page h2, .legal-page h3, .legal-page strong { color: #10110f; }
+.legal-inner {
+    padding: clamp(2rem, 5vw, 4.5rem) !important;
+    border: 1px solid rgba(16,17,15,.1);
+    border-radius: 20px;
+}
+.legal-page a { color: #4f68c5; }
+.legal-page a:hover { color: #344ca8; }
+.legal-address {
+    color: #686a65;
+    font-style: normal;
+    font-size: 1rem;
+    line-height: 1.7;
+}
 .legal-divider { border-color: rgba(16,17,15,.12); }
+@media (max-width: 600px) {
+    .legal-page { padding: 9rem 0 4rem; }
+    .legal-inner { border-radius: 14px; }
+}
 .kf-footer { background: var(--bg) !important; color: #20221d; }
 .kf-footer * { border-color: rgba(79,104,197,.14); }
 .kf-footer a, .kf-footer p, .kf-footer span { color: #696b65; }
