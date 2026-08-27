@@ -1096,8 +1096,6 @@ h1 span::selection, h2 span::selection, h3 span::selection {
 /* Image and profile card */
 .kh-home-profile-media { background: #e9e9e4; border-color: rgba(16,17,15,.1); box-shadow: none; }
 .kh-home-profile-media img { filter: saturate(.82) contrast(.98); }
-.kh-home-profile-stats { background: rgba(255,255,255,.92); color: #111210; border-color: rgba(16,17,15,.1); }
-.kh-home-profile-stats span { color: #6b6d67; }
 .kh-home-inline-link, .kh-home-services-link, .oo2-cta-link, .kh-showcase-cta {
     color: #10110f !important; border-color: #10110f !important; background: transparent !important;
 }

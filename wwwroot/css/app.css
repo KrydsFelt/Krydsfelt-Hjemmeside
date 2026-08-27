@@ -6204,47 +6204,6 @@ body {
     border-radius: 22px;
 }
 
-.kh-home-profile-stats {
-    position: absolute;
-    left: 1.25rem;
-    right: 1.25rem;
-    bottom: 1.25rem;
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    background: linear-gradient(180deg, rgba(84, 95, 110, 0.84) 0%, rgba(73, 82, 96, 0.78) 100%);
-    backdrop-filter: blur(16px);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 18px;
-    overflow: hidden;
-}
-
-.kh-home-profile-stats div {
-    padding: 1rem 1.1rem;
-    border-right: 1px solid rgba(255,255,255,0.12);
-}
-
-.kh-home-profile-stats div:last-child {
-    border-right: none;
-}
-
-.kh-home-profile-stats strong {
-    display: block;
-    background: var(--brand-heading-gradient);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    -webkit-text-fill-color: transparent;
-    font-size: clamp(1.8rem, 3vw, 2.3rem);
-    font-weight: 200;
-    margin-bottom: 0.25rem;
-    padding-bottom: 0.12em;
-}
-
-.kh-home-profile-stats span {
-    color: rgba(255,255,255,0.86);
-    font-size: 0.82rem;
-}
-
 .kh-home-socials {
     display: flex;
     gap: 0.9rem;
@@ -6468,11 +6427,6 @@ body {
     .kh-home-title,
     .kh-about-title {
         max-width: none;
-    }
-
-    .kh-home-profile-stats {
-        position: static;
-        margin-top: 1rem;
     }
 
     /* Mobile: show inline image between heading and text, hide the right-column media */
@@ -7086,19 +7040,6 @@ h1, h2, h3, h4, h5, h6,
     .yd-hero-title,
     .bk-copy h1 {
         font-size: clamp(2.55rem, 12vw, 4rem);
-    }
-
-    .kh-home-profile-stats {
-        grid-template-columns: 1fr;
-    }
-
-    .kh-home-profile-stats div {
-        border-right: none;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .kh-home-profile-stats div:last-child {
-        border-bottom: none;
     }
 
     .yd-pricing-shell,
@@ -8310,7 +8251,6 @@ body {
         border-radius: 20px;
     }
 
-    .kh-home-profile-stats div,
     .yd-price-card,
     .yd-pricing-shell,
     .bk-card {
