@@ -1,19 +1,9 @@
-@page "/ydelser/webudvikling"
-@page "/ydelser/branding-design"
 @page "/ydelser/custom-project"
 @inject NavigationManager Navigation
 
 @code {
     protected override void OnInitialized()
     {
-        var path = new Uri(Navigation.Uri).AbsolutePath.TrimEnd('/');
-        var anchor = path switch
-        {
-            "/ydelser/branding-design" => "branding-design",
-            "/ydelser/custom-project" => "custom-projekt",
-            _ => "webudvikling"
-        };
-
-        Navigation.NavigateTo($"/ydelser#{anchor}", replace: true);
+        Navigation.NavigateTo("/ydelser/custom-projekt", replace: true);
     }
 }

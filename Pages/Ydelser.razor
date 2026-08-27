@@ -1,8 +1,10 @@
 @page "/ydelser"
+@page "/ydelser/{ServiceSlug}"
 @inherits LocalizedComponentBase
 @inject IJSRuntime JS
+@inject NavigationManager Navigation
 
-<PageTitle>Ydelser – Krydsfelt</PageTitle>
+<SeoHead Title="@SeoTitle" Description="@SeoDescription" Path="@SeoPath" />
 <SiteHeader CurrentPage="services" ContactHref="/kontakt" />
 
 <main class="yd-showcase @(SelectedService is null ? "is-overview" : "is-detail")">
@@ -11,7 +13,7 @@
         <section class="yd-showcase-overview">
             <div class="yd-showcase-profile">
                 <div class="yd-showcase-intro">
-                    <h2>@Lang.T("yd.showcase.hero")</h2>
+                    <h1>@Lang.T("yd.showcase.hero")</h1>
                     <button class="yd-showcase-more" type="button" @onclick="ToggleAbout" aria-expanded="@AboutIsOpen">
                         <span>@Lang.T(AboutIsOpen ? "yd.showcase.less" : "yd.showcase.more")</span>
                         <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 6l5 5 5-5" /></svg>
@@ -24,11 +26,11 @@
                 <div class="yd-showcase-menu" aria-label="@Lang.T("yd2.services.label")">
                     @foreach (var service in Services)
                     {
-                        <button type="button" class="yd-showcase-menu-item @(HoveredService == service.Id ? "is-hovered" : "")"
-                                @onclick="() => OpenService(service)" @onmouseenter="() => HoveredService = service.Id" @onmouseleave="() => HoveredService = null">
+                        <a href="/ydelser/@service.Id" class="yd-showcase-menu-item @(HoveredService == service.Id ? "is-hovered" : "")"
+                           @onmouseenter="() => HoveredService = service.Id" @onmouseleave="() => HoveredService = null">
                             <span>@Lang.T(service.TitleKey)</span>
                             <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 15L15 5M8 5h7v7" /></svg>
-                        </button>
+                        </a>
                     }
                 </div>
             </div>
@@ -53,9 +55,9 @@
     {
         <section class="yd-service-detail" id="@SelectedService.Id">
             <aside class="yd-detail-aside">
-                <button type="button" class="yd-detail-back" @onclick="CloseService" aria-label="@Lang.T("yd.showcase.back")">
+                <a href="/ydelser" class="yd-detail-back" aria-label="@Lang.T("yd.showcase.back")">
                     <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M13 4l-6 6 6 6" /></svg>
-                </button>
+                </a>
                 <div><h1>@Lang.T(SelectedService.TitleKey)</h1><a href="/kontakt">@Lang.T("yd.showcase.start") <span>↗</span></a></div>
             </aside>
 
@@ -263,6 +265,8 @@
 <SiteFooter />
 
 @code {
+    [Parameter] public string? ServiceSlug { get; set; }
+
     private bool AboutIsOpen;
     private string? HoveredService;
     private ServiceSection? SelectedService;
@@ -279,8 +283,36 @@
     ];
 
     private void ToggleAbout() => AboutIsOpen = !AboutIsOpen;
-    private void OpenService(ServiceSection service) => SelectedService = service;
-    private void CloseService() => SelectedService = null;
+    private string SeoTitle => SelectedService?.Id switch
+    {
+        "webudvikling" => "Webudvikling og hjemmesider til virksomheder — Krydsfelt",
+        "branding-design" => "Branding og visuelt design til virksomheder — Krydsfelt",
+        "custom-projekt" => "Specialbyggede digitale løsninger — Krydsfelt",
+        _ => "Webdesign, branding og webudvikling — Krydsfelt"
+    };
+
+    private string SeoDescription => SelectedService?.Id switch
+    {
+        "webudvikling" => "Krydsfelt designer og udvikler professionelle, skræddersyede hjemmesider til virksomheder med fokus på identitet, brugervenlighed og konvertering.",
+        "branding-design" => "Få en tydelig visuel identitet med strategi, logo, designsystem og digitale brand-elementer udviklet af Krydsfelt.",
+        "custom-projekt" => "Krydsfelt udvikler portaler, integrationer, dashboards og digitale løsninger bygget omkring virksomhedens konkrete arbejdsgange.",
+        _ => "Se Krydsfelts ydelser inden for webdesign, hjemmesider, branding, webudvikling og specialbyggede digitale løsninger."
+    };
+
+    private string SeoPath => SelectedService is null ? "/ydelser" : $"/ydelser/{SelectedService.Id}";
+
+    protected override void OnParametersSet()
+    {
+        SelectedService = string.IsNullOrWhiteSpace(ServiceSlug)
+            ? null
+            : Services.FirstOrDefault(service => service.Id.Equals(ServiceSlug, StringComparison.OrdinalIgnoreCase));
+
+        if (!string.IsNullOrWhiteSpace(ServiceSlug) && SelectedService is null)
+        {
+            Navigation.NavigateTo("/not-found", replace: true);
+        }
+    }
+
     private sealed record ServiceSection(string Id, string Number, string TitleKey, string SummaryKey, string StatementKey, string PreviewKey, string[] ItemKeys);
     protected override async Task OnAfterRenderAsync(bool firstRender) { if (firstRender) await JS.InvokeVoidAsync("initAnimations"); }
 }

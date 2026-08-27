@@ -1250,7 +1250,7 @@ h1 span::selection, h2 span::selection, h3 span::selection {
 .yd-showcase-overview { min-height: 100vh; padding: 10rem max(4vw, 2rem) 3rem; display: grid; grid-template-columns: minmax(310px, .72fr) minmax(520px, 1.28fr); gap: clamp(3rem, 7vw, 9rem); align-items: center; overflow: hidden; }
 .yd-showcase-profile { width: min(100%, 470px); justify-self: end; }
 .yd-showcase-name { margin: 0 0 .45rem; font-size: clamp(1.15rem, 1.35vw, 1.45rem); line-height: 1.2; font-weight: 600; letter-spacing: -.025em; }
-.yd-showcase-intro h2 { max-width: none; margin: 0; color: #353731; font-size: clamp(1.05rem, 1.3vw, 1.4rem); line-height: 1.35; font-weight: 500; letter-spacing: -.025em; white-space: nowrap; }
+.yd-showcase-intro h1 { max-width: none; margin: 0; color: #353731; font-size: clamp(1.05rem, 1.3vw, 1.4rem); line-height: 1.35; font-weight: 500; letter-spacing: -.025em; white-space: nowrap; }
 .yd-showcase-more { margin: 1.35rem 0 0; padding: 0; display: inline-flex; align-items: center; gap: .45rem; border: 0; background: transparent; color: #73756f; font-size: .78rem; font-weight: 600; cursor: pointer; }
 .yd-showcase-more svg { width: 14px; fill: none; stroke: currentColor; stroke-width: 1.7; transition: transform .3s ease; }
 .yd-showcase-more[aria-expanded="true"] svg { transform: rotate(180deg); }
@@ -1258,7 +1258,7 @@ h1 span::selection, h2 span::selection, h3 span::selection {
 .yd-showcase-about p { min-height: 0; overflow: hidden; margin: 0; color: #5f615b; font-size: .93rem; line-height: 1.7; }
 .yd-showcase-about.is-open { grid-template-rows: 1fr; opacity: 1; margin-top: 1.15rem; }
 .yd-showcase-menu { margin-top: 2rem; display: grid; gap: .65rem; }
-.yd-showcase-menu-item { min-height: 58px; width: 100%; padding: 0 1.15rem; display: flex; align-items: center; justify-content: space-between; border: 1px solid #dedfd9; border-radius: 16px; background: rgba(255,255,255,.66); color: #6c6e68; font-size: 1rem; font-weight: 600; text-align: left; cursor: pointer; transition: color .3s ease, border-color .3s ease, background .3s ease, transform .3s ease, box-shadow .3s ease; }
+.yd-showcase-menu-item { min-height: 58px; width: 100%; padding: 0 1.15rem; display: flex; align-items: center; justify-content: space-between; border: 1px solid #dedfd9; border-radius: 16px; background: rgba(255,255,255,.66); color: #6c6e68; font-size: 1rem; font-weight: 600; text-align: left; text-decoration: none; cursor: pointer; transition: color .3s ease, border-color .3s ease, background .3s ease, transform .3s ease, box-shadow .3s ease; }
 .yd-showcase-menu-item svg { width: 18px; fill: none; stroke: currentColor; stroke-width: 1.5; opacity: .45; transition: transform .3s ease, opacity .3s ease; }
 .yd-showcase-menu-item:hover, .yd-showcase-menu-item.is-hovered { color: #4f68c5; border-color: rgba(79,104,197,.28); background: rgba(79,104,197,.065); transform: translateX(5px); box-shadow: 0 10px 28px rgba(79,104,197,.08); }
 .yd-showcase-menu-item:hover svg { transform: translate(2px,-2px); opacity: 1; }
@@ -1280,6 +1280,7 @@ h1 span::selection, h2 span::selection, h3 span::selection {
 .yd-detail-aside { height:calc(100vh - 13rem); position:sticky; top:10rem; display:grid; grid-template-columns:auto 1fr; gap:2rem; align-content:start; animation:yd-detail-aside-in .55s .32s both ease; }
 .yd-detail-back { width:44px; height:44px; display:grid; place-items:center; border:1px solid #dedfd9; border-radius:50%; background:#fff; color:#72746e; cursor:pointer; transition:.25s ease; }.yd-detail-back:hover{color:#111;transform:translateX(-4px)}.yd-detail-back svg{width:17px;fill:none;stroke:currentColor;stroke-width:1.7}
 .yd-detail-aside > div { padding-top:.3rem; }.yd-detail-aside h1 { max-width:10ch;margin:.25rem 0 1rem;color:#181914;font-size:clamp(1.7rem,2.3vw,2.5rem);line-height:1.05;letter-spacing:-.05em; }.yd-detail-aside a{display:inline-block;color:#4f68c5;text-decoration:none;font-size:.9rem;font-weight:500;transition:color .25s ease,transform .25s ease}.yd-detail-aside a:hover{color:#3f56ad;transform:translateX(3px)}.yd-detail-aside a span{margin-left:.3rem}
+.yd-detail-aside a.yd-detail-back { display:grid; }
 .yd-detail-content{display:grid;gap:3rem}.yd-detail-content article{border:1px solid #dedfd9;border-radius:20px;overflow:hidden}.yd-detail-hero{min-height:590px;position:relative;padding:clamp(2rem,5vw,5rem);display:flex;flex-direction:column;transform-origin:center top;animation:yd-screen-expand .78s cubic-bezier(.22,.72,.2,1) both;background:linear-gradient(150deg,#edf1ea,#dce8f6 56%,#cdd7f8)}.yd-detail-hero-02{background:linear-gradient(150deg,#f1e9df,#eadce7 56%,#dddffa)}.yd-detail-hero-03{background:linear-gradient(150deg,#e4eee8,#d9e7ef 56%,#d5dcf2)}
 .yd-detail-introduction {
     width: 100%;
@@ -1444,7 +1445,7 @@ h1 span::selection, h2 span::selection, h3 span::selection {
 }
 
 @media(max-width:1000px){.yd-showcase-overview{grid-template-columns:1fr;padding-top:9rem}.yd-showcase-profile{width:min(100%,650px);justify-self:center}.yd-showcase-stage{min-height:460px}.yd-showcase-device{width:min(72%,600px)}.yd-service-detail{grid-template-columns:1fr}.yd-detail-aside{height:auto;position:static}.yd-detail-spec{grid-template-columns:1fr;gap:1rem}}
-@media(max-width:600px){.yd-showcase-overview{padding:8rem 1rem 3rem;gap:2rem}.yd-showcase-intro h2{white-space:normal}.yd-showcase-stage{min-height:280px}.yd-showcase-device{width:92%}.yd-screen-canvas strong{font-size:2rem}.yd-service-detail{padding:8rem 1rem 3rem;gap:2.5rem}.yd-detail-aside{grid-template-columns:auto 1fr;gap:1.2rem}.yd-detail-back{width:38px;height:38px}.yd-detail-back svg{width:15px}.yd-detail-hero{min-height:490px;padding:1.5rem}.yd-detail-spec{padding:1.5rem}.yd-detail-orbit{width:80%;top:25%}}
+@media(max-width:600px){.yd-showcase-overview{padding:8rem 1rem 3rem;gap:2rem}.yd-showcase-intro h1{white-space:normal}.yd-showcase-stage{min-height:280px}.yd-showcase-device{width:92%}.yd-screen-canvas strong{font-size:2rem}.yd-service-detail{padding:8rem 1rem 3rem;gap:2.5rem}.yd-detail-aside{grid-template-columns:auto 1fr;gap:1.2rem}.yd-detail-back{width:38px;height:38px}.yd-detail-back svg{width:15px}.yd-detail-hero{min-height:490px;padding:1.5rem}.yd-detail-spec{padding:1.5rem}.yd-detail-orbit{width:80%;top:25%}}
 
 /* Footer — soft liquid glass */
 .kf-footer {
