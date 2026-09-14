@@ -1,263 +1,51 @@
 @page "/ydelser"
-@page "/ydelser/{ServiceSlug}"
 @inherits LocalizedComponentBase
 @inject IJSRuntime JS
-@inject NavigationManager Navigation
 
-<SeoHead Title="@SeoTitle" Description="@SeoDescription" Path="@SeoPath" />
+<SeoHead Title="Webdesign, branding og digitale løsninger — Krydsfelt"
+         Description="Krydsfelt designer og bygger digitale løsninger, der gør komplekse behov enkle at bruge."
+         Path="/ydelser" />
 <SiteHeader CurrentPage="services" ContactHref="/kontakt" />
 
-<main class="yd-showcase @(SelectedService is null ? "is-overview" : "is-detail")">
-    @if (SelectedService is null)
-    {
-        <section class="yd-showcase-overview">
-            <div class="yd-showcase-profile">
-                <div class="yd-showcase-intro">
-                    <h1>@Lang.T("yd.showcase.hero")</h1>
-                    <button class="yd-showcase-more" type="button" @onclick="ToggleAbout" aria-expanded="@AboutIsOpen">
-                        <span>@Lang.T(AboutIsOpen ? "yd.showcase.less" : "yd.showcase.more")</span>
-                        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 6l5 5 5-5" /></svg>
-                    </button>
-                    <div class="yd-showcase-about @(AboutIsOpen ? "is-open" : "")">
-                        <p>@Lang.T("yd.showcase.about")</p>
+<main class="yd-onepage">
+    <section class="yd-onepage-hero">
+        <div class="kf-hero-ripples" aria-hidden="true"></div>
+        <div class="yd-onepage-hero-copy">
+            <h2>@Lang.T("yd.showcase.hero")</h2>
+            <p>@Lang.T("yd.showcase.about")</p>
+            <a class="yd-onepage-hero-link" href="/kontakt">@Lang.T("yd.showcase.start") <span aria-hidden="true">→</span></a>
+        </div>
+    </section>
+
+    <section class="yd-onepage-services" aria-labelledby="yd-onepage-services-title">
+        <div class="yd-onepage-services-intro">
+            <p class="yd-onepage-kicker">@Lang.T("yd2.services.label")</p>
+            <h2 id="yd-onepage-services-title">@Lang.T("yd2.services.headingPrefix") <span>@Lang.T("yd2.services.headingAccent")</span></h2>
+        </div>
+        <div class="yd-onepage-list">
+            @foreach (var service in Services)
+            {
+                <details class="yd-onepage-item">
+                    <summary><span>@Lang.T(service.TitleKey)</span><i aria-hidden="true">+</i></summary>
+                    <div class="yd-onepage-item-body">
+                        <p>@Lang.T(service.SummaryKey)</p>
+                        <p class="yd-onepage-item-label">@Lang.T("yd.onepage.includes")</p>
+                        <ul>
+                            @foreach (var itemKey in service.ItemKeys)
+                            {
+                                <li>@Lang.T(itemKey)</li>
+                            }
+                        </ul>
+                        <a href="/kontakt" class="yd-onepage-item-link">@Lang.T("yd.showcase.start") <span aria-hidden="true">→</span></a>
                     </div>
-                </div>
-
-                <div class="yd-showcase-menu" aria-label="@Lang.T("yd2.services.label")">
-                    @foreach (var service in Services)
-                    {
-                        <a href="/ydelser/@service.Id" class="yd-showcase-menu-item @(HoveredService == service.Id ? "is-hovered" : "")"
-                           @onmouseenter="() => HoveredService = service.Id" @onmouseleave="() => HoveredService = null">
-                            <span>@Lang.T(service.TitleKey)</span>
-                            <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 15L15 5M8 5h7v7" /></svg>
-                        </a>
-                    }
-                </div>
-            </div>
-
-            <div class="yd-showcase-stage" aria-hidden="true">
-                <div class="yd-showcase-glow"></div>
-                <div class="yd-showcase-device">
-                    <div class="yd-showcase-screen">
-                        <div class="yd-screen-bar"><i></i><i></i><i></i><span>By Krydsfelt / @PreviewLabel</span></div>
-                        <div class="yd-screen-canvas yd-screen-@PreviewId">
-                            <small>BUILT AT THE CROSSING OF</small>
-                            <strong>@PreviewHeadline</strong>
-                            <div class="yd-screen-lines"><i></i><i></i><i></i></div>
-                            <span class="yd-screen-chip">@PreviewLabel</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    }
-    else
-    {
-        <section class="yd-service-detail" id="@SelectedService.Id">
-            <aside class="yd-detail-aside">
-                <a href="/ydelser" class="yd-detail-back" aria-label="@Lang.T("yd.showcase.back")">
-                    <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M13 4l-6 6 6 6" /></svg>
-                </a>
-                <div><h1>@Lang.T(SelectedService.TitleKey)</h1><a href="/kontakt">@Lang.T("yd.showcase.start") <span>↗</span></a></div>
-            </aside>
-
-            <div class="yd-detail-content">
-                @if (SelectedService.Id == "webudvikling")
-                {
-                    <section class="yd-detail-introduction">
-                        <h2>@Lang.T("yd.web.introduction.heading")</h2>
-                        <p>@Lang.T("yd.web.introduction.text")</p>
-                    </section>
-                    <section class="yd-web-offerings" aria-labelledby="yd-web-offerings-title">
-                        <header class="yd-web-offerings-head">
-                            <span>@Lang.T("yd.web.offerings.label")</span>
-                            <h2 id="yd-web-offerings-title">@Lang.T("yd.web.offerings.heading")</h2>
-                        </header>
-                        <div class="yd-web-offerings-grid">
-                            <article>
-                                <div class="yd-web-offering-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 9v11"/></svg></div>
-                                <span>01</span>
-                                <h3>@Lang.T("yd.web.offerings.website.title")</h3>
-                                <p>@Lang.T("yd.web.offerings.website.text")</p>
-                            </article>
-                            <article>
-                                <div class="yd-web-offering-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="8" cy="8" r="3"/><circle cx="17" cy="9" r="2"/><path d="M3 20c0-4 2-6 5-6s5 2 5 6M14 15c3-1 6 1 6 5"/></svg></div>
-                                <span>02</span>
-                                <h3>@Lang.T("yd.web.offerings.crm.title")</h3>
-                                <p>@Lang.T("yd.web.offerings.crm.text")</p>
-                            </article>
-                            <article>
-                                <div class="yd-web-offering-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7 8h10M7 12h4M7 16h7"/></svg></div>
-                                <span>03</span>
-                                <h3>@Lang.T("yd.web.offerings.pos.title")</h3>
-                                <p>@Lang.T("yd.web.offerings.pos.text")</p>
-                            </article>
-                            <article>
-                                <div class="yd-web-offering-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l1.7 5.3L19 10l-5.3 1.7L12 17l-1.7-5.3L5 10l5.3-1.7L12 3Z"/><path d="M18.5 15l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8.8-2.2Z"/></svg></div>
-                                <span>04</span>
-                                <h3>@Lang.T("yd.web.offerings.ai.title")</h3>
-                                <p>@Lang.T("yd.web.offerings.ai.text")</p>
-                            </article>
-                        </div>
-                    </section>
-                    <section class="yd-web-working-process" aria-labelledby="yd-web-process-title">
-                        <header class="yd-web-working-process-head">
-                            <span>@Lang.T("yd.web.process.label")</span>
-                            <h2 id="yd-web-process-title">@Lang.T("yd.web.process.heading")</h2>
-                            <p>@Lang.T("yd.web.process.intro")</p>
-                        </header>
-                        <ol class="yd-web-working-process-list">
-                            <li>
-                                <span>01</span>
-                                <h3>@Lang.T("yd.web.process.listen.title")</h3>
-                                <p>@Lang.T("yd.web.process.listen.text")</p>
-                            </li>
-                            <li>
-                                <span>02</span>
-                                <h3>@Lang.T("yd.web.process.direction.title")</h3>
-                                <p>@Lang.T("yd.web.process.direction.text")</p>
-                            </li>
-                            <li>
-                                <span>03</span>
-                                <h3>@Lang.T("yd.web.process.build.title")</h3>
-                                <p>@Lang.T("yd.web.process.build.text")</p>
-                            </li>
-                            <li>
-                                <span>04</span>
-                                <h3>@Lang.T("yd.web.process.launch.title")</h3>
-                                <p>@Lang.T("yd.web.process.launch.text")</p>
-                            </li>
-                        </ol>
-                    </section>
-                }
-                else if (SelectedService.Id == "branding-design")
-                {
-                    <section class="yd-detail-introduction yd-brand-introduction">
-                        <h2>@Lang.T("yd.brand.introduction.heading")</h2>
-                        <p>@Lang.T("yd.brand.introduction.text")</p>
-                    </section>
-                    <section class="yd-brand-toolkit" aria-labelledby="yd-brand-toolkit-title">
-                        <header class="yd-brand-toolkit-head">
-                            <span>@Lang.T("yd.brand.toolkit.label")</span>
-                            <h2 id="yd-brand-toolkit-title">@Lang.T("yd.brand.toolkit.heading")</h2>
-                            <p>@Lang.T("yd.brand.toolkit.text")</p>
-                        </header>
-                        <div class="yd-brand-toolkit-grid">
-                            <article>
-                                <span class="yd-brand-tool-mark yd-brand-tool-figma">Fi</span>
-                                <div><h3>Figma</h3><p>@Lang.T("yd.brand.toolkit.figma")</p></div>
-                            </article>
-                            <article>
-                                <span class="yd-brand-tool-mark yd-brand-tool-illustrator">Ai</span>
-                                <div><h3>Illustrator</h3><p>@Lang.T("yd.brand.toolkit.illustrator")</p></div>
-                            </article>
-                            <article>
-                                <span class="yd-brand-tool-mark yd-brand-tool-photoshop">Ps</span>
-                                <div><h3>Photoshop</h3><p>@Lang.T("yd.brand.toolkit.photoshop")</p></div>
-                            </article>
-                            <article>
-                                <span class="yd-brand-tool-mark yd-brand-tool-effects">Ae</span>
-                                <div><h3>After Effects</h3><p>@Lang.T("yd.brand.toolkit.effects")</p></div>
-                            </article>
-                        </div>
-                        <div class="yd-brand-toolkit-more">
-                            <strong>+7</strong>
-                            <span>@Lang.T("yd.brand.toolkit.more")</span>
-                            <ul aria-label="@Lang.T("yd.brand.toolkit.more")">
-                                <li>InDesign</li><li>Lightroom</li><li>Premiere Pro</li><li>Sketch</li><li>Procreate</li><li>Canva</li><li>Webflow</li>
-                            </ul>
-                        </div>
-                    </section>
-                    <section class="yd-brand-capabilities" aria-labelledby="yd-brand-capabilities-title">
-                        <header class="yd-brand-capabilities-head">
-                            <span>@Lang.T("yd.brand.capabilities.label")</span>
-                            <h2 id="yd-brand-capabilities-title">@Lang.T("yd.brand.capabilities.heading")</h2>
-                            <p>@Lang.T("yd.brand.capabilities.text")</p>
-                        </header>
-                        <div class="yd-brand-capabilities-list">
-                            <details>
-                                <summary><span>01</span><h3>@Lang.T("yd.brand.capabilities.strategy.title")</h3><i aria-hidden="true">+</i></summary>
-                                <p>@Lang.T("yd.brand.capabilities.strategy.text")</p>
-                            </details>
-                            <details>
-                                <summary><span>02</span><h3>@Lang.T("yd.brand.capabilities.voice.title")</h3><i aria-hidden="true">+</i></summary>
-                                <p>@Lang.T("yd.brand.capabilities.voice.text")</p>
-                            </details>
-                            <details>
-                                <summary><span>03</span><h3>@Lang.T("yd.brand.capabilities.digital.title")</h3><i aria-hidden="true">+</i></summary>
-                                <p>@Lang.T("yd.brand.capabilities.digital.text")</p>
-                            </details>
-                            <details>
-                                <summary><span>04</span><h3>@Lang.T("yd.brand.capabilities.logo.title")</h3><i aria-hidden="true">+</i></summary>
-                                <p>@Lang.T("yd.brand.capabilities.logo.text")</p>
-                            </details>
-                            <details>
-                                <summary><span>05</span><h3>@Lang.T("yd.brand.capabilities.rebrand.title")</h3><i aria-hidden="true">+</i></summary>
-                                <p>@Lang.T("yd.brand.capabilities.rebrand.text")</p>
-                            </details>
-                            <details>
-                                <summary><span>06</span><h3>@Lang.T("yd.brand.capabilities.performance.title")</h3><i aria-hidden="true">+</i></summary>
-                                <p>@Lang.T("yd.brand.capabilities.performance.text")</p>
-                            </details>
-                        </div>
-                    </section>
-                }
-                else if (SelectedService.Id == "custom-projekt")
-                {
-                    <section class="yd-detail-introduction yd-custom-introduction">
-                        <h2>@Lang.T("yd.custom.introduction.heading")</h2>
-                        <p>@Lang.T("yd.custom.introduction.text")</p>
-                    </section>
-
-                    <section class="yd-custom-possibilities" aria-labelledby="yd-custom-possibilities-title">
-                        <header class="yd-custom-possibilities-head">
-                            <span>@Lang.T("yd.custom.possibilities.label")</span>
-                            <h2 id="yd-custom-possibilities-title">@Lang.T("yd.custom.possibilities.heading")</h2>
-                            <p>@Lang.T("yd.custom.possibilities.text")</p>
-                        </header>
-                        <div class="yd-custom-possibilities-grid">
-                            <article>
-                                <span>01</span>
-                                <div class="yd-custom-possibility-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 12h8M5 8l-3 4 3 4M19 8l3 4-3 4"/><rect x="7" y="3" width="10" height="6" rx="2"/><rect x="7" y="15" width="10" height="6" rx="2"/></svg></div>
-                                <h3>@Lang.T("yd.custom.possibilities.integrations.title")</h3>
-                                <p>@Lang.T("yd.custom.possibilities.integrations.text")</p>
-                            </article>
-                            <article>
-                                <span>02</span>
-                                <div class="yd-custom-possibility-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 4h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-7l-5 4v-4H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z"/><path d="M8 10h.01M12 10h.01M16 10h.01"/></svg></div>
-                                <h3>@Lang.T("yd.custom.possibilities.ai.title")</h3>
-                                <p>@Lang.T("yd.custom.possibilities.ai.text")</p>
-                            </article>
-                            <article>
-                                <span>03</span>
-                                <div class="yd-custom-possibility-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 6h6v6H4zM14 12h6v6h-6zM10 9h4M17 9v3M7 12v5h7"/></svg></div>
-                                <h3>@Lang.T("yd.custom.possibilities.tools.title")</h3>
-                                <p>@Lang.T("yd.custom.possibilities.tools.text")</p>
-                            </article>
-                            <article>
-                                <span>04</span>
-                                <div class="yd-custom-possibility-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3Z"/><path d="M18 16l.8 2.2L21 19l-2.2.8L18 22l-.8-2.2L15 19l2.2-.8L18 16Z"/></svg></div>
-                                <h3>@Lang.T("yd.custom.possibilities.other.title")</h3>
-                                <p>@Lang.T("yd.custom.possibilities.other.text")</p>
-                            </article>
-                        </div>
-                    </section>
-
-                    <section class="yd-custom-invitation">
-                        <span>@Lang.T("yd.custom.invitation.label")</span>
-                        <h2>@Lang.T("yd.custom.invitation.heading")</h2>
-                        <p>@Lang.T("yd.custom.invitation.text")</p>
-                        <a href="/kontakt">@Lang.T("yd.custom.invitation.link") <span>↗</span></a>
-                    </section>
-                }
-            </div>
-        </section>
-    }
+                </details>
+            }
+        </div>
+    </section>
 </main>
 
 <section class="kh-home-cta yd-showcase-cta">
     <div class="kf-container kh-home-cta-inner">
-        <span class="oo2-section-label">@Lang.T("yd2.cta.label")</span>
         <h2>@Lang.T("yd2.cta.heading")</h2>
         <a href="/kontakt" class="oo2-cta-link">@Lang.T("yd2.cta.link")</a>
     </div>
@@ -265,54 +53,17 @@
 <SiteFooter />
 
 @code {
-    [Parameter] public string? ServiceSlug { get; set; }
-
-    private bool AboutIsOpen;
-    private string? HoveredService;
-    private ServiceSection? SelectedService;
-    private string PreviewId => HoveredService ?? "webudvikling";
-    private ServiceSection PreviewService => Services.First(service => service.Id == PreviewId);
-    private string PreviewLabel => Lang.T(PreviewService.TitleKey).ToUpperInvariant();
-    private string PreviewHeadline => Lang.T(PreviewService.PreviewKey);
-
     private static readonly ServiceSection[] Services =
     [
-        new("webudvikling", "01", "yd2.card.webudvikling.title", "yd.onepage.web.summary", "yd.showcase.web.statement", "yd.showcase.web.preview", ["yd.onepage.web.i1", "yd.onepage.web.i2", "yd.onepage.web.i3", "yd.onepage.web.i4"]),
-        new("branding-design", "02", "yd2.card.branding.title", "yd.onepage.brand.summary", "yd.showcase.brand.statement", "yd.showcase.brand.preview", ["yd.onepage.brand.i1", "yd.onepage.brand.i2", "yd.onepage.brand.i3", "yd.onepage.brand.i4"]),
-        new("custom-projekt", "03", "yd2.card.custom.title", "yd.onepage.custom.summary", "yd.showcase.custom.statement", "yd.showcase.custom.preview", ["yd.onepage.custom.i1", "yd.onepage.custom.i2", "yd.onepage.custom.i3", "yd.onepage.custom.i4"])
+        new("yd2.card.webudvikling.title", "yd.onepage.web.summary", ["yd.onepage.web.i1", "yd.onepage.web.i2", "yd.onepage.web.i3", "yd.onepage.web.i4"]),
+        new("yd2.card.branding.title", "yd.onepage.brand.summary", ["yd.onepage.brand.i1", "yd.onepage.brand.i2", "yd.onepage.brand.i3", "yd.onepage.brand.i4"]),
+        new("yd2.card.custom.title", "yd.onepage.custom.summary", ["yd.onepage.custom.i1", "yd.onepage.custom.i2", "yd.onepage.custom.i3", "yd.onepage.custom.i4"])
     ];
 
-    private void ToggleAbout() => AboutIsOpen = !AboutIsOpen;
-    private string SeoTitle => SelectedService?.Id switch
+    private sealed record ServiceSection(string TitleKey, string SummaryKey, string[] ItemKeys);
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        "webudvikling" => "Webudvikling og hjemmesider til virksomheder — Krydsfelt",
-        "branding-design" => "Branding og visuelt design til virksomheder — Krydsfelt",
-        "custom-projekt" => "Specialbyggede digitale løsninger — Krydsfelt",
-        _ => "Webdesign, branding og webudvikling — Krydsfelt"
-    };
-
-    private string SeoDescription => SelectedService?.Id switch
-    {
-        "webudvikling" => "Krydsfelt designer og udvikler professionelle, skræddersyede hjemmesider til virksomheder med fokus på identitet, brugervenlighed og konvertering.",
-        "branding-design" => "Få en tydelig visuel identitet med strategi, logo, designsystem og digitale brand-elementer udviklet af Krydsfelt.",
-        "custom-projekt" => "Krydsfelt udvikler portaler, integrationer, dashboards og digitale løsninger bygget omkring virksomhedens konkrete arbejdsgange.",
-        _ => "Se Krydsfelts ydelser inden for webdesign, hjemmesider, branding, webudvikling og specialbyggede digitale løsninger."
-    };
-
-    private string SeoPath => SelectedService is null ? "/ydelser" : $"/ydelser/{SelectedService.Id}";
-
-    protected override void OnParametersSet()
-    {
-        SelectedService = string.IsNullOrWhiteSpace(ServiceSlug)
-            ? null
-            : Services.FirstOrDefault(service => service.Id.Equals(ServiceSlug, StringComparison.OrdinalIgnoreCase));
-
-        if (!string.IsNullOrWhiteSpace(ServiceSlug) && SelectedService is null)
-        {
-            Navigation.NavigateTo("/not-found", replace: true);
-        }
+        if (firstRender) await JS.InvokeVoidAsync("initAnimations");
     }
-
-    private sealed record ServiceSection(string Id, string Number, string TitleKey, string SummaryKey, string StatementKey, string PreviewKey, string[] ItemKeys);
-    protected override async Task OnAfterRenderAsync(bool firstRender) { if (firstRender) await JS.InvokeVoidAsync("initAnimations"); }
 }

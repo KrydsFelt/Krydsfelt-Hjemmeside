@@ -1,0 +1,79 @@
+/* A quiet, contained hero aligned with the navigation and page content. */
+.kf-box-hero.kf-container {
+    position: relative;
+    display: grid;
+    place-items: center;
+    min-height: clamp(480px, 44vw, 680px);
+    width: min(calc(100% - clamp(2rem, 12vw, 14rem)), 1460px);
+    margin: 150px auto 0;
+    margin-bottom: 2rem;
+    padding: 5rem 2rem !important;
+    overflow: hidden;
+    border-radius: 0;
+    background:
+        radial-gradient(ellipse at -12% 75%, rgba(70, 115, 242, .65), transparent 44%),
+        radial-gradient(ellipse at 112% 35%, rgba(70, 98, 226, .48), transparent 43%),
+        #100e1d;
+    color: #faf9fc;
+    text-align: center;
+}
+.kf-nav.with-topbar + .kf-box-hero { margin-top: 150px; }
+.kf-box-hero-copy { position: relative; z-index: 1; width: min(100%, 960px); }
+.kf-hero-ripples {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    border-radius: inherit;
+    pointer-events: none;
+}
+.kf-hero-ripple {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    margin: -75px 0 0 -75px;
+    border: 1px solid rgba(255, 255, 255, .4);
+    border-radius: 50%;
+    background: transparent;
+    pointer-events: none;
+    animation: kf-water-ripple 2.4s ease-out forwards;
+}
+@keyframes kf-water-ripple {
+    from { transform: scale(.08); opacity: .55; }
+    to { transform: scale(1); opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .kf-hero-ripples { display: none; }
+}
+.kf-box-hero h3 {
+    margin: 0;
+    color: #faf9fc;
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(2rem, 3.6vw, 3.8rem);
+    font-weight: 400;
+    line-height: 1.16;
+    letter-spacing: -.04em;
+}
+.kf-box-hero h3 span { display: block; }
+.kf-box-hero p {
+    max-width: 670px;
+    margin: 1.75rem auto 0;
+    color: #d0ceda;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    line-height: 1.65;
+    font-weight: 400;
+    text-wrap: pretty;
+}
+@media (max-width: 900px) {
+    .kf-box-hero.kf-container { width: calc(100% - 2rem); margin-top: 128px; }
+    .kf-nav.with-topbar + .kf-box-hero { margin-top: 128px; }
+}
+@media (max-width: 600px) {
+    .kf-box-hero.kf-container {
+        min-height: 460px;
+        padding: 4rem 1.25rem !important;
+        border-radius: 0;
+    }
+    .kf-box-hero h3 { font-size: clamp(1.85rem, 7.5vw, 2.5rem); }
+    .kf-box-hero p { font-size: .92rem; margin-top: 1.5rem; }
+}

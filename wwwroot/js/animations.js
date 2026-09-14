@@ -373,7 +373,45 @@ window.initYdelserQuoteScene = function () {
     };
 };
 
+window.initKfHeroRipples = function () {
+    document.querySelectorAll('.kf-box-hero, .yd-onepage-hero').forEach(hero => {
+        const layer = hero.querySelector('.kf-hero-ripples');
+        if (!layer || hero.dataset.ripplesReady) return;
+        hero.dataset.ripplesReady = 'true';
+        const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+        let lastTime = -Infinity;
+        let lastX = 0;
+        let lastY = 0;
+        const ripple = (event) => {
+            if (event.pointerType !== 'mouse' || reducedMotion.matches) return;
+            const now = performance.now();
+            const bounds = hero.getBoundingClientRect();
+            const x = event.clientX - bounds.left;
+            const y = event.clientY - bounds.top;
+            if (now - lastTime < 300) return;
+            if (event.type !== 'pointerenter' && Math.hypot(x - lastX, y - lastY) < 35) return;
+            lastTime = now; lastX = x; lastY = y;
+            while (layer.childElementCount >= 9) layer.firstElementChild.remove();
+            const ring = document.createElement('span');
+            ring.className = 'kf-hero-ripple';
+            ring.style.left = `${x}px`; ring.style.top = `${y}px`;
+            ring.addEventListener('animationend', () => ring.remove(), { once: true });
+            layer.appendChild(ring);
+        };
+        hero.addEventListener('pointerenter', ripple, { passive: true });
+        hero.addEventListener('pointermove', ripple, { passive: true });
+    });
+};
+
 window.initAnimations = function () {
+    window.initKfHeroRipples();
+    const onepageHero = document.querySelector('.yd-onepage-hero');
+    if (onepageHero && !onepageHero.dataset.scrollZoomReady) {
+        onepageHero.dataset.scrollZoomReady = 'true';
+        const updateOnepageHero = () => onepageHero.classList.toggle('is-scrolled', window.scrollY > 40);
+        window.addEventListener('scroll', updateOnepageHero, { passive: true });
+        updateOnepageHero();
+    }
     const clearGhostSelection = () => {
         const selection = window.getSelection ? window.getSelection() : null;
         if (selection && selection.rangeCount > 0) {

@@ -1,0 +1,141 @@
+/* A single horizontal rule and plain text navigation. */
+.kf-nav.kf-minimal-nav {
+    padding: 0;
+    background: var(--bg) !important;
+    font-family: 'Inter', sans-serif;
+    flex-direction: column;
+}
+.kf-nav.kf-minimal-nav .kf-nav-inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    min-height: 74px;
+    margin: 0 auto;
+    padding: .65rem 0 !important;
+    border: 0 !important;
+    border-bottom: 1px solid #292926 !important;
+    border-radius: 0;
+    background: transparent !important;
+    box-shadow: none;
+    backdrop-filter: none;
+}
+.kf-minimal-brand,
+.kf-minimal-contact {
+    color: #20211e;
+    font-size: .82rem;
+    font-weight: 400;
+    letter-spacing: -.025em;
+    text-decoration: none;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+.kf-minimal-brand { justify-self: start; }
+.kf-minimal-nav .kf-nav-center { position: static; transform: none; justify-self: center; }
+.kf-minimal-nav .kf-nav-links {
+    gap: 2rem;
+    min-height: 44px;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: none;
+    box-shadow: none;
+    backdrop-filter: none;
+}
+.kf-minimal-nav .kf-nav-links a {
+    min-height: 44px;
+    padding: 0;
+    border-radius: 0;
+    background: none;
+    color: #20211e !important;
+    font-size: .82rem;
+    font-weight: 400;
+    letter-spacing: -.025em;
+    text-transform: uppercase;
+}
+.kf-minimal-nav .kf-nav-utilities { justify-self: end; gap: 2rem; }
+.kf-language-switch { display: flex; align-items: center; gap: .55rem; }
+.kf-language-choice {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 28px;
+    min-height: 44px;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: #62635e;
+    font: inherit;
+    font-size: .76rem;
+    font-weight: 400;
+    cursor: pointer;
+}
+.kf-language-choice.is-active { color: #20211e; font-weight: 600; }
+.kf-minimal-contact { display: inline-flex; align-items: center; gap: .55rem; min-height: 44px; }
+.kf-minimal-nav a:hover { color: #20211e; text-decoration: underline; text-underline-offset: .3em; }
+.kf-language-choice:hover { color: #20211e; }
+.kf-minimal-nav a:focus-visible,
+.kf-language-choice:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
+
+@media (max-width: 1100px) {
+    .kf-minimal-nav .kf-nav-utilities { gap: 1rem; }
+    .kf-minimal-nav .kf-nav-links { gap: 1.25rem; }
+}
+@media (max-width: 900px) {
+    .kf-nav.kf-minimal-nav .kf-nav-inner { grid-template-columns: 1fr auto; min-height: 68px; }
+    .kf-minimal-nav .kf-nav-center { display: none; }
+    .kf-minimal-nav .kf-nav-hamburger {
+        order: 3;
+        min-width: 44px;
+        min-height: 44px;
+        align-items: center;
+        border: 0 !important;
+        border-radius: 0 !important;
+        background: none !important;
+    }
+    .kf-minimal-nav .kf-nav-hamburger span { background: #20211e !important; }
+    .kf-minimal-nav .kf-nav-mobile {
+        border: 0 !important;
+        border-bottom: 1px solid #292926 !important;
+        border-radius: 0 !important;
+        background: var(--bg) !important;
+        box-shadow: none;
+    }
+    .kf-minimal-nav .kf-nav-mobile-contact { background: none !important; color: #20211e !important; border: 0; border-radius: 0; }
+}
+@media (max-width: 600px) {
+    .kf-minimal-brand { font-size: .85rem; }
+    .kf-minimal-nav .kf-nav-utilities { gap: .65rem; }
+    .kf-minimal-contact { display: none; }
+}
+
+@media (max-width: 900px) {
+    .kf-nav.kf-minimal-nav .kf-nav-inner {
+        width: calc(100% - 2rem) !important;
+        border-bottom: 0 !important;
+    }
+    .kf-minimal-nav .kf-nav-mobile {
+        position: absolute;
+        left: 0;
+        right: 0;
+        width: 100vw !important;
+        margin: 0 !important;
+        padding: .75rem 1rem 1.25rem !important;
+        border: 0 !important;
+        border-radius: 0 !important;
+        background: #fff !important;
+        box-shadow: none !important;
+    }
+    .kf-minimal-nav .kf-nav-mobile a,
+    .kf-minimal-nav .kf-nav-mobile .kf-nav-mobile-contact {
+        min-height: 48px;
+        padding: .75rem 1rem;
+        color: #20211e !important;
+        font-family: 'Inter', sans-serif !important;
+        font-size: .82rem !important;
+        font-weight: 400 !important;
+        letter-spacing: -.025em;
+        text-transform: uppercase;
+        background: transparent !important;
+        border: 0 !important;
+        border-radius: 0 !important;
+    }
+}

@@ -17,73 +17,35 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
     <style>
       #kf-loader {
-        position: fixed; inset: 0; z-index: 99999;
-        background:
-          radial-gradient(circle at 12% 8%, rgba(80,108,131,0.18), transparent 28%),
-          radial-gradient(circle at 88% 18%, rgba(232,236,240,0.07), transparent 24%),
-          linear-gradient(180deg, #101319 0%, #0d0d0d 100%);
-        display: flex; align-items: center; justify-content: center;
+        position: fixed;
+        inset: 0;
+        z-index: 99999;
+        display: grid;
+        place-items: center;
+        background: #fff;
+        color: #20211e;
         font-family: 'Inter', system-ui, -apple-system, sans-serif;
-        transition: opacity .55s ease, visibility .55s ease;
+        transition: opacity .6s ease, visibility .6s ease;
       }
       #kf-loader.kf-hide { opacity: 0; visibility: hidden; pointer-events: none; }
-
-      #kf-loader .kf-stack { display: flex; flex-direction: column; align-items: center; gap: 28px; }
-
-      #kf-loader svg { display: block; }
-      #kf-loader svg path {
-        fill: #ffffff;
-        stroke: #ffffff;
-        stroke-width: 1.5;
-        stroke-dasharray: 500;
-        stroke-dashoffset: 500;
-        fill-opacity: 0;
-        animation: kf-draw 2.2s cubic-bezier(.65,.05,.36,1) .6s forwards,
-                   kf-fill .9s ease 2.1s forwards;
+      #kf-loader .kf-stack { display: flex; flex-direction: column; align-items: center; gap: 20px; }
+      #kf-loader .kf-word { font-size: 20px; font-weight: 400; letter-spacing: -.04em; }
+      #kf-loader .kf-loading-line { width: 88px; height: 2px; overflow: hidden; background: #eeeee9; }
+      #kf-loader .kf-loading-line::after {
+        content: "";
+        display: block;
+        width: 32px;
+        height: 100%;
+        background: #6978cc;
+        animation: kf-loading-line 1.5s ease-in-out infinite;
       }
-      #kf-loader svg path:nth-child(2) { animation-delay: .75s, 2.25s; }
-
-      @keyframes kf-draw { to { stroke-dashoffset: 0; } }
-      @keyframes kf-fill { to { fill-opacity: 1; } }
-
-      #kf-loader .kf-word {
-        color: #ffffff;
-        font-weight: 500;
-        font-size: 22px;
-        letter-spacing: .42em;
-        padding-left: .42em;
-        height: 28px;
-        display: flex; align-items: center;
-        overflow: hidden;
+      @keyframes kf-loading-line {
+        0% { transform: translateX(-32px); }
+        100% { transform: translateX(88px); }
       }
-      #kf-loader .kf-word .kf-letter {
-        display: inline-block;
-        opacity: 0;
-        transform: translateY(6px);
-        animation: kf-letter .5s ease forwards;
-      }
-      @keyframes kf-letter { to { opacity: 1; transform: translateY(0); } }
-
-      #kf-loader .kf-dots {
-        position: absolute; bottom: 56px; left: 50%; transform: translateX(-50%);
-        display: flex; gap: 10px;
-      }
-      #kf-loader .kf-dots span {
-        width: 6px; height: 6px; border-radius: 50%; background: #ffffff;
-        opacity: .2;
-        animation: kf-dot 1.2s ease-in-out infinite;
-      }
-      #kf-loader .kf-dots span:nth-child(2) { animation-delay: .15s; }
-      #kf-loader .kf-dots span:nth-child(3) { animation-delay: .3s; }
-      @keyframes kf-dot {
-        0%, 100% { opacity: .2; }
-        50%      { opacity: 1; }
-      }
-
       @media (prefers-reduced-motion: reduce) {
-        #kf-loader svg path { stroke-dashoffset: 0; fill-opacity: 1; animation: none; }
-        #kf-loader .kf-word .kf-letter { opacity: 1; transform: none; animation: none; }
-        #kf-loader .kf-dots span { animation: none; opacity: .5; }
+        #kf-loader { transition: none; }
+        #kf-loader .kf-loading-line::after { animation: none; transform: translateX(28px); }
       }
     </style>
     <base href="/" />
@@ -91,6 +53,12 @@
     <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/app.css" />
     <link rel="stylesheet" href="css/home-booking-overrides.css" />
+    <link rel="stylesheet" href="css/minimal-header.css" />
+    <link rel="stylesheet" href="css/hero-panel.css" />
+    <link rel="stylesheet" href="css/working-section.css" />
+    <link rel="stylesheet" href="css/services-showcase.css" />
+    <link rel="stylesheet" href="css/services-onepage.css" />
+    <link rel="stylesheet" href="css/cta-minimal.css" />
     <link rel="icon" type="image/png" sizes="512x512" href="favicon.png?v=4" />
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=4" />
     <link rel="shortcut icon" type="image/png" href="favicon.png?v=4" />
@@ -131,22 +99,9 @@
     <div id="app"></div>
 
     <div id="kf-loader" role="status" aria-label="Loading Krydsfelt">
-      <div class="kf-stack">
-        <svg width="140" height="140" viewBox="0 0 200 200" aria-hidden="true">
-          <path d="M 20 18 L 50 18 L 100 100 L 50 182 L 20 182 L 70 100 Z" />
-          <path d="M 180 18 L 150 18 L 100 100 L 150 182 L 180 182 L 130 100 Z" />
-        </svg>
-        <div class="kf-word" aria-hidden="true">
-          <span class="kf-letter" style="animation-delay:2.3s">K</span>
-          <span class="kf-letter" style="animation-delay:2.42s">R</span>
-          <span class="kf-letter" style="animation-delay:2.54s">Y</span>
-          <span class="kf-letter" style="animation-delay:2.66s">D</span>
-          <span class="kf-letter" style="animation-delay:2.78s">S</span>
-          <span class="kf-letter" style="animation-delay:2.90s">F</span>
-          <span class="kf-letter" style="animation-delay:3.02s">E</span>
-          <span class="kf-letter" style="animation-delay:3.14s">L</span>
-          <span class="kf-letter" style="animation-delay:3.26s">T</span>
-        </div>
+      <div class="kf-stack" aria-hidden="true">
+        <div class="kf-word">By Krydsfelt</div>
+        <div class="kf-loading-line"></div>
       </div>
     </div>
 
@@ -181,7 +136,7 @@
       (function () {
         var loader = document.getElementById('kf-loader');
         if (!loader) return;
-        var MIN_MS = 4800;
+        var MIN_MS = 2500;
         var MAX_MS = 8000;
         var started = performance.now();
 

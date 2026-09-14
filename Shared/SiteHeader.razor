@@ -8,16 +8,16 @@
             <div class="kf-topbar-copy">
                 <span class="kf-topbar-dot"></span>
                 <span class="kf-topbar-message">@Lang.T("banner.text")</span>
-                <a href="@BannerCtaHref" class="kf-topbar-cta">@Lang.T("banner.cta")</a>
+                <a href="@BannerCtaHref" class="kf-topbar-link">@Lang.T("banner.cta")</a>
             </div>
             <button class="kf-topbar-close" type="button" @onclick="CloseBanner" aria-label="@Lang.T("nav.closeMessage")">×</button>
         </div>
     </div>
 }
 
-<nav class="kf-nav @(showBanner ? "with-topbar" : "")">
+<nav class="kf-nav kf-minimal-nav @(showBanner ? "with-topbar" : "")">
     <div class="kf-nav-inner">
-        <a href="/" class="kf-logo-link"><span class="kf-logo">By Krydsfelt</span></a>
+        <a href="/" class="kf-minimal-brand">By Krydsfelt</a>
 
         <div class="kf-nav-center">
             <div class="kf-nav-links">
@@ -29,35 +29,15 @@
         </div>
 
         <div class="kf-nav-utilities">
-            <div class="kf-nav-dropdown kf-nav-dropdown-click kf-nav-language @(languageMenuOpen ? "open" : "")">
-                <button
-                    type="button"
-                    class="kf-nav-dropdown-trigger kf-nav-language-trigger"
-                    @onclick="ToggleLanguageMenu"
-                    aria-label="@string.Format(Lang.T("nav.langSelect"), CurrentLanguage.Label)"
-                    aria-expanded="@languageMenuOpen"
-                    aria-controls="kf-nav-language-menu">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <circle cx="12" cy="12" r="8.5"></circle>
-                        <path d="M3.8 9.25h16.4"></path>
-                        <path d="M3.8 14.75h16.4"></path>
-                        <path d="M12 3.5c2.3 2.2 3.6 5.17 3.6 8.5S14.3 18.3 12 20.5c-2.3-2.2-3.6-5.17-3.6-8.5S9.7 5.7 12 3.5Z"></path>
-                    </svg>
-                </button>
-
-                <div id="kf-nav-language-menu" class="kf-nav-dropdown-menu kf-nav-language-menu" role="menu">
-                    @foreach (var language in LanguageOptions)
-                    {
-                        <button
-                            type="button"
-                            class="kf-nav-language-option @(Lang.CurrentLanguage == language.Code ? "active" : "")"
-                            @onclick="() => SelectLanguage(language.Code)"
-                            role="menuitem">
-                            <span>@language.Label</span>
-                            <span class="kf-nav-language-code">@language.ShortLabel</span>
-                        </button>
-                    }
-                </div>
+            <div class="kf-language-switch" role="group" aria-label="@Lang.T("nav.language")">
+                @foreach (var language in LanguageOptions)
+                {
+                    <button type="button"
+                            class="kf-language-choice @(Lang.CurrentLanguage == language.Code ? "is-active" : "")"
+                            aria-label="@language.Label"
+                            aria-pressed="@(Lang.CurrentLanguage == language.Code)"
+                            @onclick="() => SelectLanguage(language.Code)">@language.ShortLabel</button>
+                }
             </div>
 
             <button class="kf-nav-hamburger @(navOpen ? "open" : "")" @onclick="ToggleMenu" aria-label="Menu" aria-expanded="@navOpen" aria-controls="kf-nav-mobile">
@@ -66,7 +46,7 @@
 
             @if (!HideContactButton)
             {
-                <a href="@ContactHref" class="kf-nav-contact-btn @(CurrentPage == "contact" ? "active" : "")"><span>@Lang.T("nav.bookMeeting")</span></a>
+                <a href="@ContactHref" class="kf-minimal-contact">@Lang.T("nav.bookMeeting")</a>
             }
         </div>
     </div>
@@ -85,8 +65,8 @@
 @code {
     private static readonly LanguageOption[] LanguageOptions =
     [
-        new("da", "Dansk", "DA"),
-        new("en", "English", "EN")
+        new("en", "English", "EN"),
+        new("da", "Dansk", "DK")
     ];
 
     [Parameter] public string CurrentPage { get; set; } = "";
@@ -96,11 +76,8 @@
 
     private bool navOpen;
     private bool showBanner = true;
-    private bool languageMenuOpen;
 
 
-    private LanguageOption CurrentLanguage =>
-        LanguageOptions.First(option => option.Code == Lang.CurrentLanguage);
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
@@ -116,26 +93,17 @@
     private void ToggleMenu()
     {
         navOpen = !navOpen;
-        languageMenuOpen = false;
-    }
-
-    private void ToggleLanguageMenu()
-    {
-        languageMenuOpen = !languageMenuOpen;
-        navOpen = false;
     }
 
     private void CloseMenu()
     {
         navOpen = false;
-        languageMenuOpen = false;
     }
 
     private void CloseBanner() => showBanner = false;
 
     private async Task SelectLanguage(string code)
     {
-        languageMenuOpen = false;
         navOpen = false;
         await Lang.SetLanguageAsync(code, JS);
     }

@@ -1,0 +1,47 @@
+.yd-onepage { color: #1b1c19; font-family: 'Inter', sans-serif; }
+.yd-onepage-hero {
+    position: relative;
+    display: grid;
+    align-items: end;
+    min-height: clamp(480px, 44vw, 680px);
+    width: min(calc(100% - clamp(2rem, 12vw, 14rem)), 1460px);
+    margin: 150px auto 0;
+    padding: clamp(3rem, 7vw, 7rem) clamp(1.5rem, 4vw, 4rem);
+    overflow: hidden;
+    border-radius: 0;
+    background: radial-gradient(circle at 78% 64%, #d5ff70 0, #c5edb2 29%, #e1ead8 66%, #d8e3ce 100%);
+    transform: scale(1);
+    transform-origin: center top;
+    transition: transform .8s cubic-bezier(.22, .61, .36, 1);
+}
+.yd-onepage-hero.is-scrolled { transform: scale(.97); }
+.yd-onepage-hero-copy { position: relative; z-index: 1; max-width: 620px; }
+.yd-onepage-hero h2 { margin: 0; max-width: 17ch; font-size: clamp(2.1rem, 3.8vw, 4.2rem); font-weight: 400; line-height: 1.06; letter-spacing: -.06em; }
+.yd-onepage-hero p { max-width: 50ch; margin: 2rem 0 0; font-size: 1rem; line-height: 1.6; }
+.yd-onepage-hero-link, .yd-onepage-item-link { display: inline-flex; gap: .65rem; margin-top: 1.6rem; color: inherit; text-decoration: none; }
+.yd-onepage-hero-link:hover, .yd-onepage-item-link:hover { text-decoration: underline; text-underline-offset: .3em; }
+.yd-onepage-services { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.65fr); gap: clamp(3rem, 7vw, 8rem); align-items: start; width: min(100% - 3rem, 1320px); margin: 0 auto; padding: clamp(5rem, 10vw, 10rem) 0; }
+.yd-onepage-services-intro { position: sticky; top: 7rem; }
+.yd-onepage-kicker { margin: 0 0 1.3rem; color: #888984; font-size: .8rem; letter-spacing: .1em; text-transform: uppercase; }
+.yd-onepage-services-intro > h2 { max-width: 18ch; margin: 0; color: #171815 !important; font-size: clamp(1.55rem, 2.35vw, 2.45rem); font-weight: 400; line-height: 1.15; letter-spacing: -.05em; }
+.yd-onepage-services-intro > h2 span { color: #6978cc; }
+.yd-onepage-list { display: grid; gap: .9rem; width: 100%; margin: 0; align-items: start; }
+.yd-onepage-item { border-radius: 10px; background: #eeeeeb; overflow: hidden; }
+.yd-onepage-item summary { display: flex; align-items: center; justify-content: space-between; padding: 2rem 2.5rem; cursor: pointer; list-style: none; font-size: clamp(1.25rem, 2vw, 1.8rem); letter-spacing: -.04em; }
+.yd-onepage-item summary::-webkit-details-marker { display: none; }
+.yd-onepage-item summary i { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; background: #e9edd8; font-style: normal; font-size: 1.25rem; font-weight: 300; }
+.yd-onepage-item[open] summary i { background: #c9ff2e; }
+.yd-onepage-item-body { padding: 0 2.5rem 2.5rem; max-width: 790px; }
+.yd-onepage-item-body > p:first-child { max-width: 65ch; margin: 0 0 2rem; color: #4e504d; line-height: 1.6; }
+.yd-onepage-item-label { margin: 0 0 .75rem; color: #858681; font-size: .8rem; }
+.yd-onepage-item-body ul { display: flex; flex-wrap: wrap; gap: .55rem; margin: 0; padding: 0; list-style: none; }
+.yd-onepage-item-body li { padding: .55rem .8rem; border-radius: 999px; background: #fff; color: #555751; font-size: .85rem; }
+.yd-onepage-item-link { margin-top: 2rem; }
+@media (max-width: 700px) {
+    .yd-onepage-hero { width: calc(100% - 2rem); margin: 128px auto 0; min-height: 460px; padding: 2rem 1.25rem; border-radius: 0; }
+    .yd-onepage-hero h2 { font-size: clamp(2rem, 9vw, 3.25rem); }
+    .yd-onepage-services { display: block; width: min(100% - 2rem, 1140px); }
+    .yd-onepage-services-intro { position: static; margin-bottom: 2.5rem; }
+    .yd-onepage-item summary { padding: 1.4rem 1.25rem; }
+    .yd-onepage-item-body { padding: 0 1.25rem 1.5rem; }
+}

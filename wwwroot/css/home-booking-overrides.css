@@ -812,6 +812,23 @@ h1 span::selection, h2 span::selection, h3 span::selection {
 .kf-container { width: min(100% - 3rem, 1460px); padding-inline: 0; }
 
 /* Navigation */
+.kf-topbar-link {
+    color: inherit;
+    font: inherit;
+    white-space: nowrap;
+    flex: 0 0 auto;
+    text-decoration: underline;
+    text-underline-offset: .2em;
+}
+.kf-topbar-link:hover {
+    color: inherit;
+    text-decoration-thickness: 2px;
+}
+.kf-topbar-link:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 4px;
+}
+
 .kf-topbar {
     position: fixed !important;
     inset: 0 0 auto 0 !important;
@@ -1501,8 +1518,8 @@ h1 span::selection, h2 span::selection, h3 span::selection {
 .kf-footer-social:hover { transform: translateY(-2px) !important; background: rgba(79,104,197,.1) !important; }
 .kf-footer-social:hover img { opacity: .8; }
 .kf-footer-bottom { min-height: 0 !important; padding: 1.75rem 0 0 !important; }
-.kf-footer-bottom p,
-.kf-footer-legal a { color: #4f68c5 !important; -webkit-text-fill-color: #4f68c5 !important; }
+.kf-footer-bottom p { color: #171815 !important; -webkit-text-fill-color: #171815 !important; }
+.kf-footer-legal a { color: #171815 !important; -webkit-text-fill-color: #171815 !important; }
 @media (max-width: 900px) {
     .kf-footer > .kf-container { width: calc(100% - 2rem) !important; padding: 2rem 1.35rem 1.5rem !important; }
     .kf-footer-content { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
@@ -2078,6 +2095,43 @@ h1 span::selection, h2 span::selection, h3 span::selection {
     object-fit: cover;
     border-radius: 20px;
 }
+.about-editorial-team-grid .about-editorial-person img {
+    border-radius: 0 !important;
+    aspect-ratio: 4 / 4.7 !important;
+    background: #6978cc;
+    filter: grayscale(1);
+}
+.about-editorial-team > .kf-container {
+    width: min(calc(100% - clamp(2rem, 12vw, 14rem)), 1460px) !important;
+}
+.about-editorial-team-grid {
+    gap: clamp(2rem, 3vw, 3.5rem) !important;
+}
+.about-editorial-team > .kf-container > .oo2-section-label {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.5rem;
+    margin-bottom: 2rem;
+    padding: 0 .95rem;
+    border-radius: 0 !important;
+    background: #20211e !important;
+    color: #fff !important;
+    -webkit-text-fill-color: #fff !important;
+    letter-spacing: .12em;
+}
+
+/* Newspaper halftone treatment for the profile portrait. */
+.kh-home-profile-media {
+    padding: 0 !important;
+    overflow: hidden;
+    border: 0 !important;
+    border-radius: 0 !important;
+}
+.about-editorial-development-copy h2 { color: #171815 !important; }
+.about-editorial-development-copy h2 .about-editorial-accent { color: #6978cc !important; }
+.kh-home-profile-media img {
+    border-radius: 0 !important;
+}
 .about-editorial-development-copy h2 {
     max-width: 100%;
     margin: 1.25rem 0 2rem;
@@ -2492,6 +2546,20 @@ h1 span::selection, h2 span::selection, h3 span::selection {
 /* About flow: development first, then one animated field with principles */
 .about-editorial > .about-editorial-development:first-child {
     padding: 12rem 0 clamp(5rem, 8vw, 8rem);
+}
+
+/* Keep the Om os page focused on the development story and team. */
+.about-hero-content,
+.about-principles-panel {
+    display: none !important;
+}
+
+.about-editorial-development-image {
+    height: auto;
+    aspect-ratio: auto;
+    object-fit: contain;
+    object-position: left center;
+    border-radius: 0 !important;
 }
 .about-intro-hero {
     height: auto;
