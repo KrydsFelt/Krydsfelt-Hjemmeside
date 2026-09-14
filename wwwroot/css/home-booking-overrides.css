@@ -1691,22 +1691,31 @@ h1 span::selection, h2 span::selection, h3 span::selection {
 /* Minimal contact — focused, Polestar-inspired composition */
 .contact-minimal { background: var(--bg); color: #10110f; }
 .contact-minimal-panel {
-    min-height: 88vh;
-    padding: 13rem 0 7rem;
+    width: min(calc(100% - clamp(2rem, 12vw, 14rem)), 1460px);
+    min-height: clamp(480px, 44vw, 680px);
+    margin: 150px auto 0;
+    padding: 5rem 2rem;
     display: flex;
     align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 0;
+    background:
+        radial-gradient(ellipse at -12% 75%, rgba(70, 115, 242, .65), transparent 44%),
+        radial-gradient(ellipse at 112% 35%, rgba(70, 98, 226, .48), transparent 43%),
+        #100e1d;
 }
-.contact-minimal-content { display: flex; flex-direction: column; align-items: center; text-align: center; }
-.contact-minimal-content h1 {
+.contact-minimal-content { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; text-align: center; }
+.contact-minimal-content h2 {
     margin: 0;
-    color: #10110f;
+    color: #faf9fc;
     font-size: clamp(4.5rem, 8vw, 9rem);
     line-height: .92;
     font-weight: 400;
     letter-spacing: -.07em;
 }
-.contact-minimal-content h1:focus,
-.contact-minimal-content h1:focus-visible,
+.contact-minimal-content h2:focus,
+.contact-minimal-content h2:focus-visible,
 .services-onepage-hero h1:focus,
 .services-onepage-hero h1:focus-visible {
     outline: none !important;
@@ -1714,28 +1723,20 @@ h1 span::selection, h2 span::selection, h3 span::selection {
 .contact-minimal-content p {
     max-width: 42rem;
     margin: 2.5rem auto 4.5rem;
-    color: #686a65;
+    color: #ffffff;
     font-size: clamp(1.05rem, 1.45vw, 1.35rem);
     line-height: 1.65;
 }
 .contact-minimal-mail {
-    display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 2rem;
     width: min(100%, 34rem);
     padding: 1.25rem 1.6rem;
-    border: 1px solid rgba(16,17,15,.55);
-    border-radius: 999px;
-    color: #10110f;
+    color: #faf9fc;
     font-size: clamp(1rem, 1.55vw, 1.3rem);
     text-decoration: none;
-}
-.contact-minimal-mail:hover { border-color: #4f68c5; color: #4f68c5; }
-.contact-minimal-mail:hover span:first-child {
-    background: none;
-    color: #4f68c5;
-    -webkit-text-fill-color: #4f68c5;
+    
 }
 @media (max-width: 800px) {
     .contact-minimal-panel { min-height: 80vh; padding: 10rem 0 5rem; }
