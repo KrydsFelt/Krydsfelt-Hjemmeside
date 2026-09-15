@@ -113,10 +113,9 @@
         border-bottom: 0 !important;
     }
     .kf-minimal-nav .kf-nav-mobile {
-        position: absolute;
-        left: 0;
-        right: 0;
-        width: 100vw !important;
+        display: none;
+        position: static;
+        width: 100% !important;
         margin: 0 !important;
         padding: .75rem 1rem 1.25rem !important;
         border: 0 !important;
@@ -124,6 +123,30 @@
         background: #fff !important;
         box-shadow: none !important;
     }
+    /* Remove the closed panel from hit testing and keyboard navigation. */
+    .kf-minimal-nav .kf-nav-mobile.open {
+        display: flex;
+        flex: 1;
+        min-height: 0;
+        max-height: none;
+        overflow-y: auto;
+        overscroll-behavior: contain;
+        padding-bottom: max(1.25rem, env(safe-area-inset-bottom)) !important;
+        opacity: 1;
+    }
+    .kf-nav.kf-minimal-nav.menu-open {
+        position: fixed;
+        bottom: 0;
+        height: auto;
+        justify-content: flex-start;
+        opacity: 1;
+        transform: none;
+        pointer-events: auto;
+    }
+    .kf-nav.kf-minimal-nav.menu-open .kf-nav-inner { flex-shrink: 0; }
+    html:has(.kf-minimal-nav.menu-open),
+    body:has(.kf-minimal-nav.menu-open) { overflow: hidden; }
+    body:has(.kf-minimal-nav.menu-open) .kf-floating-dock { visibility: hidden; }
     .kf-minimal-nav .kf-nav-mobile a,
     .kf-minimal-nav .kf-nav-mobile .kf-nav-mobile-contact {
         min-height: 48px;
