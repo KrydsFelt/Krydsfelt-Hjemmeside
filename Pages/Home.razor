@@ -9,7 +9,10 @@
 <SiteHeader CurrentPage="home" ContactHref="/kontakt" />
 
 <section class="kf-box-hero kf-container" aria-labelledby="home-hero-title">
-    <div class="kf-hero-ripples" aria-hidden="true"></div>
+    <div class="kf-hero-background-wrapper" aria-hidden="true">
+        <canvas class="kf-hero-fluid-canvas"></canvas>
+        <span class="kf-hero-fluid-cursor"></span>
+    </div>
     <div class="kf-box-hero-copy">
         <h3 id="home-hero-title">
             <span>@Lang.T("home.boxHero.title")</span>
@@ -61,43 +64,43 @@
         <h2 id="services-heading" class="kf-services-heading">@Lang.T("home.services.lead") <span>@Lang.T("home.services.boost")</span> @Lang.T("home.services.ending")</h2>
         <div class="kf-services-showcase-content">
             <p class="kf-services-summary">@Lang.T("home.services.summary")</p>
-            <div class="kf-services-grid">
-                <a class="kf-service-tile" href="/ydelser">
-                    <h3>@Lang.T("home.service1.title")</h3>
-                    <div class="kf-service-tile-visual" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <div class="services_contain u-container w-dyn-items" role="list">
+                <a class="services_card w-dyn-item" href="/ydelser" role="listitem" aria-label="@Lang.T("home.service1.title")">
+                    <div class="services_card_content">
+                    <div class="services_card_visual" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
                         <rect x="3.5" y="5" width="17" height="14" rx="2.5"></rect>
                         <path d="M3.5 9.5h17"></path>
                         <path d="M8 15h3"></path>
                         <path d="M13.5 15h2.5"></path>
                     </svg></div>
-                    <p>@Lang.T("home.service1.desc")</p>
-                    <span class="kf-service-tile-link">@Lang.T("home.services.readMore") <span aria-hidden="true">→</span></span>
+                    <div class="services_card_title"><h3>@Lang.T("home.service1.title")</h3></div>
+                    </div>
                 </a>
-                <a class="kf-service-tile" href="/ydelser">
-                    <h3>@Lang.T("home.service2.title")</h3>
-                    <div class="kf-service-tile-visual" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <a class="services_card w-dyn-item" href="/ydelser" role="listitem" aria-label="@Lang.T("home.service2.title")">
+                    <div class="services_card_content">
+                    <div class="services_card_visual" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M8 5.5h8"></path>
                         <path d="M8 18.5h8"></path>
                         <rect x="5" y="3.5" width="14" height="17" rx="3"></rect>
                         <path d="M10 8.5h4"></path>
                         <path d="M9 13h6"></path>
                     </svg></div>
-                    <p>@Lang.T("home.service2.desc")</p>
-                    <span class="kf-service-tile-link">@Lang.T("home.services.readMore") <span aria-hidden="true">→</span></span>
+                    <div class="services_card_title"><h3>@Lang.T("home.service2.title")</h3></div>
+                    </div>
                 </a>
-                <a class="kf-service-tile" href="/ydelser">
-                    <h3>@Lang.T("home.service3.title")</h3>
-                    <div class="kf-service-tile-visual" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <a class="services_card w-dyn-item" href="/ydelser" role="listitem" aria-label="@Lang.T("home.service3.title")">
+                    <div class="services_card_content">
+                    <div class="services_card_visual" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
                         <path d="m12 3.5 1.75 3.7 4.05.56-2.95 2.88.72 4.08L12 12.78l-3.57 1.94.72-4.08-2.95-2.88 4.05-.56L12 3.5Z"></path>
                         <path d="M16.5 15.5 18 17"></path>
                         <path d="M6 17.5h5"></path>
                     </svg></div>
-                    <p>@Lang.T("home.service3.desc")</p>
-                    <span class="kf-service-tile-link">@Lang.T("home.services.readMore") <span aria-hidden="true">→</span></span>
+                    <div class="services_card_title"><h3>@Lang.T("home.service3.title")</h3></div>
+                    </div>
                 </a>
-                <a class="kf-service-tile" href="/ydelser">
-                    <h3>@Lang.T("home.service4.title")</h3>
-                    <div class="kf-service-tile-visual" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <a class="services_card w-dyn-item" href="/ydelser" role="listitem" aria-label="@Lang.T("home.service4.title")">
+                    <div class="services_card_content">
+                    <div class="services_card_visual" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
                         <rect x="3.5" y="5" width="7" height="7" rx="1.75"></rect>
                         <rect x="13.5" y="5" width="7" height="7" rx="1.75"></rect>
                         <rect x="8.5" y="14" width="7" height="7" rx="1.75"></rect>
@@ -105,8 +108,8 @@
                         <path d="M15.5 8.5h-2"></path>
                         <path d="M12 12v2"></path>
                     </svg></div>
-                    <p>@Lang.T("home.service4.desc")</p>
-                    <span class="kf-service-tile-link">@Lang.T("home.services.readMore") <span aria-hidden="true">→</span></span>
+                    <div class="services_card_title"><h3>@Lang.T("home.service4.title")</h3></div>
+                    </div>
                 </a>
             </div>
             <a href="/ydelser" class="kf-services-all">@Lang.T("home.services.seeAll")</a>
@@ -115,9 +118,14 @@
 </section>
 
 <section class="kh-home-cta">
-    <div class="kf-container kh-home-cta-inner">
-        <h2>@Lang.T("home.cta.heading")</h2>
-        <a href="/kontakt" class="oo2-cta-link">@Lang.T("home.cta.link")</a>
+    <div class="kf-container kh-home-cta-inner kh-home-cta-inner--portrait">
+        <div class="kh-home-cta-copy">
+            <h2>@Lang.T("home.cta.heading")</h2>
+            <a href="/kontakt" class="oo2-cta-link">@Lang.T("home.cta.link")</a>
+        </div>
+        <div class="kh-home-cta-portrait">
+            <img src="Pictures/Gio.jpeg" alt="Giorgio Kevin Beshara" />
+        </div>
     </div>
 </section>
 
