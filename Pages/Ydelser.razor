@@ -25,7 +25,7 @@
         <div class="yd-onepage-list">
             @foreach (var service in Services)
             {
-                <details class="yd-onepage-item">
+                <details class="yd-onepage-item" open>
                     <summary><span>@Lang.T(service.TitleKey)</span><i aria-hidden="true">+</i></summary>
                     <div class="yd-onepage-item-body">
                         <p>@Lang.T(service.SummaryKey)</p>
@@ -45,9 +45,14 @@
 </main>
 
 <section class="kh-home-cta yd-showcase-cta">
-    <div class="kf-container kh-home-cta-inner">
-        <h2>@Lang.T("yd2.cta.heading")</h2>
-        <a href="/kontakt" class="oo2-cta-link">@Lang.T("yd2.cta.link")</a>
+    <div class="kf-container kh-home-cta-inner kh-home-cta-inner--portrait">
+        <div class="kh-home-cta-copy">
+            <h2>@Lang.T("yd2.cta.heading")</h2>
+            <a href="/kontakt" class="oo2-cta-link">@Lang.T("yd2.cta.link")</a>
+        </div>
+        <div class="kh-home-cta-portrait">
+            <img src="Pictures/Gio.jpeg" alt="Giorgio Kevin Beshara" />
+        </div>
     </div>
 </section>
 <SiteFooter />

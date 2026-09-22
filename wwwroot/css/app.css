@@ -8409,7 +8409,7 @@ body {
 .kf-chat-bubble-btn {
     width: 46px;
     height: 46px;
-    border-radius: 14px;
+    border-radius: 0;
     background: transparent;
     border: none;
     color: rgba(246, 242, 235, 0.92);

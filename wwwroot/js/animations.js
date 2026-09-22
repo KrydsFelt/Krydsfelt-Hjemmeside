@@ -403,7 +403,121 @@ window.initKfHeroRipples = function () {
     });
 };
 
+window.initKfHeroFluid = function () {
+    document.querySelectorAll('.kf-box-hero').forEach(hero => {
+        const canvas = hero.querySelector('.kf-hero-fluid-canvas');
+        const cursor = hero.querySelector('.kf-hero-fluid-cursor');
+        if (!canvas || hero.dataset.fluidReady) return;
+        hero.dataset.fluidReady = 'true';
+
+        const context = canvas.getContext('2d');
+        const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+        const particles = [];
+        const pendingParticles = [];
+        let width = 0;
+        let height = 0;
+        let frame = 0;
+        let lastX = 0;
+        let lastY = 0;
+        let lastEmission = -Infinity;
+
+        const resize = () => {
+            const bounds = canvas.getBoundingClientRect();
+            const ratio = Math.min(window.devicePixelRatio || 1, 1.5);
+            width = bounds.width;
+            height = bounds.height;
+            canvas.width = Math.max(1, Math.round(width * ratio));
+            canvas.height = Math.max(1, Math.round(height * ratio));
+            context.setTransform(ratio, 0, 0, ratio, 0, 0);
+        };
+
+        const addParticle = (x, y, strength = 1) => {
+            particles.push({
+                x,
+                y,
+                size: 18 * strength,
+                life: 1,
+                decay: .018
+            });
+            if (particles.length > 5) particles.splice(0, particles.length - 5);
+        };
+
+        const queueParticle = (x, y, delay = 100) => {
+            pendingParticles.push({ x, y, readyAt: performance.now() + delay });
+            if (pendingParticles.length > 2) pendingParticles.splice(0, pendingParticles.length - 2);
+        };
+
+        const move = event => {
+            if (event.pointerType && event.pointerType !== 'mouse') return;
+            const bounds = canvas.getBoundingClientRect();
+            const x = event.clientX - bounds.left;
+            const y = event.clientY - bounds.top;
+            if (cursor) {
+                cursor.style.left = `${x}px`;
+                cursor.style.top = `${y}px`;
+            }
+            if (event.type === 'pointerenter') {
+                lastX = x;
+                lastY = y;
+                lastEmission = performance.now();
+                queueParticle(x, y, 130);
+                return;
+            }
+            const distance = Math.hypot(x - lastX, y - lastY);
+            const now = performance.now();
+            if (distance > 90 && now - lastEmission > 180) {
+                queueParticle(x, y, 130);
+                lastX = x;
+                lastY = y;
+                lastEmission = now;
+            }
+        };
+
+        const draw = () => {
+            if (!canvas.isConnected) return;
+            const now = performance.now();
+            for (let index = pendingParticles.length - 1; index >= 0; index--) {
+                const pending = pendingParticles[index];
+                if (pending.readyAt <= now) {
+                    pendingParticles.splice(index, 1);
+                    addParticle(pending.x, pending.y);
+                }
+            }
+            context.clearRect(0, 0, width, height);
+            context.save();
+            for (let index = particles.length - 1; index >= 0; index--) {
+                const particle = particles[index];
+                particle.size += 1.15;
+                particle.life -= particle.decay;
+                if (particle.life <= 0) {
+                    particles.splice(index, 1);
+                    continue;
+                }
+                const size = Math.round(particle.size);
+                context.lineWidth = 1;
+                context.strokeStyle = `rgba(255,255,255,${.58 * particle.life})`;
+                context.strokeRect(
+                    Math.round(particle.x - size / 2),
+                    Math.round(particle.y - size / 2),
+                    size,
+                    size
+                );
+            }
+            context.restore();
+            frame = window.requestAnimationFrame(draw);
+        };
+
+        resize();
+        if (reducedMotion.matches) return;
+        hero.addEventListener('pointerenter', move, { passive: true });
+        hero.addEventListener('pointermove', move, { passive: true });
+        window.addEventListener('resize', resize, { passive: true });
+        frame = window.requestAnimationFrame(draw);
+    });
+};
+
 window.initAnimations = function () {
+    window.initKfHeroFluid();
     window.initKfHeroRipples();
     const onepageHero = document.querySelector('.yd-onepage-hero');
     if (onepageHero && !onepageHero.dataset.scrollZoomReady) {

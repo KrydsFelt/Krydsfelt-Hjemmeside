@@ -1504,7 +1504,7 @@ h1 span::selection, h2 span::selection, h3 span::selection {
 }
 .kf-footer-links { width: max-content !important; grid-template-columns: minmax(120px, auto) !important; gap: 0 !important; justify-self: end !important; }
 .kf-footer *, .kf-footer-content, .kf-footer-bottom { border-color: rgba(79,104,197,.16) !important; }
-.kf-footer .kf-footer-cta .kf-footer-cta-label { color: #4f68c5 !important; -webkit-text-fill-color: #4f68c5 !important; font-size: clamp(1.35rem, 2.2vw, 2.25rem) !important; font-weight: 500 !important; letter-spacing: -.04em; }
+.kf-footer .kf-footer-cta .kf-footer-cta-label { color: #171815 !important; -webkit-text-fill-color: #171815 !important; font-size: clamp(1.35rem, 2.2vw, 2.25rem) !important; font-weight: 500 !important; letter-spacing: -.04em; }
 .kf-footer a, .kf-footer p, .kf-footer span { color: #696b65 !important; -webkit-text-fill-color: currentColor; }
 .kf-footer-contact-link { color: #171814 !important; -webkit-text-fill-color: #171814 !important; font-weight: 500 !important; }
 .kf-footer-contact-link svg { color: #171814; }
@@ -1795,7 +1795,7 @@ h1 span::selection, h2 span::selection, h3 span::selection {
 .kf-floating-dock .kf-chat-bubble-btn {
     width: 58px;
     height: 58px;
-    border-radius: 18px;
+    border-radius: 0;
     background: #111210 !important;
     color: #fff !important;
     border: 1px solid #111210;
@@ -2099,7 +2099,7 @@ h1 span::selection, h2 span::selection, h3 span::selection {
 .about-editorial-team-grid .about-editorial-person img {
     border-radius: 0 !important;
     aspect-ratio: 4 / 4.7 !important;
-    background: #6978cc;
+    background: #afe827;
     filter: grayscale(1);
 }
 .about-editorial-team > .kf-container {
@@ -2129,7 +2129,7 @@ h1 span::selection, h2 span::selection, h3 span::selection {
     border-radius: 0 !important;
 }
 .about-editorial-development-copy h2 { color: #171815 !important; }
-.about-editorial-development-copy h2 .about-editorial-accent { color: #6978cc !important; }
+.about-editorial-development-copy h2 .about-editorial-accent { color: #afe827 !important; }
 .kh-home-profile-media img {
     border-radius: 0 !important;
 }
@@ -2214,7 +2214,7 @@ h1 span::selection, h2 span::selection, h3 span::selection {
     filter: grayscale(1);
 }
 .about-editorial-person-copy { padding: 1.5rem .2rem 0; }
-.about-editorial-person-copy > span { color: #647dd9; font-size: .76rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
+.about-editorial-person-copy > span { color: #afe827; font-size: .76rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
 .about-editorial-person-copy h3 { margin: .65rem 0 1rem; color: #10110f; font-size: clamp(1.5rem, 2vw, 2.15rem); font-weight: 400; letter-spacing: -.035em; }
 .about-values-deep-dive { padding: 8rem 0; background: #fff; overflow: hidden; }
 .about-values-deep-head {
