@@ -112,5 +112,20 @@
     .services_card { flex-basis: 55%; max-width: none; margin: 0 .5rem 0 0; transform: none !important; scroll-snap-align: start; }
 }
 @media (max-width: 600px) {
-    .services_card { flex-basis: 88%; }
+    .services_contain.u-container {
+        gap: 1rem;
+        padding: 1.25rem 0 2rem;
+        scroll-padding-inline: 0;
+        overscroll-behavior-inline: contain;
+        scrollbar-width: none;
+        touch-action: pan-x;
+    }
+    .services_contain.u-container::-webkit-scrollbar { display: none; }
+    .services_card {
+        flex: 0 0 100%;
+        width: 100%;
+        margin: 0;
+        scroll-snap-align: start;
+        scroll-snap-stop: always;
+    }
 }
