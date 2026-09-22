@@ -404,6 +404,7 @@ window.initKfHeroRipples = function () {
 };
 
 window.initKfHeroFluid = function () {
+    if (window.matchMedia('(max-width: 600px), (pointer: coarse)').matches) return;
     document.querySelectorAll('.kf-box-hero').forEach(hero => {
         const canvas = hero.querySelector('.kf-hero-fluid-canvas');
         const cursor = hero.querySelector('.kf-hero-fluid-cursor');

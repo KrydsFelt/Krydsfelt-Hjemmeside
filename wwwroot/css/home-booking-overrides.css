@@ -2424,6 +2424,10 @@ h1 span::selection, h2 span::selection, h3 span::selection {
 
 /* Final mobile safeguards for CTA, principles and service details */
 @media (max-width: 600px) {
+    .kh-home-profile-copy h2 {
+        font-size: clamp(1.85rem, 7.5vw, 2.5rem) !important;
+        line-height: 1.08 !important;
+    }
     .kh-home-cta,
     .yd-showcase-cta {
         margin-top: 2.5rem !important;
@@ -2442,7 +2446,7 @@ h1 span::selection, h2 span::selection, h3 span::selection {
         width: 100% !important;
         max-width: 100% !important;
         margin-inline: 0 !important;
-        font-size: clamp(2rem, 10vw, 2.65rem) !important;
+        font-size: clamp(1.85rem, 7.5vw, 2.5rem) !important;
         line-height: 1.08 !important;
         white-space: normal !important;
         overflow: visible !important;

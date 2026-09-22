@@ -113,19 +113,16 @@
 }
 @media (max-width: 600px) {
     .services_contain.u-container {
+        flex-direction: column;
         gap: 1rem;
         padding: 1.25rem 0 2rem;
-        scroll-padding-inline: 0;
-        overscroll-behavior-inline: contain;
-        scrollbar-width: none;
-        touch-action: pan-x;
+        overflow-x: visible;
+        scroll-snap-type: none;
     }
-    .services_contain.u-container::-webkit-scrollbar { display: none; }
     .services_card {
-        flex: 0 0 100%;
+        flex: none;
         width: 100%;
         margin: 0;
-        scroll-snap-align: start;
-        scroll-snap-stop: always;
+        scroll-snap-align: none;
     }
 }

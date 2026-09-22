@@ -107,17 +107,17 @@
 }
 @media (max-width: 600px) {
     .kh-home-cta-inner { width: calc(100% - 1.5rem) !important; min-height: 360px; padding: 3rem 1.5rem !important; }
-    .kh-home-cta-inner h2 { font-size: clamp(1.75rem, 8vw, 2.4rem) !important; }
+    .kh-home-cta-inner h2 { font-size: clamp(1.85rem, 7.5vw, 2.5rem) !important; }
     .kh-home-cta-inner--portrait {
         min-height: 0;
         grid-template-columns: 1fr;
         row-gap: 2rem;
     }
-    .kh-home-cta-inner--portrait h2 { font-size: clamp(1.55rem, 7vw, 2rem) !important; }
+    .kh-home-cta-inner--portrait h2 { font-size: clamp(1.85rem, 7.5vw, 2.5rem) !important; }
     .kh-home-cta-portrait { width: 96px; }
     .about-inline-cta { width: calc(100% - 1.5rem) !important; min-height: 360px; padding: 3rem 1.5rem !important; }
     .about-inline-cta.kh-home-cta-inner--portrait { min-height: 0; }
-    .about-inline-cta.kh-home-cta-inner--portrait h2 { font-size: clamp(1.55rem, 7vw, 2rem) !important; }
+    .about-inline-cta.kh-home-cta-inner--portrait h2 { font-size: clamp(1.85rem, 7.5vw, 2.5rem) !important; }
 }
 
 /* Keep the footer in the same quiet, flat visual language as the CTA. */
