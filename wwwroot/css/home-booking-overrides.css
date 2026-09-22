@@ -1191,7 +1191,7 @@ h1 span::selection, h2 span::selection, h3 span::selection {
 .yd2-service-card-icon { background: #eef4ef; color: #111210; }
 .yd2-service-card[id] { scroll-margin-top: 10rem; }
 
-/* Services one-pager — Krydsfelt precision / automotive restraint */
+/* Services one-pager - Krydsfelt precision / automotive restraint */
 .services-onepage { background: var(--bg); color: #10110f; }
 .services-onepage-hero { min-height: 82vh; padding: 14rem 0 7rem; display: flex; align-items: flex-end; }
 .services-onepage-hero h1 {
@@ -1261,7 +1261,7 @@ h1 span::selection, h2 span::selection, h3 span::selection {
     .services-onepage-specs { margin-top: 2.5rem; }
 }
 
-/* Ydelser — interactive white-theme showcase */
+/* Ydelser - interactive white-theme showcase */
 .yd-showcase { min-height: 100vh; background: #f8f8f5; color: #151612; }
 .yd-showcase button { font: inherit; }
 .yd-showcase-overview { min-height: 100vh; padding: 10rem max(4vw, 2rem) 3rem; display: grid; grid-template-columns: minmax(310px, .72fr) minmax(520px, 1.28fr); gap: clamp(3rem, 7vw, 9rem); align-items: center; overflow: hidden; }
@@ -1464,7 +1464,7 @@ h1 span::selection, h2 span::selection, h3 span::selection {
 @media(max-width:1000px){.yd-showcase-overview{grid-template-columns:1fr;padding-top:9rem}.yd-showcase-profile{width:min(100%,650px);justify-self:center}.yd-showcase-stage{min-height:460px}.yd-showcase-device{width:min(72%,600px)}.yd-service-detail{grid-template-columns:1fr}.yd-detail-aside{height:auto;position:static}.yd-detail-spec{grid-template-columns:1fr;gap:1rem}}
 @media(max-width:600px){.yd-showcase-overview{padding:8rem 1rem 3rem;gap:2rem}.yd-showcase-intro h1{white-space:normal}.yd-showcase-stage{min-height:280px}.yd-showcase-device{width:92%}.yd-screen-canvas strong{font-size:2rem}.yd-service-detail{padding:8rem 1rem 3rem;gap:2.5rem}.yd-detail-aside{grid-template-columns:auto 1fr;gap:1.2rem}.yd-detail-back{width:38px;height:38px}.yd-detail-back svg{width:15px}.yd-detail-hero{min-height:490px;padding:1.5rem}.yd-detail-spec{padding:1.5rem}.yd-detail-orbit{width:80%;top:25%}}
 
-/* Footer — soft liquid glass */
+/* Footer - soft liquid glass */
 .kf-footer {
     position: relative;
     min-height: 0 !important;
@@ -1504,7 +1504,7 @@ h1 span::selection, h2 span::selection, h3 span::selection {
 }
 .kf-footer-links { width: max-content !important; grid-template-columns: minmax(120px, auto) !important; gap: 0 !important; justify-self: end !important; }
 .kf-footer *, .kf-footer-content, .kf-footer-bottom { border-color: rgba(79,104,197,.16) !important; }
-.kf-footer .kf-footer-cta .kf-footer-cta-label { color: #4f68c5 !important; -webkit-text-fill-color: #4f68c5 !important; font-size: clamp(1.35rem, 2.2vw, 2.25rem) !important; font-weight: 500 !important; letter-spacing: -.04em; }
+.kf-footer .kf-footer-cta .kf-footer-cta-label { color: #171815 !important; -webkit-text-fill-color: #171815 !important; font-size: clamp(1.35rem, 2.2vw, 2.25rem) !important; font-weight: 500 !important; letter-spacing: -.04em; }
 .kf-footer a, .kf-footer p, .kf-footer span { color: #696b65 !important; -webkit-text-fill-color: currentColor; }
 .kf-footer-contact-link { color: #171814 !important; -webkit-text-fill-color: #171814 !important; font-weight: 500 !important; }
 .kf-footer-contact-link svg { color: #171814; }
@@ -1647,7 +1647,7 @@ h1 span::selection, h2 span::selection, h3 span::selection {
     }
 }
 
-/* Shared page width — aligned with the footer glass card */
+/* Shared page width - aligned with the footer glass card */
 .kf-container,
 .kf-nav .kf-nav-inner,
 .ns-hero .ns-hero-inner,
@@ -1688,7 +1688,7 @@ h1 span::selection, h2 span::selection, h3 span::selection {
 .bk-card label, .bk-quick-points, .bk-proof-copy p { color: #62645e !important; }
 .bk-location-content { background: rgba(255,255,255,.94); color: #10110f; }
 
-/* Minimal contact — focused, Polestar-inspired composition */
+/* Minimal contact - focused, Polestar-inspired composition */
 .contact-minimal { background: var(--bg); color: #10110f; }
 .contact-minimal-panel {
     width: min(calc(100% - clamp(2rem, 12vw, 14rem)), 1460px);
@@ -1748,7 +1748,6 @@ h1 span::selection, h2 span::selection, h3 span::selection {
 .showcase-hero { background: var(--bg); }
 .showcase-title { color: #10110f; -webkit-text-fill-color: #10110f; }
 .showcase-sub { color: #686a65; }
-.showcase-card-arcade { background: linear-gradient(145deg, #d9f1e1, #e4e3f6) !important; }
 .legal-page h2, .legal-page h3, .legal-page strong { color: #10110f; }
 .legal-inner {
     padding: clamp(2rem, 5vw, 4.5rem) !important;
@@ -1795,7 +1794,7 @@ h1 span::selection, h2 span::selection, h3 span::selection {
 .kf-floating-dock .kf-chat-bubble-btn {
     width: 58px;
     height: 58px;
-    border-radius: 18px;
+    border-radius: 0;
     background: #111210 !important;
     color: #fff !important;
     border: 1px solid #111210;
@@ -1866,12 +1865,11 @@ h1 span::selection, h2 span::selection, h3 span::selection {
     text-shadow: none !important;
 }
 
-.showcase-card-art-arcade svg,
 .kh-showcase-chip-1 svg {
     filter: none !important;
 }
 
-/* About page — light editorial system */
+/* About page - light editorial system */
 .about-editorial { background: var(--bg); color: #10110f; }
 .about-intro-hero {
     min-height: 78vh;
@@ -1945,7 +1943,7 @@ h1 span::selection, h2 span::selection, h3 span::selection {
 .about-connection-mark i:nth-child(2) { background: #a9c9f4; transform: translateY(-.14em); }
 .about-connection-mark i:nth-child(3) { background: #b8d9bd; }
 
-/* About hero — statement inside a contained dark field */
+/* About hero - statement inside a contained dark field */
 .about-intro-hero {
     --about-v-inset: 0px;
     --about-h-inset: 0px;
@@ -2099,7 +2097,7 @@ h1 span::selection, h2 span::selection, h3 span::selection {
 .about-editorial-team-grid .about-editorial-person img {
     border-radius: 0 !important;
     aspect-ratio: 4 / 4.7 !important;
-    background: #6978cc;
+    background: #afe827;
     filter: grayscale(1);
 }
 .about-editorial-team > .kf-container {
@@ -2129,7 +2127,7 @@ h1 span::selection, h2 span::selection, h3 span::selection {
     border-radius: 0 !important;
 }
 .about-editorial-development-copy h2 { color: #171815 !important; }
-.about-editorial-development-copy h2 .about-editorial-accent { color: #6978cc !important; }
+.about-editorial-development-copy h2 .about-editorial-accent { color: #afe827 !important; }
 .kh-home-profile-media img {
     border-radius: 0 !important;
 }
@@ -2214,7 +2212,7 @@ h1 span::selection, h2 span::selection, h3 span::selection {
     filter: grayscale(1);
 }
 .about-editorial-person-copy { padding: 1.5rem .2rem 0; }
-.about-editorial-person-copy > span { color: #647dd9; font-size: .76rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
+.about-editorial-person-copy > span { color: #afe827; font-size: .76rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
 .about-editorial-person-copy h3 { margin: .65rem 0 1rem; color: #10110f; font-size: clamp(1.5rem, 2vw, 2.15rem); font-weight: 400; letter-spacing: -.035em; }
 .about-values-deep-dive { padding: 8rem 0; background: #fff; overflow: hidden; }
 .about-values-deep-head {
@@ -2378,7 +2376,7 @@ h1 span::selection, h2 span::selection, h3 span::selection {
     }
 }
 
-/* About — three defining principles */
+/* About - three defining principles */
 .about-principles { padding: clamp(3.5rem, 6vw, 6rem) 0; background: var(--bg); }
 .about-principles-panel {
     padding: clamp(2rem, 4vw, 4rem);
@@ -2526,7 +2524,7 @@ h1 span::selection, h2 span::selection, h3 span::selection {
     }
 }
 
-/* Final phone header rules — intentionally last to beat legacy media queries */
+/* Final phone header rules - intentionally last to beat legacy media queries */
 @media (max-width: 600px) {
     .kf-topbar { left: 0 !important; right: auto !important; width: 100vw !important; max-width: none !important; margin: 0 !important; overflow: hidden !important; box-sizing: border-box; }
     .kf-topbar-inner { width: 100% !important; max-width: none !important; height: 44px !important; min-height: 44px !important; margin: 0 !important; padding: 0 2.5rem 0 .75rem !important; box-sizing: border-box; }

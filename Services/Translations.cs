@@ -166,7 +166,7 @@ public static class Translations
         ["about.team.heading"] = "Tre profiler. Ét samlet leveranceteam.",
         ["about.team.text"] = "Vi holder holdet lille med vilje, så der er kort vej fra idé til implementering.",
         ["about.tony.bio"] = "Har ansvaret for backend, arkitektur og den tekniske retning. Han trives med de komplekse dele af en løsning og har en særlig evne til at få tunge systemer til at arbejde enkelt og stabilt.",
-        ["about.gio.bio"] = "Arbejder med frontend og det visuelle — når han ikke er på en fodboldbane. Han fører idéer fra den første skitse til den færdige side med blik for både detaljen, helheden og brugerens oplevelse.",
+        ["about.gio.bio"] = "Arbejder med frontend og det visuelle - når han ikke er på en fodboldbane. Han fører idéer fra den første skitse til den færdige side med blik for både detaljen, helheden og brugerens oplevelse.",
         ["about.minh.bio"] = "Arbejder full-stack og giver sjældent slip på et problem, før det er løst. Han er skarp til at skabe struktur i komplekse opgaver og finde en direkte vej fra udfordring til færdig løsning.",
         ["about.cta.label"] = "Kontakt",
         ["about.cta.heading"] = "Har I brug for et skarpt digitalt team? Lad os tage en snak.",
@@ -182,7 +182,7 @@ public static class Translations
         ["yd.expertise.heading"] = "Bygget til virksomheder der vil stå skarpere digitalt",
         ["yd.expertise.desc"] = "Vi hjælper med at gøre brand, website og brugeroplevelse mere sammenhængende, så virksomheden fremstår stærkere og er lettere at vælge til.",
         ["yd.item1.title"] = "Brand Strategi & Identitet",
-        ["yd.item1.desc"] = "Vi gør det tydeligere for kunden, hvem I er, hvad I tilbyder og hvorfor det er relevant — i det visuelle, i teksten og i strukturen.",
+        ["yd.item1.desc"] = "Vi gør det tydeligere for kunden, hvem I er, hvad I tilbyder og hvorfor det er relevant - i det visuelle, i teksten og i strukturen.",
         ["yd.item2.title"] = "Webudvikling",
         ["yd.item2.desc"] = "Vi udvikler skræddersyede hjemmesider med bedre struktur, højere kvalitet i detaljerne og en mere sikker vej fra besøg til henvendelse.",
         ["yd.item2.cta"] = "Se pakker",
@@ -192,7 +192,7 @@ public static class Translations
         ["yd.item4.desc"] = "Vi designer mere intuitive oplevelser med roligere visuelle hierarkier, bedre læsbarhed og mindre friktion på tværs af enheder.",
         ["yd.approach.label"] = "VOR TILGANG",
         ["yd.approach.heading"] = "Sådan arbejder vi sammen",
-        ["yd.approach.desc"] = "Vi arbejder i klare trin, så I altid ved hvad der sker og hvorfor. Fra første møde til launch er retningen tydelig — og vi er stadig med, når der skal bygges videre.",
+        ["yd.approach.desc"] = "Vi arbejder i klare trin, så I altid ved hvad der sker og hvorfor. Fra første møde til launch er retningen tydelig - og vi er stadig med, når der skal bygges videre.",
         ["yd.approach.btn"] = "KONTAKT OS",
         ["yd.step1.title"] = "INDSIGT",
         ["yd.step1.desc"] = "Vi tager os tid til at forstå din organisation, mål og udfordringer. Det giver os den kontekst, vi har brug for, før vi træffer strategiske beslutninger.",
@@ -368,7 +368,7 @@ public static class Translations
 
         // --- Branding & Design Service Page ---
         ["branding.hero.title"] = "Visuel identitet, der skaber forskel",
-        ["branding.hero.desc"] = "Fra logodesign til fuld brand system — vi sørger for at dit brand fremstår klart, konsistent og compelling.",
+        ["branding.hero.desc"] = "Fra logodesign til fuld brand system - vi sørger for at dit brand fremstår klart, konsistent og compelling.",
 
         // --- Custom Project Service Page ---
         ["custom.hero.title"] = "Skræddersyede digitale løsninger",
@@ -615,7 +615,7 @@ public static class Translations
         ["about.team.heading"] = "Three profiles. One unified delivery team.",
         ["about.team.text"] = "We keep the team intentionally small, so there's a short path from idea to implementation.",
         ["about.tony.bio"] = "Responsible for backend, architecture, and technical direction. He thrives on the complex parts of a solution and has a particular talent for making heavy systems work simply and reliably.",
-        ["about.gio.bio"] = "Works with frontend and visual design — when he isn't on a football pitch. He takes ideas from the first sketch to the finished page with an eye for detail, the bigger picture, and the user experience.",
+        ["about.gio.bio"] = "Works with frontend and visual design - when he isn't on a football pitch. He takes ideas from the first sketch to the finished page with an eye for detail, the bigger picture, and the user experience.",
         ["about.minh.bio"] = "Works full-stack and rarely lets go of a problem before it is solved. He is skilled at bringing structure to complex tasks and finding a direct path from challenge to finished solution.",
         ["about.cta.label"] = "Contact",
         ["about.cta.heading"] = "Looking for a sharp digital team? Let’s talk.",
@@ -631,7 +631,7 @@ public static class Translations
         ["yd.expertise.heading"] = "Built for businesses that want to stand out digitally",
         ["yd.expertise.desc"] = "We help make brand, website, and user experience more cohesive, so the business appears stronger and is easier to choose.",
         ["yd.item1.title"] = "Brand Strategy & Identity",
-        ["yd.item1.desc"] = "We make it clearer to your customers who you are, what you offer, and why it matters — in the visuals, the copy, and the structure.",
+        ["yd.item1.desc"] = "We make it clearer to your customers who you are, what you offer, and why it matters - in the visuals, the copy, and the structure.",
         ["yd.item2.title"] = "Web Development",
         ["yd.item2.desc"] = "We develop custom websites with better structure, higher quality in the details, and a clearer path from visit to enquiry.",
         ["yd.item2.cta"] = "See packages",
@@ -641,14 +641,14 @@ public static class Translations
         ["yd.item4.desc"] = "We design more intuitive experiences with calmer visual hierarchies, better readability, and less friction across devices.",
         ["yd.approach.label"] = "OUR APPROACH",
         ["yd.approach.heading"] = "How we work together",
-        ["yd.approach.desc"] = "We work in clear steps, so you always know what's happening and why. From the first meeting to launch, the direction stays obvious — and we're still around when it's time to build further.",
+        ["yd.approach.desc"] = "We work in clear steps, so you always know what's happening and why. From the first meeting to launch, the direction stays obvious - and we're still around when it's time to build further.",
         ["yd.approach.btn"] = "CONTACT US",
         ["yd.step1.title"] = "INSIGHT",
         ["yd.step1.desc"] = "We take the time to understand your organisation, goals, and challenges. This gives us the context we need before making strategic decisions.",
         ["yd.step2.title"] = "STRATEGY",
         ["yd.step2.desc"] = "We define the direction and priorities in a clear plan that forms the foundation for everything that follows.",
         ["yd.step3.title"] = "BUILD",
-        ["yd.step3.desc"] = "We design and build a solution that actually works — and that you can add to without starting over.",
+        ["yd.step3.desc"] = "We design and build a solution that actually works - and that you can add to without starting over.",
         ["yd.step4.title"] = "LAUNCH",
         ["yd.step4.desc"] = "We test thoroughly, guide the launch, and ensure everything goes live smoothly and reliably.",
         ["yd.step5.title"] = "SUPPORT",
@@ -817,7 +817,7 @@ public static class Translations
 
         // --- Branding & Design Service Page ---
         ["branding.hero.title"] = "Visual identity that makes a difference",
-        ["branding.hero.desc"] = "From logo design to full brand system — we ensure your brand appears clear, consistent, and compelling.",
+        ["branding.hero.desc"] = "From logo design to full brand system - we ensure your brand appears clear, consistent, and compelling.",
 
         // --- Custom Project Service Page ---
         ["custom.hero.title"] = "Custom digital solutions",
@@ -826,7 +826,7 @@ public static class Translations
         // --- Booking ---
         ["bk.pageTitle"] = "Contact us – Krydsfelt",
         ["bk.minimal.heading"] = "Let’s connect!",
-        ["bk.minimal.invite"] = "At Krydsfelt, we take every idea seriously. We listen, challenge and execute — with a clear focus on bringing the right idea to life.",
+        ["bk.minimal.invite"] = "At Krydsfelt, we take every idea seriously. We listen, challenge and execute - with a clear focus on bringing the right idea to life.",
         ["bk.minimal.direct"] = "Direct contact",
         ["bk.label"] = "Contact us",
         ["bk.heading"] = "A first conversation, if your website needs to feel sharper, calmer, and more refined.",

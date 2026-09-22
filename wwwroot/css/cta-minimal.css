@@ -41,7 +41,38 @@
     letter-spacing: .02em;
     text-decoration: none;
 }
-.kh-home-cta-inner .oo2-cta-link:hover { background: #6978cc !important; color: #fff !important; }
+.kh-home-cta-inner .oo2-cta-link:hover { background: #afe827 !important; color: #171815 !important; }
+
+.kh-home-cta-inner--portrait {
+    min-height: 320px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    column-gap: clamp(2.5rem, 7vw, 7rem);
+    align-items: center;
+    padding-top: clamp(2.5rem, 4vw, 4rem) !important;
+    padding-bottom: clamp(2.5rem, 4vw, 4rem) !important;
+}
+.kh-home-cta-copy { min-width: 0; }
+.kh-home-cta-inner--portrait h2 {
+    width: 100%;
+    max-width: 720px;
+    font-size: clamp(1.45rem, 2.1vw, 2.25rem) !important;
+}
+.kh-home-cta-portrait {
+    width: clamp(105px, 9vw, 140px);
+    aspect-ratio: 1;
+    overflow: hidden;
+    border-radius: 50%;
+    background: #d8d7cf;
+}
+.kh-home-cta-portrait img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: 50% 35%;
+    filter: saturate(.85) contrast(.98);
+}
 
 .about-inline-cta {
     width: min(calc(100% - clamp(2rem, 12vw, 14rem)), 1460px) !important;
@@ -63,10 +94,30 @@
 }
 .about-inline-cta p { max-width: 48ch; margin: 1.25rem 0 0; color: #4e504d !important; }
 .about-inline-cta .oo2-cta-link { margin-top: 2.25rem; }
+.about-inline-cta.kh-home-cta-inner--portrait {
+    min-height: 320px;
+    display: grid;
+    padding-top: clamp(2.5rem, 4vw, 4rem) !important;
+    padding-bottom: clamp(2.5rem, 4vw, 4rem) !important;
+}
+.about-inline-cta.kh-home-cta-inner--portrait h2 {
+    width: 100%;
+    max-width: 720px;
+    font-size: clamp(1.45rem, 2.1vw, 2.25rem) !important;
+}
 @media (max-width: 600px) {
     .kh-home-cta-inner { width: calc(100% - 1.5rem) !important; min-height: 360px; padding: 3rem 1.5rem !important; }
     .kh-home-cta-inner h2 { font-size: clamp(1.75rem, 8vw, 2.4rem) !important; }
+    .kh-home-cta-inner--portrait {
+        min-height: 0;
+        grid-template-columns: 1fr;
+        row-gap: 2rem;
+    }
+    .kh-home-cta-inner--portrait h2 { font-size: clamp(1.55rem, 7vw, 2rem) !important; }
+    .kh-home-cta-portrait { width: 96px; }
     .about-inline-cta { width: calc(100% - 1.5rem) !important; min-height: 360px; padding: 3rem 1.5rem !important; }
+    .about-inline-cta.kh-home-cta-inner--portrait { min-height: 0; }
+    .about-inline-cta.kh-home-cta-inner--portrait h2 { font-size: clamp(1.55rem, 7vw, 2rem) !important; }
 }
 
 /* Keep the footer in the same quiet, flat visual language as the CTA. */

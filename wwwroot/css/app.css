@@ -6182,7 +6182,7 @@ body {
     font-size: 0.95rem;
 }
 
-/* Mobile duplicate image — hidden on desktop, shown inside copy column on mobile */
+/* Mobile duplicate image - hidden on desktop, shown inside copy column on mobile */
 .kh-home-profile-media-mobile {
     display: none;
     margin: 0.5rem 0 0.25rem;
@@ -8409,7 +8409,7 @@ body {
 .kf-chat-bubble-btn {
     width: 46px;
     height: 46px;
-    border-radius: 14px;
+    border-radius: 0;
     background: transparent;
     border: none;
     color: rgba(246, 242, 235, 0.92);
@@ -9563,19 +9563,6 @@ body {
         radial-gradient(circle at 80% 100%, rgba(255,77,141,0.12), transparent 50%);
 }
 
-.showcase-card-arcade {
-    cursor: pointer;
-}
-
-.showcase-card-arcade:hover {
-    border-color: rgba(34,197,94,0.5);
-    box-shadow: 0 20px 60px rgba(34,197,94,0.2), 0 0 0 1px rgba(34,197,94,0.4);
-}
-
-.showcase-card-arcade:hover .showcase-card-glow {
-    opacity: 1;
-}
-
 .showcase-card-tag {
     font-size: 0.7rem;
     letter-spacing: 0.25em;
@@ -9593,22 +9580,6 @@ body {
     justify-content: center;
     margin-bottom: 1.75rem;
     transition: transform 0.4s ease;
-}
-
-.showcase-card-art-arcade {
-    background: rgba(34,197,94,0.12);
-    border: 1px solid rgba(34,197,94,0.4);
-}
-
-.showcase-card-art-arcade svg {
-    width: 50px;
-    height: 50px;
-    fill: #22c55e;
-    filter: drop-shadow(0 0 12px rgba(34,197,94,0.5));
-}
-
-.showcase-card-arcade:hover .showcase-card-art {
-    transform: scale(1.08);
 }
 
 .showcase-card-art-locked {
@@ -9645,11 +9616,6 @@ body {
     color: #22c55e;
     font-weight: 500;
     transition: color 0.3s ease, transform 0.3s ease;
-}
-
-.showcase-card-arcade:hover .showcase-card-cta {
-    color: #4ade80;
-    transform: translateX(4px);
 }
 
 .showcase-card-locked {
@@ -9918,7 +9884,7 @@ body {
     .kh-showcase-chip-3 { display: none; }
 }
 
-/* ── HERO NIGHT SKY — faint stars + calm shooting stars ── */
+/* ── HERO NIGHT SKY - faint stars + calm shooting stars ── */
 .kf-sky {
     position: absolute;
     inset: 0;

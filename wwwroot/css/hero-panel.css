@@ -19,6 +19,33 @@
 }
 .kf-nav.with-topbar + .kf-box-hero { margin-top: 150px; }
 .kf-box-hero-copy { position: relative; z-index: 1; width: min(100%, 960px); }
+.kf-hero-background-wrapper {
+    position: absolute;
+    inset: -70px 0;
+    overflow: hidden;
+    pointer-events: none;
+    will-change: transform;
+}
+.kf-hero-fluid-canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+    opacity: .9;
+}
+.kf-hero-fluid-cursor {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 12px;
+    height: 12px;
+    border: 1px solid rgba(255,255,255,.72);
+    border-radius: 0;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+    transition: opacity .2s ease;
+    will-change: left, top;
+}
+.kf-box-hero:hover .kf-hero-fluid-cursor { opacity: 1; }
 .kf-hero-ripples {
     position: absolute;
     inset: 0;
@@ -43,6 +70,7 @@
 }
 @media (prefers-reduced-motion: reduce) {
     .kf-hero-ripples { display: none; }
+    .kf-hero-fluid-cursor { display: none; }
 }
 .kf-box-hero h3 {
     margin: 0;
