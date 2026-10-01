@@ -8,19 +8,61 @@
 
 <SiteHeader CurrentPage="home" ContactHref="/kontakt" />
 
-<section class="kf-box-hero kf-container" aria-labelledby="home-hero-title">
-    <div class="kf-hero-background-wrapper" aria-hidden="true">
-        <canvas class="kf-hero-fluid-canvas"></canvas>
-        <span class="kf-hero-fluid-cursor"></span>
-    </div>
-    <div class="kf-box-hero-copy">
-        <h3 id="home-hero-title">
-            <span>@Lang.T("home.boxHero.title")</span>
-            <span>@Lang.T("home.boxHero.titleEnd")</span>
-        </h3>
-        <p>@Lang.T("home.boxHero.description")</p>
+<section class="vita-home-hero" aria-labelledby="home-hero-title">
+    <div class="vita-home-hero-image" aria-hidden="true"></div>
+    <div class="kf-container vita-home-hero-inner">
+        <div id="home-hero-title" class="vita-home-hero-title" role="heading" aria-level="1">KRYDSFELT</div>
+        <div class="vita-home-hero-bottom">
+            <p>@Lang.T("home.boxHero.description")</p>
+            <a href="/ydelser" class="vita-home-hero-link">
+                <span class="vita-home-hero-link-label" aria-hidden="true">
+                    <span>@Lang.T("home.services.seeAll")</span>
+                    <span>@Lang.T("home.services.seeAll")</span>
+                </span>
+                <span class="visually-hidden">@Lang.T("home.services.seeAll")</span>
+            </a>
+        </div>
     </div>
 </section>
+
+<div class="kf-container kh-screen-overlap">
+    <div class="kh-stack-demo-frame">
+        <div class="kh-stack-browser" role="img" aria-label="@Lang.T("home.stack.imageAlt")">
+            <div class="kh-stack-browser-toolbar" aria-hidden="true">
+                <div class="kh-stack-browser-controls"><i></i><i></i><i></i></div>
+                <span>krydsfelt.com / stack</span>
+            </div>
+            <div class="kh-stack-browser-content">
+                <div class="kh-stack-marquee" aria-hidden="true">
+                    <div class="kh-stack-marquee-track">
+                        <div class="kh-stack-marquee-set">
+                                <span class="kh-stack-logo"><img src="Pictures/tech-logos/csharp.svg" alt="" loading="lazy" /></span>
+                                <span class="kh-stack-logo"><img src="Pictures/tech-logos/dotnet.svg" alt="" loading="lazy" /></span>
+                                <span class="kh-stack-logo"><img src="Pictures/tech-logos/blazor.svg" alt="" loading="lazy" /></span>
+                                <span class="kh-stack-logo"><img src="Pictures/tech-logos/javascript.svg" alt="" loading="lazy" /></span>
+                                <span class="kh-stack-logo"><img src="Pictures/tech-logos/html5.svg" alt="" loading="lazy" /></span>
+                                <span class="kh-stack-logo"><img src="Pictures/tech-logos/css3.svg" alt="" loading="lazy" /></span>
+                                <span class="kh-stack-logo"><img src="Pictures/tech-logos/figma.svg" alt="" loading="lazy" /></span>
+                                <span class="kh-stack-logo"><img src="Pictures/tech-logos/adobephotoshop.svg" alt="" loading="lazy" /></span>
+                                <span class="kh-stack-logo"><img src="Pictures/tech-logos/adobeindesign.svg" alt="" loading="lazy" /></span>
+                        </div>
+                        <div class="kh-stack-marquee-set">
+                                <span class="kh-stack-logo"><img src="Pictures/tech-logos/csharp.svg" alt="" loading="lazy" /></span>
+                                <span class="kh-stack-logo"><img src="Pictures/tech-logos/dotnet.svg" alt="" loading="lazy" /></span>
+                                <span class="kh-stack-logo"><img src="Pictures/tech-logos/blazor.svg" alt="" loading="lazy" /></span>
+                                <span class="kh-stack-logo"><img src="Pictures/tech-logos/javascript.svg" alt="" loading="lazy" /></span>
+                                <span class="kh-stack-logo"><img src="Pictures/tech-logos/html5.svg" alt="" loading="lazy" /></span>
+                                <span class="kh-stack-logo"><img src="Pictures/tech-logos/css3.svg" alt="" loading="lazy" /></span>
+                                <span class="kh-stack-logo"><img src="Pictures/tech-logos/figma.svg" alt="" loading="lazy" /></span>
+                                <span class="kh-stack-logo"><img src="Pictures/tech-logos/adobephotoshop.svg" alt="" loading="lazy" /></span>
+                                <span class="kh-stack-logo"><img src="Pictures/tech-logos/adobeindesign.svg" alt="" loading="lazy" /></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <section class="kh-home-profile">
     <div class="kf-container kh-home-profile-grid">

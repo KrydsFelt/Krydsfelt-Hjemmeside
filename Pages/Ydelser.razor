@@ -2,18 +2,27 @@
 @inherits LocalizedComponentBase
 @inject IJSRuntime JS
 
-<SeoHead Title="Krydsfelt - Services"
+<SeoHead Title="Krydsfelt - Ydelser"
          Description="Krydsfelt designer og bygger digitale løsninger, der gør komplekse behov enkle at bruge."
          Path="/ydelser" />
 <SiteHeader CurrentPage="services" ContactHref="/kontakt" />
 
 <main class="yd-onepage">
-    <section class="yd-onepage-hero">
-        <div class="kf-hero-ripples" aria-hidden="true"></div>
-        <div class="yd-onepage-hero-copy">
-            <h2>@Lang.T("yd.showcase.hero")</h2>
-            <p>@Lang.T("yd.showcase.about")</p>
-            <a class="yd-onepage-hero-link" href="/kontakt">@Lang.T("yd.showcase.start") <span aria-hidden="true">→</span></a>
+    <section class="yd-onepage-hero about-editorial-development">
+        <div class="kf-container">
+            <div class="about-editorial-development-grid yd-onepage-hero-grid yd-onepage-hero-grid-text-only">
+                <div class="about-editorial-development-copy yd-onepage-hero-copy reveal">
+                    <h2>@Lang.T("yd.showcase.hero")</h2>
+                    <p>@Lang.T("yd.showcase.about")</p>
+                    <a class="yd-onepage-hero-link" href="/kontakt">
+                        <span class="yd-onepage-hero-link-label" aria-hidden="true">
+                            <span>@Lang.T("yd.showcase.start")</span>
+                            <span>@Lang.T("yd.showcase.start")</span>
+                        </span>
+                        <span class="visually-hidden">@Lang.T("yd.showcase.start")</span>
+                    </a>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -44,17 +53,6 @@
     </section>
 </main>
 
-<section class="kh-home-cta yd-showcase-cta">
-    <div class="kf-container kh-home-cta-inner kh-home-cta-inner--portrait">
-        <div class="kh-home-cta-copy">
-            <h2>@Lang.T("yd2.cta.heading")</h2>
-            <a href="/kontakt" class="oo2-cta-link">@Lang.T("yd2.cta.link")</a>
-        </div>
-        <div class="kh-home-cta-portrait">
-            <img src="Pictures/Gio.jpeg" alt="Giorgio Kevin Beshara" />
-        </div>
-    </div>
-</section>
 <SiteFooter />
 
 @code {

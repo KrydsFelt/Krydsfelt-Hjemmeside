@@ -15,7 +15,7 @@
     </div>
 }
 
-<nav class="kf-nav kf-minimal-nav @(showBanner ? "with-topbar" : "") @(navOpen ? "menu-open" : "")" @onkeydown="HandleMenuKey">
+<nav class="kf-nav kf-minimal-nav @(CurrentPage == "home" ? "kf-nav-home" : "") @(showBanner ? "with-topbar" : "") @(navOpen ? "menu-open" : "")" @onkeydown="HandleMenuKey">
     <div class="kf-nav-inner">
         <a href="/" class="kf-minimal-brand">By Krydsfelt</a>
 
@@ -29,18 +29,7 @@
         </div>
 
         <div class="kf-nav-utilities">
-            <div class="kf-language-switch" role="group" aria-label="@Lang.T("nav.language")">
-                @foreach (var language in LanguageOptions)
-                {
-                    <button type="button"
-                            class="kf-language-choice @(Lang.CurrentLanguage == language.Code ? "is-active" : "")"
-                            aria-label="@language.Label"
-                            aria-pressed="@(Lang.CurrentLanguage == language.Code)"
-                            @onclick="() => SelectLanguage(language.Code)">@language.ShortLabel</button>
-                }
-            </div>
-
-            <button type="button" class="kf-nav-hamburger @(navOpen ? "open" : "")" @onclick="ToggleMenu" aria-label="Menu" aria-expanded="@navOpen" aria-controls="kf-nav-mobile">
+            <button type="button" class="kf-nav-hamburger @(navOpen ? "open" : "")" @onclick="ToggleMenu" aria-label="Åbn menu" aria-expanded="@navOpen" aria-controls="kf-nav-mobile">
                 <span></span><span></span><span></span>
             </button>
 
@@ -63,12 +52,6 @@
 </nav>
 
 @code {
-    private static readonly LanguageOption[] LanguageOptions =
-    [
-        new("en", "English", "EN"),
-        new("da", "Dansk", "DK")
-    ];
-
     [Parameter] public string CurrentPage { get; set; } = "";
     [Parameter] public string ContactHref { get; set; } = "/kontakt";
     [Parameter] public string BannerCtaHref { get; set; } = "/kontakt";
@@ -107,11 +90,4 @@
 
     private void CloseBanner() => showBanner = false;
 
-    private async Task SelectLanguage(string code)
-    {
-        navOpen = false;
-        await Lang.SetLanguageAsync(code, JS);
-    }
-
-    private sealed record LanguageOption(string Code, string Label, string ShortLabel);
 }

@@ -1,0 +1,46 @@
+.kf-cookie-consent {
+    position: fixed;
+    z-index: 10000;
+    right: 1rem;
+    bottom: max(1rem, env(safe-area-inset-bottom));
+    left: 1rem;
+    display: flex;
+    align-items: center;
+    gap: .9rem;
+    width: min(960px, calc(100% - 2rem));
+    margin-inline: auto;
+    padding: .65rem .75rem;
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 5px;
+    background: #202a25;
+    box-shadow: 0 10px 35px rgba(0,0,0,.25);
+    color: #f7f8f5;
+    font-family: 'Inter', sans-serif;
+}
+.kf-cookie-consent-icon { display: grid; flex: none; place-items: center; width: 28px; height: 28px; color: #d3ead0; }
+.kf-cookie-consent-icon svg { width: 23px; height: 23px; }
+.kf-cookie-consent-message { flex: 1; margin: 0; color: rgba(255,255,255,.92); font-size: .76rem; line-height: 1.5; }
+.kf-cookie-consent-message a { margin-left: .35rem; color: #d4ece7; text-underline-offset: .16em; }
+.kf-cookie-consent-actions { display: flex; flex: none; align-items: center; gap: .5rem; }
+.kf-cookie-consent-actions button {
+    min-height: 34px;
+    padding: .35rem .8rem;
+    border: 1px solid rgba(255,255,255,.42);
+    border-radius: 5px;
+    background: transparent;
+    color: #fff;
+    font: inherit;
+    font-size: .72rem;
+    cursor: pointer;
+    transition: background .2s ease, border-color .2s ease, color .2s ease;
+}
+.kf-cookie-consent-actions button:hover { background: rgba(255,255,255,.12); border-color: rgba(255,255,255,.72); }
+.kf-cookie-consent-actions .kf-cookie-consent-accept { border-color: #afe827; background: #afe827; color: #172018; }
+.kf-cookie-consent-actions .kf-cookie-consent-accept:hover { border-color: #c5f263; background: #c5f263; }
+.kf-cookie-consent-actions button:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+@media (max-width: 650px) {
+    .kf-cookie-consent { right: .6rem; bottom: max(.6rem, env(safe-area-inset-bottom)); left: .6rem; flex-wrap: wrap; gap: .55rem .7rem; width: calc(100% - 1.2rem); padding: .75rem; }
+    .kf-cookie-consent-icon { width: 24px; height: 24px; }
+    .kf-cookie-consent-message { flex: 1 1 calc(100% - 40px); font-size: .72rem; }
+    .kf-cookie-consent-actions { justify-content: flex-end; width: 100%; }
+}

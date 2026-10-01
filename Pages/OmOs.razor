@@ -2,7 +2,7 @@
 @inherits LocalizedComponentBase
 @inject IJSRuntime JS
 
-<SeoHead Title="Krydsfelt - About"
+<SeoHead Title="Krydsfelt - Om os"
          Description="Mød holdet bag Krydsfelt. Vi samler strategi, webdesign og udvikling i et tæt samarbejde med virksomheder i Aarhus, Aalborg og resten af Danmark."
          Path="/om-os" />
 
@@ -60,19 +60,21 @@
 
     <section class="about-editorial-team">
         <div class="kf-container">
-            <span class="oo2-section-label">@Lang.T("about.team.label")</span>
+            <div class="vita-team-heading">
+                <span class="vita-team-label">TEAM</span>
+            </div>
             <div class="about-editorial-team-grid">
-                <article class="about-editorial-person reveal">
-                    <img src="Pictures/Tony.jpeg" alt="Tony Truong" />
-                    <div class="about-editorial-person-copy"><span>Founder &amp; CTO</span><h3>Tony Truong</h3></div>
+                <article class="about-editorial-person reveal" tabindex="0">
+                    <img src="Pictures/Tony.jpeg" alt="Tony Truong" loading="lazy" />
+                    <div class="about-editorial-person-copy"><h3>Tony Truong</h3><span>Adm. direktør og medstifter</span><span class="about-editorial-person-location">Aarhus</span><p>@Lang.T("about.team.tony")</p></div>
                 </article>
-                <article class="about-editorial-person reveal" data-delay="100">
-                    <img src="Pictures/Gio.jpeg" alt="Giorgio Kevin Beshara" />
-                    <div class="about-editorial-person-copy"><span>Co-Founder &amp; Developer</span><h3>Giorgio Kevin Beshara</h3></div>
+                <article class="about-editorial-person reveal" data-delay="100" tabindex="0">
+                    <img src="Pictures/Gio.jpeg" alt="Giorgio Kevin Beshara" loading="lazy" />
+                    <div class="about-editorial-person-copy"><h3>Giorgio Kevin Beshara</h3><span>Medstifter og backendudvikler</span><span class="about-editorial-person-location">Aalborg</span><p>@Lang.T("about.team.gio")</p></div>
                 </article>
-                <article class="about-editorial-person reveal" data-delay="200">
-                    <img src="Pictures/Minh.jpeg" alt="Minh Quan Dinh" />
-                    <div class="about-editorial-person-copy"><span>Co-Founder &amp; Developer</span><h3>Minh Quan Dinh</h3></div>
+                <article class="about-editorial-person reveal" data-delay="200" tabindex="0">
+                    <img src="Pictures/Minh.jpeg" alt="Minh Quan Dinh" loading="lazy" />
+                    <div class="about-editorial-person-copy"><h3>Minh Quan Dinh</h3><span>Medstifter og frontend- og backendudvikler</span><span class="about-editorial-person-location">Aarhus</span><p>@Lang.T("about.team.minh")</p></div>
                 </article>
             </div>
         </div>

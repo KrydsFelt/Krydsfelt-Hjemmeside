@@ -55,7 +55,7 @@
                           rows="1"
                           disabled="@IsLoading"
                           aria-label="Skriv besked"></textarea>
-                <button class="kf-chat-send" @onclick="SendMessage" disabled="@(IsLoading || string.IsNullOrWhiteSpace(InputText))" aria-label="Send">
+                <button class="kf-chat-send" @onclick="SendMessage" disabled="@(IsLoading || string.IsNullOrWhiteSpace(InputText))" aria-label="Send besked">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z"/></svg>
                 </button>
             </div>

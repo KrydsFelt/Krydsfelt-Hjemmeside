@@ -1,0 +1,43 @@
+@inject IJSRuntime JS
+
+@if (isVisible)
+{
+    <section class="kf-cookie-consent" role="region" aria-label="Samtykke til statistik">
+        <span class="kf-cookie-consent-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20.5 12.3A8.8 8.8 0 1 1 11.7 3.5a5 5 0 0 0 8.8 8.8Z" />
+                <circle cx="8" cy="9" r=".8" fill="currentColor" />
+                <circle cx="13" cy="7.5" r=".8" fill="currentColor" />
+                <circle cx="9" cy="14" r=".8" fill="currentColor" />
+                <circle cx="15" cy="15" r=".8" fill="currentColor" />
+            </svg>
+        </span>
+        <p class="kf-cookie-consent-message">
+            Vi bruger statistik til at forstå, hvordan hjemmesiden bruges. Accepter for at hjælpe os med at forbedre den.
+            <a href="/privatlivspolitik">Privatlivspolitik</a>
+        </p>
+        <div class="kf-cookie-consent-actions">
+            <button type="button" class="kf-cookie-consent-decline" @onclick="() => Choose(false)">Afvis</button>
+            <button type="button" class="kf-cookie-consent-accept" @onclick="() => Choose(true)">Acceptér</button>
+        </div>
+    </section>
+}
+
+@code {
+    private bool isVisible;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (!firstRender) return;
+
+        var choice = await JS.InvokeAsync<string?>("kfCookieConsent.getChoice");
+        isVisible = choice is not ("accepted" or "declined");
+        StateHasChanged();
+    }
+
+    private async Task Choose(bool accept)
+    {
+        await JS.InvokeVoidAsync("kfCookieConsent.choose", accept ? "accepted" : "declined");
+        isVisible = false;
+    }
+}

@@ -5,7 +5,6 @@ namespace KrydsfeltHjemmeside.Services;
 public class LanguageService
 {
     private const string StorageKey = "kf-language";
-    private static readonly string[] SupportedLanguages = ["da", "en", "ar", "vi"];
     private bool _initialized;
 
     public event Action? OnLanguageChanged;
@@ -13,8 +12,7 @@ public class LanguageService
 
     public string T(string key)
     {
-        var dict = CurrentLanguage == "en" ? Translations.En : Translations.Da;
-        return dict.TryGetValue(key, out var value) ? value : key;
+        return Translations.Da.TryGetValue(key, out var value) ? value : key;
     }
 
     public async Task InitializeAsync(IJSRuntime js)
@@ -22,19 +20,7 @@ public class LanguageService
         if (_initialized) return;
         _initialized = true;
 
-        var stored = await js.InvokeAsync<string?>("localStorage.getItem", StorageKey);
-        if (stored != null && SupportedLanguages.Contains(stored) && stored != CurrentLanguage)
-        {
-            CurrentLanguage = stored;
-            OnLanguageChanged?.Invoke();
-        }
-    }
-
-    public async Task SetLanguageAsync(string code, IJSRuntime js)
-    {
-        if (!SupportedLanguages.Contains(code) || code == CurrentLanguage) return;
-        CurrentLanguage = code;
-        await js.InvokeVoidAsync("localStorage.setItem", StorageKey, code);
+        await js.InvokeVoidAsync("localStorage.setItem", StorageKey, "da");
         OnLanguageChanged?.Invoke();
     }
 }
