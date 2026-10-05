@@ -6,6 +6,63 @@ html:has(.vita-home-hero) { scroll-behavior: smooth; }
 }
 
 .kf-nav.kf-minimal-nav .kf-nav-inner { border-radius: 0 0 5px 5px !important; }
+.kf-nav.kf-minimal-nav .kf-nav-inner {
+    width: 100% !important;
+    max-width: 1360px !important;
+    margin-inline: auto !important;
+    transition: max-width 1.5s cubic-bezier(.22, 1, .36, 1),
+                background .3s ease, border-color .3s ease, box-shadow .3s ease !important;
+}
+.kf-nav.kf-minimal-nav {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    opacity: 1 !important;
+    transform: none !important;
+    pointer-events: auto !important;
+    transition: none !important;
+}
+.kf-nav.kf-minimal-nav:not(.scrolled) .kf-nav-inner {
+    background: #fff !important;
+    border-color: rgba(32, 33, 30, .1) !important;
+    box-shadow: 0 4px 18px rgba(20, 22, 18, .06) !important;
+}
+.kf-nav.kf-minimal-nav.scrolled .kf-nav-inner {
+    background: transparent !important;
+    border-color: transparent !important;
+    box-shadow: none !important;
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+}
+.kf-nav.kf-minimal-nav:not(.scrolled) .kf-minimal-brand,
+.kf-nav.kf-minimal-nav:not(.scrolled) .kf-minimal-contact,
+.kf-nav.kf-minimal-nav:not(.scrolled) .kf-nav-links a,
+.kf-nav.kf-minimal-nav:not(.scrolled) .kf-language-choice { color: #202b23 !important; }
+.kf-nav.kf-minimal-nav:not(.scrolled) .kf-nav-hamburger span { background: #202b23 !important; }
+.kf-nav.kf-minimal-nav.with-topbar { top: 44px; }
+.kf-nav.kf-minimal-nav .kf-nav-inner:hover {
+    background: #fff !important;
+    border-color: rgba(32, 33, 30, .1) !important;
+    box-shadow: 0 4px 18px rgba(20, 22, 18, .08) !important;
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+}
+.kf-nav.kf-minimal-nav .kf-nav-inner:hover .kf-minimal-brand,
+.kf-nav.kf-minimal-nav .kf-nav-inner:hover .kf-minimal-contact,
+.kf-nav.kf-minimal-nav .kf-nav-inner:hover .kf-nav-links a,
+.kf-nav.kf-minimal-nav .kf-nav-inner:hover .kf-language-choice,
+.kf-nav.kf-minimal-nav.kf-nav-home .kf-nav-inner:hover .kf-minimal-brand,
+.kf-nav.kf-minimal-nav.kf-nav-home .kf-nav-inner:hover .kf-minimal-contact,
+.kf-nav.kf-minimal-nav.kf-nav-home .kf-nav-inner:hover .kf-nav-links a,
+.kf-nav.kf-minimal-nav.kf-nav-home .kf-nav-inner:hover .kf-language-choice { color: #202b23 !important; }
+.kf-nav.kf-minimal-nav .kf-nav-inner:hover .kf-nav-hamburger span { background: #202b23 !important; }
+.kf-nav.kf-minimal-nav.scrolled .kf-minimal-brand,
+.kf-nav.kf-minimal-nav.scrolled .kf-minimal-contact,
+.kf-nav.kf-minimal-nav.scrolled .kf-nav-links a,
+.kf-nav.kf-minimal-nav.scrolled .kf-language-choice { color: #202b23 !important; }
+.kf-nav.kf-minimal-nav.scrolled .kf-nav-hamburger span { background: #202b23 !important; }
 .about-editorial-development-image,
 .about-editorial-development-image.reveal,
 .about-editorial-development-image.reveal.is-visible { border-radius: 4px !important; }
@@ -109,6 +166,47 @@ html:has(.vita-home-hero) { scroll-behavior: smooth; }
     border-color: rgba(255,255,255,.85) !important;
 }
 @keyframes vita-hero-arrive { from { transform: scale(1.09); } to { transform: scale(1.035); } }
+
+/* Keep the fixed nav visible; scroll only changes its surface and foreground. */
+.kf-nav.kf-minimal-nav:not(.scrolled) .kf-nav-inner {
+    background: #fff !important;
+    border-color: rgba(255, 255, 255, .9) !important;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .96), inset 0 -1px 0 rgba(255, 255, 255, .3), 0 10px 32px rgba(24, 30, 26, .14) !important;
+    -webkit-backdrop-filter: blur(28px) saturate(185%) !important;
+    backdrop-filter: blur(28px) saturate(185%) !important;
+}
+.kf-nav.kf-minimal-nav.scrolled .kf-nav-inner {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-inline: auto !important;
+    background: #fff !important;
+    border: 1px solid rgba(255, 255, 255, .9) !important;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .96), inset 0 -1px 0 rgba(255, 255, 255, .3), 0 10px 32px rgba(24, 30, 26, .14) !important;
+    -webkit-backdrop-filter: blur(28px) saturate(185%) !important;
+    backdrop-filter: blur(28px) saturate(185%) !important;
+}
+.kf-nav.kf-minimal-nav:not(.scrolled) .kf-minimal-brand,
+.kf-nav.kf-minimal-nav:not(.scrolled) .kf-minimal-contact,
+.kf-nav.kf-minimal-nav:not(.scrolled) .kf-nav-links a,
+.kf-nav.kf-minimal-nav:not(.scrolled) .kf-language-choice { color: #202b23 !important; }
+.kf-nav.kf-minimal-nav:not(.scrolled) .kf-nav-hamburger span { background: #202b23 !important; }
+.kf-nav.kf-minimal-nav .kf-minimal-brand,
+.kf-nav.kf-minimal-nav .kf-minimal-contact,
+.kf-nav.kf-minimal-nav .kf-nav-links a,
+.kf-nav.kf-minimal-nav .kf-language-choice,
+.kf-nav.kf-minimal-nav.kf-nav-home .kf-minimal-brand,
+.kf-nav.kf-minimal-nav.kf-nav-home .kf-minimal-contact,
+.kf-nav.kf-minimal-nav.kf-nav-home .kf-nav-links a,
+.kf-nav.kf-minimal-nav.kf-nav-home .kf-language-choice,
+.kf-nav.kf-minimal-nav.kf-nav-home.scrolled .kf-nav-links a { color: #000 !important; }
+.kf-nav.kf-minimal-nav .kf-nav-hamburger span { background: #000 !important; }
+.kf-nav.kf-minimal-nav .kf-nav-inner:hover {
+    background: rgba(255, 255, 255, .8) !important;
+    border-color: rgba(255, 255, 255, .9) !important;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .96), 0 10px 32px rgba(24, 30, 26, .14) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(170%) !important;
+    backdrop-filter: blur(20px) saturate(170%) !important;
+}
 
 .kh-screen-overlap {
     position: relative;

@@ -38,6 +38,7 @@
     width: 100%;
     margin: 2.5rem 0 0;
     padding: 1.5rem 0;
+    border-radius: 15px;
 }
 .services_card {
     position: relative;

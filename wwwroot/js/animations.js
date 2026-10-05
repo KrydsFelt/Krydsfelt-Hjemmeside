@@ -692,7 +692,7 @@ window.initAnimations = function () {
         revealEls.forEach(el => observer.observe(el));
     }
 
-    // Nav: only visible when the page is at the very top
+    // Keep the nav visible and update its appearance when the page scrolls.
     const nav = document.querySelector('.kf-nav');
     if (nav) {
         const onScroll = () => {
@@ -700,7 +700,6 @@ window.initAnimations = function () {
             const isAtTop = y <= 8;
 
             nav.classList.toggle('scrolled', !isAtTop);
-            nav.classList.toggle('kf-nav-hidden', !isAtTop);
         };
 
         window.addEventListener('scroll', onScroll, { passive: true });
