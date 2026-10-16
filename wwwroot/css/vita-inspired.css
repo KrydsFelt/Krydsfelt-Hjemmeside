@@ -2489,3 +2489,28 @@ body:has(.kf-contact-page) .kf-footer-legal a:hover { color: rgb(38 82 227 / var
     from { opacity: 0; clip-path: inset(0 0 100% 0); }
     to { opacity: 1; clip-path: inset(0 0 0 0); }
 }
+
+@media (max-width: 600px) {
+    .kf-services-reference-intro { padding-top: 7rem; }
+    body:has(.kf-nav.kf-minimal-nav.with-topbar) .kf-services-reference-intro { padding-top: 11rem; }
+
+    /* Keep the mobile Services page clean and consistent with its white canvas. */
+    .kf-services-intro.kf-services-reference-intro,
+    .kf-services-intro.kf-services-reference-intro::before,
+    .kf-services-intro.kf-services-reference-intro::after {
+        background: #fff !important;
+        background-image: none !important;
+    }
+    .kf-services-page .kf-service-reference-visual {
+        background-image: none !important;
+    }
+
+    .kf-nav.kf-minimal-nav .kf-nav-mobile a {
+        font-weight: 400 !important;
+    }
+    .kf-nav.kf-minimal-nav .kf-nav-mobile .kf-nav-mobile-contact {
+        width: 100% !important;
+        justify-content: center !important;
+        font-weight: 500 !important;
+    }
+}
