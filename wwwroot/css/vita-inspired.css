@@ -605,6 +605,11 @@ img {
     .kf-minimal-nav .kf-nav-mobile { right: .75rem; width: min(23rem, calc(100vw - 1.5rem)); }
     .kf-minimal-nav .kf-nav-mobile { top: 72px; }
 }
+
+.kh-home-profile-media.reveal.is-visible {
+    border-radius: 15px !important;
+    overflow: hidden;
+}
 .kf-contact-impact {
     display: flex;
     min-height: min(78svh, 900px);
