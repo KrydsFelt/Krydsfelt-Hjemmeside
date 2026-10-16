@@ -15,32 +15,31 @@
     </div>
 }
 
-<nav class="kf-nav kf-minimal-nav @(CurrentPage == "home" ? "kf-nav-home" : "") @(showBanner ? "with-topbar" : "") @(navOpen ? "menu-open" : "")" @onkeydown="HandleMenuKey">
+<nav class="kf-nav kf-minimal-nav @(CurrentPage == "home" ? "kf-nav-home" : "") @(CurrentPage == "contact" ? "kf-nav-contact-page" : "") @(showBanner ? "with-topbar" : "") @(navOpen ? "menu-open" : "")" @onkeydown="HandleMenuKey">
     <div class="kf-nav-inner">
         <a href="/" class="kf-minimal-brand">By Krydsfelt</a>
 
         <div class="kf-nav-center">
             <div class="kf-nav-links">
-                <a href="/" class="@GetLinkClass("home")">@Lang.T("nav.home")</a>
-                <a href="/om-os" class="@GetLinkClass("about")">@Lang.T("nav.about")</a>
-
-                <a href="/ydelser" class="@GetLinkClass("services")">@Lang.T("nav.services")</a>
+                <a href="/" class="@(GetLinkClass("home"))">@Lang.T("nav.home")</a>
+                <a href="/om-os" class="@(GetLinkClass("about"))">@Lang.T("nav.about")</a>
+                <a href="/ydelser" class="@(GetLinkClass("services"))">@Lang.T("nav.services")</a>
             </div>
         </div>
 
         <div class="kf-nav-utilities">
-            <button type="button" class="kf-nav-hamburger @(navOpen ? "open" : "")" @onclick="ToggleMenu" aria-label="Åbn menu" aria-expanded="@navOpen" aria-controls="kf-nav-mobile">
-                <span></span><span></span><span></span>
-            </button>
-
             @if (!HideContactButton)
             {
                 <a href="@ContactHref" class="kf-minimal-contact">@Lang.T("nav.bookMeeting")</a>
             }
+
+            <button type="button" class="kf-nav-hamburger @(navOpen ? "open" : "")" @onclick="ToggleMenu" aria-label="@(navOpen ? "Luk menu" : "Åbn menu")" aria-expanded="@navOpen" aria-controls="kf-nav-mobile">
+                <span></span><span></span><span></span>
+            </button>
         </div>
     </div>
 
-    <div id="kf-nav-mobile" class="kf-nav-mobile @(navOpen ? "open" : "")">
+    <div id="kf-nav-mobile" class="kf-nav-mobile @(navOpen ? "open" : "")" aria-hidden="@(!navOpen)">
         <a href="/" @onclick="CloseMenu">@Lang.T("nav.home")</a>
         <a href="/om-os" @onclick="CloseMenu">@Lang.T("nav.about")</a>
         <a href="/ydelser" @onclick="CloseMenu">@Lang.T("nav.services")</a>

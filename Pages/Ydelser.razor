@@ -3,52 +3,68 @@
 @inject IJSRuntime JS
 
 <SeoHead Title="Krydsfelt - Ydelser"
-         Description="Krydsfelt designer og bygger digitale løsninger, der gør komplekse behov enkle at bruge."
+         Description="Krydsfelt designer og bygger websites, visuelle identiteter og digitale løsninger, der gør komplekse behov enkle."
          Path="/ydelser" />
 <SiteHeader CurrentPage="services" ContactHref="/kontakt" />
 
-<main class="yd-onepage">
-    <section class="yd-onepage-hero about-editorial-development">
-        <div class="kf-container">
-            <div class="about-editorial-development-grid yd-onepage-hero-grid yd-onepage-hero-grid-text-only">
-                <div class="about-editorial-development-copy yd-onepage-hero-copy reveal">
-                    <h2>@Lang.T("yd.showcase.hero")</h2>
-                    <p>@Lang.T("yd.showcase.about")</p>
-                    <a class="yd-onepage-hero-link" href="/kontakt">
-                        <span class="yd-onepage-hero-link-label" aria-hidden="true">
-                            <span>@Lang.T("yd.showcase.start")</span>
-                            <span>@Lang.T("yd.showcase.start")</span>
-                        </span>
-                        <span class="visually-hidden">@Lang.T("yd.showcase.start")</span>
-                    </a>
-                </div>
+<main class="kf-services-page">
+    <section class="kf-services-intro kf-services-reference-intro">
+        <div class="kf-page-width">
+            <div class="kf-services-reference-title" role="heading" aria-level="1">
+                <span>@Lang.T("yd2.page.headingPrefix")</span> <em>@Lang.T("yd2.page.headingAccent")</em>
+            </div>
+            <p>@Lang.T("yd2.page.cardsIntro")</p>
+        </div>
+    </section>
+
+    <section class="kf-services-showcase kf-services-reference-grid">
+        <div class="kf-page-width">
+            <div class="kf-services-card-grid">
+                @foreach (var service in Services)
+                {
+                    <article class="kf-service-card kf-service-card-reference @service.Style @(service.Style is "websites" or "redesign" or "ecommerce" or "identity" or "strategy" ? "has-image" : "")">
+                        <div class="kf-service-card-visual kf-service-reference-visual" aria-hidden="true">
+                            @if (service.Style is "websites" or "redesign" or "ecommerce" or "identity" or "strategy")
+                            {
+                                <img class="kf-service-card-image" src="@(service.Style switch { "websites" => "/Pictures/billede-3.png", "ecommerce" => "/Pictures/billede-4.png", "identity" => "/Pictures/billede-6.png", "strategy" => "/Pictures/billede-5.png", _ => "/Pictures/billede-2.png" })" alt="" />
+                            }
+                            else
+                            {
+                                <div class="kf-service-wireframe">
+                                    <span class="kf-wireframe-topline"></span>
+                                    <span class="kf-wireframe-heading"></span>
+                                    <span class="kf-wireframe-line wireframe-line-one"></span>
+                                    <span class="kf-wireframe-line wireframe-line-two"></span>
+                                    <span class="kf-wireframe-shape"></span>
+                                    <span class="kf-wireframe-detail"></span>
+                                </div>
+                            }
+                        </div>
+                        <div class="kf-service-card-copy kf-service-reference-copy">
+                            <h2>@Lang.T(service.TitleKey)</h2>
+                            <p>@Lang.T(service.DescriptionKey)</p>
+                            <div class="kf-service-reference-tags" aria-label="Kompetencer">
+                                @foreach (var tag in service.Tags)
+                                {
+                                    <span>@tag</span>
+                                }
+                            </div>
+                        </div>
+                    </article>
+                }
             </div>
         </div>
     </section>
 
-    <section class="yd-onepage-services" aria-labelledby="yd-onepage-services-title">
-        <div class="yd-onepage-services-intro">
-            <p class="yd-onepage-kicker">@Lang.T("yd2.services.label")</p>
-            <h2 id="yd-onepage-services-title">@Lang.T("yd2.services.headingPrefix") <span>@Lang.T("yd2.services.headingAccent")</span></h2>
-        </div>
-        <div class="yd-onepage-list">
-            @foreach (var service in Services)
-            {
-                <details class="yd-onepage-item" open>
-                    <summary><span>@Lang.T(service.TitleKey)</span><i aria-hidden="true">+</i></summary>
-                    <div class="yd-onepage-item-body">
-                        <p>@Lang.T(service.SummaryKey)</p>
-                        <p class="yd-onepage-item-label">@Lang.T("yd.onepage.includes")</p>
-                        <ul>
-                            @foreach (var itemKey in service.ItemKeys)
-                            {
-                                <li>@Lang.T(itemKey)</li>
-                            }
-                        </ul>
-                        <a href="/kontakt" class="yd-onepage-item-link">@Lang.T("yd.showcase.start") <span aria-hidden="true">→</span></a>
-                    </div>
-                </details>
-            }
+    <section class="kh-home-cta">
+        <div class="kf-container kh-home-cta-inner kh-home-cta-inner--portrait">
+            <div class="kh-home-cta-copy">
+                <h2>@Lang.T("yd2.cta.heading")</h2>
+                <a href="/kontakt" class="oo2-cta-link">@Lang.T("yd2.cta.link")</a>
+            </div>
+            <div class="kh-home-cta-portrait">
+                <img src="/Pictures/Gio.jpeg" alt="Giorgio Kevin Beshara" />
+            </div>
         </div>
     </section>
 </main>
@@ -56,14 +72,16 @@
 <SiteFooter />
 
 @code {
-    private static readonly ServiceSection[] Services =
+    private static readonly ServiceCard[] Services =
     [
-        new("yd2.card.webudvikling.title", "yd.onepage.web.summary", ["yd.onepage.web.i1", "yd.onepage.web.i2", "yd.onepage.web.i3", "yd.onepage.web.i4"]),
-        new("yd2.card.branding.title", "yd.onepage.brand.summary", ["yd.onepage.brand.i1", "yd.onepage.brand.i2", "yd.onepage.brand.i3", "yd.onepage.brand.i4"]),
-        new("yd2.card.custom.title", "yd.onepage.custom.summary", ["yd.onepage.custom.i1", "yd.onepage.custom.i2", "yd.onepage.custom.i3", "yd.onepage.custom.i4"])
+        new("yd2.service.1.title", "yd2.service.1.text", "websites", ["Hjemmesider", "Responsive", "Brugervenligt", "UI/UX", "SEO"]),
+        new("yd2.service.2.title", "yd2.service.2.text", "redesign", ["Redesign", "Figma", "UI/UX", "Brugerrejser", "Performance"]),
+        new("yd2.service.3.title", "yd2.service.3.text", "ecommerce", ["Webshop", "Shopify", "WordPress", "Betaling", "Konvertering"]),
+        new("yd2.service.6.title", "yd2.service.6.text", "identity", ["Visuel identitet", "Designsystem", "Typografi", "Figma", "Branding"]),
+        new("yd2.service.8.title", "yd2.service.8.text", "strategy", ["Strategi", "UX research", "Brugerrejser", "Informationsarkitektur", "Prototyper"]),
     ];
 
-    private sealed record ServiceSection(string TitleKey, string SummaryKey, string[] ItemKeys);
+    private sealed record ServiceCard(string TitleKey, string DescriptionKey, string Style, string[] Tags);
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {

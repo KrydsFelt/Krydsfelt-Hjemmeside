@@ -693,17 +693,55 @@ window.initAnimations = function () {
     }
 
     // Keep the nav visible and update its appearance when the page scrolls.
-    const nav = document.querySelector('.kf-nav');
+    const nav = document.querySelector('.kf-nav.kf-minimal-nav');
     if (nav) {
-        const onScroll = () => {
-            const y = window.scrollY;
-            const isAtTop = y <= 8;
+        const navInner = nav.querySelector('.kf-nav-inner');
+        const topbar = document.querySelector('.kf-topbar');
+        let scrollFrame = 0;
 
-            nav.classList.toggle('scrolled', !isAtTop);
+        const updateNav = () => {
+            scrollFrame = 0;
+            const transitionStart = 180;
+            const transitionLength = 320;
+            const progress = Math.max(0, Math.min((window.scrollY - transitionStart) / transitionLength, 1));
+            const set = (element, property, value) => element.style.setProperty(property, value, 'important');
+
+            nav.classList.toggle('scrolled', progress > 0.015);
+            set(nav, 'top', `${(topbar ? topbar.offsetHeight : 0) * (1 - progress) + 20 * progress}px`);
+            set(nav, 'padding-top', '0');
+            set(nav, 'transition', 'none');
+
+            if (navInner) {
+                set(navInner, 'width', `${100 - 20 * progress}%`);
+                set(navInner, 'box-sizing', 'border-box');
+                set(navInner, 'max-width', 'none');
+                set(navInner, 'min-height', `${82 - 12 * progress}px`);
+                set(navInner, 'margin-inline', 'auto');
+                set(navInner, 'border-width', '0 0 1px 0');
+                set(navInner, 'border-style', 'solid');
+                set(navInner, 'border-color', `rgba(32, 33, 30, ${0.12 * (1 - progress)})`);
+                set(navInner, 'border-radius', `${15 * progress}px`);
+                set(navInner, 'background-color', `rgba(255, 255, 255, ${0.92 - 0.34 * progress})`);
+                set(navInner, 'box-shadow', `0 12px 38px rgba(18, 28, 30, ${0.12 * progress}), inset 0 1px 0 rgba(255, 255, 255, ${0.82 * progress})`);
+                set(navInner, 'backdrop-filter', `blur(${24 * progress}px) saturate(${100 + 80 * progress}%)`);
+                set(navInner, '-webkit-backdrop-filter', `blur(${24 * progress}px) saturate(${100 + 80 * progress}%)`);
+                set(navInner, 'transition', 'none');
+            }
+
+            if (topbar) {
+                set(topbar, 'transform', `translateY(${-topbar.offsetHeight * progress}px)`);
+                set(topbar, 'opacity', `${1 - progress}`);
+                set(topbar, 'transition', 'none');
+                set(topbar, 'pointer-events', progress > 0.98 ? 'none' : 'auto');
+            }
         };
 
-        window.addEventListener('scroll', onScroll, { passive: true });
-        onScroll();
+        const requestNavUpdate = () => {
+            if (!scrollFrame) scrollFrame = window.requestAnimationFrame(updateNav);
+        };
+        window.addEventListener('scroll', requestNavUpdate, { passive: true });
+        window.addEventListener('resize', requestNavUpdate, { passive: true });
+        updateNav();
     }
 
 
@@ -785,11 +823,13 @@ window.initAnimations = function () {
             // Close all other items
             document.querySelectorAll('.kf-faq-item').forEach(otherItem => {
                 otherItem.classList.remove('active');
+                otherItem.querySelector('.kf-faq-question')?.setAttribute('aria-expanded', 'false');
             });
 
             // Toggle current item
             if (!isActive) {
                 item.classList.add('active');
+                button.setAttribute('aria-expanded', 'true');
             }
         });
     });
