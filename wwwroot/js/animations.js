@@ -696,17 +696,50 @@ window.initAnimations = function () {
     const nav = document.querySelector('.kf-nav.kf-minimal-nav');
     if (nav) {
         const navInner = nav.querySelector('.kf-nav-inner');
-        const topbar = document.querySelector('.kf-topbar');
         let scrollFrame = 0;
 
         const updateNav = () => {
             scrollFrame = 0;
+            const topbar = document.querySelector('.kf-topbar');
             const transitionStart = 180;
             const transitionLength = 320;
             const progress = Math.max(0, Math.min((window.scrollY - transitionStart) / transitionLength, 1));
             const set = (element, property, value) => element.style.setProperty(property, value, 'important');
 
             nav.classList.toggle('scrolled', progress > 0.015);
+            if (window.matchMedia('(max-width: 600px)').matches) {
+                set(nav, 'top', `${topbar ? topbar.offsetHeight : 0}px`);
+                set(nav, 'width', '100%');
+                set(nav, 'padding-top', '0');
+                set(nav, 'transition', 'none');
+
+                if (navInner) {
+                    set(navInner, 'width', '100%');
+                    set(navInner, 'box-sizing', 'border-box');
+                    set(navInner, 'max-width', '100%');
+                    set(navInner, 'height', '64px');
+                    set(navInner, 'min-height', '64px');
+                    set(navInner, 'margin-inline', '0');
+                    set(navInner, 'border-width', '0 0 1px 0');
+                    set(navInner, 'border-style', 'solid');
+                    set(navInner, 'border-color', `rgba(32, 33, 30, ${0.12 * (1 - progress)})`);
+                    set(navInner, 'border-radius', '0');
+                    set(navInner, 'background-color', `rgba(255, 255, 255, ${0.96 * (1 - progress)})`);
+                    set(navInner, 'box-shadow', 'none');
+                    set(navInner, 'backdrop-filter', `blur(${8 + 12 * progress}px) saturate(145%)`);
+                    set(navInner, '-webkit-backdrop-filter', `blur(${8 + 12 * progress}px) saturate(145%)`);
+                    set(navInner, 'transition', 'none');
+                }
+
+                if (topbar) {
+                    set(topbar, 'transform', 'none');
+                    set(topbar, 'opacity', '1');
+                    set(topbar, 'transition', 'none');
+                    set(topbar, 'pointer-events', 'auto');
+                }
+                return;
+            }
+
             set(nav, 'top', `${(topbar ? topbar.offsetHeight : 0) * (1 - progress) + 20 * progress}px`);
             set(nav, 'padding-top', '0');
             set(nav, 'transition', 'none');
@@ -742,6 +775,19 @@ window.initAnimations = function () {
         window.addEventListener('scroll', requestNavUpdate, { passive: true });
         window.addEventListener('resize', requestNavUpdate, { passive: true });
         updateNav();
+    }
+
+    const valuesList = document.querySelector('.kf-about-values-list');
+    if (valuesList && 'IntersectionObserver' in window) {
+        const valuesObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    valuesObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.08, rootMargin: '0px 0px -8% 0px' });
+        valuesObserver.observe(valuesList);
     }
 
 
