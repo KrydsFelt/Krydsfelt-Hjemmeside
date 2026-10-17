@@ -2556,6 +2556,11 @@ body:has(.kf-contact-page) .kf-footer-legal a:hover { color: rgb(38 82 227 / var
     text-decoration: none !important;
     transition: background-color .18s ease !important;
 }
+.kf-nav.kf-minimal-nav .kf-nav-links { gap: .3rem !important; }
+.kf-nav.kf-minimal-nav .kf-nav-links a,
+.kf-nav.kf-minimal-nav .kf-nav-links a:hover,
+.kf-nav.kf-minimal-nav .kf-nav-links a:focus-visible,
+.kf-nav.kf-minimal-nav .kf-nav-links a.kf-nav-active { padding-inline: .45rem !important; }
 .kf-nav.kf-minimal-nav .kf-nav-links a::after { display: none !important; }
 .kf-nav.kf-minimal-nav .kf-nav-links a:hover,
 .kf-nav.kf-minimal-nav .kf-nav-links a:focus-visible,
