@@ -49,6 +49,28 @@ body {
     overflow-x: visible;
 }
 
+#kf-page-transition {
+    position: fixed;
+    inset: 0;
+    z-index: 100000;
+    display: flex;
+    pointer-events: none;
+    visibility: hidden;
+    overflow: hidden;
+}
+
+#kf-page-transition span {
+    flex: 1 1 20%;
+    height: 100%;
+    background: #fff;
+    transform: translateY(101%);
+}
+
+#kf-page-transition.is-active {
+    visibility: visible;
+    pointer-events: auto;
+}
+
 /* ── SHARED ── */
 .kf-container {
     width: 91.5%;
