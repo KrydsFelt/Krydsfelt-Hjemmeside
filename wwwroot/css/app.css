@@ -10063,3 +10063,15 @@ body {
 .ns-hero :focus-visible {
     outline: none !important;
 }
+/* Homepage location section */
+.kf-home-locations { padding: clamp(5rem, 9vw, 9rem) 0; background: #f8f9fb; color: #17191c; }
+.kf-home-locations .kf-page-width { display: grid; grid-template-columns: minmax(0, 1fr) minmax(18rem, .78fr); gap: clamp(2rem, 7vw, 7rem); align-items: end; }
+.kf-home-locations-intro h2 { max-width: 15ch; margin: 0; color: #111214; font-size: clamp(2.4rem, 5vw, 5rem); font-weight: 500; line-height: .98; letter-spacing: -.07em; }
+.kf-home-locations-intro h2 em { color: #2652e3; font-family: Georgia, 'Times New Roman', serif; font-weight: 400; }
+.kf-home-locations-intro > p:last-child { max-width: 38rem; margin: 1.4rem 0 0; color: #616873; font-size: 1rem; line-height: 1.7; }
+.kf-home-locations-note { display: flex; align-items: center; justify-content: flex-end; gap: clamp(.8rem, 2vw, 1.6rem); padding: 1.2rem 0; border-top: 1px solid #dfe2e8; border-bottom: 1px solid #dfe2e8; color: #17191c; font-size: clamp(1.35rem, 2.5vw, 2.2rem); letter-spacing: -.045em; }
+.kf-home-locations-divider { width: 1px; height: 1.5em; background: #cbd0d8; transform: rotate(18deg); }
+@media (max-width: 760px) {
+    .kf-home-locations .kf-page-width { grid-template-columns: 1fr; gap: 2.5rem; }
+    .kf-home-locations-note { justify-content: flex-start; }
+}

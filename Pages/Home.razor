@@ -2,8 +2,8 @@
 @inherits LocalizedComponentBase
 @inject IJSRuntime JS
 
-<SeoHead Title="Krydsfelt - Webbureau i Aarhus & Aalborg"
-         Description="Krydsfelt er et dansk webbureau i Aarhus og Aalborg. Vi skaber skræddersyede hjemmesider, webdesign, branding og digitale løsninger til virksomheder."
+<SeoHead Title="Krydsfelt - Webbureau i Aarhus | Aalborg"
+         Description="Krydsfelt hjælper virksomheder i hele Danmark med hjemmesider, webdesign, webshops, branding og digitale løsninger. Vi har base i Aarhus og Aalborg."
          Path="/" />
 
 <SiteHeader CurrentPage="home" ContactHref="/kontakt" />
@@ -11,7 +11,7 @@
 <section class="vita-home-hero" aria-labelledby="home-hero-title">
     <div class="vita-home-hero-image" aria-hidden="true"></div>
     <div class="kf-container vita-home-hero-inner">
-        <div id="home-hero-title" class="vita-home-hero-title" role="heading" aria-level="1">
+        <div id="home-hero-title" class="vita-home-hero-title">
             <span class="vita-home-hero-title-line"><span>@Lang.T("home.boxHero.titleA")</span> <em>@Lang.T("home.boxHero.titleB")</em></span>
             <span class="vita-home-hero-title-line"><em>@Lang.T("home.boxHero.titleC")</em> <span>@Lang.T("home.boxHero.titleD")</span></span>
         </div>
@@ -143,6 +143,21 @@
                 </a>
             </div>
             <a href="/ydelser" class="kf-services-all">@Lang.T("home.services.seeAll")</a>
+        </div>
+    </div>
+</section>
+
+<section class="kf-home-locations" aria-labelledby="kf-home-locations-title">
+    <div class="kf-page-width">
+        <div class="kf-home-locations-intro">
+            <p class="kf-page-eyebrow">Om Krydsfelt</p>
+            <h2 id="kf-home-locations-title">Et lille team med base i <em>Aarhus og Aalborg</em></h2>
+            <p>Vi driver Krydsfelt på deltid og hjælper virksomheder i hele Danmark med hjemmesider, webdesign og digitale løsninger.</p>
+        </div>
+        <div class="kf-home-locations-note">
+            <span>Aarhus</span>
+            <span class="kf-home-locations-divider" aria-hidden="true"></span>
+            <span>Aalborg</span>
         </div>
     </div>
 </section>
