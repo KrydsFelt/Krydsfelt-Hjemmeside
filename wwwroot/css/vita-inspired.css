@@ -2257,6 +2257,7 @@ body:has(.kf-contact-page) .kf-footer-legal a:hover { color: rgb(38 82 227 / var
 /* Supplied photography replaces the wireframes on these service cards. */
 .kf-service-card-reference.has-image .kf-service-reference-visual { position: relative; padding: 0; background: #e9e4df !important; }
 .kf-service-card-image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 52%; }
+.kf-service-card-reference.ecommerce .kf-service-card-image { object-position: center 50%; }
 
 /* Identity card: a quiet, low-fi brand manual spread. */
 .kf-service-card-reference.identity .kf-service-reference-visual { background: #efeee9 !important; }
@@ -2577,4 +2578,37 @@ body:has(.kf-contact-page) .kf-footer-legal a:hover { color: rgb(38 82 227 / var
     background: #f0f1ed !important;
     color: #20211e !important;
     -webkit-text-fill-color: #20211e !important;
+}
+
+/* Keep buttons black across the site. */
+:is(button, input[type="button"], input[type="submit"], input[type="reset"], [role="button"],
+    .kf-btn, .kf-minimal-contact, .kf-nav-mobile-contact, .kf-nav-contact-btn,
+    .vita-home-hero-link, .oo2-cta-link, .kf-services-all, .kf-faq-cta,
+    .yd-onepage-hero-link, .kf-topbar-cta, .yd-hero-btn, .yd-price-btn,
+    .approach-btn, .bk-submit, .oo-cta-btn, .kf-blue-button, .kf-about-opening-link) {
+    border-color: #000 !important;
+    background: #000 !important;
+    color: #fff !important;
+    -webkit-text-fill-color: #fff !important;
+}
+
+:is(button, input[type="button"], input[type="submit"], input[type="reset"], [role="button"],
+    .kf-btn, .kf-minimal-contact, .kf-nav-mobile-contact, .kf-nav-contact-btn,
+    .vita-home-hero-link, .oo2-cta-link, .kf-services-all, .kf-faq-cta,
+    .yd-onepage-hero-link, .kf-topbar-cta, .yd-hero-btn, .yd-price-btn,
+    .approach-btn, .bk-submit, .oo-cta-btn, .kf-blue-button, .kf-about-opening-link):hover {
+    border-color: #000 !important;
+    background: #000 !important;
+    color: #fff !important;
+    -webkit-text-fill-color: #fff !important;
+}
+
+.kf-about-opening-link { font-weight: 400 !important; }
+#kf-about-values-title { color: #000 !important; font-style: italic !important; }
+.kf-home-faq .kf-faq-question,
+.kf-home-faq .kf-faq-question:hover {
+    border-color: transparent !important;
+    background: #fff !important;
+    color: #3e3e3e !important;
+    -webkit-text-fill-color: #3e3e3e !important;
 }
